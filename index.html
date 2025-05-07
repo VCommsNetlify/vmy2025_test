@@ -1,0 +1,1692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://players.brightcove.net/3745659807001/4JJdlFXsg_default/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <title>V Malaysia 2025 | THE V</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f8f8;
+            background-image: url("assets/header/bg.png");
+        }
+
+        html {
+          scroll-behavior: smooth;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
+        }
+
+        .logo{
+          position: relative;
+          left:500px;
+          top:0px;
+          height: 30%;
+          width: 30%;
+        }
+
+        .countdown-box {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .section-divider {
+            height: 100px;
+            background: linear-gradient(180deg, rgba(248,248,248,0) 0%, #f8f8f8 100%);
+        }
+
+        .cloud_left{
+          position: absolute;
+          overflow: hidden;
+          /* left:-165px;
+          bottom: -80px; */
+        }
+
+        .cloud_right{
+          position: absolute;
+          overflow: hidden;
+          /* right:-96px;
+          bottom: -80px; */
+        }
+
+        /* start article section */
+        .carousel-wrapper {
+              position: relative;
+              overflow: hidden;
+              max-width: 100%;
+            }
+
+            .carousel {
+              display: flex;
+              overflow-x: auto;
+              scroll-snap-type: x mandatory;
+              gap: 16px;
+              padding: 10px;
+              scroll-behavior: smooth;
+            }
+
+            .carousel::-webkit-scrollbar {
+              display: none;
+            }
+
+            .card {
+              flex: 0 0 auto;
+              width: 300px;
+              background: white;
+              border-radius: 12px;
+              box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+              scroll-snap-align: start;
+              transition: transform 0.3s;
+            }
+
+            .card:hover {
+              transform: scale(1.03);
+            }
+
+            .card img {
+              width: 100%;
+              height: 180px;
+              border-top-left-radius: 12px;
+              border-top-right-radius: 12px;
+              object-fit: cover;
+            }
+
+            .card-content {
+              padding: 15px;
+            }
+
+            .card h3 {
+              margin: 0 0 10px;
+            }
+
+            .card p {
+              color: #555;
+            }
+
+            .arrow {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              font-size: 28px;
+              background: rgba(0, 0, 0, 0.5);
+              color: white;
+              border: none;
+              padding: 10px;
+              border-radius: 50%;
+              cursor: pointer;
+              z-index: 1;
+            }
+
+            .arrow.left {
+              left: 10px;
+            }
+
+            .arrow.right {
+              right: 10px;
+            }
+
+            @media (max-width: 400px) {
+              .card {
+                width: 90%;
+              }
+            }
+
+            .newsupdates{
+              background-color: #889996;
+            }
+        /* end article section */
+
+
+        /* logo animation */
+        @keyframes glowPulse {
+          0%, 100% {
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6))
+                    drop-shadow(0 0 20px rgba(255, 0, 0, 0.4));
+          }
+          50% {
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8))
+                    drop-shadow(0 0 30px rgba(255, 0, 0, 0.6));
+          }
+        }
+
+        .glow {
+          filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6))
+                  drop-shadow(0 0 20px rgba(255, 0, 0, 0.4));
+                  animation: glowPulse 3s ease-in-out infinite;
+        }
+
+        /* vshoppe btn animation */
+
+        .btn-glow {
+          box-shadow: 0 0 10px rgba(255, 0, 0, 0.5),
+                      0 0 20px rgba(255, 0, 0, 0.4);
+          transition: all 0.3s ease-in-out;
+        }
+
+        .btn-glow:hover {
+          box-shadow: 0 0 15px rgba(255, 0, 0, 0.8),
+                      0 0 30px rgba(255, 0, 0, 0.6);
+          transform: scale(1.05);
+        }
+
+        /* Optional: Styling for the FAQ section */
+    .faq-item {
+        margin-bottom: 1.5rem;
+    }
+
+    .faq-question {
+        font-size: 1.125rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+
+    .faq-question:hover {
+        background-color: #2563eb;
+    }
+
+    .faq-answer {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+/* floating button */
+    #floatingTextBtn {
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+    </style>
+</head>
+<body class="text-gray-800">
+
+  <!-- Floating Text Button with Close Button -->
+  <div id="floatingTextBtn" class="fixed bottom-4 right-4 bg-pink-600 text-white py-2 px-4 rounded-full shadow-lg text-lg cursor-pointer transition-transform transform hover:scale-105 z-[9999]">
+    <span>Grab your tickets here!</span>
+
+    <!-- Close Button (X) inside Floating Text -->
+    <button id="closeBtn" class="absolute top-0 right-0 text-white text-2xl font-bold bg-transparent border-none cursor-pointer">
+      &times;
+    </button>
+  </div>
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 w-full bg-black shadow-lg z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="assets/header/V-Logo.png" alt="THE V Logo" class="h-10">
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="text-white nav-link">Home</a>
+                <a href="#carousel-featured" class="text-white nav-link">Greatest Stories</a>
+                <a href="#venue-map" class="text-white nav-link">Venue Map</a>
+                <a href="#vkidsteens" class="text-white nav-link">V-Kids & V-Teens</a>
+                <a href="#speakers" class="text-white nav-link">Speakers</a>
+                <a href="#thisorthat" class="text-white nav-link">This or That?</a>
+                <a href="#faqs" class="text-white nav-link">FAQ</a>
+            </nav>
+            <button class="md:hidden text-white">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center" id="home">
+  <div class="hero-gradient absolute inset-0 bg-black bg-opacity-30"></div>
+
+  <div class="container mx-auto px-4 relative z-10 text-center text-white">
+    <img class="mx-auto mb-6 w-48 sm:w-64 md:w-80 lg:w-96 glow"
+     src="assets/header/vmy_logo.png"
+     alt="V Malaysia Logo">
+
+    <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold mb-4">V-MALAYSIA 2025</h1>
+    <p class="text-lg sm:text-xl md:text-2xl mb-6">June 21–25, 2025 | Penang, Malaysia</p>
+
+    <div class="max-w-3xl mx-auto px-2">
+      <h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-4">RISE TOGETHER AND CREATE OUR GREATEST STORY! </h2>
+      <h1 class="text-xl sm:text-1xl md:text-2xl mb-4">When we come together, our journey becomes limitless.<br>Join us at V-MALAYSIA 2025 this June as we gather as one to fulfil the vision of RYTHM and rise beyond the boundaries.</h1>
+      <div class="flex flex-wrap justify-center gap-4 mb-8">
+        <div class="countdown-box bg-white/10 rounded-lg p-4 w-20 md:w-24 text-center">
+          <div class="text-2xl sm:text-3xl md:text-4xl font-bold" id="days">00</div>
+          <div class="text-xs sm:text-sm">DAYS</div>
+        </div>
+        <div class="countdown-box bg-white/10 rounded-lg p-4 w-20 md:w-24 text-center">
+          <div class="text-2xl sm:text-3xl md:text-4xl font-bold" id="hours">00</div>
+          <div class="text-xs sm:text-sm">HOURS</div>
+        </div>
+        <div class="countdown-box bg-white/10 rounded-lg p-4 w-20 md:w-24 text-center">
+          <div class="text-2xl sm:text-3xl md:text-4xl font-bold" id="minutes">00</div>
+          <div class="text-xs sm:text-sm">MINUTES</div>
+        </div>
+        <div class="countdown-box bg-white/10 rounded-lg p-4 w-20 md:w-24 text-center">
+          <div class="text-2xl sm:text-3xl md:text-4xl font-bold" id="seconds">00</div>
+          <div class="text-xs sm:text-sm">SECONDS</div>
+        </div>
+      </div>
+
+      <a href="https://vshoppe.vtube.net/"
+        class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-10 rounded-full text-xl shadow-lg transition duration-300 btn-glow animate-pulse">
+        GET TICKETS NOW
+      </a>
+    </div>
+
+    <!-- Clouds (optional, made responsive) -->
+
+  </div>
+  <img class="absolute bottom-[-20px] left-[-40px] w-48 sm:w-64 md:w-80 lg:w-96 z-0 cloud_left"
+   src="assets/header/cloud-left.png"
+   alt="Cloud Left">
+
+<img class="absolute bottom-[-5px] right-0 w-48 sm:w-64 md:w-80 lg:w-96 z-0 cloud_right"
+   src="assets/header/cloud-right.png"
+   alt="Cloud Right">
+</section>
+
+<!-- The Greatest Story Teaser episodes -->
+
+<section class="py-12 bg-gray-100">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-10">The Greatest Stories of V-Malaysia 2025</h2>
+
+    <div class="relative" id="carousel-wrapper">
+      <div id="carousel-featured" class="flex overflow-x-auto scroll-smooth snap-x snap-mandatory space-x-4 scrollbar-hide">
+        <!-- Repeat this block for 7 items -->
+        <a href="https://the-v.net/en/news?id=03042025-the-greatest-story-from-v-africa-2025-together-we-rise-1" target="_blank" rel="noopener noreferrer"
+           class="snap-start shrink-0 w-[calc(100%/5-1rem)] group block relative overflow-hidden rounded-xl shadow-lg">
+          <img src="assets/greateststory/03042025-v-africa2025-post-event-banner-1-vertical-v2.png"
+               class="w-full h-auto aspect-[2/3] object-cover transition-transform duration-300 group-hover:scale-105">
+          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+            <p class="text-white text-lg font-semibold px-4">Together We Rise!</p>
+          </div>
+        </a>
+        <!-- Repeat this block for 7 items -->
+        <a href="https://the-v.net/en/news?id=04032025-the-greatest-story-of-v-africa-2025-we-asked-vc-drigbe-kalo-and-vc-soma-drissa-gnanmia-their-favourite-moments" target="_blank" rel="noopener noreferrer"
+           class="snap-start shrink-0 w-[calc(100%/5-1rem)] group block relative overflow-hidden rounded-xl shadow-lg">
+          <img src="assets/greateststory/03202025-v-africa2025-post-event-banner-2-v3-vertical.png"
+               class="w-full h-auto aspect-[2/3] object-cover transition-transform duration-300 group-hover:scale-105">
+          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+            <p class="text-white text-lg font-semibold px-4">We Asked VC Drigbe Kalo and VC Soma Drissa Gnanmia Their Favourite Moments</p>
+          </div>
+        </a>
+        <!-- Repeat this block for 7 items -->
+        <a href="https://the-v.net/en/news?id=04072025-the-greatest-story-of-v-africa-2025-inservices-most-fulfilling-moments" target="_blank" rel="noopener noreferrer"
+           class="snap-start shrink-0 w-[calc(100%/5-1rem)] group block relative overflow-hidden rounded-xl shadow-lg">
+          <img src="assets/greateststory/04042025-v-africa2025-post-event-episode-3-v2-vertical.png"
+               class="w-full h-auto aspect-[2/3] object-cover transition-transform duration-300 group-hover:scale-105">
+          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+            <p class="text-white text-lg font-semibold px-4">InService’s Most Fulfilling Moments</p>
+          </div>
+        </a>
+        <!-- Repeat this block for 7 items -->
+        <a href="https://the-v.net/en/news?id=04112025-the-greatest-story-of-v-africa-2025-new-heights-for-our-network-leaders" target="_blank" rel="noopener noreferrer"
+           class="snap-start shrink-0 w-[calc(100%/5-1rem)] group block relative overflow-hidden rounded-xl shadow-lg">
+          <img src="assets/greateststory/04082025-v-africa2025-post-event-episode-4-vertical.png"
+               class="w-full h-auto aspect-[2/3] object-cover transition-transform duration-300 group-hover:scale-105">
+          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+            <p class="text-white text-lg font-semibold px-4">New Heights for our Network Leaders!</p>
+          </div>
+        </a>
+        <!-- Repeat this block for 7 items -->
+        <a href="https://the-v.net/en/news?id=04112025-the-greatest-story-of-v-africa-2025-unstoppable-women-unforgettable-moments" target="_blank" rel="noopener noreferrer"
+           class="snap-start shrink-0 w-[calc(100%/5-1rem)] group block relative overflow-hidden rounded-xl shadow-lg">
+          <img src="assets/greateststory/04102025-v-africa2025-post-event-episode-5-vertical.png"
+               class="w-full h-auto aspect-[2/3] object-cover transition-transform duration-300 group-hover:scale-105">
+          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+            <p class="text-white text-lg font-semibold px-4">Unstoppable Women, Unforgettable Moments</p>
+          </div>
+        </a>
+        <!-- Repeat this block for 7 items -->
+        <a href="https://the-v.net/en/news?id=03042025-the-greatest-story-from-v-africa-2025-together-we-rise-1" target="_blank" rel="noopener noreferrer"
+           class="snap-start shrink-0 w-[calc(100%/5-1rem)] group block relative overflow-hidden rounded-xl shadow-lg">
+          <img src="assets/greateststory/03042025-v-africa2025-post-event-banner-1-vertical-v2.png"
+               class="w-full h-auto aspect-[2/3] object-cover transition-transform duration-300 group-hover:scale-105">
+          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+            <p class="text-white text-lg font-semibold px-4">Together We Rise!</p>
+          </div>
+        </a>
+        <!-- Repeat this block for 7 items -->
+        <a href="https://the-v.net/en/news?id=03042025-the-greatest-story-from-v-africa-2025-together-we-rise-1" target="_blank" rel="noopener noreferrer"
+           class="snap-start shrink-0 w-[calc(100%/5-1rem)] group block relative overflow-hidden rounded-xl shadow-lg">
+          <img src="assets/greateststory/03042025-v-africa2025-post-event-banner-1-vertical-v2.png"
+               class="w-full h-auto aspect-[2/3] object-cover transition-transform duration-300 group-hover:scale-105">
+          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+            <p class="text-white text-lg font-semibold px-4">Together We Rise!</p>
+          </div>
+        </a>
+        <!-- ... More slides ... -->
+      </div>
+
+      <!-- Nav Buttons -->
+      <button id="featured-prev" class="absolute left-0 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-80 text-white px-3 py-1 rounded-full z-10">❮</button>
+      <button id="featured-next" class="absolute right-0 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-80 text-white px-3 py-1 rounded-full z-10">❯</button>
+    </div>
+  </div>
+</section>
+
+
+
+
+    <!-- <div class="section-divider"></div> -->
+    <!-- <div class="text-center mb-16 bg-white">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">EVENTS NEWS & UPDATES</h2>
+        <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+    </div> -->
+
+
+    <section class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Watch the newest highlights and more!</h2>
+      <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+    </div>
+
+    <!-- Masonry Grid -->
+    <div id="videoGrid" class="columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4">
+
+      <!-- Video 1 -->
+      <div class="break-inside-avoid">
+        <div class="relative pt-[56.25%]">
+          <iframe
+            src="https://players.brightcove.net/3745659807001/4JJdlFXsg_default/index.html?videoId=6371801670112"
+            allowfullscreen
+            allow="encrypted-media"
+            class="absolute top-0 left-0 w-full h-full rounded-lg"
+            loading="lazy"
+          ></iframe>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-800 mt-2 px-2">Day 1: Unbelievable in Istanbul</h3>
+      </div>
+
+      <!-- Video 2 -->
+      <div class="break-inside-avoid">
+        <div class="relative pt-[56.25%]">
+          <iframe
+            src="https://players.brightcove.net/3745659807001/4JJdlFXsg_default/index.html?videoId=6371889920112"
+            allowfullscreen
+            allow="encrypted-media"
+            class="absolute top-0 left-0 w-full h-full rounded-lg"
+            loading="lazy"
+          ></iframe>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-800 mt-2 px-2">Day 2: Driven by Dreams</h3>
+      </div>
+
+      <!-- Video 2 -->
+      <div class="break-inside-avoid">
+        <div class="relative pt-[56.25%]">
+          <iframe
+            src="https://players.brightcove.net/3745659807001/4JJdlFXsg_default/index.html?videoId=6372093116112"
+            allowfullscreen
+            allow="encrypted-media"
+            class="absolute top-0 left-0 w-full h-full rounded-lg"
+            loading="lazy"
+          ></iframe>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-800 mt-2 px-2">Day 3: A Fearless Finish</h3>
+      </div>
+
+      <!-- Hidden Videos (for Load More) -->
+      <div class="hidden break-inside-avoid">
+        <div class="relative pt-[56.25%]">
+          <iframe
+            src="https://players.brightcove.net/3745659807001/4JJdlFXsg_default/index.html?videoId=6371800716112"
+            allowfullscreen
+            allow="encrypted-media"
+            class="absolute top-0 left-0 w-full h-full rounded-lg"
+            loading="lazy"
+          ></iframe>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-800 mt-2 px-2">Day 1: Shaped by Challenges by Joseph ‘Japadas’ Bismark</h3>
+      </div>
+
+      <div class="hidden break-inside-avoid">
+        <div class="relative pt-[56.25%]">
+          <iframe
+            src="https://players.brightcove.net/3745659807001/4JJdlFXsg_default/index.html?videoId=6371801496112"
+            allowfullscreen
+            allow="encrypted-media"
+            class="absolute top-0 left-0 w-full h-full rounded-lg"
+            loading="lazy"
+          ></iframe>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-800 mt-2 px-2">Day 1: The Dream by Chief Pathman Senathirajah</h3>
+      </div>
+
+      <!-- Add more .hidden videos here -->
+
+    </div>
+
+    <!-- Load More Button -->
+    <div class="text-center mt-10">
+      <button
+        onclick="loadMoreVideos()"
+        class="bg-red-600 text-white font-bold py-2 px-6 rounded-full hover:bg-red-700 transition duration-300">
+        Load More Videos
+      </button>
+    </div>
+  </div>
+</section>
+
+    <!-- About Section -->
+    <section class="py-16 newsupdates">
+        <div class="container mx-auto px-4">
+
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Read the latest news!</h2>
+                <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-8">
+
+                <div class="carousel-wrapper" id="carouselWrapper">
+                  <button class="arrow left" onclick="scrollToCard(-1)">&#10094;</button>
+                  <div class="carousel" id="carousel">
+                    <div class="card">
+                      <img src="assets/news/04232025-v-turkiye-2025-highlights-day-1-unbelievable-in-istanbul.jpg" alt="Article 1" class="rounded-lg shadow-xl hover-scale">
+                      <div class="card-content">
+                        <h3>V-TÜRKİYE 2025 Highlights DAY 1: Unbelievable in Istanbul</h3>
+                        <p>Check out the Day 1 highlights here!</p><a href="https://the-v.net/en/news?id=04232025-v-turkiye-2025-highlights-day-1-unbelievable-in-istanbul">
+                        <button class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                            READ MORE
+                        </button></a>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <img src="assets/news/04252025-v-turkiye-2025-highlights-day-2-driven-by-dreams.png" alt="Article 2" class="rounded-lg shadow-xl hover-scale">
+                      <div class="card-content">
+                        <h3>V-TÜRKİYE 2025 Highlights DAY 2: Driven by Dreams</h3>
+                        <p>Our Day 2 highlights are here!</p><a href="https://the-v.net/en/news?id=04252025-v-turkiye-2025-highlights-day-2-driven-by-dreams">
+                        <button class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                            READ MORE
+                        </button></a>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <img src="assets/news/04302025-v-turkiye-2025-highlights-day-3-a-fearless-finish.png" alt="Article 3" class="rounded-lg shadow-xl hover-scale">
+                      <div class="card-content">
+                        <h3>V-TÜRKİYE 2025 Highlights DAY 3: A Fearless Finish</h3>
+                        <p>Check out the Day 3 highlights here!</p><a href="https://the-v.net/en/news?id=04302025-v-turkiye-2025-highlights-day-3-a-fearless-finish">
+                        <button class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                            READ MORE
+                        </button></a>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <img src="assets/news/04232025-vturkiye2025-day-1-dream-decide-rise.png" alt="Article 4" class="rounded-lg shadow-xl hover-scale">
+                      <div class="card-content">
+                        <h3>#VTÜRKIYE2025 DAY 1: Dream, Decide, Rise</h3>
+                        <p>V-Convention goes to Türkiye!</p><a href="https://the-v.net/en/news?id=04232025-vturkiye2025-day-1-dream-decide-rise-1">
+                        <button class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                            READ MORE
+                        </button></a>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <img src="assets/news/04242025-v-turkiye-2025-day-2-tougher-together.png" alt="Article 4" class="rounded-lg shadow-xl hover-scale">
+                      <div class="card-content">
+                        <h3>V-TÜRKİYE 2025 DAY 2: Tougher Together</h3>
+                        <p>The clicks keep on coming in Istanbul!</p><a href="https://the-v.net/en/news?id=04242025-v-turkiye-2025-day-2-tougher-together-1">
+                        <button class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                            READ MORE
+                        </button></a>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <img src="assets/news/04262025-v-turkiye-2025-day-3-onwards-and-upwards.png" alt="Article 4" class="rounded-lg shadow-xl hover-scale">
+                      <div class="card-content">
+                        <h3>V-TÜRKİYE 2025 DAY 3: Onwards and Upwards!</h3>
+                        <p>Transformed forever, unstoppable together!</p><a href="https://the-v.net/en/news?id=04262025-v-turkiye-2025-day-3-onwards-and-upwards">
+                        <button class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                            READ MORE
+                        </button></a>
+                      </div>
+                    </div>
+
+
+                  </div>
+                  <button class="arrow right" onclick="scrollToCard(1)">&#10095;</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+<section class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">See the amazing photos!</h2>
+            <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div class="relative overflow-hidden rounded-lg group">
+                <a href="https://the-v.net/Resources/images/Gallery/v-turkiye-2025-day-0-registration-day/4.jpg">
+                    <img src="assets/gallery/day0/day0.jpg" alt="Gallery 0" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
+                </a>
+                <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">V-Malaysia 2025 Day 0 - Registration Day</p>
+            </div>
+
+            <div class="relative overflow-hidden rounded-lg group">
+                <a href="https://the-v.net/en/album/v-t%C3%BCrkiye-2025-day-1#">
+                    <img src="assets/gallery/day1/day1.jpg" alt="Gallery 1" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
+                </a>
+                <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">V-Malaysia 2025 2025 Day 1</p>
+            </div>
+
+            <div class="relative overflow-hidden rounded-lg group">
+                <a href="https://the-v.net/en/album/v-t%C3%BCrkiye-2025-day-2">
+                    <img src="assets/gallery/day2/day2.jpg" alt="Gallery 2" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
+                </a>
+                <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">V-Malaysia 2025 2025 Day 2</p>
+            </div>
+
+            <div class="relative overflow-hidden rounded-lg group">
+                <a href="https://the-v.net/en/album/v-t%C3%BCrkiye-2025-day-3">
+                    <img src="assets/gallery/day3/day3.jpg" alt="Gallery 3" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
+                </a>
+                <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">V-Malaysia 2025 2025 Day 3</p>
+            </div>
+
+            <div class="relative overflow-hidden rounded-lg group">
+                <a href="https://the-v.net/en/album/v-t%C3%BCrkiye-2025-day-3">
+                    <img src="assets/gallery/day4/day4.jpg" alt="Gallery 4" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
+                </a>
+                <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">V-Malaysia 2025 2025 Day 4</p>
+            </div>
+
+            <div class="relative overflow-hidden rounded-lg group">
+                <a href="https://the-v.net/en/album/v-t%C3%BCrkiye-2025-day-2">
+                    <img src="assets/gallery/day5/day5.jpg" alt="Gallery 5" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
+                </a>
+                <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">V-Malaysia 2025 2025 Day 5</p>
+            </div>
+            <div class="relative overflow-hidden rounded-lg group md:col-start-2">
+                <a href="https://the-v.net/en/album/v-t%C3%BCrkiye-2025-day-2">
+                    <img src="assets/gallery/fashionshow/fashionshow.jpg" alt="Gallery 6" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
+                </a>
+                <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">V-Malaysia 2025 Fashion Show</p>
+            </div>
+
+
+        </div>
+
+        <!-- <div class="text-center mt-12">
+            <button class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                <a href="https://the-v.net/en/galleries">VIEW MORE PHOTOS</a>
+            </button>
+        </div> -->
+    </div>
+</section>
+
+
+
+
+    <!-- MAP -->
+    <section class="py-16 bg-white text-black" id="venue-map">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Explore Where the Magic Happens</h2>
+        <p class="mb-8 text-lg whitespace-nowrap md:mx-auto md:max-w-full">Navigate your way around Setia SPICE Arena and discover all the amazing surprises at V-Malaysia 2025.</p>
+      <div class="w-20 h-1 bg-red-600 mx-auto"></div><p>&nbsp;</p></div>
+        <iframe class="container mx-auto px-4" src="https://app.seekbeak.com/v/Xw1LnZ6GjL8" height="600px">
+
+        </iframe>
+
+
+    </section>
+
+
+    <!-- Ads Section -->
+    <section class="py-16 bg-gray-100">
+
+
+      <div class="w-[80%] mx-auto">
+        <div class="swiper adSwiper rounded-xl overflow-hidden relative">
+          <div class="swiper-wrapper">
+            <!-- Slide 1 -->
+            <div class="swiper-slide">
+              <img src="assets/hero/01202025-ice-2025-day-4-persist-persevere-perform-by-dato-sri-vijay-eswaran32b0e726-2a48-4cac-9422-34ce98acc6c1.jpg"
+                   alt="Ad 1" class="w-full h-[500px] object-contain" />
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="swiper-slide">
+              <img src="assets/hero/04162025-join-the-v-kids-and-v-teens-at-vmalaysia2025-1.png"
+                   alt="Ad 2" class="w-full h-[500px] object-contain" />
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="swiper-slide">
+              <img src="assets/hero/03272025-rise-together-and-create-our-greatest-story-ever-at-vmalaysia202505efb2aa-fe92-46e4-83db-9679c0b6ff60.jpg"
+                   alt="Ad 3" class="w-full h-[500px] object-contain" />
+            </div>
+          </div>
+
+          <!-- Optional Controls -->
+          <div class="swiper-pagination !bottom-4"></div>
+          <div class="swiper-button-prev text-black"></div>
+          <div class="swiper-button-next text-black"></div>
+        </div>
+      </div>
+    </section>
+
+
+<!-- VKIDS -->
+    <section class="py-16 bg-white" id="vkidsteens">
+      <div class="max-w-4xl mx-auto text-center mb-8">
+        <h2 class="text-2xl md:text-4xl font-bold mb-6 mx-auto max-w-full text-center">Together We Rise with V-KIDS & V-TEENS at <br>V-Malaysia 2025!</h2>
+        <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+      </div>
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+          <!-- Video Slider -->
+          <div>
+            <h2 class="text-2xl font-bold mb-4">Featured Videos</h2>
+            <div class="swiper videoSwiper rounded-lg overflow-hidden relative">
+              <div class="swiper-wrapper">
+                <!-- Video 1 -->
+                <div class="swiper-slide pb-10 bg-gray-100 rounded-lg p-4 shadow-md">
+                  <div class="relative pt-[56.25%]">
+                    <iframe
+                      src="https://players.brightcove.net/3745659807001/4JJdlFXsg_default/index.html?videoId=6371801670112"
+                      allowfullscreen
+                      allow="encrypted-media"
+                      class="absolute top-0 left-0 w-full h-full rounded-lg"
+                      loading="lazy"
+                    ></iframe>
+                  </div>
+                  <h3 class="text-lg font-semibold text-gray-800 mt-2 px-2">Day 1: Unbelievable in Istanbul</h3>
+                </div>
+                <!-- Video 2 -->
+                <div class="swiper-slide pb-10 bg-gray-100 rounded-lg p-4 shadow-md">
+                  <div class="relative pt-[56.25%]">
+                    <iframe
+                      src="https://players.brightcove.net/3745659807001/4JJdlFXsg_default/index.html?videoId=6371801670112"
+                      allowfullscreen
+                      allow="encrypted-media"
+                      class="absolute top-0 left-0 w-full h-full rounded-lg"
+                      loading="lazy"
+                    ></iframe>
+                  </div>
+                  <h3 class="text-lg font-semibold text-gray-800 mt-2 px-2">Day 2: Unbelievable in Istanbul</h3>
+                </div>
+              </div>
+              <div class="swiper-pagination mt-8 relative z-0"></div>
+            </div>
+          </div>
+
+          <!-- Article Slider -->
+          <div>
+            <h2 class="text-2xl font-bold mb-4">Latest Articles</h2>
+            <div class="swiper articleSwiper rounded-lg overflow-hidden relative">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide pb-10">
+                  <div class="bg-gray-100 rounded-lg p-4 shadow-md">
+                    <img src="assets/vkidsteens/04162025-join-the-v-kids-and-v-teens-at-vmalaysia2025-1.png" class="rounded-md mb-3" alt="Article">
+                    <h3 class="text-lg font-semibold text-gray-800 mt-2 px-2 z-10 relative">Article Title 1</h3>
+                    <p class="text-sm text-gray-600">Quick summary of the article goes here.</p>
+                  </div>
+                </div>
+                <div class="swiper-slide pb-10">
+                  <div class="bg-gray-100 rounded-lg p-4 shadow-md">
+                    <img src="assets/vkidsteens/07152024-vmalaysia2024-heres-to-september-to-remember-with-v-kids-and-v-teens62a69b0a-ce3d-4cef-a782-a096c2c67adc.jpg" class="rounded-md mb-3" alt="Article">
+                    <h3 class="text-lg font-semibold text-gray-800 mt-2 px-2 z-10 relative">Article Title 2</h3>
+                    <p class="text-sm text-gray-600">Another summary of a great article.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-pagination mt-2 relative z-0"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+    <!-- Lineup Section -->
+    <section class="py-16 bg-gray-100" id="speakers">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Meet Our Speakers</h2>
+            <p class="mb-8 text-lg">See our V Ambassadors live onstage and watch out for your greatest Uplines!</p>
+            <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <!-- Artist 1 -->
+            <div class="speaker bg-white rounded-lg overflow-hidden shadow-md hover-scale">
+                <a href="https://the-v.net/en/vmp-dato-sri-vijay-eswaran"><img src="assets/speakers/vmp-dato-sri-vijay-eswaran-3.png" alt="Artist 1" class="w-full h-64 object-cover" style="height:auto;"></a>
+                <div class="p-4 text-center">
+                    <a href="https://the-v.net/en/vmp-dato-sri-vijay-eswaran"><h3 class="font-bold text-xl mb-2">Dato Sri Vijay Eswaran</h3></a>
+                    <p class="text-gray-600">Founder</p>
+                </div>
+            </div>
+
+            <!-- Artist 2 -->
+            <div class="speaker bg-white rounded-lg overflow-hidden shadow-md hover-scale">
+                <a href="https://the-v.net/en/vfp-joseph-bismark"><img src="assets/speakers/vfp-joseph-bismark.png" alt="Artist 2" class="w-full h-64 object-cover" style="height:auto;"></a>
+                <div class="p-4 text-center">
+                    <a href="https://the-v.net/en/vmp-dato-sri-vijay-eswaran"><h3 class="font-bold text-xl mb-2">Joseph “Japadas” Bismark</h3></a>
+                    <p class="text-gray-600">Founder</p>
+                </div>
+            </div>
+
+            <!-- Artist 3 -->
+            <div class="speaker bg-white rounded-lg overflow-hidden shadow-md hover-scale">
+                <a href="https://the-v.net/en/vp-pathman-senathirajah"><img src="assets/speakers/vp-pathman-senathirajah.png" alt="Artist 3" class="w-full h-64 object-cover" style="height:auto;"></a>
+                <div class="p-4 text-center">
+                    <a href="https://the-v.net/en/vp-pathman-senathirajah"><h3 class="font-bold text-xl mb-2">Pathman Senathirajah</h3></a>
+                    <p class="text-gray-600">V Partner</p>
+                </div>
+            </div>
+
+            <!-- Artist 4 -->
+            <div class="speaker bg-white rounded-lg overflow-hidden shadow-md hover-scale">
+                <a href="https://the-v.net/en/vp-arun-george"><img src="assets/speakers/vp-adly-hassan.png" alt="Artist 4" class="w-full h-64 object-cover" style="height:auto;"></a>
+                <div class="p-4 text-center">
+                  <a href="https://the-v.net/en/vp-arun-george"><h3 class="font-bold text-xl mb-2">Adly Hassan</h3></a>
+                    <p class="text-gray-600">V Partner</p>
+                </div>
+            </div>
+
+            <!-- Centered Last 3 Items -->
+            <div class="col-span-2 md:col-span-4 flex justify-center space-x-6">
+                <!-- Artist 5 -->
+                <div class="speaker bg-white rounded-lg overflow-hidden shadow-md hover-scale">
+                    <a href="https://the-v.net/en/vp-sathi-senathirajah"><img src="assets/speakers/vp-sathi-senathirajah.png" alt="Artist 5" class="w-full h-64 object-cover" style="height:auto;"></a>
+                    <div class="p-4 text-center">
+                        <a href="https://the-v.net/en/vp-sathi-senathirajah"><h3 class="font-bold text-xl mb-2">Sathi Senathirajah</h3></a>
+                        <p class="text-gray-600">V Partner</p>
+                    </div>
+                </div>
+
+                <!-- Artist 6 -->
+                <div class="speaker bg-white rounded-lg overflow-hidden shadow-md hover-scale">
+                    <a href="https://the-v.net/en/vp-david-sharma"><img src="assets/speakers/vp-david-sharma.png" alt="Artist 6" class="w-full h-64 object-cover" style="height:auto;"></a>
+                    <div class="p-4 text-center">
+                        <a href="https://the-v.net/en/vp-david-sharma"><h3 class="font-bold text-xl mb-2">David Sharma</h3></a>
+                        <p class="text-gray-600">V Partner</p>
+                    </div>
+                </div>
+
+                <!-- Artist 7 -->
+                <div class="speaker bg-white rounded-lg overflow-hidden shadow-md hover-scale">
+                    <a href="https://the-v.net/en/vp-arun-george"><img src="assets/speakers/vp-arun-george.png" alt="Artist 7" class="w-full h-64 object-cover" style="height:auto;"></a>
+                    <div class="p-4 text-center">
+                        <a href="https://the-v.net/en/vp-arun-george"><h3 class="font-bold text-xl mb-2">Arun George</h3></a>
+                        <p class="text-gray-600">V Partner</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+<!-- this or that -->
+<section class="py-16 bg-white" id="thisorthat">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">This or That?</h2>
+            <p class="mb-8 text-lg">Up for a little challenge? Just take your pick and have fun with The V family!<br>Tag us when you share on Instagram! </p>
+
+            <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+        </div>
+
+        <!-- Start Game Button -->
+        <div id="startGameSection" class="text-center mb-8">
+            <button id="startGameBtn" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300">
+                Start Game
+            </button>
+        </div>
+
+        <!-- Main Game Rounds -->
+        <div id="rounds" class="space-y-12 hidden">
+
+            <!-- Round 1 -->
+            <div class="round text-center">
+                <h3 class="text-xl font-semibold mb-4">Round 1:</h3>
+                <p class="text-lg mb-4">Be able to fly vs Have super strength</p>
+                <div class="flex justify-center space-x-8">
+                    <button onclick="nextRound(1)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Be able to fly</button>
+                    <button onclick="nextRound(1)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Have super strength</button>
+                </div>
+            </div>
+
+            <!-- Round 2 -->
+            <div class="round text-center hidden">
+                <h3 class="text-xl font-semibold mb-4">Round 2:</h3>
+                <p class="text-lg mb-4">See the future vs Go back to the past</p>
+                <div class="flex justify-center space-x-8">
+                    <button onclick="nextRound(2)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">See the future</button>
+                    <button onclick="nextRound(2)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Go back to the past</button>
+                </div>
+            </div>
+
+            <!-- Round 3 -->
+            <div class="round text-center hidden">
+                <h3 class="text-xl font-semibold mb-4">Round 3:</h3>
+                <p class="text-lg mb-4">Achieve a dream vs Achieve a goal</p>
+                <div class="flex justify-center space-x-8">
+                    <button onclick="nextRound(3)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Achieve a dream</button>
+                    <button onclick="nextRound(3)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Achieve a goal</button>
+                </div>
+            </div>
+
+            <!-- Round 4 -->
+            <div class="round text-center hidden">
+                <h3 class="text-xl font-semibold mb-4">Round 4:</h3>
+                <p class="text-lg mb-4">Mindset Shift vs Upgrade your skills</p>
+                <div class="flex justify-center space-x-8">
+                    <button onclick="nextRound(4)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Mindset Shift</button>
+                    <button onclick="nextRound(4)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Upgrade your skills</button>
+                </div>
+            </div>
+
+            <!-- Round 5 -->
+            <div class="round text-center hidden">
+                <h3 class="text-xl font-semibold mb-4">Round 5:</h3>
+                <p class="text-lg mb-4">Be Successful vs Uplift Others</p>
+                <div class="flex justify-center space-x-8">
+                    <button onclick="nextRound(5)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Be Successful</button>
+                    <button onclick="nextRound(5)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Uplift Others</button>
+                </div>
+            </div>
+
+            <!-- Round 6 -->
+            <div class="round text-center hidden">
+                <h3 class="text-xl font-semibold mb-4">Round 6:</h3>
+                <p class="text-lg mb-4">Comfortable Life vs Extraordinary Journey</p>
+                <div class="flex justify-center space-x-8">
+                    <button onclick="nextRound(6)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Comfortable Life</button>
+                    <button onclick="nextRound(6)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Extraordinary Journey</button>
+                </div>
+            </div>
+
+            <!-- Round 7 -->
+            <div class="round text-center hidden">
+                <h3 class="text-xl font-semibold mb-4">Round 7:</h3>
+                <p class="text-lg mb-4">Take steady steps vs Soar to new heights</p>
+                <div class="flex justify-center space-x-8">
+                    <button onclick="nextRound(7)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Take steady steps</button>
+                    <button onclick="nextRound(7)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Soar to new heights</button>
+                </div>
+            </div>
+
+            <!-- Round 8 -->
+            <div class="round text-center hidden">
+                <h3 class="text-xl font-semibold mb-4">Round 8:</h3>
+                <p class="text-lg mb-4">Notes on paper vs Notes on mobile phone</p>
+                <div class="flex justify-center space-x-8">
+                    <button onclick="nextRound(8)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Notes on paper</button>
+                    <button onclick="nextRound(8)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Notes on mobile phone</button>
+                </div>
+            </div>
+
+            <!-- Round 9 -->
+            <div class="round text-center hidden">
+                <h3 class="text-xl font-semibold mb-4">Round 9:</h3>
+                <p class="text-lg mb-4">Go to V-Convention alone vs Go to V-Convention with your team</p>
+                <div class="flex justify-center space-x-8">
+                    <button onclick="nextRound(9)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Go to V-Convention alone</button>
+                    <button onclick="nextRound(9)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Go to V-Convention with your team</button>
+                </div>
+            </div>
+
+            <!-- Round 10 -->
+            <div class="round text-center hidden">
+                <h3 class="text-xl font-semibold mb-4">Round 10:</h3>
+                <p class="text-lg mb-4">Be part of the history vs Create history</p>
+                <div class="flex justify-center space-x-8">
+                    <button onclick="nextRound(10)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Be part of the history</button>
+                    <button onclick="nextRound(10)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Create history</button>
+                </div>
+            </div>
+
+            <!-- Round 11 -->
+            <div class="round text-center hidden">
+                <h3 class="text-xl font-semibold mb-4">Round 11:</h3>
+                <p class="text-lg mb-4">Witness the greatest story vs Create your greatest story</p>
+                <div class="flex justify-center space-x-8">
+                    <button onclick="nextRound(11)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Witness the greatest story</button>
+                    <button onclick="nextRound(11)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Create your greatest story</button>
+                </div>
+            </div>
+
+            <!-- Round 12 -->
+            <div class="round text-center hidden">
+                <h3 class="text-xl font-semibold mb-4">Round 12:</h3>
+                <p class="text-lg mb-4">Be at V-Malaysia 2025 on 21-25 June vs Take part at V-Malaysia 2025 on 21-25 June</p>
+                <div class="flex justify-center space-x-8">
+                    <button onclick="nextRound(12)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Be at V-Malaysia 2025</button>
+                    <button onclick="nextRound(12)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Take part at V-Malaysia 2025</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Submit Button -->
+        <div class="text-center mt-12">
+            <button id="submitBtn" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 hidden">
+                Submit Your Choices
+            </button>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Tickets Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">The Greatest Event of the Year Starts With Your Seat</h2>
+                <p class="mb-8 text-lg">Grab your tickets on VShoppe today.</p>
+                <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+            </div>
+
+            <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
+                <!-- Ticket 1 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden shadow-lg hover-scale">
+                    <div class="bg-red-600 text-white py-4 text-center">
+                        <h3 class="font-bold text-xl">V-Malaysia 2025</h3>
+                        <p class="text-sm">21-25 JUNE </p>
+                    </div>
+                    <div class="p-6 text-center">
+                        <img src="assets/tickets/11292024-VMY2025-june-vshoppe-product-thumbnail-v2d3f61c4a-e121-4a2a-a88b-09c6c7f96a11.png">
+                        <p class="text-sm">Use the code: </p>
+                        <div class="text-3xl font-bold mb-4">VMYJUN2025</div>
+                        <a href="https://vshoppe.vtube.net/">
+                        <button class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full transition duration-300">
+                            BUY NOW
+                        </button></a>
+                    </div>
+                </div>
+
+                <!-- Ticket 2 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden shadow-lg hover-scale transform scale-105">
+                    <div class="bg-black text-white py-4 text-center relative">
+                        <h3 class="font-bold text-xl">V-KIDS & V-TEENS JUNE 2025</h3>
+                        <!-- <p class="text-sm">Popular Choice</p> -->
+                        <!-- <div class="absolute top-0 right-0 bg-yellow-400 text-black text-xs font-bold px-2 py-1 rounded-bl-lg">BEST VALUE</div> -->
+                    </div>
+                    <div class="p-6 text-center">
+                      <img src="assets/tickets/VKIDS2025-VTEENS-GENERIC-BANNER-SQUARE3a984bab-5ccc-4b4a-a93c-085b0fa2ad00.png">
+                        <p class="text-sm">Use the code: </p>
+                        <div class="text-3xl font-bold mb-4">VKIDSTEENS25</div>
+                        <a href="https://vshoppe.vtube.net/">
+                        <button class="w-full bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-full transition duration-300">
+                            BUY NOW
+                        </button></a>
+                    </div>
+                </div>
+
+                <!-- Ticket 3 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden shadow-lg hover-scale">
+                    <div class="bg-gray-600 text-white py-4 text-center">
+                        <h3 class="font-bold text-xl">V-Malaysia 2025 </h3>
+                        <p class="text-sm">13-17 SEPTEMBER </p>
+                    </div>
+                    <div class="p-6 text-center">
+                      <img src="assets/tickets/01062025-VMY2025-SEPT-vshoppe-product-thumbnail-v2423aa5b8-ff8f-44cf-8427-61f2e1b888eb.png">
+                        <p class="text-sm">Use the code: </p>
+                        <div class="text-3xl font-bold mb-4">VMYSEPT2025</div>
+                        <a href="https://vshoppe.vtube.net/">
+                        <button class="w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full transition duration-300">
+                            BUY NOW
+                        </button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- FAQ -->
+<section class="py-12 px-4 bg-white" id="faqs">
+  <div class="w-[80%] max-w-3xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+    <p class="mb-8 text-lg">Here are some common questions we get from our users.</p>
+    <div class="space-y-4" id="faq">
+
+    <!-- FAQ Item -->
+    <div class="border rounded-lg overflow-hidden">
+      <button class="w-full flex justify-between items-center px-4 py-3 text-left font-medium text-gray-800 faq-question">
+        <span>V-MALAYSIA 2025 Tickets</span>
+        <span class="icon text-xl transition-transform duration-300">+</span>
+      </button>
+      <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out text-gray-600 px-4">
+        <div class="py-4">
+          1. 	Go to <a href='https://vshoppe.vtube.net/' style='color:red;'>https://vshoppe.vtube.net/</a><br>
+          2. 	Enter your email address and input the code.<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V-Malaysia JUNE 2025: <strong>VMYJUN2025</strong><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V-KIDS & V-TEENS 2025: <strong>VKIDSTEENS25</strong><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V-Malaysia SEPTEMBER 2025: <strong>VMYSEPT2025</strong><br>
+          3. 	Fill out your information.<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*The token is sent to your email address.<br>
+          4. 	Click <strong>Proceed to Payment</strong>.<br>
+          5. 	Input your credit card information and click <strong>Pay</strong>. Wait for it to process until the green check mark appears.<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*If an authentication prompt pops up, please accomplish the steps required.<br>
+          6.   Your <strong>Payment Receipt</strong> will appear and a confirmation will be sent to your email address.
+        </div>
+      </div>
+    </div>
+
+    <!-- Another FAQ Item -->
+    <div class="border rounded-lg overflow-hidden">
+      <button class="w-full flex justify-between items-center px-4 py-3 text-left font-medium text-gray-800 faq-question">
+        <span>V-MALAYSIA 2025 Ticket Terms and Conditions</span>
+        <span class="icon text-xl transition-transform duration-300">+</span>
+      </button>
+      <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out text-gray-600 px-4">
+        <div class="py-4">
+          By purchasing the ticket, you (“Ticket Holder”) agree to be bound by the Terms and Conditions of sale specified herein and any other provision as may be specified from time to time by VShoppe (“Promoter”). The Promoter, their agents or employees, shall not be liable for any death, personal injury (unless caused by negligence of its agents and employees), loss, or damage however caused while in the venue nor are they liable for any complaints, claims, refunds, or exchange for any reason, including without limitation, cancellation or postponement of the event. Booking fees and handling fees shall not be refundable. Any refunds shall be made only at Promoter’s discretion.<br>
+          Tickets are sold subject to the following conditions:<br>
+
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;● Once sale is completed, no refunds will be made except pursuant to event postponement or cancellation and this is subjected to the Promoter's discretion. Lost ticket/s will not be replaced or refunded.<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;● Generally, tickets are non-transferable. However, if the purchase was made by mistake, believed to be done in good faith, the Promoter reserves the right for transfer. Ticket Holder may request to transfer it to the next party, subject to ticket availability. An additional administrative payment of USD 50 must be made by the Ticket Holder to initiate the transfer process. All transfer requests must be sent to <a href="mailto:v-regn@the-v.net">v-regn@the-v.net</a>.<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;● Entry will be refused if tickets have been found to be tampered, counterfeited, and/or not purchased from VShoppe or an official and authorized point of sale.<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;● The Promoter reserves the right, without refund or compensation, to refuse admission/evict any person(s) whose conduct is disorderly or inappropriate.<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;● The Promoter may add, withdraw, or substitute artistes and/or vary advertised programmes, event times, seating arrangements, audience capacity without prior notice.<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;● The Promoter may use the ticket holder’s image or likeness in any live or recorded video display, picture, publicity material or website.<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;● The Promoter may postpone, cancel, interrupt, or stop the event due to adverse weather, dangerous situations, or any other causes beyond reasonable control.<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;● The Ticket Holder agrees to submit to any searches for prohibited items including but not limited to weapons, controlled, dangerous and illegal substances.<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;● Ticket Holder agrees for their personal data to be used as Promoter deems necessary in the purchase of the ticket and subsequent processing for the event. These may include, but not limited to, sharing of your personal data to authorised third parties such as government agencies, financial institutions, and vendor suppliers for the said event.<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;● The Ticket Holder voluntarily assumes all risks and danger incidental to the event whether occurring prior to, during or subsequent to the actual event, including any death, personal injury, loss, damage, or liability. Malaysia law shall govern the sale of all tickets and you agree to submit to the exclusive jurisdiction of the Malaysia Court.<br>
+        </div>
+      </div>
+    </div>
+
+    <div class="border rounded-lg overflow-hidden">
+      <button class="w-full flex justify-between items-center px-4 py-3 text-left font-medium text-gray-800 faq-question">
+        <span>What pre-departure requirements should we prepare?</span>
+        <span class="icon text-xl transition-transform duration-300">+</span>
+      </button>
+      <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out text-gray-600 px-4">
+        <div class="py-4">
+          a.	 All participants are recommended to purchase travel insurance with Covid-19 coverage with sum insured covered minimum USD10,000.<br>
+          b.	Participants coming from African countries are required to apply for Yellow Fever Vaccination Certificates at least <strong>fourteen (14)</strong> days in advance prior to departure to Malaysia.<br>
+          c.	 If you require an invitation letter for your visa application, kindly fill up the form to submit your request: <a style="color:red" href="https://bit.ly/VMYJune2025Invitation">https://bit.ly/VMYJune2025Invitation</a> <br>
+          d.	Provide your flight details, departure, and arrival to <a href="mailto:v-regn@the-v.net">v-regn@the-v.net</a> at least two (2) days prior to your departure.<br>
+          e.	Prepare your <strong>Malaysia Digital Arrival Card</strong>: Please ensure all the necessary information in the <strong>Malaysia Digital Arrival Card (MDAC)</strong> has been filled up within <strong>three (3) days</strong> prior to your departure: <a href="https://imigresen-online.imi.gov.my/mdac/main">https://imigresen-online.imi.gov.my/mdac/main</a><br>
+          f.	A participant in need of medications should only bring enough for the duration of their stay as per the <strong>prescription</strong> issued by their doctor.<br>
+          g.	All arriving travelers must declare dutiable and prohibited goods, as well as currencies or monetary instruments exceeding USD 10,000, using Customs Form No. 7, available at the RMCD counter. Form submission is required at the RMCD examination checkpoint. False declarations or failure to declare are offenses under Malaysian law.<br>
+        </div>
+      </div>
+    </div>
+
+    <div class="border rounded-lg overflow-hidden">
+      <button class="w-full flex justify-between items-center px-4 py-3 text-left font-medium text-gray-800 faq-question">
+        <span>What are the travel Visa requirements?</span>
+        <span class="icon text-xl transition-transform duration-300">+</span>
+      </button>
+      <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out text-gray-600 px-4">
+        <div class="py-4">
+          a.	Please make sure your passport is VALID for at least 6 months from the date of travel.<br>
+          b.	Your passport must have a minimum of 3 blank pages.<br>
+          c.	Apply for a Social Visa indicating your attendance to a convention.<br>
+          d.	Proof of funds: You should have at least USD 1500 cash on hand/bank account statement prepared upon your arrival.<br>
+          e.	All participants must have the hotel booking confirmation.<br>
+        </div>
+      </div>
+    </div>
+
+    <div class="border rounded-lg overflow-hidden">
+      <button class="w-full flex justify-between items-center px-4 py-3 text-left font-medium text-gray-800 faq-question">
+        <span>What travel documents do I need to have on-hand?</span>
+        <span class="icon text-xl transition-transform duration-300">+</span>
+      </button>
+      <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out text-gray-600 px-4">
+        <div class="py-4">
+          a.	A printed copy of your return flight ticket;<br>
+          b.	A printed copy of your hotel confirmation should be provided as proof of your accommodations in Penang throughout your stay in Malaysia;<br>
+          c.	A printed copy of the visa, ready-at-hand for Immigration;<br>
+          d.	A printed copy of the invitation and/or confirmation letter sent to your email upon registration; and<br>
+          e.	A printed copy of Yellow Fever Vaccination Certificate proof for countries required by Malaysia Immigration Department for participants from African Countries.<br>
+          f.	A copy of your <strong>Malaysia Digital Arrival Card (MDAC)</strong>.<br>
+        </div>
+      </div>
+    </div>
+
+    <div class="border rounded-lg overflow-hidden">
+      <button class="w-full flex justify-between items-center px-4 py-3 text-left font-medium text-gray-800 faq-question">
+        <span>When is the Registration for V-MALAYSIA 2025 participants?</span>
+        <span class="icon text-xl transition-transform duration-300">+</span>
+      </button>
+      <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out text-gray-600 px-4">
+        <div class="py-4">
+          The V-MALAYSIA JUNE 2025 Registration will be on <strong>20 June 2025</strong>. We highly recommend that you arrive at least 1-2 days before the start of the event, so you have enough time to get settled in your hotel/accommodation.
+        </div>
+      </div>
+    </div>
+
+    <div class="border rounded-lg overflow-hidden">
+      <button class="w-full flex justify-between items-center px-4 py-3 text-left font-medium text-gray-800 faq-question">
+        <span>What is the registration process for V-MALAYSIA 2025 participants?</span>
+        <span class="icon text-xl transition-transform duration-300">+</span>
+      </button>
+      <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out text-gray-600 px-4">
+        <div class="py-4">
+          a. You MUST be physically present at the registration and present a copy of the following saved to your mobile phone to claim your wristband:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i.	 Passport<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ii.	V-Malaysia 2025 e-ticket with QR Code<br>
+          b. Collection of wristbands/tickets via representation is NOT ALLOWED.<br>
+          c. There will be no issuance of a refund, a new ticket, or wristband once they have been deemed collected. You are required to purchase again in cases of loss or replacement.<br>
+        </div>
+      </div>
+    </div>
+
+    <div class="border rounded-lg overflow-hidden">
+      <button class="w-full flex justify-between items-center px-4 py-3 text-left font-medium text-gray-800 faq-question">
+        <span>What is the refund and transfer policy?</span>
+        <span class="icon text-xl transition-transform duration-300">+</span>
+      </button>
+      <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out text-gray-600 px-4">
+        <div class="py-4">
+          V-Malaysia 2025 tickets are strictly non-refundable and non-transferrable.
+        </div>
+      </div>
+    </div>
+
+    <div class="border rounded-lg overflow-hidden">
+      <button class="w-full flex justify-between items-center px-4 py-3 text-left font-medium text-gray-800 faq-question">
+        <span>What other essentials do I need to prepare for V-Malaysia 2025?</span>
+        <span class="icon text-xl transition-transform duration-300">+</span>
+      </button>
+      <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out text-gray-600 px-4">
+        <div class="py-4">
+          a.	Bring your own reusable water bottles, utensils, and bags. Single-use plastic is strictly prohibited within the premises of Setia SPICE Arena for V-Malaysia 2025.<br>
+          b.	Make sure you have enough to spend on food, drinks, transportation, V-Malaysia 2025 merchandise from the Limitless Store, souvenirs, etc. Make sure to have your money either in USD or RM.<br>
+          c.	Activate your debit card or local bank card for international transactions before traveling out of your country. AMEX cards are not accepted for purchases.<br>
+          d.	Pack clothes good for 7 days. Expect that the air-conditioning inside the arena would be extra cool so bring a jacket or shawl you can easily layer over your comfy clothes.<br>
+        </div>
+      </div>
+    </div>
+
+    <div class="border rounded-lg overflow-hidden">
+      <button class="w-full flex justify-between items-center px-4 py-3 text-left font-medium text-gray-800 faq-question">
+        <span>How can I avail translation services during the event?</span>
+        <span class="icon text-xl transition-transform duration-300">+</span>
+      </button>
+      <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out text-gray-600 px-4">
+        <div class="py-4">
+          For those who will need translation services during the event, translation radio is available for sale during Registration Day on 20 June 2025.
+        </div>
+      </div>
+    </div>
+
+    <div class="border rounded-lg overflow-hidden">
+      <button class="w-full flex justify-between items-center px-4 py-3 text-left font-medium text-gray-800 faq-question">
+        <span>V-MALAYSIA 2025: V-KIDS AND V-TEENS GUIDELINES</span>
+        <span class="icon text-xl transition-transform duration-300">+</span>
+      </button>
+      <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out text-gray-600 px-4">
+        <div class="py-4">
+          To purchase your V-Kids and V-Teens ticket, just go to <a href="https://vshoppe.vtube.net/">VShoppe</a> and input the code: <strong>VKIDSTEENS25</strong><br>
+          &nbsp;&nbsp;&nbsp;<em>**NOTE: If you wish to purchase more than 1 ticket, kindly email <a href="mailto:olivia.oscar@the-v.net">olivia.oscar@the-v.net</a> with the subject: <strong>VMY 2025 VKids VTeens Tickets - add your IR ID</strong>.</em><br>
+          <br>
+          When purchasing your V-Kids & V-Teens tickets:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•Prepare the Kid or Teen’s Passport<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•Input the correct code on VShoppe.<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•After successfully purchasing their tickets, make sure to bring a copy of your receipt and their confirmation letter during the registration day for verification.<br>
+          During the Event:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.	<u>Dress Code</u>: We recommend comfortable clothes suitable for 5 days. Bring a jacket or shawl as the event area is air-conditioned.<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.	<u>Snacks and Lunch</u>: Light snacks and nutritious lunches will be provided during the event. If your child has any specific dietary requirements or allergies, please email us on or before <strong>31 May 2025</strong>.<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.	<u>Arrival and Departure</u>: Please ensure that your child arrives at V-KIDS & V-TEENS area before <strong>10:00 AM</strong>. The V-Kids & V-Teens event is scheduled to conclude at <strong>6:00 PM</strong>, and parents/guardians are kindly requested to pick up their children promptly.<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.	<u>Verification</u>: Bring a copy of your receipt and this confirmation letter on the registration day.<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.	<u>Emergency Contact</u>: Should there be any emergency or urgent communication during the event, please contact <strong>Olivia</strong> at <strong>+6012 550 2357</strong>.<br>
+          If you have any questions or concerns, please email Olivia at <a href="mailto:olivia.oscar@the-v.net">olivia.oscar@the-v.net</a> with the email subject: <strong>VMY 2025 VKids VTeens Tickets - add your IR ID</strong>.<br>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Add more as needed... -->
+
+  </div>
+</section>
+
+    <!-- Sponsors Section -->
+    <!-- <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">OUR SPONSORS</h2>
+                <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+            </div>
+
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+                <img src="https://the-v.net/images/default-source/vmy2025/vtube.png" alt="Sponsor 1" class="h-24 md:h-32 opacity-70 hover:opacity-100 transition duration-300">
+                <img src="https://the-v.net/images/default-source/vmy2025/v-logo.png" alt="Sponsor 2" class="h-24 md:h-32 opacity-70 hover:opacity-100 transition duration-300">
+                <img src="https://the-v.net/images/default-source/vmy2025/cov-logo.png" alt="Sponsor 3" class="h-24 md:h-32 opacity-70 hover:opacity-100 transition duration-300">
+                <img src="https://the-v.net/images/default-source/vmy2025/qnet-logo.jpg" alt="Sponsor 4" class="h-24 md:h-32 opacity-70 hover:opacity-100 transition duration-300">
+                <img src="https://vmalaysia2024.the-v.net/wp-content/uploads/2023/12/sponsor5.png" alt="Sponsor 5" class="h-12 md:h-16 opacity-70 hover:opacity-100 transition duration-300">
+            </div>
+        </div>
+    </section> -->
+
+
+    <!-- Newsletter Section -->
+    <!-- <section class="py-16 bg-red-600 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">STAY UPDATED</h2>
+                <p class="mb-8 text-lg">Subscribe to our newsletter to receive the latest news and updates about V Malaysia 2024!</p>
+
+                <form class="flex flex-col md:flex-row gap-4 max-w-xl mx-auto">
+                    <input type="email" placeholder="Your Email Address" class="flex-grow px-4 py-3 rounded-full text-gray-800 focus:outline-none">
+                    <button type="submit" class="bg-black hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-full transition duration-300">
+                        SUBSCRIBE
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Footer -->
+    <!-- <footer class="bg-black text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img src="assets/header/V-Logo.png" alt="THE V Logo" class="h-10 mb-4">
+                    <p class="text-gray-400">V Malaysia 2025</p>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4">QUICK LINKS</h3>
+                    <ul class="space-y-2">
+                      <li><a href="#home" class="text-white nav-link">Home</a></li>
+                      <li><a href="#carousel-featured" class="text-white nav-link">Greatest Stories</a></li>
+                      <li><a href="#venue-map" class="text-white nav-link">Venue Map</a></li>
+                      <li><a href="#vkidsteens" class="text-white nav-link">V-Kids & V-Teens</a></li>
+                      <li><a href="#speakers" class="text-white nav-link">Speakers</a></li>
+                      <li><a href="#thisorthat" class="text-white nav-link">This or That?</a></li>
+                      <li><a href="#faqs" class="text-white nav-link">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4">CONTACT US</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                            <span>Bukit Jalil National Stadium, Kuala Lumpur, Malaysia</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3"></i>
+                            <span>+603 1234 5678</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <span>info@vmalaysia2024.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4">FOLLOW US</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/thevofficial" class="text-gray-400 hover:text-white text-2xl transition duration-300">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://x.com/thev_official" class="text-gray-400 hover:text-white text-2xl transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/thev_official/" class="text-gray-400 hover:text-white text-2xl transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+                <p>&copy; 2025 V Malaysia 2025. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer> -->
+
+    <script>
+
+    const videoSwiper = new Swiper('.videoSwiper', {
+  loop: true,
+  autoplay: { delay: 5000 },
+  pagination: { el: '.swiper-pagination', clickable: true },
+});
+
+const articleSwiper = new Swiper('.articleSwiper', {
+  loop: true,
+  autoplay: { delay: 6000 },
+  pagination: { el: '.swiper-pagination', clickable: true },
+});
+
+    //swiper
+    const swiper = new Swiper('.adSwiper', {
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    effect: 'fade',
+    fadeEffect: { crossFade: true },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+
+    // Show the floating text button (if needed)
+  document.getElementById("floatingTextBtn").style.display = "block";
+
+  // Close the floating text button when the close button is clicked
+  document.getElementById("closeBtn").addEventListener("click", function() {
+    document.getElementById("floatingTextBtn").style.display = "none"; // Hide the floating button
+  });
+
+    // JavaScript for handling the collapsible FAQ items
+    const questions = document.querySelectorAll('.faq-question');
+
+   questions.forEach(btn => {
+     btn.addEventListener('click', function () {
+       const currentAnswer = this.nextElementSibling;
+       const currentIcon = this.querySelector('.icon');
+
+       // Collapse all other answers
+       document.querySelectorAll('.faq-answer').forEach((el, i) => {
+         if (el !== currentAnswer) {
+           el.style.maxHeight = null;
+           el.previousElementSibling.querySelector('.icon').textContent = '+';
+         }
+       });
+
+       // Toggle current answer
+       if (currentAnswer.style.maxHeight) {
+         currentAnswer.style.maxHeight = null;
+         currentIcon.textContent = '+';
+       } else {
+         currentAnswer.style.maxHeight = currentAnswer.scrollHeight + 'px';
+         currentIcon.textContent = '−';
+       }
+     });
+   });
+
+    // Show the first round when "Start Game" button is clicked
+    document.getElementById('startGameBtn').addEventListener('click', function() {
+        document.getElementById('startGameSection').classList.add('hidden'); // Hide start button
+        document.getElementById('rounds').classList.remove('hidden'); // Show rounds
+        showRound(1); // Start with the first round
+    });
+
+    // Function to show round
+    function showRound(round) {
+        const rounds = document.querySelectorAll('.round');
+        rounds.forEach((roundElement, index) => {
+            roundElement.classList.add('hidden');
+            if (index === round - 1) {
+                roundElement.classList.remove('hidden');
+            }
+        });
+    }
+
+    // Function to handle next round navigation
+    function nextRound(round) {
+        showRound(round + 1); // Show the next round
+        if (round === 12) {
+            document.getElementById('submitBtn').classList.remove('hidden'); // Show submit button after the last round
+        }
+    }
+
+    const players = [];
+
+  window.addEventListener('load', () => {
+    const tags = document.querySelectorAll('video-js');
+
+    tags.forEach(tag => {
+      const player = videojs(tag);
+      players.push(player);
+
+      player.ready(() => {
+        player.on('play', () => {
+          // Pause other players
+          players.forEach(p => {
+            if (p !== player) p.pause();
+          });
+
+          // Fullscreen on mobile
+          const isMobile = window.matchMedia("(max-width: 768px)").matches;
+          const el = player.el();
+
+          if (isMobile && el && el.requestFullscreen) {
+            el.requestFullscreen().catch(() => {
+              // Some browsers require user gesture, so silently fail
+            });
+          }
+        });
+      });
+    });
+  });
+
+  function loadMoreVideos() {
+    const hiddenVideos = document.querySelectorAll('#videoGrid > .hidden');
+    hiddenVideos.forEach((el, i) => {
+      if (i < 3) el.classList.remove('hidden');
+    });
+
+    if (document.querySelectorAll('#videoGrid > .hidden').length === 0) {
+      event.target.style.display = 'none';
+    }
+  }
+
+        // Countdown Timer
+        function updateCountdown() {
+            const eventDate = new Date("June 21, 2025 12:00:00").getTime();
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days.toString().padStart(2, "0");
+            document.getElementById("hours").innerHTML = hours.toString().padStart(2, "0");
+            document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, "0");
+            document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, "0");
+
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById("days").innerHTML = "00";
+                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("minutes").innerHTML = "00";
+                document.getElementById("seconds").innerHTML = "00";
+            }
+        }
+
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.querySelector('button.md\\:hidden');
+        const navLinks = document.querySelector('nav.hidden');
+
+        mobileMenuButton.addEventListener('click', () => {
+            navLinks.classList.toggle('hidden');
+            navLinks.classList.toggle('flex');
+            navLinks.classList.toggle('flex-col');
+            navLinks.classList.toggle('absolute');
+            navLinks.classList.toggle('top-16');
+            navLinks.classList.toggle('left-0');
+            navLinks.classList.toggle('right-0');
+            navLinks.classList.toggle('bg-black');
+            navLinks.classList.toggle('py-4');
+            navLinks.classList.toggle('px-8');
+            navLinks.classList.toggle('space-y-4');
+            navLinks.classList.toggle('space-x-8');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        //article with auto and scroll
+        const carousel = document.getElementById('carousel');
+    const wrapper = document.getElementById('carouselWrapper');
+    const cards = carousel.querySelectorAll('.card');
+    let index = 0;
+    let intervalId;
+
+    function scrollToCard(direction = 1) {
+  index = (index + direction + cards.length) % cards.length;
+  carousel.scrollTo({
+    left: cards[index].offsetLeft,
+    behavior: 'smooth'
+  });
+}
+
+    function startAutoplay() {
+      intervalId = setInterval(() => scrollToCard(1), 3000);
+    }
+
+    function stopAutoplay() {
+      clearInterval(intervalId);
+    }
+
+    // Start autoplay
+    startAutoplay();
+
+    // Pause on hover
+    wrapper.addEventListener('mouseenter', stopAutoplay);
+    wrapper.addEventListener('mouseleave', startAutoplay);
+
+    // Swipe support
+    let startX = 0;
+    carousel.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+    carousel.addEventListener('touchend', e => {
+      const endX = e.changedTouches[0].clientX;
+      if (endX - startX > 50) scrollToCard(-1); // swipe right
+      else if (startX - endX > 50) scrollToCard(1); // swipe left
+    });
+
+    // carousel with the greatest Story
+
+
+    const carousel2 = document.getElementById('carousel-featured');
+    const wrapper2 = document.getElementById('carousel-wrapper');
+    const next2 = document.getElementById('featured-next');
+    const prev2 = document.getElementById('featured-prev');
+    const slideWidth2 = carousel2.querySelector('div').offsetWidth + 16;
+
+    let autoplayInterval2;
+    let isHovered2 = false;
+
+    function scrollNext2() {
+      const maxScrollLeft = carousel2.scrollWidth - carousel2.clientWidth;
+      if (carousel2.scrollLeft + slideWidth2 >= maxScrollLeft) {
+        carousel2.scrollTo({ left: 0, behavior: 'smooth' }); // loop to start
+      } else {
+        carousel2.scrollBy({ left: slideWidth2, behavior: 'smooth' });
+      }
+    }
+
+    function scrollPrev2() {
+      if (carousel2.scrollLeft <= 0) {
+        carousel2.scrollTo({ left: carousel2.scrollWidth, behavior: 'smooth' }); // loop to end
+      } else {
+        carousel2.scrollBy({ left: -slideWidth2, behavior: 'smooth' });
+      }
+    }
+
+    next2.addEventListener('click', scrollNext2);
+    prev2.addEventListener('click', scrollPrev2);
+
+    function startAutoplay2() {
+      autoplayInterval2 = setInterval(() => {
+        if (!isHovered2) scrollNext2();
+      }, 4000);
+    }
+
+    function stopAutoplay2() {
+      clearInterval(autoplayInterval2);
+    }
+
+    wrapper2.addEventListener('mouseenter', () => { isHovered2 = true; });
+    wrapper2.addEventListener('mouseleave', () => { isHovered2 = false; });
+
+    // Swipe support
+    let startX2 = 0;
+
+    carousel2.addEventListener('touchstart', e => {
+      startX2 = e.touches[0].clientX;
+    });
+
+    carousel2.addEventListener('touchend', e => {
+      let endX2 = e.changedTouches[0].clientX;
+      if (startX2 - endX2 > 50) scrollNext2();
+      else if (endX2 - startX2 > 50) scrollPrev2();
+    });
+
+    startAutoplay2();
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
