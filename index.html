@@ -18,7 +18,7 @@
         padding: 0;
         font-family: 'Montserrat', sans-serif;
         background-color: #f8f8f8;
-        background-image: url('assets/header/bg.png');
+        background-image: url('assets/first-fold/bg_firstfoldpre.png');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -273,6 +273,87 @@
     background-position: center;
   }
 }
+
+<!-- CLOCK FLIP -->
+.countdown-box {
+  width: 5rem;
+  min-width: 5rem;
+  text-align: center;
+}
+
+.flip-card {
+  position: relative;
+  width: 100%;
+  height: 4.5rem;
+  perspective: 1000px;
+}
+
+.top,
+.bottom,
+.flip-top,
+.flip-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.25rem;
+  overflow: hidden;
+  color: white;
+}
+
+.top {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+.flip {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform-origin: top;
+  transition: transform 0.6s ease-in-out;
+  z-index: 3;
+}
+
+.flip.animate {
+  transform: rotateX(-180deg);
+}
+
+.flip-top,
+.flip-bottom {
+  width: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.flip-top {
+  top: 0;
+}
+
+.flip-bottom {
+  bottom: 0;
+  transform: rotateX(180deg);
+}
+
+
+<!-- CLOCK FLIP END -->
+
+
     </style>
 </head>
 <body class="text-gray-800">
@@ -288,28 +369,75 @@
   </div>
 
     <!-- Header -->
-    <header class="fixed w-full z-50 w-full bg-black shadow-lg z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center">
-                <img src="assets/header/V-Logo.png" alt="THE V Logo" class="h-10">
-            </div>
-            <nav class="hidden md:flex space-x-8">
-                <a href="#home" class="text-white nav-link">Home</a>
-                <a href="#carousel-featured" class="text-white nav-link">Greatest Stories</a>
-                <a href="#venue-map" class="text-white nav-link">Venue Map</a>
-                <a href="#vkidsteens" class="text-white nav-link">V-Kids & V-Teens</a>
-                <a href="#speakers" class="text-white nav-link">Speakers</a>
-                <a href="#thisorthat" class="text-white nav-link">This or That?</a>
-                <a href="#faqs" class="text-white nav-link">FAQ</a>
-            </nav>
-            <button class="md:hidden text-white">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
-        </div>
-    </header>
+    <header class="fixed w-full z-50 bg-[#004372] shadow-lg">
+  <div class="container mx-auto px-4 py-3 flex items-center justify-between relative">
+    <!-- Left: Logo + Home -->
+    <div class="flex items-center space-x-4">
+      <img src="assets/first-fold/VMY2025-logo-v2_lowres.png" alt="THE V Logo" class="h-10">
+      <a href="#home" class="text-white nav-link hidden md:inline">Home</a>
+    </div>
+
+    <!-- Center: Desktop Nav -->
+    <nav class="hidden md:flex space-x-6 absolute left-1/2 transform -translate-x-1/2">
+      <a href="#carousel-featured" class="text-white nav-link">Greatest Stories</a>
+      <a href="#venue-map" class="text-white nav-link">Venue Map</a>
+      <a href="#vkidsteens" class="text-white nav-link">V-Kids & V-Teens</a>
+      <a href="#speakers" class="text-white nav-link">Speakers</a>
+      <a href="#thisorthat" class="text-white nav-link">This or That?</a>
+      <a href="#faqs" class="text-white nav-link">FAQ</a>
+    </nav>
+
+    <!-- Right: Languages -->
+    <div class="relative hidden md:block group">
+      <button class="text-white nav-link focus:outline-none">Languages</button>
+      <ul class="absolute right-0 hidden group-hover:block bg-white text-black mt-2 rounded shadow-lg py-2 z-50 w-48">
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">English</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Arabic</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Bahasa-Indonesia</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">French</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Russian</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Singhalese</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Tamil</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Turkish</a></li>
+      </ul>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button id="menuToggle" class="md:hidden text-white z-50">
+      <i class="fas fa-bars text-2xl"></i>
+    </button>
+  </div>
+
+  <!-- Mobile Nav -->
+  <div id="mobileMenu" class="md:hidden bg-[#004372] hidden flex-col px-4 pb-4 space-y-3">
+    <a href="#home" class="text-white nav-link block">Home</a>
+    <a href="#carousel-featured" class="text-white nav-link block">Greatest Stories</a>
+    <a href="#venue-map" class="text-white nav-link block">Venue Map</a>
+    <a href="#vkidsteens" class="text-white nav-link block">V-Kids & V-Teens</a>
+    <a href="#speakers" class="text-white nav-link block">Speakers</a>
+    <a href="#thisorthat" class="text-white nav-link block">This or That?</a>
+    <a href="#faqs" class="text-white nav-link block">FAQ</a>
+
+    <!-- Mobile Languages Toggle -->
+    <div class="text-white">
+      <button id="langToggle" class="w-full text-left nav-link">Languages ▼</button>
+      <ul id="langMenu" class="bg-white text-black rounded shadow-lg mt-2 hidden">
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">English</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Arabic</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Bahasa-Indonesia</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">French</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Russian</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Singhalese</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Tamil</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Turkish</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex flex-col justify-center items-center text-white text-center" id="home">
+<section class="relative min-h-screen flex flex-col justify-center items-center text-white text-center" id="home">
   <!-- Gradient Overlay -->
   <div class="hero-gradient absolute inset-0 bg-black bg-opacity-30 z-0"></div>
 
@@ -319,19 +447,9 @@
          src="assets/header/vmy_logo.png"
          alt="V Malaysia Logo">
 
-
-
     <div class="max-w-3xl px-2 mt-[-1rem] sm:mt-[-2rem] md:mt-[-3rem]">
-      <!-- <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold mb-4">V-MALAYSIA 2025</h1>
-      <p class="text-lg sm:text-xl md:text-2xl mb-2">June 21–25, 2025 | Penang, Malaysia</p> -->
-      <h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-4">RISE TOGETHER AND CREATE OUR GREATEST STORY!</h2>
-      <p class="text-base sm:text-lg md:text-xl mb-4">
-        When we come together, our journey becomes limitless.<br>
-        Join us at V-MALAYSIA 2025 this June as we gather as one to fulfil the vision of RYTHM and rise beyond the boundaries.
-      </p>
-
       <!-- Countdown Boxes -->
-      <div class="flex flex-wrap justify-center gap-4 mb-8">
+      <div class="flex justify-center gap-4 mb-8">
         <div class="countdown-box bg-white/10 rounded-lg p-4 w-20 md:w-24 text-center">
           <div class="text-2xl sm:text-3xl md:text-4xl font-bold" id="days">00</div>
           <div class="text-xs sm:text-sm">DAYS</div>
@@ -350,21 +468,41 @@
         </div>
       </div>
 
-      <!-- Call to Action -->
-      <a href="https://vshoppe.vtube.net/"
-         class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-10 rounded-full text-xl shadow-lg transition duration-300 btn-glow animate-pulse">
-        GET TICKETS NOW
-      </a>
+      <h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-center">
+        <span style="color: #00f6ff; font-size: 2.5rem;" class="text-3xl sm:text-4xl md:text-5xl font-bold">RISE TOGETHER</span> 
+        <span style="color: #ffffff; font-size: 2.5rem;" class="text-3xl sm:text-4xl md:text-5xl font-bold">AND CREATE</span> <br>
+        <span style="color: #ffffff; font-size: 2.5rem;" class="text-3xl sm:text-4xl md:text-5xl font-bold">OUR</span>
+        <span style="color: #00f6ff; font-size: 2.5rem;" class="text-3xl sm:text-4xl md:text-5xl font-bold">GREATEST STORY</span>!
+      </h2>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center space-x-4">
+        <!-- Paragraph Container -->
+		<div class="flex flex-col justify-center items-center sm:items-start">
+		  <p class="text-sm sm:text-base md:text-lg mb-4 whitespace-nowrap">
+			When we come together, our journey becomes limitless.
+		  </p>
+		  <p class="text-sm sm:text-base md:text-lg mb-4">
+			Join us at V-MALAYSIA 2025 this June as we gather as one to fulfill the vision of RYTHM and rise beyond the boundaries.
+		  </p>
+		</div>
+
+        <!-- Call to Action -->
+        <a href="https://vshoppe.vtube.net/"
+           class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-12 text-xl rounded-full shadow-lg transition duration-300 btn-glow animate-pulse whitespace-nowrap">
+          Get your tickets on VShoppe.
+        </a>
+      </div>
     </div>
   </div>
 
+
   <!-- Decorative Clouds -->
-  <img class="absolute bottom-[-20px] left-[-40px] w-48 sm:w-64 md:w-80 lg:w-96 z-0 cloud_left"
+<!--   <img class="absolute bottom-[-20px] left-[-40px] w-48 sm:w-64 md:w-80 lg:w-96 z-0 cloud_left"
        src="assets/header/cloud-left.png"
        alt="Cloud Left">
   <img class="absolute bottom-[-5px] right-0 w-48 sm:w-64 md:w-80 lg:w-96 z-0 cloud_right"
        src="assets/header/cloud-right.png"
-       alt="Cloud Right">
+       alt="Cloud Right"> -->
 </section>
 
 
@@ -637,76 +775,79 @@
     </section>
 
     <!-- Gallery Section -->
-    <section class="py-16 bg-gray-100">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4">See the amazing photos!</h2>
-          <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+<section class="py-16 bg-gray-100">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">See the amazing photos!</h2>
+      <div class="w-20 h-1 bg-red-600 mx-auto"/>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <!-- First 6 items -->
+      <div class="relative overflow-hidden rounded-lg group">
+        <a href="https://the-v.net/Resources/images/Gallery/v-turkiye-2025-day-0-registration-day/4.jpg">
+          <img src="assets/gallery/day0/day0.jpg" alt="Gallery 0"
+               class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
+        </a>
+        <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">Day 0 - Registration Day</p>
+      </div>
+      <div class="relative overflow-hidden rounded-lg group">
+        <a href="https://the-v.net/en/album/v-t%C3%BCrkiye-2025-day-1#">
+          <img src="assets/gallery/day1/day1.jpg" alt="Gallery 1"
+               class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
+        </a>
+        <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">Day 1</p>
+      </div>
+      <div class="relative overflow-hidden rounded-lg group">
+        <a href="https://the-v.net/en/album/v-t%C3%BCrkiye-2025-day-2">
+          <img src="assets/gallery/day2/day2.jpg" alt="Gallery 2"
+               class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
+        </a>
+        <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">Day 2</p>
+      </div>
+      <div class="relative overflow-hidden rounded-lg group">
+        <a href="https://the-v.net/en/album/v-t%C3%BCrkiye-2025-day-3">
+          <img src="assets/gallery/day3/day3.jpg" alt="Gallery 3"
+               class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
+        </a>
+        <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">Day 3</p>
+      </div>
+      <div class="relative overflow-hidden rounded-lg group">
+        <a href="https://the-v.net/en/album/v-t%C3%BCrkiye-2025-day-3">
+          <img src="assets/gallery/day4/day4.jpg" alt="Gallery 4"
+               class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
+        </a>
+        <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">Day 4</p>
+      </div>
+      <div class="relative overflow-hidden rounded-lg group">
+        <a href="https://the-v.net/en/album/v-t%C3%BCrkiye-2025-day-2">
+          <img src="assets/gallery/day5/day5.jpg" alt="Gallery 5"
+               class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
+        </a>
+        <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">Day 5</p>
+      </div>
+      <!-- Bottom 2 items centered on desktop, stacked on mobile -->
+      <div class="md:col-span-3 flex flex-col md:flex-row justify-center gap-4 mt-6">
+        <div class="relative overflow-hidden rounded-lg group w-full md:w-1/3">
+          <a href="https://the-v.net/en/album/v-t%C3%BCrkiye-2025-day-2">
+            <img src="assets/gallery/fashionshow/fashionshow.jpg" alt="Gallery 6"
+                 class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
+          </a>
+          <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">Fashion Show</p>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <!-- First 6 items -->
-          <div class="relative overflow-hidden rounded-lg group">
-            <a href="https://the-v.net/Resources/images/Gallery/v-turkiye-2025-day-0-registration-day/4.jpg">
-              <img src="assets/gallery/day0/day0.jpg" alt="Gallery 0" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
-            </a>
-            <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">Day 0 - Registration Day</p>
-          </div>
-
-          <div class="relative overflow-hidden rounded-lg group">
-            <a href="https://the-v.net/en/album/v-t%C3%BCrkiye-2025-day-1#">
-              <img src="assets/gallery/day1/day1.jpg" alt="Gallery 1" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
-            </a>
-            <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">Day 1</p>
-          </div>
-
-          <div class="relative overflow-hidden rounded-lg group">
-            <a href="https://the-v.net/en/album/v-t%C3%BCrkiye-2025-day-2">
-              <img src="assets/gallery/day2/day2.jpg" alt="Gallery 2" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
-            </a>
-            <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">Day 2</p>
-          </div>
-
-          <div class="relative overflow-hidden rounded-lg group">
-            <a href="https://the-v.net/en/album/v-t%C3%BCrkiye-2025-day-3">
-              <img src="assets/gallery/day3/day3.jpg" alt="Gallery 3" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
-            </a>
-            <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">Day 3</p>
-          </div>
-
-          <div class="relative overflow-hidden rounded-lg group">
-            <a href="https://the-v.net/en/album/v-t%C3%BCrkiye-2025-day-3">
-              <img src="assets/gallery/day4/day4.jpg" alt="Gallery 4" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
-            </a>
-            <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">Day 4</p>
-          </div>
-
-          <div class="relative overflow-hidden rounded-lg group">
-            <a href="https://the-v.net/en/album/v-t%C3%BCrkiye-2025-day-2">
-              <img src="assets/gallery/day5/day5.jpg" alt="Gallery 5" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
-            </a>
-            <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">Day 5</p>
-          </div>
-
-          <!-- Bottom 2 items centered on desktop, stacked on mobile -->
-          <div class="md:col-span-3 flex flex-col md:flex-row justify-center gap-4">
-            <div class="relative overflow-hidden rounded-lg group w-full md:w-1/3">
-              <a href="https://the-v.net/en/album/v-t%C3%BCrkiye-2025-day-2">
-                <img src="assets/gallery/fashionshow/fashionshow.jpg" alt="Gallery 6" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
-              </a>
-              <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">Fashion Show</p>
-            </div>
-
-            <div class="relative overflow-hidden rounded-lg group w-full md:w-1/3">
-              <a href="https://the-v.net/en/album/v-t%C3%BCrkiye-2025-day-2">
-                <img src="assets/gallery/fashionshow/fashionshow.jpg" alt="Gallery 6" class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
-              </a>
-              <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">V-Kids & V-Teens</p>
-            </div>
-          </div>
+        <div class="relative overflow-hidden rounded-lg group w-full md:w-1/3">
+          <a href="https://the-v.net/en/album/v-t%C3%BCrkiye-2025-day-2">
+            <img src="assets/gallery/fashionshow/fashionshow.jpg" alt="Gallery 7"
+                 class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
+          </a>
+          <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">V-Kids & V-Teens</p>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
+
 
 
 
@@ -1434,6 +1575,62 @@
     </footer> -->
 
     <script>
+	
+	//menu Button
+	
+	  const menuToggle = document.getElementById('menuToggle');
+	  const mobileMenu = document.getElementById('mobileMenu');
+	  const langToggle = document.getElementById('langToggle');
+	  const langMenu = document.getElementById('langMenu');
+
+	  menuToggle.addEventListener('click', () => {
+		mobileMenu.classList.toggle('hidden');
+	  });
+
+	  langToggle.addEventListener('click', () => {
+		langMenu.classList.toggle('hidden');
+	  });
+
+	//end menu button
+	
+	//gallery Scroll
+	
+	
+  const gallery = document.getElementById('galleryScroll');
+
+  function scrollGallery(direction) {
+    const scrollAmount = 300;
+    gallery.scrollBy({
+      left: direction * scrollAmount,
+      behavior: 'smooth'
+    });
+  }
+
+  // Auto-scroll every 5 seconds
+  let autoScroll = setInterval(() => {
+    if (gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth - 1) {
+      gallery.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+      gallery.scrollBy({ left: 300, behavior: 'smooth' });
+    }
+  }, 5000);
+
+  // Touch swipe support
+  let startX = 0;
+  gallery.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+  });
+  gallery.addEventListener('touchend', (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const diff = endX - startX;
+    if (Math.abs(diff) > 50) {
+      diff < 0 ? scrollGallery(1) : scrollGallery(-1);
+    }
+  });
+
+
+	
+	//end gallery scroll
 
     // video to showRound
 
@@ -1610,32 +1807,87 @@ function revealMoreVideos() {
 }
 
         // Countdown Timer
-        function updateCountdown() {
-            const eventDate = new Date("June 20, 2025 00:00:00").getTime();
-            const now = new Date().getTime();
-            const distance = eventDate - now;
+        // Target date: June 20, 2025 at midnight (make sure this is in UTC)
+  const targetDate = new Date(Date.UTC(2025, 5, 20, 0, 0, 0));  // Note: Months are 0-indexed in JS
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  // Function to update the countdown
+  function updateCountdown() {
+    const now = new Date().getTime();  // Get current time in milliseconds
+    const distance = targetDate - now; // Calculate the time difference
 
-            document.getElementById("days").innerHTML = days.toString().padStart(2, "0");
-            document.getElementById("hours").innerHTML = hours.toString().padStart(2, "0");
-            document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, "0");
-            document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, "0");
+    if (distance <= 0) {  // If time is up
+      document.getElementById("days").textContent = "00";
+      document.getElementById("hours").textContent = "00";
+      document.getElementById("minutes").textContent = "00";
+      document.getElementById("seconds").textContent = "00";
+      return;
+    }
 
-            if (distance < 0) {
-                clearInterval(countdownInterval);
-                document.getElementById("days").innerHTML = "00";
-                document.getElementById("hours").innerHTML = "00";
-                document.getElementById("minutes").innerHTML = "00";
-                document.getElementById("seconds").innerHTML = "00";
-            }
-        }
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24)); // Calculate days
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); // Calculate hours
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)); // Calculate minutes
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000); // Calculate seconds
 
-        const countdownInterval = setInterval(updateCountdown, 1000);
-        updateCountdown();
+    // Update the countdown on the page
+    document.getElementById("days").textContent = String(days).padStart(2, "0");
+    document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+    document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+    document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+  }
+
+  // Initialize the countdown immediately
+  updateCountdown();
+
+  // Update the countdown every second
+  setInterval(updateCountdown, 1000);
+		
+		//flipcard Timer
+		
+		<!-- const targetDate = new Date("2025-06-20T00:00:00").getTime(); -->
+
+		  <!-- function updateCountdown() { -->
+			<!-- const now = new Date().getTime(); -->
+			<!-- const distance = targetDate - now; -->
+
+			<!-- if (distance <= 0) return; -->
+
+			<!-- const d = Math.floor(distance / (1000 * 60 * 60 * 24)); -->
+			<!-- const h = Math.floor((distance / (1000 * 60 * 60)) % 24); -->
+			<!-- const m = Math.floor((distance / (1000 * 60)) % 60); -->
+			<!-- const s = Math.floor((distance / 1000) % 60); -->
+
+			<!-- flipTo("days", d); -->
+			<!-- flipTo("hours", h); -->
+			<!-- flipTo("minutes", m); -->
+			<!-- flipTo("seconds", s); -->
+		  <!-- } -->
+
+		  <!-- function flipTo(id, newValue) { -->
+			<!-- const top = document.getElementById(`${id}-top`); -->
+			<!-- const bottom = document.getElementById(`${id}-bottom`); -->
+			<!-- const flip = document.getElementById(`${id}-flip`); -->
+			<!-- const flipTop = flip.querySelector(".flip-top"); -->
+			<!-- const flipBottom = flip.querySelector(".flip-bottom"); -->
+
+			<!-- const formattedValue = String(newValue).padStart(2, "0"); -->
+			<!-- if (top.textContent === formattedValue) return; -->
+
+			<!-- flipTop.textContent = top.textContent; -->
+			<!-- flipBottom.textContent = formattedValue; -->
+
+			<!-- flip.classList.add("animate"); -->
+
+			<!-- setTimeout(() => { -->
+			  <!-- top.textContent = formattedValue; -->
+			  <!-- bottom.textContent = formattedValue; -->
+			  <!-- flip.classList.remove("animate"); -->
+			<!-- }, 600); -->
+		  <!-- } -->
+
+		  <!-- updateCountdown(); -->
+		  <!-- setInterval(updateCountdown, 1000); -->
+		
+		//flipcard time
 
         // Mobile Menu Toggle
         const mobileMenuButton = document.querySelector('button.md\\:hidden');
