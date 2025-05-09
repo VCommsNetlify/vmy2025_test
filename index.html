@@ -10,225 +10,218 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+/* Import Montserrat Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 
-        html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        font-family: 'Montserrat', sans-serif;
-        background-color: #f8f8f8;
-        background-image: url('assets/first-fold/bg_firstfoldpre.png');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-      }
+/* ========== Base Styles ========== */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f8f8f8;
+  background-image: url('assets/first-fold/bg_firstfoldpre.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
 
-              html {
-                scroll-behavior: smooth;
-              }
+html {
+  scroll-behavior: smooth;
+}
 
+/* ========== Hero Section ========== */
+.hero-gradient {
+  background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
+}
 
+.logo {
+  position: relative;
+  left: 500px;
+  top: 0;
+  height: 30%;
+  width: 30%;
+}
 
-        .hero-gradient {
-            background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
-        }
+/* ========== Countdown Box ========== */
+.countdown-box {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
 
-        .logo{
-          position: relative;
-          left:500px;
-          top:0px;
-          height: 30%;
-          width: 30%;
-        }
+/* ========== Navigation ========== */
+.nav-link::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: width 0.3s;
+}
 
-        .countdown-box {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-        }
+.nav-link:hover::after {
+  width: 100%;
+}
 
-        .hover-scale {
-            transition: transform 0.3s ease;
-        }
+/* ========== Utility Classes ========== */
+.hover-scale {
+  transition: transform 0.3s ease;
+}
 
-        .hover-scale:hover {
-            transform: scale(1.05);
-        }
+.hover-scale:hover {
+  transform: scale(1.05);
+}
 
-        .nav-link::after {
-            content: '';
-            display: block;
-            width: 0;
-            height: 2px;
-            background: white;
-            transition: width 0.3s;
-        }
+.section-divider {
+  height: 100px;
+  background: linear-gradient(180deg, rgba(248,248,248,0) 0%, #f8f8f8 100%);
+}
 
-        .nav-link:hover::after {
-            width: 100%;
-        }
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
 
-        .section-divider {
-            height: 100px;
-            background: linear-gradient(180deg, rgba(248,248,248,0) 0%, #f8f8f8 100%);
-        }
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
-        .cloud_left{
-          position: absolute;
-          overflow: hidden;
-          /* left:-165px;
-          bottom: -80px; */
-        }
+.fade-in {
+  animation: fadeIn 0.6s ease-in forwards;
+}
 
-        .cloud_right{
-          position: absolute;
-          overflow: hidden;
-          /* right:-96px;
-          bottom: -80px; */
-        }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-        /* start article section */
-        .carousel-wrapper {
-              position: relative;
-              overflow: hidden;
-              max-width: 100%;
-            }
+/* ========== Clouds ========== */
+.cloud_left,
+.cloud_right {
+  position: absolute;
+  overflow: hidden;
+}
 
-            .carousel {
-              display: flex;
-              overflow-x: auto;
-              scroll-snap-type: x mandatory;
-              gap: 16px;
-              padding: 10px;
-              scroll-behavior: smooth;
-            }
+/* ========== Carousel/Article Section ========== */
+.carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+}
 
-            .carousel::-webkit-scrollbar {
-              display: none;
-            }
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 16px;
+  padding: 10px;
+  scroll-behavior: smooth;
+}
 
-            .card {
-              flex: 0 0 auto;
-              width: 300px;
-              background: white;
-              border-radius: 12px;
-              box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-              scroll-snap-align: start;
-              transition: transform 0.3s;
-            }
+.carousel::-webkit-scrollbar {
+  display: none;
+}
 
-            .card:hover {
-              transform: scale(1.03);
-            }
+.card {
+  flex: 0 0 auto;
+  width: 300px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  scroll-snap-align: start;
+  transition: transform 0.3s;
+}
 
-            .card img {
-              width: 100%;
-              height: 180px;
-              border-top-left-radius: 12px;
-              border-top-right-radius: 12px;
-              object-fit: cover;
-            }
+.card:hover {
+  transform: scale(1.03);
+}
 
-            .card-content {
-              padding: 15px;
-            }
+.card img {
+  width: 100%;
+  height: 180px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  object-fit: cover;
+}
 
-            .card h3 {
-              margin: 0 0 10px;
-            }
+.card-content {
+  padding: 15px;
+}
 
-            .card p {
-              color: #555;
-            }
+.card h3 {
+  margin: 0 0 10px;
+}
 
-            .arrow {
-              position: absolute;
-              top: 50%;
-              transform: translateY(-50%);
-              font-size: 28px;
-              background: rgba(0, 0, 0, 0.5);
-              color: white;
-              border: none;
-              padding: 10px;
-              border-radius: 50%;
-              cursor: pointer;
-              z-index: 1;
-            }
+.card p {
+  color: #555;
+}
 
-            .arrow.left {
-              left: 10px;
-            }
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 28px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1;
+}
 
-            .arrow.right {
-              right: 10px;
-            }
+.arrow.left {
+  left: 10px;
+}
 
-            @media (max-width: 400px) {
-              .card {
-                width: 90%;
-              }
-            }
+.arrow.right {
+  right: 10px;
+}
 
-            .newsupdates{
-              background-color: #889996;
-            }
-        /* end article section */
+.newsupdates {
+  background-color: #889996;
+}
 
+@media (max-width: 400px) {
+  .card {
+    width: 90%;
+  }
+}
 
-        /* logo animation */
-        @keyframes glowPulse {
-          0%, 100% {
-            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6))
-                    drop-shadow(0 0 20px rgba(255, 0, 0, 0.4));
-          }
-          50% {
-            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8))
-                    drop-shadow(0 0 30px rgba(255, 0, 0, 0.6));
-          }
-        }
+/* ========== Logo Animation ========== */
+@keyframes glowPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 20px rgba(255, 0, 0, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 0, 0, 0.6));
+  }
+}
 
-        .glow {
-          filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6))
-                  drop-shadow(0 0 20px rgba(255, 0, 0, 0.4));
-                  animation: glowPulse 3s ease-in-out infinite;
-        }
+.glow {
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 20px rgba(255, 0, 0, 0.4));
+  animation: glowPulse 3s ease-in-out infinite;
+}
 
-        /* vshoppe btn animation */
+/* ========== Button Glow ========== */
+.btn-glow {
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5), 0 0 20px rgba(255, 0, 0, 0.4);
+  transition: all 0.3s ease-in-out;
+}
 
-        .btn-glow {
-          box-shadow: 0 0 10px rgba(255, 0, 0, 0.5),
-                      0 0 20px rgba(255, 0, 0, 0.4);
-          transition: all 0.3s ease-in-out;
-        }
+.btn-glow:hover {
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 0, 0, 0.6);
+  transform: scale(1.05);
+}
 
-        .btn-glow:hover {
-          box-shadow: 0 0 15px rgba(255, 0, 0, 0.8),
-                      0 0 30px rgba(255, 0, 0, 0.6);
-          transform: scale(1.05);
-        }
-
-        /* Optional: Styling for the FAQ section */
-    .faq-item {
-        margin-bottom: 1.5rem;
-    }
-
-    .faq-question {
-        font-size: 1.125rem;
-        font-weight: bold;
-        transition: background-color 0.3s ease;
-    }
-
-    .faq-question:hover {
-        background-color: #2563eb;
-    }
-
-    .faq-answer {
-        font-size: 1rem;
-        line-height: 1.5;
-    }
-
-/* floating button */
-    #floatingTextBtn {
+/* ========== Floating Button ========== */
+#floatingTextBtn {
   animation: float 2s ease-in-out infinite;
 }
 
@@ -241,120 +234,65 @@
   }
 }
 
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+/* ========== FAQ Section ========== */
+.faq-item {
+  margin-bottom: 1.5rem;
 }
 
-.fade-in {
-    animation: fadeIn 0.6s ease-in forwards;
-  }
+.faq-question {
+  font-size: 1.125rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+.faq-question:hover {
+  background-color: #2563eb;
+}
 
-/* responsive */
+.faq-answer {
+  font-size: 1rem;
+  line-height: 1.5;
+}
 
-
+/* ========== Responsive Adjustments ========== */
 @media (max-width: 768px) {
   body {
     background-size: cover;
     background-position: center;
   }
 }
-
-<!-- CLOCK FLIP -->
-.countdown-box {
-  width: 5rem;
-  min-width: 5rem;
-  text-align: center;
-}
-
-.flip-card {
-  position: relative;
-  width: 100%;
-  height: 4.5rem;
-  perspective: 1000px;
-}
-
-.top,
-.bottom,
-.flip-top,
-.flip-bottom {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50%;
-  font-size: 1.5rem;
-  font-weight: bold;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 0.25rem;
-  overflow: hidden;
-  color: white;
-}
-
-.top {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 2;
-}
-
-.bottom {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  transform: rotateX(180deg);
-  z-index: 1;
-}
-
-.flip {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transform-origin: top;
-  transition: transform 0.6s ease-in-out;
-  z-index: 3;
-}
-
-.flip.animate {
-  transform: rotateX(-180deg);
-}
-
-.flip-top,
-.flip-bottom {
-  width: 100%;
-  position: absolute;
-  backface-visibility: hidden;
-}
-
-.flip-top {
-  top: 0;
-}
-
-.flip-bottom {
-  bottom: 0;
-  transform: rotateX(180deg);
+/* ========== background ========== */
+.custom-background {
+  background-image: url('assets/greateststory/bg-teaserepisode.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 
-<!-- CLOCK FLIP END -->
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+@layer utilities {
+  @keyframes fade-up {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
-    </style>
+  .animate-fade-up {
+    animation: fade-up 0.6s ease-out both;
+  }
+}
+
+</style>
+
 </head>
 <body class="text-gray-800">
 
@@ -472,7 +410,7 @@
         <span style="color: #00f6ff; font-size: 2.5rem;" class="text-3xl sm:text-4xl md:text-5xl font-bold">RISE TOGETHER</span> 
         <span style="color: #ffffff; font-size: 2.5rem;" class="text-3xl sm:text-4xl md:text-5xl font-bold">AND CREATE</span> <br>
         <span style="color: #ffffff; font-size: 2.5rem;" class="text-3xl sm:text-4xl md:text-5xl font-bold">OUR</span>
-        <span style="color: #00f6ff; font-size: 2.5rem;" class="text-3xl sm:text-4xl md:text-5xl font-bold">GREATEST STORY</span>!
+        <span style="color: #00f6ff; font-size: 2.5rem;" class="text-3xl sm:text-4xl md:text-5xl font-bold">GREATEST STORY!</span>!
       </h2>
 
       <div class="flex flex-col sm:flex-row items-center justify-center space-x-4">
@@ -508,84 +446,103 @@
 
 <!-- The Greatest Story Teaser episodes -->
 
-<section class="py-12 bg-gray-100">
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-10">The Greatest Stories of V-Malaysia 2025</h2>
+<section class="relative py-12 bg-gray-100 overflow-hidden">
+  <!-- Background Layer -->
+  <div class="absolute inset-0 z-0">
+    <div class="w-full h-full bg-[url('assets/greateststory/bg-teaserepisode.png')] bg-no-repeat bg-center bg-cover"></div>
+  </div>
 
-    <div class="relative" id="carousel-wrapper">
-      <div id="carousel-featured" class="flex overflow-x-auto scroll-smooth snap-x snap-mandatory space-x-4 scrollbar-hide">
-        <!-- Repeat this block for 7 items -->
-        <a href="https://the-v.net/en/news?id=03042025-the-greatest-story-from-v-africa-2025-together-we-rise-1" target="_blank" rel="noopener noreferrer"
-           class="snap-start shrink-0 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 group block relative overflow-hidden rounded-xl shadow-lg">
-          <img src="assets/greateststory/03042025-v-africa2025-post-event-banner-1-vertical-v2.png"
-               class="w-full h-auto aspect-[2/3] object-cover transition-transform duration-300 group-hover:scale-105">
-          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-            <p class="text-white text-lg font-semibold px-4">Together We Rise!</p>
-          </div>
-        </a>
-        <!-- Repeat this block for 7 items -->
-        <a href="https://the-v.net/en/news?id=04032025-the-greatest-story-of-v-africa-2025-we-asked-vc-drigbe-kalo-and-vc-soma-drissa-gnanmia-their-favourite-moments" target="_blank" rel="noopener noreferrer"
-           class="snap-start shrink-0 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 group block relative overflow-hidden rounded-xl shadow-lg">
-          <img src="assets/greateststory/03202025-v-africa2025-post-event-banner-2-v3-vertical.png"
-               class="w-full h-auto aspect-[2/3] object-cover transition-transform duration-300 group-hover:scale-105">
-          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-            <p class="text-white text-lg font-semibold px-4">We Asked VC Drigbe Kalo and VC Soma Drissa Gnanmia Their Favourite Moments</p>
-          </div>
-        </a>
-        <!-- Repeat this block for 7 items -->
-        <a href="https://the-v.net/en/news?id=04072025-the-greatest-story-of-v-africa-2025-inservices-most-fulfilling-moments" target="_blank" rel="noopener noreferrer"
-           class="snap-start shrink-0 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 group block relative overflow-hidden rounded-xl shadow-lg">
-          <img src="assets/greateststory/04042025-v-africa2025-post-event-episode-3-v2-vertical.png"
-               class="w-full h-auto aspect-[2/3] object-cover transition-transform duration-300 group-hover:scale-105">
-          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-            <p class="text-white text-lg font-semibold px-4">InService’s Most Fulfilling Moments</p>
-          </div>
-        </a>
-        <!-- Repeat this block for 7 items -->
-        <a href="https://the-v.net/en/news?id=04112025-the-greatest-story-of-v-africa-2025-new-heights-for-our-network-leaders" target="_blank" rel="noopener noreferrer"
-           class="snap-start shrink-0 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 group block relative overflow-hidden rounded-xl shadow-lg">
-          <img src="assets/greateststory/04082025-v-africa2025-post-event-episode-4-vertical.png"
-               class="w-full h-auto aspect-[2/3] object-cover transition-transform duration-300 group-hover:scale-105">
-          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-            <p class="text-white text-lg font-semibold px-4">New Heights for our Network Leaders!</p>
-          </div>
-        </a>
-        <!-- Repeat this block for 7 items -->
-        <a href="https://the-v.net/en/news?id=04112025-the-greatest-story-of-v-africa-2025-unstoppable-women-unforgettable-moments" target="_blank" rel="noopener noreferrer"
-           class="snap-start shrink-0 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 group block relative overflow-hidden rounded-xl shadow-lg">
-          <img src="assets/greateststory/04102025-v-africa2025-post-event-episode-5-vertical.png"
-               class="w-full h-auto aspect-[2/3] object-cover transition-transform duration-300 group-hover:scale-105">
-          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-            <p class="text-white text-lg font-semibold px-4">Unstoppable Women, Unforgettable Moments</p>
-          </div>
-        </a>
-        <!-- Repeat this block for 7 items -->
-        <a href="https://the-v.net/en/news?id=03042025-the-greatest-story-from-v-africa-2025-together-we-rise-1" target="_blank" rel="noopener noreferrer"
-           class="snap-start shrink-0 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 group block relative overflow-hidden rounded-xl shadow-lg">
-          <img src="assets/greateststory/03042025-v-africa2025-post-event-banner-1-vertical-v2.png"
-               class="w-full h-auto aspect-[2/3] object-cover transition-transform duration-300 group-hover:scale-105">
-          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-            <p class="text-white text-lg font-semibold px-4">Together We Rise!</p>
-          </div>
-        </a>
-        <!-- Repeat this block for 7 items -->
-        <a href="https://the-v.net/en/news?id=03042025-the-greatest-story-from-v-africa-2025-together-we-rise-1" target="_blank" rel="noopener noreferrer"
-           class="snap-start shrink-0 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 group block relative overflow-hidden rounded-xl shadow-lg">
-          <img src="assets/greateststory/03042025-v-africa2025-post-event-banner-1-vertical-v2.png"
-               class="w-full h-auto aspect-[2/3] object-cover transition-transform duration-300 group-hover:scale-105">
-          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-            <p class="text-white text-lg font-semibold px-4">Together We Rise!</p>
-          </div>
-        </a>
-        <!-- ... More slides ... -->
+  <!-- Content Layer -->
+  <div class="relative z-10 container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-[#00666a] text-center mb-10">
+      THE GREATEST STORIES OF V-MALAYSIA 2025
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+      <!-- Item 1 -->
+		<a href="https://the-v.net/en/news?id=03042025-the-greatest-story-from-v-africa-2025-together-we-rise-1">
+			<div class="flex bg-[#a05c11] bg-opacity-60 rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-all duration-300">
+				<div class="w-1/3 flex justify-center items-center">
+					<img id="story1-img" src="assets/greateststory/03042025-the-greatest-story-from-v-africa-2025-together-we-rise.png" alt="Story 1" class="w-full h-auto object-contain rounded-lg">
+				</div>
+					<div class="w-2/3 flex flex-col justify-center pl-5 py-2">
+						<p class="text-lg font-semibold text-white">Together We Rise!</p>
+						<p class="text-sm text-white">This is the greatest story about how V-Africa united and overcame challenges together to achieve greater heights.</p>
+				</div>
+			</div>
+		</a>
+      <!-- Item 2 -->
+	  <a href="https://the-v.net/en/news?id=04032025-the-greatest-story-of-v-africa-2025-we-asked-vc-drigbe-kalo-and-vc-soma-drissa-gnanmia-their-favourite-moments">
+      <div class="flex bg-[#00666a] bg-opacity-60 rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-all duration-300">
+        <div class="w-1/3 flex justify-center items-center">
+          <img id="story2-img" src="assets/greateststory/04022025-the-greatest-story-of-v-africa-2025-we-asked-vc-drigbe-kalo-and-vc-soma-drissa-gnanmia-their-favourite-moments.png" alt="Story 2" class="w-full h-auto object-contain rounded-lg">
+        </div>
+        <div class="w-2/3 flex flex-col justify-center pl-5 py-2">
+          <p class="text-lg font-semibold text-white">We Asked VC Drigbe Kalo and VC Soma Drissa Gnanmia Their Favourite Moments</p>
+          <p class="text-sm text-white">Hear from the leaders themselves about their most memorable experiences and how they shaped the future of V-Africa.</p>
+        </div>
       </div>
+	  </a>
 
-      <!-- Nav Buttons -->
-      <button id="featured-prev" class="absolute left-0 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-80 text-white px-3 py-1 rounded-full z-10">❮</button>
-      <button id="featured-next" class="absolute right-0 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-80 text-white px-3 py-1 rounded-full z-10">❯</button>
+      <!-- Item 3 -->
+	  <a href="https://the-v.net/en/news?id=04072025-the-greatest-story-of-v-africa-2025-inservices-most-fulfilling-moments">
+      <div class="flex bg-[#a05c11] bg-opacity-60 rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-all duration-300">
+        <div class="w-1/3 flex justify-center items-center">
+          <img id="story3-img" src="assets/greateststory/04072025-the-greatest-story-of-v-africa-2025-inservices-most-fulfilling-moments.png" alt="Story 3" class="w-full h-auto object-contain rounded-lg">
+        </div>
+        <div class="w-2/3 flex flex-col justify-center pl-5 py-2">
+          <p class="text-lg font-semibold text-white">InService’s Most Fulfilling Moments</p>
+          <p class="text-sm text-white">In this section, we explore some of the most fulfilling moments in the journey of V-Africa’s service projects.</p>
+        </div>
+      </div>
+	</a>
+      <!-- Item 4 -->
+	  <a href="https://the-v.net/en/news?id=04112025-the-greatest-story-of-v-africa-2025-unstoppable-women-unforgettable-moments">
+      <div class="flex bg-[#00666a] bg-opacity-60 rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-all duration-300">
+        <div class="w-1/3 flex justify-center items-center">
+          <img id="story4-img" src="assets/greateststory/04112025-the-greatest-story-of-v-africa-2025-unstoppable-women-unforgettable-moments.png" alt="Story 4" class="w-full h-auto object-contain rounded-lg">
+        </div>
+        <div class="w-2/3 flex flex-col justify-center pl-5 py-2">
+          <p class="text-lg font-semibold text-white">Unstoppable Women, Unforgettable Moments</p>
+          <p class="text-sm text-white">Celebrate the unstoppable women who made a huge impact and left unforgettable memories across Africa.</p>
+        </div>
+      </div>
+	</a>
+      <!-- Item 5 -->
+	  <a href="https://the-v.net/en/news?id=04112025-the-greatest-story-of-v-africa-2025-new-heights-for-our-network-leaders">
+      <div class="flex bg-[#a05c11] bg-opacity-60 rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-all duration-300">
+        <div class="w-1/3 flex justify-center items-center">
+          <img id="story5-img" src="assets/greateststory/04112025-the-greatest-story-of-v-africa-2025-new-heights-for-our-network-leaders.png" alt="Story 5" class="w-full h-auto object-contain rounded-lg">
+        </div>
+        <div class="w-2/3 flex flex-col justify-center pl-5 py-2">
+          <p class="text-lg font-semibold text-white">New Heights for our Network Leaders!</p>
+          <p class="text-sm text-white">Our network leaders reached new heights, facing challenges head-on and inspiring others to do the same.</p>
+        </div>
+      </div>
+	</a>
+      <!-- Item 6 -->
+		<a href="https://the-v.net/en/news?id=03042025-the-greatest-story-from-v-africa-2025-together-we-rise-1">
+      <div class="flex bg-[#00666a] bg-opacity-60 rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-all duration-300">
+        <div class="w-1/3 flex justify-center items-center">
+          <img id="story6-img" src="assets/greateststory/03042025-the-greatest-story-from-v-africa-2025-together-we-rise.png" alt="Story 6" class="w-full h-auto object-contain rounded-lg">
+        </div>
+        <div class="w-2/3 flex flex-col justify-center pl-5 py-2">
+          <p class="text-lg font-semibold text-white">Together We Rise!</p>
+          <p class="text-sm text-white">Another chapter of unity and growth, as the African community rallies together for a brighter future.</p>
+        </div>
+      </div>
+	</a>
     </div>
   </div>
 </section>
+
+
+
+
+
+
+
+
 
 
 
@@ -775,7 +732,7 @@
     </section>
 
     <!-- Gallery Section -->
-<section class="py-16 bg-gray-100">
+<section class="py-16 bg-gray-100 ">
   <div class="container mx-auto px-4">
     <div class="text-center mb-16">
       <h2 class="text-3xl md:text-4xl font-bold mb-4">See the amazing photos!</h2>
@@ -1575,455 +1532,300 @@
     </footer> -->
 
     <script>
-	
-	//menu Button
-	
-	  const menuToggle = document.getElementById('menuToggle');
-	  const mobileMenu = document.getElementById('mobileMenu');
-	  const langToggle = document.getElementById('langToggle');
-	  const langMenu = document.getElementById('langMenu');
-
-	  menuToggle.addEventListener('click', () => {
-		mobileMenu.classList.toggle('hidden');
-	  });
-
-	  langToggle.addEventListener('click', () => {
-		langMenu.classList.toggle('hidden');
-	  });
-
-	//end menu button
-	
-	//gallery Scroll
-	
-	
-  const gallery = document.getElementById('galleryScroll');
-
-  function scrollGallery(direction) {
-    const scrollAmount = 300;
-    gallery.scrollBy({
-      left: direction * scrollAmount,
-      behavior: 'smooth'
-    });
+ //change photo mobile
+ // Function to change image based on screen size
+  function changeImageForMobile() {
+    if (window.innerWidth <= 640) {
+      // Mobile view: Change images
+      document.getElementById('story1-img').src = "assets/greateststory/03042025-v-africa2025-post-event-banner-1-vertical-v2.png"; // Mobile image for Item 1
+      document.getElementById('story2-img').src = "assets/greateststory/03202025-v-africa2025-post-event-banner-2-v3-vertical.png"; // Mobile image for Item 2
+      document.getElementById('story3-img').src = "assets/greateststory/04042025-v-africa2025-post-event-episode-3-v2-vertical.png"; // Mobile image for Item 3
+      document.getElementById('story4-img').src = "assets/greateststory/04102025-v-africa2025-post-event-episode-5-vertical.png"; // Mobile image for Item 4
+      document.getElementById('story5-img').src = "assets/greateststory/04082025-v-africa2025-post-event-episode-4-vertical.png"; // Mobile image for Item 5
+      document.getElementById('story6-img').src = "assets/greateststory/03042025-v-africa2025-post-event-banner-1-vertical-v2.png"; // Mobile image for Item 6
+    } else {
+      // Desktop view: Change images back to default
+      document.getElementById('story1-img').src = "assets/greateststory/03042025-the-greatest-story-from-v-africa-2025-together-we-rise.png"; // Default desktop image for Item 1
+      document.getElementById('story2-img').src = "assets/greateststory/04022025-the-greatest-story-of-v-africa-2025-we-asked-vc-drigbe-kalo-and-vc-soma-drissa-gnanmia-their-favourite-moments.png"; // Default desktop image for Item 2
+      document.getElementById('story3-img').src = "assets/greateststory/04072025-the-greatest-story-of-v-africa-2025-inservices-most-fulfilling-moments.png"; // Default desktop image for Item 3
+      document.getElementById('story4-img').src = "assets/greateststory/04112025-the-greatest-story-of-v-africa-2025-unstoppable-women-unforgettable-moments.png"; // Default desktop image for Item 4
+      document.getElementById('story5-img').src = "assets/greateststory/04112025-the-greatest-story-of-v-africa-2025-new-heights-for-our-network-leaders.png"; // Default desktop image for Item 5
+      document.getElementById('story6-img').src = "assets/greateststory/03042025-the-greatest-story-from-v-africa-2025-together-we-rise.png"; // Default desktop image for Item 6
+    }
   }
 
-  // Auto-scroll every 5 seconds
+  // Call function on load and resize
+  window.addEventListener('load', changeImageForMobile);
+  window.addEventListener('resize', changeImageForMobile);
+ 
+ 
+
+  // Menu toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const langToggle = document.getElementById('langToggle');
+  const langMenu = document.getElementById('langMenu');
+
+  menuToggle?.addEventListener('click', () => mobileMenu?.classList.toggle('hidden'));
+  langToggle?.addEventListener('click', () => langMenu?.classList.toggle('hidden'));
+
+  // Gallery scroll
+  const gallery = document.getElementById('galleryScroll');
+  const scrollAmount = 300;
+
+  function scrollGallery(direction) {
+    gallery?.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+  }
+
   let autoScroll = setInterval(() => {
-    if (gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth - 1) {
+    if (gallery?.scrollLeft + gallery.clientWidth >= gallery.scrollWidth - 1) {
       gallery.scrollTo({ left: 0, behavior: 'smooth' });
     } else {
-      gallery.scrollBy({ left: 300, behavior: 'smooth' });
+      gallery?.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   }, 5000);
 
-  // Touch swipe support
   let startX = 0;
-  gallery.addEventListener('touchstart', (e) => {
-    startX = e.touches[0].clientX;
-  });
-  gallery.addEventListener('touchend', (e) => {
-    const endX = e.changedTouches[0].clientX;
-    const diff = endX - startX;
-    if (Math.abs(diff) > 50) {
-      diff < 0 ? scrollGallery(1) : scrollGallery(-1);
-    }
+  gallery?.addEventListener('touchstart', (e) => startX = e.touches[0].clientX);
+  gallery?.addEventListener('touchend', (e) => {
+    const diff = e.changedTouches[0].clientX - startX;
+    if (Math.abs(diff) > 50) scrollGallery(diff < 0 ? 1 : -1);
   });
 
-
-	
-	//end gallery scroll
-
-    // video to showRound
-
-
-    const videoSwiper = new Swiper('.videoSwiper', {
-  loop: true,
-  autoplay: { delay: 5000 },
-  pagination: { el: '.swiper-pagination', clickable: true },
-});
-
-const articleSwiper = new Swiper('.articleSwiper', {
-  loop: true,
-  autoplay: { delay: 6000 },
-  pagination: { el: '.swiper-pagination', clickable: true },
-});
-
-    //swiper
-    const swiper = new Swiper('.adSwiper', {
+  // Swipers
+  const videoSwiper = new Swiper('.videoSwiper', {
     loop: true,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
+    autoplay: { delay: 5000 },
+    pagination: { el: '.swiper-pagination', clickable: true },
+  });
+
+  const articleSwiper = new Swiper('.articleSwiper', {
+    loop: true,
+    autoplay: { delay: 6000 },
+    pagination: { el: '.swiper-pagination', clickable: true },
+  });
+
+  const adSwiper = new Swiper('.adSwiper', {
+    loop: true,
+    autoplay: { delay: 3000, disableOnInteraction: false },
     effect: 'fade',
     fadeEffect: { crossFade: true },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
+    pagination: { el: '.swiper-pagination', clickable: true },
+    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
   });
 
-    // Show the floating text button (if needed)
+  // Floating text button
   document.getElementById("floatingTextBtn").style.display = "block";
-
-  // Close the floating text button when the close button is clicked
-  document.getElementById("closeBtn").addEventListener("click", function() {
-    document.getElementById("floatingTextBtn").style.display = "none"; // Hide the floating button
+  document.getElementById("closeBtn")?.addEventListener("click", () => {
+    document.getElementById("floatingTextBtn").style.display = "none";
   });
 
-    // JavaScript for handling the collapsible FAQ items
-    const questions = document.querySelectorAll('.faq-question');
+  // FAQ toggle
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', function () {
+      const currentAnswer = this.nextElementSibling;
+      const currentIcon = this.querySelector('.icon');
 
-   questions.forEach(btn => {
-     btn.addEventListener('click', function () {
-       const currentAnswer = this.nextElementSibling;
-       const currentIcon = this.querySelector('.icon');
-
-       // Collapse all other answers
-       document.querySelectorAll('.faq-answer').forEach((el, i) => {
-         if (el !== currentAnswer) {
-           el.style.maxHeight = null;
-           el.previousElementSibling.querySelector('.icon').textContent = '+';
-         }
-       });
-
-       // Toggle current answer
-       if (currentAnswer.style.maxHeight) {
-         currentAnswer.style.maxHeight = null;
-         currentIcon.textContent = '+';
-       } else {
-         currentAnswer.style.maxHeight = currentAnswer.scrollHeight + 'px';
-         currentIcon.textContent = '−';
-       }
-     });
-   });
-
-    // Show the first round when "Start Game" button is clicked
-    document.getElementById('startGameBtn').addEventListener('click', function() {
-        document.getElementById('startGameSection').classList.add('hidden'); // Hide start button
-        document.getElementById('rounds').classList.remove('hidden'); // Show rounds
-        showRound(1); // Start with the first round
-    });
-
-    // Function to show round
-    function showRound(round) {
-        const rounds = document.querySelectorAll('.round');
-        rounds.forEach((roundElement, index) => {
-            roundElement.classList.add('hidden');
-            if (index === round - 1) {
-                roundElement.classList.remove('hidden');
-            }
-        });
-    }
-
-    // Function to handle next round navigation
-    function nextRound(round) {
-        showRound(round + 1); // Show the next round
-        if (round === 12) {
-            document.getElementById('submitBtn').classList.remove('hidden'); // Show submit button after the last round
+      document.querySelectorAll('.faq-answer').forEach(el => {
+        if (el !== currentAnswer) {
+          el.style.maxHeight = null;
+          el.previousElementSibling.querySelector('.icon').textContent = '+';
         }
-    }
+      });
 
-    const players = [];
+      if (currentAnswer.style.maxHeight) {
+        currentAnswer.style.maxHeight = null;
+        currentIcon.textContent = '+';
+      } else {
+        currentAnswer.style.maxHeight = currentAnswer.scrollHeight + 'px';
+        currentIcon.textContent = '−';
+      }
+    });
+  });
+
+  // Game rounds
+  document.getElementById('startGameBtn')?.addEventListener('click', () => {
+    document.getElementById('startGameSection')?.classList.add('hidden');
+    document.getElementById('rounds')?.classList.remove('hidden');
+    showRound(1);
+  });
+
+  function showRound(round) {
+    document.querySelectorAll('.round').forEach((el, i) => {
+      el.classList.toggle('hidden', i !== round - 1);
+    });
+  }
+
+  function nextRound(round) {
+    showRound(round + 1);
+    if (round === 12) {
+      document.getElementById('submitBtn')?.classList.remove('hidden');
+    }
+  }
+
+  // VideoJS handling
+  const players = [];
 
   window.addEventListener('load', () => {
-    const tags = document.querySelectorAll('video-js');
-
-    tags.forEach(tag => {
+    document.querySelectorAll('video-js').forEach(tag => {
       const player = videojs(tag);
       players.push(player);
 
       player.ready(() => {
         player.on('play', () => {
-          // Pause other players
-          players.forEach(p => {
-            if (p !== player) p.pause();
-          });
+          players.forEach(p => { if (p !== player) p.pause(); });
 
-          // Fullscreen on mobile
           const isMobile = window.matchMedia("(max-width: 768px)").matches;
           const el = player.el();
 
-          if (isMobile && el && el.requestFullscreen) {
-            el.requestFullscreen().catch(() => {
-              // Some browsers require user gesture, so silently fail
-            });
+          if (isMobile && el?.requestFullscreen) {
+            el.requestFullscreen().catch(() => {});
           }
         });
       });
     });
   });
 
+  function revealMoreVideos() {
+    const hiddenVideos = document.querySelectorAll('.video-item.hidden');
+    const toShow = Array.from(hiddenVideos).slice(0, 3);
 
-  function loadMoreVideos() {
-    const hiddenVideos = document.querySelectorAll('#videoGrid > .hidden');
-    hiddenVideos.forEach((el, i) => {
-      if (i < 3) el.classList.remove('hidden');
+    toShow.forEach(video => {
+      video.classList.remove('hidden');
+      video.classList.add('fade-in');
     });
 
-    if (document.querySelectorAll('#videoGrid > .hidden').length === 0) {
-      event.target.style.display = 'none';
+    if (toShow.length > 0) {
+      toShow[toShow.length - 1].scrollIntoView({ behavior: 'smooth' });
+    }
+
+    if (document.querySelectorAll('.video-item.hidden').length === 0) {
+      const button = document.querySelector('button[onclick="loadMoreVideos()"]');
+      if (button) {
+        button.innerText = "No More Videos";
+        button.disabled = true;
+        button.classList.add("opacity-50", "cursor-not-allowed");
+      }
     }
   }
 
-  if (document.querySelectorAll('.video-item.hidden').length === 0) {
-  const button = document.querySelector('button[onclick="loadMoreVideos()"]');
-  button.innerText = "No More Videos";
-  button.disabled = true;
-  button.classList.add("opacity-50", "cursor-not-allowed");
-}
+  // Countdown
+  const targetDate = new Date('June 20, 2025 00:00:00').getTime();
 
-// show more video
-
-let shownCount = 0;
-const videosPerClick = 3;
-
-function revealMoreVideos() {
-  const hiddenVideos = document.querySelectorAll('.video-item.hidden');
-  const toShow = Array.from(hiddenVideos).slice(0, videosPerClick);
-
-  // Reveal the videos
-  toShow.forEach(video => {
-    video.classList.remove('hidden');
-    video.classList.add('fade-in');
-  });
-
-  // Scroll to the newly revealed videos (not the whole page)
-  if (toShow.length > 0) {
-    const lastRevealedVideo = toShow[toShow.length - 1];
-    lastRevealedVideo.scrollIntoView({ behavior: 'smooth' });
-  }
-
-  // Update the number of shown videos
-  shownCount += toShow.length;
-
-  // Hide the "Load More" button if no more videos left
-  if (document.querySelectorAll('.video-item.hidden').length === 0) {
-    document.querySelector('button').style.display = 'none';
-  }
-}
-
-        // Countdown Timer
-        // Target date: June 20, 2025 at midnight (make sure this is in UTC)
-  const targetDate = new Date(Date.UTC(2025, 5, 20, 0, 0, 0));  // Note: Months are 0-indexed in JS
-
-  // Function to update the countdown
   function updateCountdown() {
-    const now = new Date().getTime();  // Get current time in milliseconds
-    const distance = targetDate - now; // Calculate the time difference
+    const now = new Date().getTime();
+    const distance = targetDate - now;
 
-    if (distance <= 0) {  // If time is up
-      document.getElementById("days").textContent = "00";
-      document.getElementById("hours").textContent = "00";
-      document.getElementById("minutes").textContent = "00";
-      document.getElementById("seconds").textContent = "00";
+    const updateText = (id, val) => document.getElementById(id).textContent = String(val).padStart(2, "0");
+
+    if (distance <= 0) {
+      ["days", "hours", "minutes", "seconds"].forEach(id => updateText(id, 0));
       return;
     }
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24)); // Calculate days
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); // Calculate hours
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)); // Calculate minutes
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000); // Calculate seconds
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    // Update the countdown on the page
-    document.getElementById("days").textContent = String(days).padStart(2, "0");
-    document.getElementById("hours").textContent = String(hours).padStart(2, "0");
-    document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
-    document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+    updateText("days", days);
+    updateText("hours", hours);
+    updateText("minutes", minutes);
+    updateText("seconds", seconds);
   }
 
-  // Initialize the countdown immediately
   updateCountdown();
-
-  // Update the countdown every second
   setInterval(updateCountdown, 1000);
-		
-		//flipcard Timer
-		
-		<!-- const targetDate = new Date("2025-06-20T00:00:00").getTime(); -->
 
-		  <!-- function updateCountdown() { -->
-			<!-- const now = new Date().getTime(); -->
-			<!-- const distance = targetDate - now; -->
+  // Mobile nav menu
+  const mobileMenuButton = document.querySelector('button.md\\:hidden');
+  const navLinks = document.querySelector('nav.hidden');
 
-			<!-- if (distance <= 0) return; -->
-
-			<!-- const d = Math.floor(distance / (1000 * 60 * 60 * 24)); -->
-			<!-- const h = Math.floor((distance / (1000 * 60 * 60)) % 24); -->
-			<!-- const m = Math.floor((distance / (1000 * 60)) % 60); -->
-			<!-- const s = Math.floor((distance / 1000) % 60); -->
-
-			<!-- flipTo("days", d); -->
-			<!-- flipTo("hours", h); -->
-			<!-- flipTo("minutes", m); -->
-			<!-- flipTo("seconds", s); -->
-		  <!-- } -->
-
-		  <!-- function flipTo(id, newValue) { -->
-			<!-- const top = document.getElementById(`${id}-top`); -->
-			<!-- const bottom = document.getElementById(`${id}-bottom`); -->
-			<!-- const flip = document.getElementById(`${id}-flip`); -->
-			<!-- const flipTop = flip.querySelector(".flip-top"); -->
-			<!-- const flipBottom = flip.querySelector(".flip-bottom"); -->
-
-			<!-- const formattedValue = String(newValue).padStart(2, "0"); -->
-			<!-- if (top.textContent === formattedValue) return; -->
-
-			<!-- flipTop.textContent = top.textContent; -->
-			<!-- flipBottom.textContent = formattedValue; -->
-
-			<!-- flip.classList.add("animate"); -->
-
-			<!-- setTimeout(() => { -->
-			  <!-- top.textContent = formattedValue; -->
-			  <!-- bottom.textContent = formattedValue; -->
-			  <!-- flip.classList.remove("animate"); -->
-			<!-- }, 600); -->
-		  <!-- } -->
-
-		  <!-- updateCountdown(); -->
-		  <!-- setInterval(updateCountdown, 1000); -->
-		
-		//flipcard time
-
-        // Mobile Menu Toggle
-        const mobileMenuButton = document.querySelector('button.md\\:hidden');
-        const navLinks = document.querySelector('nav.hidden');
-
-        mobileMenuButton.addEventListener('click', () => {
-            navLinks.classList.toggle('hidden');
-            navLinks.classList.toggle('flex');
-            navLinks.classList.toggle('flex-col');
-            navLinks.classList.toggle('absolute');
-            navLinks.classList.toggle('top-16');
-            navLinks.classList.toggle('left-0');
-            navLinks.classList.toggle('right-0');
-            navLinks.classList.toggle('bg-black');
-            navLinks.classList.toggle('py-4');
-            navLinks.classList.toggle('px-8');
-            navLinks.classList.toggle('space-y-4');
-            navLinks.classList.toggle('space-x-8');
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        //article with auto and scroll
-        const carousel = document.getElementById('carousel');
-    const wrapper = document.getElementById('carouselWrapper');
-    const cards = carousel.querySelectorAll('.card');
-    let index = 0;
-    let intervalId;
-
-    function scrollToCard(direction = 1) {
-  index = (index + direction + cards.length) % cards.length;
-  carousel.scrollTo({
-    left: cards[index].offsetLeft,
-    behavior: 'smooth'
+  mobileMenuButton?.addEventListener('click', () => {
+    ['hidden', 'flex', 'flex-col', 'absolute', 'top-16', 'left-0', 'right-0', 'bg-black', 'py-4', 'px-8', 'space-y-4', 'space-x-8']
+      .forEach(cls => navLinks?.classList.toggle(cls));
   });
-}
 
-    function startAutoplay() {
-      intervalId = setInterval(() => scrollToCard(1), 3000);
-    }
-
-    function stopAutoplay() {
-      clearInterval(intervalId);
-    }
-
-    // Start autoplay
-    startAutoplay();
-
-    // Pause on hover
-    wrapper.addEventListener('mouseenter', stopAutoplay);
-    wrapper.addEventListener('mouseleave', startAutoplay);
-
-    // Swipe support
-    let startX = 0;
-    carousel.addEventListener('touchstart', e => startX = e.touches[0].clientX);
-    carousel.addEventListener('touchend', e => {
-      const endX = e.changedTouches[0].clientX;
-      if (endX - startX > 50) scrollToCard(-1); // swipe right
-      else if (startX - endX > 50) scrollToCard(1); // swipe left
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
     });
+  });
 
-    // carousel with the greatest Story
+  // Carousel autoplay
+  const carousel = document.getElementById('carousel');
+  const wrapper = document.getElementById('carouselWrapper');
+  const cards = carousel?.querySelectorAll('.card');
+  let index = 0, intervalId;
 
+  function scrollToCard(direction = 1) {
+    if (!cards?.length) return;
+    index = (index + direction + cards.length) % cards.length;
+    carousel.scrollTo({ left: cards[index].offsetLeft, behavior: 'smooth' });
+  }
 
-    const carousel2 = document.getElementById('carousel-featured');
-    const wrapper2 = document.getElementById('carousel-wrapper');
-    const next2 = document.getElementById('featured-next');
-    const prev2 = document.getElementById('featured-prev');
-    const slideWidth2 = carousel2.querySelector('div').offsetWidth + 16;
+  function startAutoplay() { intervalId = setInterval(() => scrollToCard(1), 3000); }
+  function stopAutoplay() { clearInterval(intervalId); }
 
-    let autoplayInterval2;
-    let isHovered2 = false;
+  wrapper?.addEventListener('mouseenter', stopAutoplay);
+  wrapper?.addEventListener('mouseleave', startAutoplay);
+  startAutoplay();
 
-    function scrollNext2() {
-      const maxScrollLeft = carousel2.scrollWidth - carousel2.clientWidth;
-      if (carousel2.scrollLeft + slideWidth2 >= maxScrollLeft) {
-        carousel2.scrollTo({ left: 0, behavior: 'smooth' }); // loop to start
-      } else {
-        carousel2.scrollBy({ left: slideWidth2, behavior: 'smooth' });
-      }
+  let startX3 = 0;
+  carousel?.addEventListener('touchstart', e => startX3 = e.touches[0].clientX);
+  carousel?.addEventListener('touchend', e => {
+    const endX = e.changedTouches[0].clientX;
+    if (endX - startX3 > 50) scrollToCard(-1);
+    else if (startX3 - endX > 50) scrollToCard(1);
+  });
+
+  // Featured carousel
+  const carousel2 = document.getElementById('carousel-featured');
+  const wrapper2 = document.getElementById('carousel-wrapper');
+  const next2 = document.getElementById('featured-next');
+  const prev2 = document.getElementById('featured-prev');
+  const slideWidth2 = carousel2?.querySelector('div')?.offsetWidth + 16 || 0;
+
+  let autoplayInterval2, isHovered2 = false;
+
+  function scrollNext2() {
+    const maxScrollLeft = carousel2.scrollWidth - carousel2.clientWidth;
+    if (carousel2.scrollLeft + slideWidth2 >= maxScrollLeft) {
+      carousel2.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+      carousel2.scrollBy({ left: slideWidth2, behavior: 'smooth' });
     }
+  }
 
-    function scrollPrev2() {
-      if (carousel2.scrollLeft <= 0) {
-        carousel2.scrollTo({ left: carousel2.scrollWidth, behavior: 'smooth' }); // loop to end
-      } else {
-        carousel2.scrollBy({ left: -slideWidth2, behavior: 'smooth' });
-      }
+  function scrollPrev2() {
+    if (carousel2.scrollLeft <= 0) {
+      carousel2.scrollTo({ left: carousel2.scrollWidth, behavior: 'smooth' });
+    } else {
+      carousel2.scrollBy({ left: -slideWidth2, behavior: 'smooth' });
     }
+  }
 
-    next2.addEventListener('click', scrollNext2);
-    prev2.addEventListener('click', scrollPrev2);
+  next2?.addEventListener('click', scrollNext2);
+  prev2?.addEventListener('click', scrollPrev2);
 
-    function startAutoplay2() {
-      autoplayInterval2 = setInterval(() => {
-        if (!isHovered2) scrollNext2();
-      }, 4000);
-    }
+  function startAutoplay2() { autoplayInterval2 = setInterval(() => { if (!isHovered2) scrollNext2(); }, 4000); }
+  function stopAutoplay2() { clearInterval(autoplayInterval2); }
 
-    function stopAutoplay2() {
-      clearInterval(autoplayInterval2);
-    }
+  wrapper2?.addEventListener('mouseenter', () => { isHovered2 = true; });
+  wrapper2?.addEventListener('mouseleave', () => { isHovered2 = false; });
 
-    wrapper2.addEventListener('mouseenter', () => { isHovered2 = true; });
-    wrapper2.addEventListener('mouseleave', () => { isHovered2 = false; });
+  let startX2 = 0;
+  carousel2?.addEventListener('touchstart', e => startX2 = e.touches[0].clientX);
+  carousel2?.addEventListener('touchend', e => {
+    const endX2 = e.changedTouches[0].clientX;
+    if (startX2 - endX2 > 50) scrollNext2();
+    else if (endX2 - startX2 > 50) scrollPrev2();
+  });
 
-    // Swipe support
-    let startX2 = 0;
+  startAutoplay2();
+</script>
 
-    carousel2.addEventListener('touchstart', e => {
-      startX2 = e.touches[0].clientX;
-    });
-
-    carousel2.addEventListener('touchend', e => {
-      let endX2 = e.changedTouches[0].clientX;
-      if (startX2 - endX2 > 50) scrollNext2();
-      else if (endX2 - startX2 > 50) scrollPrev2();
-    });
-
-    startAutoplay2();
-
-
-
-
-
-
-
-    </script>
 </body>
 </html>
