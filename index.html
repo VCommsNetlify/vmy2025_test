@@ -119,28 +119,53 @@ html {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  gap: 16px;
+  
   padding: 10px;
   scroll-behavior: smooth;
+    gap: 1rem;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 2rem;
 }
+
+ .carousel-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+	transition: all 0.3s ease-in-out;
+  }
+
 
 .carousel::-webkit-scrollbar {
   display: none;
 }
 
 .card {
-  flex: 0 0 auto;
+    flex: 0 0 48%; /* 2 cards per row on desktop */
+    margin-bottom: 1rem;
   width: 300px;
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   scroll-snap-align: start;
   transition: transform 0.3s;
+  
 }
 
 .card:hover {
   transform: scale(1.03);
 }
+
+  .card img:hover {
+    transform: scale(1.05);
+  }
+
+  .carousel-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+	
+  }
 
 .card img {
   width: 100%;
@@ -148,6 +173,7 @@ html {
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
   object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
 .card-content {
@@ -163,17 +189,11 @@ html {
 }
 
 .arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 28px;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 1;
+    font-size: 2rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
 }
 
 .arrow.left {
@@ -390,8 +410,52 @@ html {
 		margin-bottom: 0;
 	  }
 	  
+	  .carousel-row {
+      flex-direction: column;
+      gap: 0;
     }
 
+    .card {
+      width: 100%;
+    }
+
+    .carousel-wrapper {
+      overflow-x: auto;
+    }
+	
+	    .card {
+      width: 100% !important;
+    }
+	  
+    }
+
+	.article-swiper .swiper-pagination {
+	  position: absolute;
+	  bottom: 10px; /* Adjust position based on your design */
+	  left: 50%;
+	  transform: translateX(-50%);
+	  z-index: 10; /* Ensure it appears above other elements */
+	  display: block; /* Make sure it's not hidden */
+	}
+
+	/* Style for pagination dots */
+	.article-swiper .swiper-pagination-bullet {
+	  width: 12px; /* Adjust size */
+	  height: 12px; /* Adjust size */
+	  background-color: #00666a; /* Change color */
+	  opacity: 0.7; /* Adjust transparency */
+	  transition: background-color 0.3s;
+	}
+
+	/* Active pagination dot */
+	.article-swiper .swiper-pagination-bullet-active {
+	  background-color: #e60000; /* Change active dot color */
+	  opacity: 1;
+	}
+	
+	.article-swiper .swiper-wrapper {
+  min-height: 300px; /* Adjust the height as needed */
+}
 </style>
 
 </head>
@@ -743,87 +807,154 @@ html {
 </section>
 
     <!--  NEWS AND UPDATE Section -->
-    <section class="py-16 newsupdates" style="background-image: url('assets/news/BG-videohighlights.png'); background-position: top;>
-        <div class="container mx-auto px-4">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
 
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Read the latest news!</h2>
-                <div class="w-20 h-1 bg-red-600 mx-auto"></div>
-            </div>
-            <div class="flex flex-col md:flex-row items-center gap-8">
+<section class="py-16 newsupdates" style="background-image: url('assets/news/BG-videohighlights.png'); background-position: top;">
+  <div class="container mx-auto px-4">
+		<div class="text-center mb-12">
+			  <h2 class="text-3xl md:text-4xl bg-[#c87f15] font-bold text-white mb-4">ARTICLES!</h2>
+			</div>
+    <!-- Featured Article Section -->
+    <div class="max-w-4xl mx-auto mb-16 text-center">
+      <div class="relative w-full h-[50vh] rounded-lg overflow-hidden mb-6">
+        <img src="assets/news/04232025-vturkiye2025-day-1-dream-decide-rise.png" alt="Featured Article" class="absolute top-0 left-0 w-full h-full object-cover">
+      </div>
+      <div class="text-[#00666a]">
+        <h3 class="text-2xl font-semibold mb-4">#VTÜRKIYE2025 DAY 1: Dream, Decide, Rise</h3>
+        <p class="text-lg">V-Convention goes to Türkiye!</p>
+      </div>
+    </div>
 
-                <div class="carousel-wrapper" id="carouselWrapper">
-                  <button class="arrow left" onclick="scrollToCard(-1)">&#10094;</button>
-                  <div class="carousel" id="carousel">
-                    <div class="card">
-                      <img src="assets/news/04232025-v-turkiye-2025-highlights-day-1-unbelievable-in-istanbul.jpg" alt="Article 1" class="rounded-lg shadow-xl hover-scale">
-                      <div class="card-content">
-                        <h3>V-TÜRKİYE 2025 Highlights DAY 1: Unbelievable in Istanbul</h3>
-                        <p>Check out the Day 1 highlights here!</p><a href="https://the-v.net/en/news?id=04232025-v-turkiye-2025-highlights-day-1-unbelievable-in-istanbul">
-                        <button class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
-                            READ MORE
-                        </button></a>
-                      </div>
-                    </div>
-                    <div class="card">
-                      <img src="assets/news/04252025-v-turkiye-2025-highlights-day-2-driven-by-dreams.png" alt="Article 2" class="rounded-lg shadow-xl hover-scale">
-                      <div class="card-content">
-                        <h3>V-TÜRKİYE 2025 Highlights DAY 2: Driven by Dreams</h3>
-                        <p>Our Day 2 highlights are here!</p><a href="https://the-v.net/en/news?id=04252025-v-turkiye-2025-highlights-day-2-driven-by-dreams">
-                        <button class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
-                            READ MORE
-                        </button></a>
-                      </div>
-                    </div>
-                    <div class="card">
-                      <img src="assets/news/04302025-v-turkiye-2025-highlights-day-3-a-fearless-finish.png" alt="Article 3" class="rounded-lg shadow-xl hover-scale">
-                      <div class="card-content">
-                        <h3>V-TÜRKİYE 2025 Highlights DAY 3: A Fearless Finish</h3>
-                        <p>Check out the Day 3 highlights here!</p><a href="https://the-v.net/en/news?id=04302025-v-turkiye-2025-highlights-day-3-a-fearless-finish">
-                        <button class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
-                            READ MORE
-                        </button></a>
-                      </div>
-                    </div>
-                    <div class="card">
-                      <img src="assets/news/04232025-vturkiye2025-day-1-dream-decide-rise.png" alt="Article 4" class="rounded-lg shadow-xl hover-scale">
-                      <div class="card-content">
-                        <h3>#VTÜRKIYE2025 DAY 1: Dream, Decide, Rise</h3>
-                        <p>V-Convention goes to Türkiye!</p><a href="https://the-v.net/en/news?id=04232025-vturkiye2025-day-1-dream-decide-rise-1">
-                        <button class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
-                            READ MORE
-                        </button></a>
-                      </div>
-                    </div>
-                    <div class="card">
-                      <img src="assets/news/04242025-v-turkiye-2025-day-2-tougher-together.png" alt="Article 4" class="rounded-lg shadow-xl hover-scale">
-                      <div class="card-content">
-                        <h3>V-TÜRKİYE 2025 DAY 2: Tougher Together</h3>
-                        <p>The clicks keep on coming in Istanbul!</p><a href="https://the-v.net/en/news?id=04242025-v-turkiye-2025-day-2-tougher-together-1">
-                        <button class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
-                            READ MORE
-                        </button></a>
-                      </div>
-                    </div>
-                    <div class="card">
-                      <img src="assets/news/04262025-v-turkiye-2025-day-3-onwards-and-upwards.png" alt="Article 4" class="rounded-lg shadow-xl hover-scale">
-                      <div class="card-content">
-                        <h3>V-TÜRKİYE 2025 DAY 3: Onwards and Upwards!</h3>
-                        <p>Transformed forever, unstoppable together!</p><a href="https://the-v.net/en/news?id=04262025-v-turkiye-2025-day-3-onwards-and-upwards">
-                        <button class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
-                            READ MORE
-                        </button></a>
-                      </div>
-                    </div>
+    <!-- Swiper Carousel -->
+    <!-- Swiper Carousel -->
+	<div class="relative">
+	  <div class="swiper articleSwiper">
+		<div class="swiper-wrapper">
+
+		  <!-- Example Slide -->
+		  <div class="swiper-slide bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+			<img src="assets/news/04232025-v-turkiye-2025-highlights-day-1-unbelievable-in-istanbul.jpg" alt="Article 1" class="w-full h-48 object-cover">
+			<div class="p-4">
+			  <h3 class="text-lg font-semibold text-[#00666a] mb-2">V-TÜRKİYE 2025 Highlights DAY 1</h3>
+			  <p class="text-sm mb-4 text-gray-700">Check out the Day 1 highlights here!</p>
+			  <a href="#" class="inline-block">
+				<button class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
+				  READ MORE
+				</button>
+			  </a>
+			</div>
+		  </div>
+		  
+		  <div class="swiper-slide bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+			<img src="assets/news/04232025-v-turkiye-2025-highlights-day-1-unbelievable-in-istanbul.jpg" alt="Article 1" class="w-full h-48 object-cover">
+			<div class="p-4">
+			  <h3 class="text-lg font-semibold text-[#00666a] mb-2">V-TÜRKİYE 2025 Highlights DAY 1</h3>
+			  <p class="text-sm mb-4 text-gray-700">Check out the Day 1 highlights here!</p>
+			  <a href="#" class="inline-block">
+				<button class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
+				  READ MORE
+				</button>
+			  </a>
+			</div>
+		  </div>
+		  
+		  <div class="swiper-slide bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+			<img src="assets/news/04232025-v-turkiye-2025-highlights-day-1-unbelievable-in-istanbul.jpg" alt="Article 1" class="w-full h-48 object-cover">
+			<div class="p-4">
+			  <h3 class="text-lg font-semibold text-[#00666a] mb-2">V-TÜRKİYE 2025 Highlights DAY 1</h3>
+			  <p class="text-sm mb-4 text-gray-700">Check out the Day 1 highlights here!</p>
+			  <a href="#" class="inline-block">
+				<button class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
+				  READ MORE
+				</button>
+			  </a>
+			</div>
+		  </div>
+		  
+		  <div class="swiper-slide bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+			<img src="assets/news/04232025-v-turkiye-2025-highlights-day-1-unbelievable-in-istanbul.jpg" alt="Article 1" class="w-full h-48 object-cover">
+			<div class="p-4">
+			  <h3 class="text-lg font-semibold text-[#00666a] mb-2">V-TÜRKİYE 2025 Highlights DAY 1</h3>
+			  <p class="text-sm mb-4 text-gray-700">Check out the Day 1 highlights here!</p>
+			  <a href="#" class="inline-block">
+				<button class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
+				  READ MORE
+				</button>
+			  </a>
+			</div>
+		  </div>
+		  
+		  <div class="swiper-slide bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+			<img src="assets/news/04232025-v-turkiye-2025-highlights-day-1-unbelievable-in-istanbul.jpg" alt="Article 1" class="w-full h-48 object-cover">
+			<div class="p-4">
+			  <h3 class="text-lg font-semibold text-[#00666a] mb-2">V-TÜRKİYE 2025 Highlights DAY 1</h3>
+			  <p class="text-sm mb-4 text-gray-700">Check out the Day 1 highlights here!</p>
+			  <a href="#" class="inline-block">
+				<button class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
+				  READ MORE
+				</button>
+			  </a>
+			</div>
+		  </div>
+		  
+		  <div class="swiper-slide bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+			<img src="assets/news/04232025-v-turkiye-2025-highlights-day-1-unbelievable-in-istanbul.jpg" alt="Article 1" class="w-full h-48 object-cover">
+			<div class="p-4">
+			  <h3 class="text-lg font-semibold text-[#00666a] mb-2">V-TÜRKİYE 2025 Highlights DAY 1</h3>
+			  <p class="text-sm mb-4 text-gray-700">Check out the Day 1 highlights here!</p>
+			  <a href="#" class="inline-block">
+				<button class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
+				  READ MORE
+				</button>
+			  </a>
+			</div>
+		  </div>
+		  
+		  <div class="swiper-slide bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+			<img src="assets/news/04232025-v-turkiye-2025-highlights-day-1-unbelievable-in-istanbul.jpg" alt="Article 1" class="w-full h-48 object-cover">
+			<div class="p-4">
+			  <h3 class="text-lg font-semibold text-[#00666a] mb-2">V-TÜRKİYE 2025 Highlights DAY 1</h3>
+			  <p class="text-sm mb-4 text-gray-700">Check out the Day 1 highlights here!</p>
+			  <a href="#" class="inline-block">
+				<button class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
+				  READ MORE
+				</button>
+			  </a>
+			</div>
+		  </div>
+		  
+		  <div class="swiper-slide bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+			<img src="assets/news/04232025-v-turkiye-2025-highlights-day-1-unbelievable-in-istanbul.jpg" alt="Article 1" class="w-full h-48 object-cover">
+			<div class="p-4">
+			  <h3 class="text-lg font-semibold text-[#00666a] mb-2">V-TÜRKİYE 2025 Highlights DAY 1</h3>
+			  <p class="text-sm mb-4 text-gray-700">Check out the Day 1 highlights here!</p>
+			  <a href="#" class="inline-block">
+				<button class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
+				  READ MORE
+				</button>
+			  </a>
+			</div>
+		  </div>
+
+		  <!-- Repeat more slides as needed -->
+
+		</div>
+
+		<!-- Navigation Arrows -->
+		<div class="swiper-button-prev !text-white !text-3xl !z-10 !top-1/2 !-translate-y-1/2 !left-0"></div>
+		<div class="swiper-button-next !text-white !text-3xl !z-10 !top-1/2 !-translate-y-1/2 !right-0"></div>
+	  </div>
+
+	  <!-- Pagination Below -->
+
+	</div>
+
+  </div>
+</section>
 
 
-                  </div>
-                  <button class="arrow right" onclick="scrollToCard(1)">&#10095;</button>
-                </div>
 
-            </div>
-        </div>
-    </section>
+
 
     <!-- Gallery Section -->
 <section class="py-16 bg-gray-100 ">
@@ -1702,26 +1833,26 @@ html {
   });
 
   // Swipers
-  const videoSwiper = new Swiper('.videoSwiper', {
-    loop: true,
-    autoplay: { delay: 5000 },
-    pagination: { el: '.swiper-pagination', clickable: true },
-  });
+  <!-- const videoSwiper = new Swiper('.videoSwiper', { -->
+    <!-- loop: true, -->
+    <!-- autoplay: { delay: 5000 }, -->
+    <!-- pagination: { el: '.swiper-pagination', clickable: true }, -->
+  <!-- }); -->
 
-  const articleSwiper = new Swiper('.articleSwiper', {
-    loop: true,
-    autoplay: { delay: 6000 },
-    pagination: { el: '.swiper-pagination', clickable: true },
-  });
+  <!-- const articleSwiper = new Swiper('.articleSwiper', { -->
+    <!-- loop: true, -->
+    <!-- autoplay: { delay: 6000 }, -->
+    <!-- pagination: { el: '.swiper-pagination', clickable: true }, -->
+  <!-- }); -->
 
-  const adSwiper = new Swiper('.adSwiper', {
-    loop: true,
-    autoplay: { delay: 3000, disableOnInteraction: false },
-    effect: 'fade',
-    fadeEffect: { crossFade: true },
-    pagination: { el: '.swiper-pagination', clickable: true },
-    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-  });
+  <!-- const adSwiper = new Swiper('.adSwiper', { -->
+    <!-- loop: true, -->
+    <!-- autoplay: { delay: 3000, disableOnInteraction: false }, -->
+    <!-- effect: 'fade', -->
+    <!-- fadeEffect: { crossFade: true }, -->
+    <!-- pagination: { el: '.swiper-pagination', clickable: true }, -->
+    <!-- navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }, -->
+  <!-- }); -->
   
   function playInFeatured(videoId, titleText, descriptionText) {
 	  const player = document.getElementById('featuredPlayer');
@@ -1763,6 +1894,49 @@ html {
         clickable: true,
       },
     });
+	
+	new Swiper(".articleSwiper", {
+  slidesPerView: 1,
+  spaceBetween: 20,
+  grid: {
+    rows: 2,
+    fill: "row"
+  },
+  breakpoints: {
+    640: {
+      slidesPerView: 2,
+    },
+    1024: {
+      slidesPerView: 3,
+    }
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev"
+  }
+});
+
+const articleSwiper = new Swiper('.article-swiper', {
+  loop: true,
+  slidesPerView: 1,
+  spaceBetween: 10,
+  navigation: {
+    nextEl: '.article-swiper .swiper-button-next',
+    prevEl: '.article-swiper .swiper-button-prev',
+  },
+  pagination: {
+    el: '.article-swiper .swiper-pagination',
+    clickable: true,
+  },
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false,
+  },
+});
 
   // Floating text button
   document.getElementById("floatingTextBtn").style.display = "block";
@@ -1928,76 +2102,76 @@ html {
   });
 
   // Carousel autoplay
-  const carousel = document.getElementById('carousel');
-  const wrapper = document.getElementById('carouselWrapper');
-  const cards = carousel?.querySelectorAll('.card');
-  let index = 0, intervalId;
+  <!-- const carousel = document.getElementById('carousel'); -->
+  <!-- const wrapper = document.getElementById('carouselWrapper'); -->
+  <!-- const cards = carousel?.querySelectorAll('.card'); -->
+  <!-- let index = 0, intervalId; -->
 
-  function scrollToCard(direction = 1) {
-    if (!cards?.length) return;
-    index = (index + direction + cards.length) % cards.length;
-    carousel.scrollTo({ left: cards[index].offsetLeft, behavior: 'smooth' });
-  }
+  <!-- function scrollToCard(direction = 1) { -->
+    <!-- if (!cards?.length) return; -->
+    <!-- index = (index + direction + cards.length) % cards.length; -->
+    <!-- carousel.scrollTo({ left: cards[index].offsetLeft, behavior: 'smooth' }); -->
+  <!-- } -->
 
-  function startAutoplay() { intervalId = setInterval(() => scrollToCard(1), 3000); }
-  function stopAutoplay() { clearInterval(intervalId); }
+  <!-- function startAutoplay() { intervalId = setInterval(() => scrollToCard(1), 3000); } -->
+  <!-- function stopAutoplay() { clearInterval(intervalId); } -->
 
-  wrapper?.addEventListener('mouseenter', stopAutoplay);
-  wrapper?.addEventListener('mouseleave', startAutoplay);
-  startAutoplay();
+  <!-- wrapper?.addEventListener('mouseenter', stopAutoplay); -->
+  <!-- wrapper?.addEventListener('mouseleave', startAutoplay); -->
+  <!-- startAutoplay(); -->
 
-  let startX3 = 0;
-  carousel?.addEventListener('touchstart', e => startX3 = e.touches[0].clientX);
-  carousel?.addEventListener('touchend', e => {
-    const endX = e.changedTouches[0].clientX;
-    if (endX - startX3 > 50) scrollToCard(-1);
-    else if (startX3 - endX > 50) scrollToCard(1);
-  });
+  <!-- let startX3 = 0; -->
+  <!-- carousel?.addEventListener('touchstart', e => startX3 = e.touches[0].clientX); -->
+  <!-- carousel?.addEventListener('touchend', e => { -->
+    <!-- const endX = e.changedTouches[0].clientX; -->
+    <!-- if (endX - startX3 > 50) scrollToCard(-1); -->
+    <!-- else if (startX3 - endX > 50) scrollToCard(1); -->
+  <!-- }); -->
 
   // Featured carousel
-  const carousel2 = document.getElementById('carousel-featured');
-  const wrapper2 = document.getElementById('carousel-wrapper');
-  const next2 = document.getElementById('featured-next');
-  const prev2 = document.getElementById('featured-prev');
-  const slideWidth2 = carousel2?.querySelector('div')?.offsetWidth + 16 || 0;
+  <!-- const carousel2 = document.getElementById('carousel-featured'); -->
+  <!-- const wrapper2 = document.getElementById('carousel-wrapper'); -->
+  <!-- const next2 = document.getElementById('featured-next'); -->
+  <!-- const prev2 = document.getElementById('featured-prev'); -->
+  <!-- const slideWidth2 = carousel2?.querySelector('div')?.offsetWidth + 16 || 0; -->
 
-  let autoplayInterval2, isHovered2 = false;
+  <!-- let autoplayInterval2, isHovered2 = false; -->
 
-  function scrollNext2() {
-    const maxScrollLeft = carousel2.scrollWidth - carousel2.clientWidth;
-    if (carousel2.scrollLeft + slideWidth2 >= maxScrollLeft) {
-      carousel2.scrollTo({ left: 0, behavior: 'smooth' });
-    } else {
-      carousel2.scrollBy({ left: slideWidth2, behavior: 'smooth' });
-    }
-  }
+  <!-- function scrollNext2() { -->
+    <!-- const maxScrollLeft = carousel2.scrollWidth - carousel2.clientWidth; -->
+    <!-- if (carousel2.scrollLeft + slideWidth2 >= maxScrollLeft) { -->
+      <!-- carousel2.scrollTo({ left: 0, behavior: 'smooth' }); -->
+    <!-- } else { -->
+      <!-- carousel2.scrollBy({ left: slideWidth2, behavior: 'smooth' }); -->
+    <!-- } -->
+  <!-- } -->
 
-  function scrollPrev2() {
-    if (carousel2.scrollLeft <= 0) {
-      carousel2.scrollTo({ left: carousel2.scrollWidth, behavior: 'smooth' });
-    } else {
-      carousel2.scrollBy({ left: -slideWidth2, behavior: 'smooth' });
-    }
-  }
+  <!-- function scrollPrev2() { -->
+    <!-- if (carousel2.scrollLeft <= 0) { -->
+      <!-- carousel2.scrollTo({ left: carousel2.scrollWidth, behavior: 'smooth' }); -->
+    <!-- } else { -->
+      <!-- carousel2.scrollBy({ left: -slideWidth2, behavior: 'smooth' }); -->
+    <!-- } -->
+  <!-- } -->
 
-  next2?.addEventListener('click', scrollNext2);
-  prev2?.addEventListener('click', scrollPrev2);
+  <!-- next2?.addEventListener('click', scrollNext2); -->
+  <!-- prev2?.addEventListener('click', scrollPrev2); -->
 
-  function startAutoplay2() { autoplayInterval2 = setInterval(() => { if (!isHovered2) scrollNext2(); }, 4000); }
-  function stopAutoplay2() { clearInterval(autoplayInterval2); }
+  <!-- function startAutoplay2() { autoplayInterval2 = setInterval(() => { if (!isHovered2) scrollNext2(); }, 4000); } -->
+  <!-- function stopAutoplay2() { clearInterval(autoplayInterval2); } -->
 
-  wrapper2?.addEventListener('mouseenter', () => { isHovered2 = true; });
-  wrapper2?.addEventListener('mouseleave', () => { isHovered2 = false; });
+  <!-- wrapper2?.addEventListener('mouseenter', () => { isHovered2 = true; }); -->
+  <!-- wrapper2?.addEventListener('mouseleave', () => { isHovered2 = false; }); -->
 
-  let startX2 = 0;
-  carousel2?.addEventListener('touchstart', e => startX2 = e.touches[0].clientX);
-  carousel2?.addEventListener('touchend', e => {
-    const endX2 = e.changedTouches[0].clientX;
-    if (startX2 - endX2 > 50) scrollNext2();
-    else if (endX2 - startX2 > 50) scrollPrev2();
-  });
+  <!-- let startX2 = 0; -->
+  <!-- carousel2?.addEventListener('touchstart', e => startX2 = e.touches[0].clientX); -->
+  <!-- carousel2?.addEventListener('touchend', e => { -->
+    <!-- const endX2 = e.changedTouches[0].clientX; -->
+    <!-- if (startX2 - endX2 > 50) scrollNext2(); -->
+    <!-- else if (endX2 - startX2 > 50) scrollPrev2(); -->
+  <!-- }); -->
 
-  startAutoplay2();
+  <!-- startAutoplay2(); -->
 </script>
 
 </body>
