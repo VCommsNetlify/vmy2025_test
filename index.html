@@ -291,6 +291,58 @@ html {
   }
 }
 
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: auto !important;
+}
+
+.swiper-slide > div {
+  flex: 1 1 auto;
+}
+
+
+
+.swiper-button-prev,
+  .swiper-button-next {
+    color: white !important;
+    font-size: 3rem !important;
+    z-index: 20 !important;
+    top: 40% !important;
+    transform: translateY(-50%);
+    position: absolute;
+  }
+
+
+  
+  .custom-pagination-container .swiper-pagination {
+    position: relative !important;
+    bottom: auto !important;
+    margin-top: 1rem;
+	
+	@media (max-width: 767px) {
+	  .swiper-button-prev,
+	  .swiper-button-next {
+		display: block !important;
+		font-size: 2rem;
+		top: 40%;
+		transform: translateY(-50%);
+		background: rgba(0,0,0,0.3);
+		padding: 0.5rem;
+		border-radius: 9999px;
+		z-index: 20;
+	  }
+
+	  .swiper-button-prev {
+		left: 0.25rem;
+	  }
+
+	  .swiper-button-next {
+		right: 0.25rem;
+	  }
+	}
+
 </style>
 
 </head>
@@ -307,28 +359,28 @@ html {
   </div>
 
     <!-- Header -->
-    <header class="fixed w-full z-50 bg-[#004372] shadow-lg">
+<header class="fixed w-full z-50 bg-[#004372] shadow-lg">
   <div class="container mx-auto px-4 py-3 flex items-center justify-between relative">
     <!-- Left: Logo + Home -->
     <div class="flex items-center space-x-4">
       <img src="assets/first-fold/VMY2025-logo-v2_lowres.png" alt="THE V Logo" class="h-10">
-      <a href="#home" class="text-white nav-link hidden md:inline">Home</a>
+      <a href="#home" class="text-white hidden md:inline">Home</a>
     </div>
 
-    <!-- Center: Desktop Nav -->
-    <nav class="hidden md:flex space-x-6 absolute left-1/2 transform -translate-x-1/2">
-      <a href="#carousel-featured" class="text-white nav-link">Greatest Stories</a>
-      <a href="#venue-map" class="text-white nav-link">Venue Map</a>
-      <a href="#vkidsteens" class="text-white nav-link">V-Kids & V-Teens</a>
-      <a href="#speakers" class="text-white nav-link">Speakers</a>
-      <a href="#thisorthat" class="text-white nav-link">This or That?</a>
-      <a href="#faqs" class="text-white nav-link">FAQ</a>
+    <!-- Center Nav (Desktop Only) -->
+    <nav class="hidden md:flex space-x-6">
+      <a href="#carousel-featured" class="text-white">Greatest Stories</a>
+      <a href="#venue-map" class="text-white">Venue Map</a>
+      <a href="#vkidsteens" class="text-white">V-Kids & V-Teens</a>
+      <a href="#speakers" class="text-white">Speakers</a>
+      <a href="#thisorthat" class="text-white">This or That?</a>
+      <a href="#faqs" class="text-white">FAQ</a>
     </nav>
 
-    <!-- Right: Languages -->
+    <!-- Right: Language Dropdown (Desktop Only) -->
     <div class="relative hidden md:block group">
-      <button class="text-white nav-link focus:outline-none">Languages</button>
-      <ul class="absolute right-0 hidden group-hover:block bg-white text-black mt-2 rounded shadow-lg py-2 z-50 w-48">
+      <button class="text-white">Languages</button>
+      <ul class="absolute right-0 hidden group-hover:block bg-white text-black mt-2 rounded shadow-lg py-2 w-48 z-50">
         <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">English</a></li>
         <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Arabic</a></li>
         <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Bahasa-Indonesia</a></li>
@@ -340,26 +392,26 @@ html {
       </ul>
     </div>
 
-    <!-- Mobile Menu Button -->
-    <button id="menuToggle" class="md:hidden text-white z-50">
+    <!-- Mobile Burger -->
+    <button id="menuToggle" class="md:hidden text-white z-[999] relative">
       <i class="fas fa-bars text-2xl"></i>
     </button>
   </div>
 
-  <!-- Mobile Nav -->
-  <div id="mobileMenu" class="md:hidden bg-[#004372] hidden flex-col px-4 pb-4 space-y-3">
-    <a href="#home" class="text-white nav-link block">Home</a>
-    <a href="#carousel-featured" class="text-white nav-link block">Greatest Stories</a>
-    <a href="#venue-map" class="text-white nav-link block">Venue Map</a>
-    <a href="#vkidsteens" class="text-white nav-link block">V-Kids & V-Teens</a>
-    <a href="#speakers" class="text-white nav-link block">Speakers</a>
-    <a href="#thisorthat" class="text-white nav-link block">This or That?</a>
-    <a href="#faqs" class="text-white nav-link block">FAQ</a>
+  <!-- Mobile Nav (Initially Hidden) -->
+  <div id="mobileMenu" class="hidden md:hidden bg-[#004372] px-4 pb-4 space-y-3 z-40">
+    <a href="#home" class="text-white block">Home</a>
+    <a href="#carousel-featured" class="text-white block">Greatest Stories</a>
+    <a href="#venue-map" class="text-white block">Venue Map</a>
+    <a href="#vkidsteens" class="text-white block">V-Kids & V-Teens</a>
+    <a href="#speakers" class="text-white block">Speakers</a>
+    <a href="#thisorthat" class="text-white block">This or That?</a>
+    <a href="#faqs" class="text-white block">FAQ</a>
 
-    <!-- Mobile Languages Toggle -->
+    <!-- Mobile Languages Dropdown -->
     <div class="text-white">
-      <button id="langToggle" class="w-full text-left nav-link">Languages ▼</button>
-      <ul id="langMenu" class="bg-white text-black rounded shadow-lg mt-2 hidden">
+      <button id="langToggle" class="w-full text-left">Languages ▼</button>
+      <ul id="langMenu" class="hidden bg-white text-black rounded shadow-lg mt-2">
         <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">English</a></li>
         <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Arabic</a></li>
         <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Bahasa-Indonesia</a></li>
@@ -381,7 +433,7 @@ html {
 
   <!-- Content Container -->
   <div class="container mx-auto px-4 flex flex-col items-center justify-center z-10 relative">
-    <img class="mx-auto mt-16 w-48 sm:w-64 md:w-80 lg:w-96 glow"
+    <img class="mx-auto mt-16 w-48 sm:w-64 md:w-80 lg:w-96"
          src="assets/header/vmy_logo.png"
          alt="V Malaysia Logo">
 
@@ -449,7 +501,7 @@ html {
 <section class="relative py-12 bg-gray-100 overflow-hidden">
   <!-- Background Layer -->
   <div class="absolute inset-0 z-0">
-    <div class="w-full h-full bg-[url('assets/greateststory/bg-teaserepisode.png')] bg-no-repeat bg-center bg-cover"></div>
+    <div class="w-full h-full bg-[url('assets/news/BG-videohighlights.png')] bg-no-repeat bg-center bg-cover background-position: center;"></div>
   </div>
 
   <!-- Content Layer -->
@@ -538,114 +590,103 @@ html {
 
 
 
-
-
-
-
-
-
-
-
-
-    <!-- <div class="section-divider"></div> -->
-    <!-- <div class="text-center mb-16 bg-white">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">EVENTS NEWS & UPDATES</h2>
-        <div class="w-20 h-1 bg-red-600 mx-auto"></div>
-    </div> -->
-
 <!-- VIDEOS SECTION -->
-<section class="py-16 bg-white">
+<section class="py-16 bg-cover bg-center text-white" style="background-image: url('assets/news/BG-videohighlights.png'); background-position: top;">
+
   <div class="container mx-auto px-4">
     <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">Watch the newest highlights and more!</h2>
-      <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+      <h2 class="text-3xl md:text-4xl text-[#00666a] font-bold mb-4">EVENTS NEWS & UPDATES</h2>
+      <h2 class="text-3xl md:text-4xl bg-[#c87f15] font-bold text-white mb-4">WATCH THE NEWEST HIGHLIGHTS AND MORE!</h2>
     </div>
 
-    <!-- Masonry Grid -->
-    <div id="videoGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-
-      <!-- Video 1 -->
-      <div class="video-item break-inside-avoid">
-        <div class="relative pt-[56.25%]">
-          <iframe
-            src="https://players.brightcove.net/3745659807001/4JJdlFXsg_default/index.html?videoId=6371801670112"
-            allowfullscreen
-            allow="encrypted-media"
-            class="absolute top-0 left-0 w-full h-full rounded-lg"
-            loading="lazy"
-          ></iframe>
-        </div>
-        <h3 class="text-lg font-semibold text-gray-800 mt-2 px-2">Day 1: Unbelievable in Istanbul</h3>
+    <!-- Featured Video and Text Section -->
+    <div class="flex flex-col md:flex-row items-center mb-12">
+      <div class="w-full md:w-1/2 relative h-[50vh] rounded-lg overflow-hidden">
+        <iframe
+          id="featuredPlayer"
+          src="https://players.brightcove.net/3745659807001/4JJdlFXsg_default/index.html?videoId=6371801670112"
+          allowfullscreen
+          allow="encrypted-media"
+          class="absolute top-0 left-0 w-full h-full"
+          loading="lazy"
+        ></iframe>
       </div>
 
-      <!-- Video 2 -->
-      <div class="video-item break-inside-avoid">
-        <div class="relative pt-[56.25%]">
-          <iframe
-            src="https://players.brightcove.net/3745659807001/4JJdlFXsg_default/index.html?videoId=6371889920112"
-            allowfullscreen
-            allow="encrypted-media"
-            class="absolute top-0 left-0 w-full h-full rounded-lg"
-            loading="lazy"
-          ></iframe>
-        </div>
-        <h3 class="text-lg font-semibold text-gray-800 mt-2 px-2">Day 2: Driven by Dreams</h3>
+      <div class="w-full md:w-1/2 md:pl-8 text-[#00666a] mt-8 md:mt-0">
+        <h3 id="featuredTitle" class="text-2xl font-semibold mb-4">Day 1: Grand Opening Ceremony</h3>
+        <p class="text-lg mb-4">
+          Watch the newest highlights from our event! Stay tuned for more videos below, showcasing key moments from each day of the event. 
+          Click on any video to play it in the featured section above.
+        </p>
+        <button class="bg-[#c87f15] text-white font-bold py-2 px-6 rounded-full hover:bg-[#e47c2f] transition duration-300">
+          Learn More
+        </button>
       </div>
-
-      <!-- Video 3 -->
-      <div class="video-item break-inside-avoid">
-        <div class="relative pt-[56.25%]">
-          <iframe
-            src="https://players.brightcove.net/3745659807001/4JJdlFXsg_default/index.html?videoId=6372093116112"
-            allowfullscreen
-            allow="encrypted-media"
-            class="absolute top-0 left-0 w-full h-full rounded-lg"
-            loading="lazy"
-          ></iframe>
-        </div>
-        <h3 class="text-lg font-semibold text-gray-800 mt-2 px-2">Day 3: A Fearless Finish</h3>
-      </div>
-
-      <!-- Hidden Videos (for Load More) -->
-      <div class="video-item hidden break-inside-avoid">
-        <div class="relative pt-[56.25%]">
-          <iframe
-            src="https://players.brightcove.net/3745659807001/4JJdlFXsg_default/index.html?videoId=6371800716112"
-            allowfullscreen
-            allow="encrypted-media"
-            class="absolute top-0 left-0 w-full h-full rounded-lg"
-            loading="lazy"
-          ></iframe>
-        </div>
-        <h3 class="text-lg font-semibold text-gray-800 mt-2 px-2">Day 1: Shaped by Challenges by Joseph ‘Japadas’ Bismark</h3>
-      </div>
-
-      <div class="video-item hidden break-inside-avoid">
-        <div class="relative pt-[56.25%]">
-          <iframe
-            src="https://players.brightcove.net/3745659807001/4JJdlFXsg_default/index.html?videoId=6371801496112"
-            allowfullscreen
-            allow="encrypted-media"
-            class="absolute top-0 left-0 w-full h-full rounded-lg"
-            loading="lazy"
-          ></iframe>
-        </div>
-        <h3 class="text-lg font-semibold text-gray-800 mt-2 px-2">Day 1: The Dream by Chief Pathman Senathirajah</h3>
-      </div>
-
-      <!-- Add more .hidden videos here -->
-
     </div>
 
-    <!-- Load More Button -->
-    <div class="text-center mt-10">
-      <button
-      onclick="revealMoreVideos()"
-      class="bg-red-600 text-white font-bold py-2 px-6 rounded-full hover:bg-red-700 transition duration-300">
-      Load More Videos
-    </button>
+    <!-- Swiper Section -->
+    <div class="swiper allVideosSwiper relative">
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide cursor-pointer" onclick="playInFeatured('6371801496112', 'Day 1: The Dream by Chief Pathman Senathirajah')">
+          <div class="rounded overflow-hidden">
+            <img src="assets/news/04232025-v-turkiye-2025-day-1-the-dream-by-chief-pathman-senathirajah.jpg" alt="Day 1" class="w-full h-auto object-cover rounded">
+            <p class="text-[#00666a] font-semibold mt-2">Day 1: The Dream by Chief Pathman Senathirajah</p>
+          </div>
+        </div>
+        <div class="swiper-slide cursor-pointer" onclick="playInFeatured('6371800716112', 'Day 1: Shaped by Challenges by Joseph ‘Japadas’ Bismark')">
+          <div class="rounded overflow-hidden">
+            <img src="assets/news/04232025-v-turkiye-2025-day-1-shaped-by-challenges-by-joseph-japadas-bismark.jpg" alt="Day 2" class="w-full h-auto object-cover rounded">
+            <p class="text-[#00666a] font-semibold mt-2">Day 1: Shaped by Challenges by Joseph ‘Japadas’ Bismark</p>
+          </div>
+        </div>
+        <div class="swiper-slide cursor-pointer" onclick="playInFeatured('6371801670112', 'Day 1: Unbelievable in Istanbul')">
+          <div class="rounded overflow-hidden">
+            <img src="assets/news/04232025-v-turkiye-2025-highlights-day-1-unbelievable-in-istanbul.jpg" alt="Day 3" class="w-full h-auto object-cover rounded">
+            <p class="text-[#00666a] font-semibold mt-2">Day 1: Unbelievable in Istanbul</p>
+          </div>
+        </div>
+        <div class="swiper-slide cursor-pointer" onclick="playInFeatured('6371889920112', 'Day 2: Driven by Dreams')">
+          <div class="rounded overflow-hidden">
+            <img src="assets/news/04252025-v-turkiye-2025-highlights-day-2-driven-by-dreams.png" alt="Day 4" class="w-full h-auto object-cover rounded">
+            <p class="text-[#00666a] font-semibold mt-2">Day 2: Driven by Dreams</p>
+          </div>
+        </div>
+        <div class="swiper-slide cursor-pointer" onclick="playInFeatured('6372093116112', 'Day 3: A Fearless Finish')">
+          <div class="rounded overflow-hidden">
+            <img src="assets/news/04302025-v-turkiye-2025-highlights-day-3-a-fearless-finish.png" alt="Day 5" class="w-full h-auto object-cover rounded">
+            <p class="text-[#00666a] font-semibold mt-2">Day 3: A Fearless Finish</p>
+          </div>
+        </div>
+        <div class="swiper-slide cursor-pointer" onclick="playInFeatured('6371801670112', 'Day 1: Unbelievable in Istanbul')">
+          <div class="rounded overflow-hidden">
+            <img src="assets/news/04232025-v-turkiye-2025-highlights-day-1-unbelievable-in-istanbul.jpg" alt="Day 6" class="w-full h-auto object-cover rounded">
+            <p class="text-[#00666a] font-semibold mt-2">Day 1: Unbelievable in Istanbul</p>
+          </div>
+        </div>
+        <div class="swiper-slide cursor-pointer" onclick="playInFeatured('6371889920112', 'Day 2: Driven by Dreams')">
+          <div class="rounded overflow-hidden">
+            <img src="assets/news/04252025-v-turkiye-2025-highlights-day-2-driven-by-dreams.png" alt="Day 7" class="w-full h-auto object-cover rounded">
+            <p class="text-[#00666a] font-semibold mt-2">Day 2: Driven by Dreams</p>
+          </div>
+        </div>
+        <div class="swiper-slide cursor-pointer" onclick="playInFeatured('6372093116112', 'Day 3: A Fearless Finish')">
+          <div class="rounded overflow-hidden">
+            <img src="assets/news/04302025-v-turkiye-2025-highlights-day-3-a-fearless-finish.png" alt="Bonus" class="w-full h-auto object-cover rounded">
+            <p class="text-[#00666a] font-semibold mt-2">Day 3: A Fearless Finish</p>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-button-prev text-white z-10 text-4xl"></div>
+<div class="swiper-button-next text-white z-10 text-4xl"></div>
+ <!-- Pagination goes here -->
+			<div class="custom-pagination-container mt-12 text-center">
+			  <div class="swiper-pagination"></div>
+			</div>
     </div>
   </div>
+
+
 </section>
 
     <!--  NEWS AND UPDATE Section -->
@@ -1532,6 +1573,21 @@ html {
     </footer> -->
 
     <script>
+	//handle video switching
+	function playInFeatured(videoId, title, description) {
+    const player = document.getElementById('featuredPlayer');
+    const featuredTitle = document.getElementById('featuredTitle');
+    const featuredText = document.getElementById('featuredText');
+    
+    // Update the video source
+    player.src = `https://players.brightcove.net/3745659807001/4JJdlFXsg_default/index.html?videoId=${videoId}`;
+    
+    // Update the title and text
+    featuredTitle.innerText = title;
+    featuredText.innerText = description;
+  }
+	
+	
  //change photo mobile
  // Function to change image based on screen size
   function changeImageForMobile() {
@@ -1613,6 +1669,46 @@ html {
     pagination: { el: '.swiper-pagination', clickable: true },
     navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
   });
+  
+  function playInFeatured(videoId, titleText) {
+      const player = document.getElementById('featuredPlayer');
+      player.src = `https://players.brightcove.net/3745659807001/4JJdlFXsg_default/index.html?videoId=${videoId}`;
+      document.getElementById('featuredTitle').innerText = titleText;
+    }
+
+    const allVideosSwiper = new Swiper(".allVideosSwiper", {
+      slidesPerView: 3,
+      slidesPerGroup: 3,
+      grid: {
+        rows: 2,
+        fill: 'row'
+      },
+      spaceBetween: 20,
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+          slidesPerGroup: 1,
+          grid: {
+            rows: 1,
+          },
+        },
+        768: {
+          slidesPerView: 3,
+          slidesPerGroup: 3,
+          grid: {
+            rows: 2,
+          },
+        }
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
 
   // Floating text button
   document.getElementById("floatingTextBtn").style.display = "block";
@@ -1738,12 +1834,35 @@ html {
   setInterval(updateCountdown, 1000);
 
   // Mobile nav menu
-  const mobileMenuButton = document.querySelector('button.md\\:hidden');
-  const navLinks = document.querySelector('nav.hidden');
+  <!-- const mobileMenuButton = document.querySelector('button.md\\:hidden'); -->
+  <!-- const navLinks = document.querySelector('nav.hidden'); -->
 
-  mobileMenuButton?.addEventListener('click', () => {
-    ['hidden', 'flex', 'flex-col', 'absolute', 'top-16', 'left-0', 'right-0', 'bg-black', 'py-4', 'px-8', 'space-y-4', 'space-x-8']
-      .forEach(cls => navLinks?.classList.toggle(cls));
+  <!-- mobileMenuButton?.addEventListener('click', () => { -->
+    <!-- ['hidden', 'flex', 'flex-col', 'absolute', 'top-16', 'left-0', 'right-0', 'bg-black', 'py-4', 'px-8', 'space-y-4', 'space-x-8'] -->
+      <!-- .forEach(cls => navLinks?.classList.toggle(cls)); -->
+  <!-- }); -->
+  
+	document.addEventListener('DOMContentLoaded', () => {
+		const menuToggle = document.getElementById('menuToggle');
+		const mobileMenu = document.getElementById('mobileMenu');
+		const langToggle = document.getElementById('langToggle');
+		const langMenu = document.getElementById('langMenu');
+
+		menuToggle?.addEventListener('click', () => {
+		  mobileMenu?.classList.toggle('hidden');
+		});
+
+		langToggle?.addEventListener('click', () => {
+		  langMenu?.classList.toggle('hidden');
+		});
+	  });
+
+  menuToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  langToggle.addEventListener('click', () => {
+    langMenu.classList.toggle('hidden');
   });
 
   // Smooth scroll
