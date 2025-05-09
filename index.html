@@ -269,6 +269,16 @@ html {
   background-repeat: no-repeat;
 }
 
+	
+.featuredContentContainer {
+    background-color: #00666a;
+    color: white;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 20px;
+  }
+
+
 
 @tailwind base;
 @tailwind components;
@@ -320,28 +330,67 @@ html {
     position: relative !important;
     bottom: auto !important;
     margin-top: 1rem;
-	
-	@media (max-width: 767px) {
-	  .swiper-button-prev,
-	  .swiper-button-next {
-		display: block !important;
-		font-size: 2rem;
-		top: 40%;
-		transform: translateY(-50%);
-		background: rgba(0,0,0,0.3);
-		padding: 0.5rem;
-		border-radius: 9999px;
-		z-index: 20;
-	  }
-
-	  .swiper-button-prev {
-		left: 0.25rem;
-	  }
-
-	  .swiper-button-next {
-		right: 0.25rem;
-	  }
 	}
+	@media (max-width: 767px) {
+      .swiper-button-prev, .swiper-button-next {
+        display: block !important;
+      }
+
+      .swiper-wrapper {
+        flex-direction: row !important;
+      }
+
+      .swiper-slide {
+        flex: 0 0 auto;
+        margin-right: 10px;
+      }
+
+      .swiper-pagination {
+        margin-top: 20px;
+      }
+
+      .allVideosSwiper {
+        overflow-x: auto;
+        padding-bottom: 30px;
+      }
+	  
+	  #featuredSection {
+    flex-direction: column;
+	
+  }
+  
+  .swiper.allVideosSwiper {
+      overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+
+    /* Optional: adjust swiper slides' flex to ensure they fit within screen width */
+    .swiper-slide {
+      flex: 0 0 auto; /* Ensure slides do not stretch */
+    }
+  
+
+	  #featuredSection > div:first-child {
+		height: 50vh;
+	  }
+
+	  .featuredContentContainer {
+		height: 25vh;
+		padding: 1rem;
+		overflow-y: auto;
+		width: 100%;
+	  }
+
+	  #featuredTitle {
+		font-size: 1.25rem;
+		margin-bottom: 0.5rem;
+	  }
+
+	  #featuredDescription {
+		font-size: 1rem;
+		margin-bottom: 0;
+	  }
+	  
+    }
 
 </style>
 
@@ -600,77 +649,81 @@ html {
     </div>
 
     <!-- Featured Video and Text Section -->
-    <div class="flex flex-col md:flex-row items-center mb-12">
-      <div class="w-full md:w-1/2 relative h-[50vh] rounded-lg overflow-hidden">
-        <iframe
-          id="featuredPlayer"
-          src="https://players.brightcove.net/3745659807001/4JJdlFXsg_default/index.html?videoId=6371801670112"
-          allowfullscreen
-          allow="encrypted-media"
-          class="absolute top-0 left-0 w-full h-full"
-          loading="lazy"
-        ></iframe>
-      </div>
+<div id="featuredSection" class="flex flex-col md:flex-row items-center mb-12">
+  <!-- Video -->
+  <div class="w-full md:w-1/2 relative h-[50vh] rounded-lg overflow-hidden">
+    <iframe
+      id="featuredPlayer"
+      src="https://players.brightcove.net/3745659807001/4JJdlFXsg_default/index.html?videoId=6371801670112"
+      allowfullscreen
+      allow="encrypted-media"
+      class="absolute top-0 left-0 w-full h-full"
+      loading="lazy"
+    ></iframe>
+  </div>
 
-      <div class="w-full md:w-1/2 md:pl-8 text-[#00666a] mt-8 md:mt-0">
-        <h3 id="featuredTitle" class="text-2xl font-semibold mb-4">Day 1: Grand Opening Ceremony</h3>
-        <p class="text-lg mb-4">
-          Watch the newest highlights from our event! Stay tuned for more videos below, showcasing key moments from each day of the event. 
-          Click on any video to play it in the featured section above.
-        </p>
-        <button class="bg-[#c87f15] text-white font-bold py-2 px-6 rounded-full hover:bg-[#e47c2f] transition duration-300">
-          Learn More
-        </button>
-      </div>
-    </div>
+  <!-- Text -->
+  <div
+    class="w-full md:w-1/2 md:pl-8 mt-4 md:mt-0 h-auto md:h-[50vh] px-4 py-4 flex flex-col justify-center bg-[#00666a] text-white rounded-2xl md:rounded-br-2xl md:rounded-tr-2xl"
+  >
+    <h3 id="featuredTitle" class="text-2xl font-semibold mb-2">
+      Day 1: Grand Opening Ceremony
+    </h3>
+    <p id="featuredDescription" class="text-base">
+      Watch the newest highlights from our event! Stay tuned for more videos below,
+      showcasing key moments from each day of the event.
+      Click on any video to play it in the featured section above.
+    </p>
+  </div>
+</div>
 
     <!-- Swiper Section -->
     <div class="swiper allVideosSwiper relative">
       <div class="swiper-wrapper">
         <!-- Slides -->
-        <div class="swiper-slide cursor-pointer" onclick="playInFeatured('6371801496112', 'Day 1: The Dream by Chief Pathman Senathirajah')">
+        <div class="swiper-slide cursor-pointer" onclick="playInFeatured('6371801670112', 'Day 1: The Dream by Chief Pathman Senathirajah', 'Your drive to achieve your dream will be your strength!')">
           <div class="rounded overflow-hidden">
             <img src="assets/news/04232025-v-turkiye-2025-day-1-the-dream-by-chief-pathman-senathirajah.jpg" alt="Day 1" class="w-full h-auto object-cover rounded">
             <p class="text-[#00666a] font-semibold mt-2">Day 1: The Dream by Chief Pathman Senathirajah</p>
           </div>
         </div>
-        <div class="swiper-slide cursor-pointer" onclick="playInFeatured('6371800716112', 'Day 1: Shaped by Challenges by Joseph ‘Japadas’ Bismark')">
+        <div class="swiper-slide cursor-pointer" onclick="playInFeatured('6371800716112', 'Day 1: Shaped by Challenges by Joseph ‘Japadas’ Bismark', 'Challenges make us stronger!')">
           <div class="rounded overflow-hidden">
             <img src="assets/news/04232025-v-turkiye-2025-day-1-shaped-by-challenges-by-joseph-japadas-bismark.jpg" alt="Day 2" class="w-full h-auto object-cover rounded">
             <p class="text-[#00666a] font-semibold mt-2">Day 1: Shaped by Challenges by Joseph ‘Japadas’ Bismark</p>
           </div>
         </div>
-        <div class="swiper-slide cursor-pointer" onclick="playInFeatured('6371801670112', 'Day 1: Unbelievable in Istanbul')">
+        <div class="swiper-slide cursor-pointer" onclick="playInFeatured('6371801670112', 'Day 1: Unbelievable in Istanbul', 'Check out the Day 1 highlights here!')">
           <div class="rounded overflow-hidden">
             <img src="assets/news/04232025-v-turkiye-2025-highlights-day-1-unbelievable-in-istanbul.jpg" alt="Day 3" class="w-full h-auto object-cover rounded">
             <p class="text-[#00666a] font-semibold mt-2">Day 1: Unbelievable in Istanbul</p>
           </div>
         </div>
-        <div class="swiper-slide cursor-pointer" onclick="playInFeatured('6371889920112', 'Day 2: Driven by Dreams')">
+        <div class="swiper-slide cursor-pointer" onclick="playInFeatured('6371889920112', 'Day 2: Driven by Dreams', 'Our Day 2 highlights are here!')">
           <div class="rounded overflow-hidden">
             <img src="assets/news/04252025-v-turkiye-2025-highlights-day-2-driven-by-dreams.png" alt="Day 4" class="w-full h-auto object-cover rounded">
             <p class="text-[#00666a] font-semibold mt-2">Day 2: Driven by Dreams</p>
           </div>
         </div>
-        <div class="swiper-slide cursor-pointer" onclick="playInFeatured('6372093116112', 'Day 3: A Fearless Finish')">
+        <div class="swiper-slide cursor-pointer" onclick="playInFeatured('6372093116112', 'Day 3: A Fearless Finish', 'Check out the Day 3 highlights here!')">
           <div class="rounded overflow-hidden">
             <img src="assets/news/04302025-v-turkiye-2025-highlights-day-3-a-fearless-finish.png" alt="Day 5" class="w-full h-auto object-cover rounded">
             <p class="text-[#00666a] font-semibold mt-2">Day 3: A Fearless Finish</p>
           </div>
         </div>
-        <div class="swiper-slide cursor-pointer" onclick="playInFeatured('6371801670112', 'Day 1: Unbelievable in Istanbul')">
+        <div class="swiper-slide cursor-pointer" onclick="playInFeatured('6371801670112', 'Day 1: Unbelievable in Istanbul', 'Check out the Day 1 highlights here!')">
           <div class="rounded overflow-hidden">
             <img src="assets/news/04232025-v-turkiye-2025-highlights-day-1-unbelievable-in-istanbul.jpg" alt="Day 6" class="w-full h-auto object-cover rounded">
             <p class="text-[#00666a] font-semibold mt-2">Day 1: Unbelievable in Istanbul</p>
           </div>
         </div>
-        <div class="swiper-slide cursor-pointer" onclick="playInFeatured('6371889920112', 'Day 2: Driven by Dreams')">
+        <div class="swiper-slide cursor-pointer" onclick="playInFeatured('6371889920112', 'Day 2: Driven by Dreams', 'Our Day 2 highlights are here!')">
           <div class="rounded overflow-hidden">
             <img src="assets/news/04252025-v-turkiye-2025-highlights-day-2-driven-by-dreams.png" alt="Day 7" class="w-full h-auto object-cover rounded">
             <p class="text-[#00666a] font-semibold mt-2">Day 2: Driven by Dreams</p>
           </div>
         </div>
-        <div class="swiper-slide cursor-pointer" onclick="playInFeatured('6372093116112', 'Day 3: A Fearless Finish')">
+        <div class="swiper-slide cursor-pointer" onclick="playInFeatured('6372093116112', 'Day 3: A Fearless Finish', 'Check out the Day 3 highlights here!')">
           <div class="rounded overflow-hidden">
             <img src="assets/news/04302025-v-turkiye-2025-highlights-day-3-a-fearless-finish.png" alt="Bonus" class="w-full h-auto object-cover rounded">
             <p class="text-[#00666a] font-semibold mt-2">Day 3: A Fearless Finish</p>
@@ -678,7 +731,7 @@ html {
         </div>
       </div>
       <div class="swiper-button-prev text-white z-10 text-4xl"></div>
-<div class="swiper-button-next text-white z-10 text-4xl"></div>
+      <div class="swiper-button-next text-white z-10 text-4xl"></div>
  <!-- Pagination goes here -->
 			<div class="custom-pagination-container mt-12 text-center">
 			  <div class="swiper-pagination"></div>
@@ -690,7 +743,7 @@ html {
 </section>
 
     <!--  NEWS AND UPDATE Section -->
-    <section class="py-16 newsupdates">
+    <section class="py-16 newsupdates" style="background-image: url('assets/news/BG-videohighlights.png'); background-position: top;>
         <div class="container mx-auto px-4">
 
             <div class="text-center mb-16">
@@ -1670,11 +1723,12 @@ html {
     navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
   });
   
-  function playInFeatured(videoId, titleText) {
-      const player = document.getElementById('featuredPlayer');
-      player.src = `https://players.brightcove.net/3745659807001/4JJdlFXsg_default/index.html?videoId=${videoId}`;
-      document.getElementById('featuredTitle').innerText = titleText;
-    }
+  function playInFeatured(videoId, titleText, descriptionText) {
+	  const player = document.getElementById('featuredPlayer');
+	  player.src = `https://players.brightcove.net/3745659807001/4JJdlFXsg_default/index.html?videoId=${videoId}`;
+	  document.getElementById('featuredTitle').innerText = titleText;
+	  document.getElementById('featuredDescription').innerText = descriptionText;
+	}
 
     const allVideosSwiper = new Swiper(".allVideosSwiper", {
       slidesPerView: 3,
