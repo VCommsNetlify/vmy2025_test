@@ -9,6 +9,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<!-- Lightbox2 CSS & JS -->
+<link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox.min.js"></script>
     <style>
 /* Import Montserrat Font */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
@@ -60,6 +63,19 @@ html {
 }
 
 .nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link2::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: black;
+  transition: width 0.3s;
+}
+
+.nav-link2:hover::after {
   width: 100%;
 }
 
@@ -343,6 +359,21 @@ html {
     transform: translateY(-50%);
     position: absolute;
   }
+  
+  	/* Style for pagination dots */
+	.allVideosSwiper .swiper-pagination-bullet {
+	  width: 12px; /* Adjust size */
+	  height: 12px; /* Adjust size */
+	  background-color: #00666a; /* Change color */
+	  opacity: 0.7; /* Adjust transparency */
+	  transition: background-color 0.3s;
+	}
+
+	/* Active pagination dot */
+	.allVideosSwiper .swiper-pagination-bullet-active {
+	  background-color: #e60000; /* Change active dot color */
+	  opacity: 1;
+	}
 
 
   
@@ -351,7 +382,14 @@ html {
     bottom: auto !important;
     margin-top: 1rem;
 	}
+	
+	
 	@media (max-width: 767px) {
+
+.grid {
+    grid-template-columns: 1fr; /* 1 column on mobile */
+  }
+	
       .swiper-button-prev, .swiper-button-next {
         display: block !important;
       }
@@ -429,17 +467,15 @@ html {
 	  
     }
 
-	.article-swiper .swiper-pagination {
-	  position: absolute;
-	  bottom: 10px; /* Adjust position based on your design */
-	  left: 50%;
-	  transform: translateX(-50%);
-	  z-index: 10; /* Ensure it appears above other elements */
-	  display: block; /* Make sure it's not hidden */
+	.articleSwiper .swiper-pagination {
+  position: relative; /* or 'absolute' with more control */
+  margin-top: 1.5rem; /* adjust as needed */
+  text-align: center;
+  bottom: auto;
 	}
 
 	/* Style for pagination dots */
-	.article-swiper .swiper-pagination-bullet {
+	.articleSwiper .swiper-pagination-bullet {
 	  width: 12px; /* Adjust size */
 	  height: 12px; /* Adjust size */
 	  background-color: #00666a; /* Change color */
@@ -448,14 +484,86 @@ html {
 	}
 
 	/* Active pagination dot */
-	.article-swiper .swiper-pagination-bullet-active {
+	.articleSwiper .swiper-pagination-bullet-active {
 	  background-color: #e60000; /* Change active dot color */
 	  opacity: 1;
 	}
 	
-	.article-swiper .swiper-wrapper {
+	.articleSwiper .swiper-wrapper {
   min-height: 300px; /* Adjust the height as needed */
+	}
+	.articleSwiper .swiper-button-next,
+.articleSwiper .swiper-button-prev {
+  color: #00666a !important;
+  font-size: 24px;
+  z-index: 50;
+  top: 50%;
+  transform: translateY(-50%);
 }
+
+	.adSwiper .swiper-pagination-bullet {
+	  width: 12px; /* Adjust size */
+	  height: 12px; /* Adjust size */
+	  background-color: #00666a; /* Change color */
+	  opacity: 0.7; /* Adjust transparency */
+	  transition: background-color 0.3s;
+	}
+
+	/* Active pagination dot */
+	.adSwiper .swiper-pagination-bullet-active {
+	  background-color: #e60000; /* Change active dot color */
+	  opacity: 1;
+	}
+	
+	.adSwiper .swiper-wrapper {
+  min-height: 300px; /* Adjust the height as needed */
+	}
+	.adSwiper .swiper-button-next,
+.adSwiper .swiper-button-prev {
+  color: #00666a !important;
+  font-size: 24px;
+  z-index: 50;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Default grid layout with 3 columns */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* Ensure the dropdown stays open while hovering */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Optional: Styling for the dropdown menu */
+.dropdown-menu a {
+  padding: 10px 20px;
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f0f0f0;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
 </style>
 
 </head>
@@ -477,31 +585,44 @@ html {
     <!-- Left: Logo + Home -->
     <div class="flex items-center space-x-4">
       <img src="assets/first-fold/VMY2025-logo-v2_lowres.png" alt="THE V Logo" class="h-10">
-      <a href="#home" class="text-white hidden md:inline">Home</a>
+      <a href="#home" class="text-white hidden md:inline nav-link">Home</a>
     </div>
 
     <!-- Center Nav (Desktop Only) -->
-    <nav class="hidden md:flex space-x-6">
-      <a href="#carousel-featured" class="text-white">Greatest Stories</a>
-      <a href="#venue-map" class="text-white">Venue Map</a>
-      <a href="#vkidsteens" class="text-white">V-Kids & V-Teens</a>
-      <a href="#speakers" class="text-white">Speakers</a>
-      <a href="#thisorthat" class="text-white">This or That?</a>
-      <a href="#faqs" class="text-white">FAQ</a>
+    <nav class="hidden md:flex space-x-6 items-center">
+      <div class="relative">
+        <button id="storiesToggle" class="text-white flex items-center space-x-2">
+          <span>Greatest Stories</span>
+          <span class="text-white text-xl transition-transform duration-300 transform rotate-90" id="storiesIcon">&#8250;</span>
+        </button>
+        <div id="storiesMenu" class="absolute hidden bg-white text-black mt-2 rounded shadow-lg py-2 w-48 z-50">
+          <a href="#carousel-featured" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Videos</a>
+          <a href="#articles-section" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Articles</a>
+          <a href="#gallery-section" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Gallery</a>
+        </div>
+      </div>
+      <a href="#venue-map" class="text-white nav-link">Venue Map</a>
+      <a href="#vkidsteens" class="text-white nav-link">V-Kids & V-Teens</a>
+      <a href="#speakers" class="text-white nav-link">Speakers</a>
+      <a href="#thisorthat" class="text-white nav-link">This or That?</a>
+      <a href="#faqs" class="text-white nav-link">FAQ</a>
     </nav>
 
     <!-- Right: Language Dropdown (Desktop Only) -->
-    <div class="relative hidden md:block group">
-      <button class="text-white">Languages</button>
-      <ul class="absolute right-0 hidden group-hover:block bg-white text-black mt-2 rounded shadow-lg py-2 w-48 z-50">
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">English</a></li>
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Arabic</a></li>
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Bahasa-Indonesia</a></li>
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">French</a></li>
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Russian</a></li>
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Singhalese</a></li>
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Tamil</a></li>
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Turkish</a></li>
+    <div class="relative hidden md:block">
+      <button id="langToggle" class="text-white flex items-center space-x-2">
+        <span>Languages</span>
+        <span class="text-white text-xl transition-transform duration-300 transform rotate-90" id="langIcon">&#8250;</span>
+      </button>
+      <ul id="langMenu" class="hidden absolute right-0 bg-white text-black mt-2 rounded shadow-lg py-2 w-48 z-50">
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">English</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Arabic</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Bahasa-Indonesia</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">French</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Russian</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Singhalese</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Tamil</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Turkish</a></li>
       </ul>
     </div>
 
@@ -511,28 +632,34 @@ html {
     </button>
   </div>
 
-  <!-- Mobile Nav (Initially Hidden) -->
+  <!-- Mobile Nav -->
   <div id="mobileMenu" class="hidden md:hidden bg-[#004372] px-4 pb-4 space-y-3 z-40">
-    <a href="#home" class="text-white block">Home</a>
-    <a href="#carousel-featured" class="text-white block">Greatest Stories</a>
-    <a href="#venue-map" class="text-white block">Venue Map</a>
-    <a href="#vkidsteens" class="text-white block">V-Kids & V-Teens</a>
-    <a href="#speakers" class="text-white block">Speakers</a>
-    <a href="#thisorthat" class="text-white block">This or That?</a>
-    <a href="#faqs" class="text-white block">FAQ</a>
-
-    <!-- Mobile Languages Dropdown -->
+    <a href="#home" class="text-white block nav-link">Home</a>
     <div class="text-white">
-      <button id="langToggle" class="w-full text-left">Languages ▼</button>
-      <ul id="langMenu" class="hidden bg-white text-black rounded shadow-lg mt-2">
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">English</a></li>
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Arabic</a></li>
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Bahasa-Indonesia</a></li>
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">French</a></li>
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Russian</a></li>
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Singhalese</a></li>
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Tamil</a></li>
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Turkish</a></li>
+      <button id="storiesToggleMobile" class="w-full text-left flex items-center justify-between">Greatest Stories <span id="storiesIconMobile" class="text-white text-xl transition-transform transform rotate-90">&#8250;</span></button>
+      <ul id="storiesMenuMobile" class="hidden bg-white text-black rounded shadow-lg mt-2">
+        <li><a href="#carousel-featured" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Videos</a></li>
+        <li><a href="#articles-section" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Articles</a></li>
+        <li><a href="#gallery-section" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Gallery</a></li>
+      </ul>
+    </div>
+    <a href="#venue-map" class="text-white block nav-link">Venue Map</a>
+    <a href="#vkidsteens" class="text-white block nav-link">V-Kids & V-Teens</a>
+    <a href="#speakers" class="text-white block nav-link">Speakers</a>
+    <a href="#thisorthat" class="text-white block nav-link">This or That?</a>
+    <a href="#faqs" class="text-white block nav-link">FAQ</a>
+
+    <div class="text-white">
+      <button id="langToggleMobile" class="w-full text-left flex items-center justify-between">Languages <span id="langIconMobile" class="text-white text-xl transition-transform transform rotate-90">&#8250;</span></button>
+      <ul id="langMenuMobile" class="hidden bg-white text-black rounded shadow-lg mt-2">
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">English</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Arabic</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Bahasa-Indonesia</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">French</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Russian</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Singhalese</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Tamil</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Turkish</a></li>
       </ul>
     </div>
   </div>
@@ -540,19 +667,19 @@ html {
 
 
     <!-- Hero Section -->
-<section class="relative min-h-screen flex flex-col justify-center items-center text-white text-center" id="home">
+<section class="relative min-h-screen flex flex-col justify-center items-center text-white text-center pt-24 pb-12" id="home">
   <!-- Gradient Overlay -->
   <div class="hero-gradient absolute inset-0 bg-black bg-opacity-30 z-0"></div>
 
   <!-- Content Container -->
   <div class="container mx-auto px-4 flex flex-col items-center justify-center z-10 relative">
-    <img class="mx-auto mt-16 w-48 sm:w-64 md:w-80 lg:w-96"
+    <img class="mx-auto w-40 sm:w-52 md:w-64 lg:w-80 mb-6"
          src="assets/header/vmy_logo.png"
          alt="V Malaysia Logo">
 
-    <div class="max-w-3xl px-2 mt-[-1rem] sm:mt-[-2rem] md:mt-[-3rem]">
+    <div class="max-w-3xl w-full px-4">
       <!-- Countdown Boxes -->
-      <div class="flex justify-center gap-4 mb-8">
+      <div class="flex flex-wrap justify-center gap-4 mb-6">
         <div class="countdown-box bg-white/10 rounded-lg p-4 w-20 md:w-24 text-center">
           <div class="text-2xl sm:text-3xl md:text-4xl font-bold" id="days">00</div>
           <div class="text-xs sm:text-sm">DAYS</div>
@@ -571,47 +698,40 @@ html {
         </div>
       </div>
 
-      <h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-center">
-        <span style="color: #00f6ff; font-size: 2.5rem;" class="text-3xl sm:text-4xl md:text-5xl font-bold">RISE TOGETHER</span> 
-        <span style="color: #ffffff; font-size: 2.5rem;" class="text-3xl sm:text-4xl md:text-5xl font-bold">AND CREATE</span> <br>
-        <span style="color: #ffffff; font-size: 2.5rem;" class="text-3xl sm:text-4xl md:text-5xl font-bold">OUR</span>
-        <span style="color: #00f6ff; font-size: 2.5rem;" class="text-3xl sm:text-4xl md:text-5xl font-bold">GREATEST STORY!</span>!
-      </h2>
+      <!-- Headline (2 Lines) -->
+<h2 class="mt-4 max-w-4xl text-[1.5rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] font-extrabold leading-tight tracking-tight text-center">
+  <span class="text-[#00f6ff] block sm:inline">RISE TOGETHER</span>
+  <span class="text-white block sm:inline">AND CREATE OUR</span>
+  <span class="text-[#00f6ff] sm:inline"> GREATEST STORY</span><span class="text-white sm:inline">!</span>
+</h2>
 
-      <div class="flex flex-col sm:flex-row items-center justify-center space-x-4">
-        <!-- Paragraph Container -->
-		<div class="flex flex-col justify-center items-center sm:items-start">
-		  <p class="text-sm sm:text-base md:text-lg mb-4 whitespace-nowrap">
-			When we come together, our journey becomes limitless.
-		  </p>
-		  <p class="text-sm sm:text-base md:text-lg mb-4">
-			Join us at V-MALAYSIA 2025 this June as we gather as one to fulfill the vision of RYTHM and rise beyond the boundaries.
-		  </p>
-		</div>
 
-        <!-- Call to Action -->
+
+      <!-- Paragraph + CTA (single line on md+, stacked on mobile) -->
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-white text-center">
+        <!-- Text Block -->
+        <div class="flex-1 text-sm sm:text-base md:text-lg">
+          <p class="mb-0 whitespace-nowrap">When we come together, our journey becomes limitless.</p>
+          <p class="mb-0">Join us at V-MALAYSIA 2025 this June as we gather as one to fulfill the vision of RYTHM and rise beyond the boundaries.</p>
+        </div>
+
+        <!-- CTA Button -->
         <a href="https://vshoppe.vtube.net/"
-           class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-12 text-xl rounded-full shadow-lg transition duration-300 btn-glow animate-pulse whitespace-nowrap">
+           class="shrink-0 inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 sm:py-4 sm:px-8 text-base sm:text-lg md:text-xl rounded-full shadow-lg transition duration-300 btn-glow animate-pulse whitespace-nowrap text-center">
           Get your tickets on VShoppe.
         </a>
       </div>
     </div>
   </div>
-
-
-  <!-- Decorative Clouds -->
-<!--   <img class="absolute bottom-[-20px] left-[-40px] w-48 sm:w-64 md:w-80 lg:w-96 z-0 cloud_left"
-       src="assets/header/cloud-left.png"
-       alt="Cloud Left">
-  <img class="absolute bottom-[-5px] right-0 w-48 sm:w-64 md:w-80 lg:w-96 z-0 cloud_right"
-       src="assets/header/cloud-right.png"
-       alt="Cloud Right"> -->
 </section>
+
+
+
 
 
 <!-- The Greatest Story Teaser episodes -->
 
-<section class="relative py-12 bg-gray-100 overflow-hidden">
+<section class="relative py-12 bg-gray-100 overflow-hidden" id="storiesToggle">
   <!-- Background Layer -->
   <div class="absolute inset-0 z-0">
     <div class="w-full h-full bg-[url('assets/news/BG-videohighlights.png')] bg-no-repeat bg-center bg-cover background-position: center;"></div>
@@ -704,12 +824,12 @@ html {
 
 
 <!-- VIDEOS SECTION -->
-<section class="py-16 bg-cover bg-center text-white" style="background-image: url('assets/news/BG-videohighlights.png'); background-position: top;">
+<section id="carousel-featured" class="py-16 bg-cover bg-center text-white" style="background-image: url('assets/news/BG-videohighlights.png'); background-position: top;">
 
   <div class="container mx-auto px-4">
     <div class="text-center mb-12">
       <h2 class="text-3xl md:text-4xl text-[#00666a] font-bold mb-4">EVENTS NEWS & UPDATES</h2>
-      <h2 class="text-3xl md:text-4xl bg-[#c87f15] font-bold text-white mb-4">WATCH THE NEWEST HIGHLIGHTS AND MORE!</h2>
+      <h2 class="text-3xl md:text-4xl bg-[#c87f15] inline-block font-bold text-white mb-4 px-4 py-2">WATCH THE NEWEST HIGHLIGHTS AND MORE!</h2>
     </div>
 
     <!-- Featured Video and Text Section -->
@@ -809,21 +929,31 @@ html {
     <!--  NEWS AND UPDATE Section -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
 
-<section class="py-16 newsupdates" style="background-image: url('assets/news/BG-videohighlights.png'); background-position: top;">
+<section id="articles-section" class="py-16 newsupdates" style="background-image: url('assets/news/BG-videohighlights.png'); background-position: top;">
   <div class="container mx-auto px-4">
 		<div class="text-center mb-12">
-			  <h2 class="text-3xl md:text-4xl bg-[#c87f15] font-bold text-white mb-4">ARTICLES!</h2>
+			  <h2 class="text-3xl md:text-4xl bg-[#00666a] inline-block font-bold text-white mb-4 px-4 py-2">READ THE LATEST NEWS!</h2>
 			</div>
     <!-- Featured Article Section -->
     <div class="max-w-4xl mx-auto mb-16 text-center">
-      <div class="relative w-full h-[50vh] rounded-lg overflow-hidden mb-6">
-        <img src="assets/news/04232025-vturkiye2025-day-1-dream-decide-rise.png" alt="Featured Article" class="absolute top-0 left-0 w-full h-full object-cover">
-      </div>
-      <div class="text-[#00666a]">
-        <h3 class="text-2xl font-semibold mb-4">#VTÜRKIYE2025 DAY 1: Dream, Decide, Rise</h3>
-        <p class="text-lg">V-Convention goes to Türkiye!</p>
-      </div>
-    </div>
+	  <!-- Featured Image -->
+	 <div class="relative w-full rounded-lg overflow-hidden mb-4 sm:mb-6 aspect-[16/9] sm:h-[50vh]">
+  <img src="assets/news/04232025-vturkiye2025-day-1-dream-decide-rise.png"
+       alt="Featured Article"
+       class="w-full h-full object-contain sm:object-cover">
+</div>
+
+	  <!-- Featured Text Block -->
+	  <div class="bg-white px-6 py-4 rounded-b-lg -mt-2 shadow-md">
+		<h3 class="text-lg font-semibold text-[#00666a] mb-2">V-TÜRKİYE 2025 Highlights DAY 1</h3>
+		<p class="text-sm mb-4 text-gray-700">Check out the Day 1 highlights here!</p>
+		<a href="#" class="inline-block">
+		  <button class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
+			READ MORE
+		  </button>
+		</a>
+	  </div>
+	</div>
 
     <!-- Swiper Carousel -->
     <!-- Swiper Carousel -->
@@ -940,12 +1070,15 @@ html {
 
 		</div>
 
-		<!-- Navigation Arrows -->
-		<div class="swiper-button-prev !text-white !text-3xl !z-10 !top-1/2 !-translate-y-1/2 !left-0"></div>
-		<div class="swiper-button-next !text-white !text-3xl !z-10 !top-1/2 !-translate-y-1/2 !right-0"></div>
+		 <!-- arrows -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+  <!-- ✅ Add this -->
+  <div class="swiper-pagination"></div>
 	  </div>
 
-	  <!-- Pagination Below -->
+
 
 	</div>
 
@@ -957,78 +1090,92 @@ html {
 
 
     <!-- Gallery Section -->
-<section class="py-16 bg-gray-100 ">
+<section id="gallery-section" class="py-16 bg-gray-100" style="background-image: url('assets/news/BG-videohighlights.png'); background-position: top;">
   <div class="container mx-auto px-4">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">See the amazing photos!</h2>
-      <div class="w-20 h-1 bg-red-600 mx-auto"/>
-    </div>
+		<div class="text-center mb-12">
+		  <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 inline-block bg-[#d24545] px-4 py-2">
+			SEE THE AMAZING PHOTOS!
+		  </h2>
+		</div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-      <!-- First 6 items -->
-      <div class="relative overflow-hidden rounded-lg group">
-        <a href="https://the-v.net/Resources/images/Gallery/v-turkiye-2025-day-0-registration-day/4.jpg">
-          <img src="assets/gallery/day0/day0.jpg" alt="Gallery 0"
-               class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
-        </a>
-        <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">Day 0 - Registration Day</p>
-      </div>
-      <div class="relative overflow-hidden rounded-lg group">
-        <a href="https://the-v.net/en/album/v-t%C3%BCrkiye-2025-day-1#">
-          <img src="assets/gallery/day1/day1.jpg" alt="Gallery 1"
-               class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
-        </a>
-        <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">Day 1</p>
-      </div>
-      <div class="relative overflow-hidden rounded-lg group">
-        <a href="https://the-v.net/en/album/v-t%C3%BCrkiye-2025-day-2">
-          <img src="assets/gallery/day2/day2.jpg" alt="Gallery 2"
-               class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
-        </a>
-        <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">Day 2</p>
-      </div>
-      <div class="relative overflow-hidden rounded-lg group">
-        <a href="https://the-v.net/en/album/v-t%C3%BCrkiye-2025-day-3">
-          <img src="assets/gallery/day3/day3.jpg" alt="Gallery 3"
-               class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
-        </a>
-        <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">Day 3</p>
-      </div>
-      <div class="relative overflow-hidden rounded-lg group">
-        <a href="https://the-v.net/en/album/v-t%C3%BCrkiye-2025-day-3">
-          <img src="assets/gallery/day4/day4.jpg" alt="Gallery 4"
-               class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
-        </a>
-        <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">Day 4</p>
-      </div>
-      <div class="relative overflow-hidden rounded-lg group">
-        <a href="https://the-v.net/en/album/v-t%C3%BCrkiye-2025-day-2">
-          <img src="assets/gallery/day5/day5.jpg" alt="Gallery 5"
-               class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
-        </a>
-        <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">Day 5</p>
-      </div>
-      <!-- Bottom 2 items centered on desktop, stacked on mobile -->
-      <div class="md:col-span-3 flex flex-col md:flex-row justify-center gap-4 mt-6">
-        <div class="relative overflow-hidden rounded-lg group w-full md:w-1/3">
-          <a href="https://the-v.net/en/album/v-t%C3%BCrkiye-2025-day-2">
-            <img src="assets/gallery/fashionshow/fashionshow.jpg" alt="Gallery 6"
-                 class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
-          </a>
-          <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">Fashion Show</p>
+    <!-- Custom Grid Layout: 1 - 3 - 1 - 2 - 1 -->
+    <div class="grid grid-cols-1 gap-4">
+      <!-- Row 1: 1 item -->
+      <div class="grid grid-cols-1">
+        <div data-gallery="day0" class="relative group cursor-pointer">
+          <img src="assets/gallery/day0/day0.jpg" alt="Day 0" class="w-full h-48 object-cover">
+          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <p class="text-white text-lg font-semibold">Day 0 - Registration Day</p>
+          </div>
         </div>
-        <div class="relative overflow-hidden rounded-lg group w-full md:w-1/3">
-          <a href="https://the-v.net/en/album/v-t%C3%BCrkiye-2025-day-2">
-            <img src="assets/gallery/fashionshow/fashionshow.jpg" alt="Gallery 7"
-                 class="w-full h-48 object-cover transition duration-300 transform group-hover:scale-110">
-          </a>
-          <p class="absolute bottom-4 left-0 right-0 text-center text-white bg-opacity-50 bg-black py-2">V-Kids & V-Teens</p>
+      </div>
+
+      <!-- Row 2: 3 items -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div data-gallery="day1" class="relative group cursor-pointer">
+          <img src="assets/gallery/day1/day1.jpg" alt="Day 1" class="w-full h-48 object-cover">
+          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <p class="text-white text-lg font-semibold">Day 1</p>
+          </div>
+        </div>
+        <div data-gallery="day2" class="relative group cursor-pointer">
+          <img src="assets/gallery/day2/day2.jpg" alt="Day 2" class="w-full h-48 object-cover">
+          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <p class="text-white text-lg font-semibold">Day 2</p>
+          </div>
+        </div>
+        <div data-gallery="day3" class="relative group cursor-pointer">
+          <img src="assets/gallery/day3/day3.jpg" alt="Day 3" class="w-full h-48 object-cover">
+          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <p class="text-white text-lg font-semibold">Day 3</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 3: 1 item -->
+      <div class="grid grid-cols-1">
+        <div data-gallery="day4" class="relative group cursor-pointer">
+          <img src="assets/gallery/day4/day4.jpg" alt="Day 4" class="w-full h-48 object-cover">
+          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <p class="text-white text-lg font-semibold">Day 4</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 4: 2 items -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div data-gallery="day5" class="relative group cursor-pointer">
+          <img src="assets/gallery/day5/day5.jpg" alt="Day 5" class="w-full h-48 object-cover">
+          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <p class="text-white text-lg font-semibold">Day 5</p>
+          </div>
+        </div>
+        <div data-gallery="fashionshow" class="relative group cursor-pointer">
+          <img src="assets/gallery/fashionshow/fashionshow.jpg" alt="Fashion Show" class="w-full h-48 object-cover">
+          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <p class="text-white text-lg font-semibold">Fashion Show</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 5: 1 item -->
+      <div class="grid grid-cols-1">
+        <div data-gallery="vkids" class="relative group cursor-pointer">
+          <img src="assets/gallery/vkids/vkids.jpg" alt="V-Kids & V-Teens" class="w-full h-48 object-cover">
+          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <p class="text-white text-lg font-semibold">V-Kids & V-Teens</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- Modal Popup -->
+<div id="galleryModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex-col items-start p-6">
+  <button id="closeModal" class="text-white text-2xl font-bold mb-4">×</button>
+  <div id="galleryContent" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 overflow-y-auto max-h-[90vh] w-full"></div>
+</div>
 
 
 
@@ -1036,54 +1183,58 @@ html {
 
 
     <!-- MAP -->
-    <section class="py-16 bg-white text-black" id="venue-map">
-      <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6">Explore Where the Magic Happens</h2>
-        <!-- Ensure the text stays on one line on large screens and breaks on mobile -->
-        <p class="mb-8 text-lg mx-4 md:mx-auto md:max-w-full">
-          Navigate your way around Setia SPICE Arena and discover all the amazing surprises at
-          <span class="block md:inline">V-Malaysia 2025.</span>
-          
-        </p>
-        <div class="w-20 h-1 bg-red-600 mx-auto"></div><p>&nbsp;</p>
-      </div>
-      <iframe class="container mx-auto px-4" src="https://app.seekbeak.com/v/Xw1LnZ6GjL8" height="600px"></iframe>
-    </section>
+<section class="relative py-16 text-black" id="venue-map" style="background-image: url('assets/news/BG-videohighlights.png'); background-position: center; background-size: cover;">
+  <!-- White overlay with 70% opacity -->
+  <div class="absolute inset-0 bg-white bg-opacity-70 z-0"></div>
+
+  <!-- Content Layer -->
+  <div class="relative z-10 max-w-4xl mx-auto text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-[#58148f]">EXPLORE WHERE THE MAGIC HAPPENS</h2>
+    <p class="mb-8 text-lg mx-4 md:mx-auto md:max-w-full text-[#58148f]">
+      Navigate your way around Setia SPICE Arena and <br>discover all the amazing surprises at
+      <span class="block md:inline">V-Malaysia 2025.</span>
+    </p>
+  </div>
+
+  <!-- Map Frame -->
+  <div class="relative z-10 container mx-auto px-4">
+    <iframe src="https://app.seekbeak.com/v/Xw1LnZ6GjL8" height="600px" class="w-full"></iframe>
+  </div>
+</section>
+
 
 
     <!-- Ads Section -->
-    <section class="py-16 bg-gray-100">
-
-
-      <div class="w-[80%] mx-auto">
-        <div class="swiper adSwiper rounded-xl overflow-hidden relative">
-          <div class="swiper-wrapper">
-            <!-- Slide 1 -->
-            <div class="swiper-slide">
-              <img src="assets/hero/01202025-ice-2025-day-4-persist-persevere-perform-by-dato-sri-vijay-eswaran32b0e726-2a48-4cac-9422-34ce98acc6c1.jpg"
-                   alt="Ad 1" class="w-full h-[500px] object-contain" />
-            </div>
-
-            <!-- Slide 2 -->
-            <div class="swiper-slide">
-              <img src="assets/hero/04162025-join-the-v-kids-and-v-teens-at-vmalaysia2025-1.png"
-                   alt="Ad 2" class="w-full h-[500px] object-contain" />
-            </div>
-
-            <!-- Slide 3 -->
-            <div class="swiper-slide">
-              <img src="assets/hero/03272025-rise-together-and-create-our-greatest-story-ever-at-vmalaysia202505efb2aa-fe92-46e4-83db-9679c0b6ff60.jpg"
-                   alt="Ad 3" class="w-full h-[500px] object-contain" />
-            </div>
-          </div>
-
-          <!-- Optional Controls -->
-          <div class="swiper-pagination !bottom-4"></div>
-          <div class="swiper-button-prev text-black"></div>
-          <div class="swiper-button-next text-black"></div>
+    <section class="py-16 bg-gray-100" style="background-image: url('assets/news/BG-videohighlights.png'); background-position: center; background-size: cover;">
+<div class="w-[80%] mx-auto">
+    <div class="swiper adSwiper rounded-xl overflow-hidden relative">
+      <!-- Slides -->
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="assets/hero/01202025-ice-2025-day-4-persist-persevere-perform-by-dato-sri-vijay-eswaran32b0e726-2a48-4cac-9422-34ce98acc6c1.jpg"
+               alt="Ad 1" class="w-full h-[500px] object-contain" />
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/hero/04162025-join-the-v-kids-and-v-teens-at-vmalaysia2025-1.png"
+               alt="Ad 2" class="w-full h-[500px] object-contain" />
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/hero/03272025-rise-together-and-create-our-greatest-story-ever-at-vmalaysia202505efb2aa-fe92-46e4-83db-9679c0b6ff60.jpg"
+               alt="Ad 3" class="w-full h-[500px] object-contain" />
         </div>
       </div>
-    </section>
+
+      <!-- Controls -->
+      <div class="swiper-button-prev text-black"></div>
+      <div class="swiper-button-next text-black"></div>
+
+		<!-- Pagination goes here -->
+			<div class="custom-pagination-container mt-12 text-center">
+			  <div class="swiper-pagination"></div>
+			</div>
+    </div>
+  </div>
+</section>
 
 
 <!-- VKIDS -->
@@ -1657,106 +1808,40 @@ html {
   </div>
 </section>
 
-    <!-- Sponsors Section -->
-    <!-- <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">OUR SPONSORS</h2>
-                <div class="w-20 h-1 bg-red-600 mx-auto"></div>
-            </div>
-
-            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-                <img src="https://the-v.net/images/default-source/vmy2025/vtube.png" alt="Sponsor 1" class="h-24 md:h-32 opacity-70 hover:opacity-100 transition duration-300">
-                <img src="https://the-v.net/images/default-source/vmy2025/v-logo.png" alt="Sponsor 2" class="h-24 md:h-32 opacity-70 hover:opacity-100 transition duration-300">
-                <img src="https://the-v.net/images/default-source/vmy2025/cov-logo.png" alt="Sponsor 3" class="h-24 md:h-32 opacity-70 hover:opacity-100 transition duration-300">
-                <img src="https://the-v.net/images/default-source/vmy2025/qnet-logo.jpg" alt="Sponsor 4" class="h-24 md:h-32 opacity-70 hover:opacity-100 transition duration-300">
-                <img src="https://vmalaysia2024.the-v.net/wp-content/uploads/2023/12/sponsor5.png" alt="Sponsor 5" class="h-12 md:h-16 opacity-70 hover:opacity-100 transition duration-300">
-            </div>
-        </div>
-    </section> -->
-
-
-    <!-- Newsletter Section -->
-    <!-- <section class="py-16 bg-red-600 text-white">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">STAY UPDATED</h2>
-                <p class="mb-8 text-lg">Subscribe to our newsletter to receive the latest news and updates about V Malaysia 2024!</p>
-
-                <form class="flex flex-col md:flex-row gap-4 max-w-xl mx-auto">
-                    <input type="email" placeholder="Your Email Address" class="flex-grow px-4 py-3 rounded-full text-gray-800 focus:outline-none">
-                    <button type="submit" class="bg-black hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-full transition duration-300">
-                        SUBSCRIBE
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- Footer -->
-    <!-- <footer class="bg-black text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <img src="assets/header/V-Logo.png" alt="THE V Logo" class="h-10 mb-4">
-                    <p class="text-gray-400">V Malaysia 2025</p>
-                </div>
-
-                <div>
-                    <h3 class="text-xl font-bold mb-4">QUICK LINKS</h3>
-                    <ul class="space-y-2">
-                      <li><a href="#home" class="text-white nav-link">Home</a></li>
-                      <li><a href="#carousel-featured" class="text-white nav-link">Greatest Stories</a></li>
-                      <li><a href="#venue-map" class="text-white nav-link">Venue Map</a></li>
-                      <li><a href="#vkidsteens" class="text-white nav-link">V-Kids & V-Teens</a></li>
-                      <li><a href="#speakers" class="text-white nav-link">Speakers</a></li>
-                      <li><a href="#thisorthat" class="text-white nav-link">This or That?</a></li>
-                      <li><a href="#faqs" class="text-white nav-link">FAQ</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3 class="text-xl font-bold mb-4">CONTACT US</h3>
-                    <ul class="space-y-2 text-gray-400">
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
-                            <span>Bukit Jalil National Stadium, Kuala Lumpur, Malaysia</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-phone-alt mr-3"></i>
-                            <span>+603 1234 5678</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope mr-3"></i>
-                            <span>info@vmalaysia2024.com</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3 class="text-xl font-bold mb-4">FOLLOW US</h3>
-                    <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/thevofficial" class="text-gray-400 hover:text-white text-2xl transition duration-300">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                        <a href="https://x.com/thev_official" class="text-gray-400 hover:text-white text-2xl transition duration-300">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="https://www.instagram.com/thev_official/" class="text-gray-400 hover:text-white text-2xl transition duration-300">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
-                <p>&copy; 2025 V Malaysia 2025. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer> -->
+   
 
     <script>
+	//popup Modal
+	const galleryImages = {
+	  day0: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg', '11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg'],
+	  day1: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg', '11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg','16.jpg', '17.jpg', '11.jpg', '19.jpg', '20.jpg', '21.jpg', '22.jpg', '23.jpg', '24.jpg', '25.jpg', '26.jpg', '27.jpg', '28.jpg', '29.jpg', '30.jpg'],
+	  day2: ['1.jpg', '2.jpg', '3.jpg'],
+	  day3: ['1.jpg', '2.jpg', '3.jpg'],
+	  day4: ['1.jpg', '2.jpg', '3.jpg'],
+	  day5: ['1.jpg', '2.jpg', '3.jpg'],
+	  fashionshow: ['1.jpg', '2.jpg', '3.jpg'],
+	  vkids: ['1.jpg', '2.jpg', '3.jpg'],
+	};
+
+	const modal = document.getElementById('galleryModal');
+	const content = document.getElementById('galleryContent');
+	const closeBtn = document.getElementById('closeModal');
+
+	closeBtn.addEventListener('click', () => {
+	  modal.classList.add('hidden');
+	  content.innerHTML = '';
+	});
+
+	document.querySelectorAll('[data-gallery]').forEach(el => {
+	  el.addEventListener('click', () => {
+		const gallery = el.getAttribute('data-gallery');
+		const paths = galleryImages[gallery] || [];
+		content.innerHTML = paths.map(file => {
+		  return `<img src="assets/gallery/${gallery}/${file}" class="w-full rounded shadow">`;
+		}).join('');
+		modal.classList.remove('hidden');
+	  });
+	});
 	//handle video switching
 	function playInFeatured(videoId, title, description) {
     const player = document.getElementById('featuredPlayer');
@@ -1798,16 +1883,89 @@ html {
   window.addEventListener('load', changeImageForMobile);
   window.addEventListener('resize', changeImageForMobile);
  
- 
+// Mobile menu toggle
+  document.getElementById('menuToggle')?.addEventListener('click', function () {
+    document.getElementById('mobileMenu').classList.toggle('hidden');
+  });
 
-  // Menu toggle
-  const menuToggle = document.getElementById('menuToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const langToggle = document.getElementById('langToggle');
-  const langMenu = document.getElementById('langMenu');
+  // Mobile Dropdown toggles
+  document.getElementById('storiesToggleMobile')?.addEventListener('click', function () {
+    const menu = document.getElementById('storiesMenuMobile');
+    const icon = document.getElementById('storiesIconMobile');
+    menu.classList.toggle('hidden');
+    icon.classList.toggle('rotate-90');
+    icon.classList.toggle('rotate-270');
+  });
 
-  menuToggle?.addEventListener('click', () => mobileMenu?.classList.toggle('hidden'));
-  langToggle?.addEventListener('click', () => langMenu?.classList.toggle('hidden'));
+  document.getElementById('langToggleMobile')?.addEventListener('click', function () {
+    const menu = document.getElementById('langMenuMobile');
+    const icon = document.getElementById('langIconMobile');
+    menu.classList.toggle('hidden');
+    icon.classList.toggle('rotate-90');
+    icon.classList.toggle('rotate-270');
+  });
+
+  // Desktop Click-based dropdown
+  document.getElementById('storiesToggle')?.addEventListener('click', function () {
+    const menu = document.getElementById('storiesMenu');
+    const icon = document.getElementById('storiesIcon');
+    menu.classList.toggle('hidden');
+    icon.classList.toggle('rotate-90');
+    icon.classList.toggle('rotate-270');
+  });
+
+  document.getElementById('langToggle')?.addEventListener('click', function () {
+    const menu = document.getElementById('langMenu');
+    const icon = document.getElementById('langIcon');
+    menu.classList.toggle('hidden');
+    icon.classList.toggle('rotate-90');
+    icon.classList.toggle('rotate-270');
+  });
+
+  // Close dropdowns on selecting an option
+  const closeDropdownOnSelect = (menuId, iconId) => {
+    const menu = document.getElementById(menuId);
+    const icon = document.getElementById(iconId);
+
+    menu.querySelectorAll('a').forEach(item => {
+      item.addEventListener('click', () => {
+        menu.classList.add('hidden');
+        icon.classList.remove('rotate-270');
+      });
+    });
+  };
+
+  // Close dropdowns when an option is clicked for Greatest Stories and Languages
+  closeDropdownOnSelect('storiesMenu', 'storiesIcon');
+  closeDropdownOnSelect('langMenu', 'langIcon');
+  
+  // Mobile: Close dropdowns when an option is clicked
+  closeDropdownOnSelect('storiesMenuMobile', 'storiesIconMobile');
+  closeDropdownOnSelect('langMenuMobile', 'langIconMobile');
+
+  // Close dropdowns if clicking anywhere outside the dropdown or the toggle button
+  const closeDropdownOnClickOutside = (menuId, iconId, toggleId) => {
+    const menu = document.getElementById(menuId);
+    const toggle = document.getElementById(toggleId);
+    const icon = document.getElementById(iconId);
+
+    document.addEventListener('click', function (event) {
+      if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+        menu.classList.add('hidden');
+        icon.classList.remove('rotate-270');
+      }
+    });
+  };
+
+  // Apply to both desktop and mobile dropdowns
+  closeDropdownOnClickOutside('storiesMenu', 'storiesIcon', 'storiesToggle');
+  closeDropdownOnClickOutside('langMenu', 'langIcon', 'langToggle');
+  closeDropdownOnClickOutside('storiesMenuMobile', 'storiesIconMobile', 'storiesToggleMobile');
+  closeDropdownOnClickOutside('langMenuMobile', 'langIconMobile', 'langToggleMobile');
+  
+
+
+
 
   // Gallery scroll
   const gallery = document.getElementById('galleryScroll');
@@ -1833,33 +1991,33 @@ html {
   });
 
   // Swipers
-  <!-- const videoSwiper = new Swiper('.videoSwiper', { -->
-    <!-- loop: true, -->
-    <!-- autoplay: { delay: 5000 }, -->
-    <!-- pagination: { el: '.swiper-pagination', clickable: true }, -->
-  <!-- }); -->
-
-  <!-- const articleSwiper = new Swiper('.articleSwiper', { -->
-    <!-- loop: true, -->
-    <!-- autoplay: { delay: 6000 }, -->
-    <!-- pagination: { el: '.swiper-pagination', clickable: true }, -->
-  <!-- }); -->
-
-  <!-- const adSwiper = new Swiper('.adSwiper', { -->
-    <!-- loop: true, -->
-    <!-- autoplay: { delay: 3000, disableOnInteraction: false }, -->
-    <!-- effect: 'fade', -->
-    <!-- fadeEffect: { crossFade: true }, -->
-    <!-- pagination: { el: '.swiper-pagination', clickable: true }, -->
-    <!-- navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }, -->
-  <!-- }); -->
+  //ads
+	new Swiper('.adSwiper', {
+	  loop: true,
+	  autoplay: {
+		delay: 4000,
+		disableOnInteraction: false,
+	  },
+	  pagination: {
+		el: '.swiper-pagination',
+		clickable: true,
+	  },
+	  navigation: {
+		nextEl: '.swiper-button-next',
+		prevEl: '.swiper-button-prev',
+	  },
+	});
   
-  function playInFeatured(videoId, titleText, descriptionText) {
-	  const player = document.getElementById('featuredPlayer');
-	  player.src = `https://players.brightcove.net/3745659807001/4JJdlFXsg_default/index.html?videoId=${videoId}`;
-	  document.getElementById('featuredTitle').innerText = titleText;
-	  document.getElementById('featuredDescription').innerText = descriptionText;
-	}
+function playInFeatured(videoId, titleText, descriptionText) {
+  const player = document.getElementById('featuredPlayer');
+  player.src = `https://players.brightcove.net/3745659807001/4JJdlFXsg_default/index.html?videoId=${videoId}`;
+  document.getElementById('featuredTitle').innerText = titleText;
+  document.getElementById('featuredDescription').innerText = descriptionText;
+
+  // Scroll into view after video updates
+  const featuredSection = document.getElementById('featuredSection');
+  featuredSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
 
     const allVideosSwiper = new Swiper(".allVideosSwiper", {
       slidesPerView: 3,
@@ -2062,13 +2220,7 @@ const articleSwiper = new Swiper('.article-swiper', {
   setInterval(updateCountdown, 1000);
 
   // Mobile nav menu
-  <!-- const mobileMenuButton = document.querySelector('button.md\\:hidden'); -->
-  <!-- const navLinks = document.querySelector('nav.hidden'); -->
 
-  <!-- mobileMenuButton?.addEventListener('click', () => { -->
-    <!-- ['hidden', 'flex', 'flex-col', 'absolute', 'top-16', 'left-0', 'right-0', 'bg-black', 'py-4', 'px-8', 'space-y-4', 'space-x-8'] -->
-      <!-- .forEach(cls => navLinks?.classList.toggle(cls)); -->
-  <!-- }); -->
   
 	document.addEventListener('DOMContentLoaded', () => {
 		const menuToggle = document.getElementById('menuToggle');
@@ -2101,77 +2253,6 @@ const articleSwiper = new Swiper('.article-swiper', {
     });
   });
 
-  // Carousel autoplay
-  <!-- const carousel = document.getElementById('carousel'); -->
-  <!-- const wrapper = document.getElementById('carouselWrapper'); -->
-  <!-- const cards = carousel?.querySelectorAll('.card'); -->
-  <!-- let index = 0, intervalId; -->
-
-  <!-- function scrollToCard(direction = 1) { -->
-    <!-- if (!cards?.length) return; -->
-    <!-- index = (index + direction + cards.length) % cards.length; -->
-    <!-- carousel.scrollTo({ left: cards[index].offsetLeft, behavior: 'smooth' }); -->
-  <!-- } -->
-
-  <!-- function startAutoplay() { intervalId = setInterval(() => scrollToCard(1), 3000); } -->
-  <!-- function stopAutoplay() { clearInterval(intervalId); } -->
-
-  <!-- wrapper?.addEventListener('mouseenter', stopAutoplay); -->
-  <!-- wrapper?.addEventListener('mouseleave', startAutoplay); -->
-  <!-- startAutoplay(); -->
-
-  <!-- let startX3 = 0; -->
-  <!-- carousel?.addEventListener('touchstart', e => startX3 = e.touches[0].clientX); -->
-  <!-- carousel?.addEventListener('touchend', e => { -->
-    <!-- const endX = e.changedTouches[0].clientX; -->
-    <!-- if (endX - startX3 > 50) scrollToCard(-1); -->
-    <!-- else if (startX3 - endX > 50) scrollToCard(1); -->
-  <!-- }); -->
-
-  // Featured carousel
-  <!-- const carousel2 = document.getElementById('carousel-featured'); -->
-  <!-- const wrapper2 = document.getElementById('carousel-wrapper'); -->
-  <!-- const next2 = document.getElementById('featured-next'); -->
-  <!-- const prev2 = document.getElementById('featured-prev'); -->
-  <!-- const slideWidth2 = carousel2?.querySelector('div')?.offsetWidth + 16 || 0; -->
-
-  <!-- let autoplayInterval2, isHovered2 = false; -->
-
-  <!-- function scrollNext2() { -->
-    <!-- const maxScrollLeft = carousel2.scrollWidth - carousel2.clientWidth; -->
-    <!-- if (carousel2.scrollLeft + slideWidth2 >= maxScrollLeft) { -->
-      <!-- carousel2.scrollTo({ left: 0, behavior: 'smooth' }); -->
-    <!-- } else { -->
-      <!-- carousel2.scrollBy({ left: slideWidth2, behavior: 'smooth' }); -->
-    <!-- } -->
-  <!-- } -->
-
-  <!-- function scrollPrev2() { -->
-    <!-- if (carousel2.scrollLeft <= 0) { -->
-      <!-- carousel2.scrollTo({ left: carousel2.scrollWidth, behavior: 'smooth' }); -->
-    <!-- } else { -->
-      <!-- carousel2.scrollBy({ left: -slideWidth2, behavior: 'smooth' }); -->
-    <!-- } -->
-  <!-- } -->
-
-  <!-- next2?.addEventListener('click', scrollNext2); -->
-  <!-- prev2?.addEventListener('click', scrollPrev2); -->
-
-  <!-- function startAutoplay2() { autoplayInterval2 = setInterval(() => { if (!isHovered2) scrollNext2(); }, 4000); } -->
-  <!-- function stopAutoplay2() { clearInterval(autoplayInterval2); } -->
-
-  <!-- wrapper2?.addEventListener('mouseenter', () => { isHovered2 = true; }); -->
-  <!-- wrapper2?.addEventListener('mouseleave', () => { isHovered2 = false; }); -->
-
-  <!-- let startX2 = 0; -->
-  <!-- carousel2?.addEventListener('touchstart', e => startX2 = e.touches[0].clientX); -->
-  <!-- carousel2?.addEventListener('touchend', e => { -->
-    <!-- const endX2 = e.changedTouches[0].clientX; -->
-    <!-- if (startX2 - endX2 > 50) scrollNext2(); -->
-    <!-- else if (endX2 - startX2 > 50) scrollPrev2(); -->
-  <!-- }); -->
-
-  <!-- startAutoplay2(); -->
 </script>
 
 </body>
