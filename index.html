@@ -352,7 +352,7 @@ html {
 
 .swiper-button-prev,
   .swiper-button-next {
-    color: white !important;
+    color: #00666a !important;
     font-size: 3rem !important;
     z-index: 20 !important;
     top: 40% !important;
@@ -525,6 +525,34 @@ html {
   z-index: 50;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.vkidsVideoPagination .swiper-pagination-bullet {
+  width: 12px; /* Adjust size */
+  height: 12px; /* Adjust size */
+  background-color: #00666a; /* Change color */
+  opacity: 0.7; /* Adjust transparency */
+  transition: background-color 0.3s;
+}
+
+/* Active pagination dot */
+.vkidsVideoPagination .swiper-pagination-bullet-active {
+  background-color: #e60000; /* Change active dot color */
+  opacity: 1;
+}
+
+.vkidsArticlePagination .swiper-pagination-bullet {
+  width: 12px; /* Adjust size */
+  height: 12px; /* Adjust size */
+  background-color: #00666a; /* Change color */
+  opacity: 0.7; /* Adjust transparency */
+  transition: background-color 0.3s;
+}
+
+/* Active pagination dot */
+.vkidsArticlePagination .swiper-pagination-bullet-active {
+  background-color: #e60000; /* Change active dot color */
+  opacity: 1;
 }
 
 /* Default grid layout with 3 columns */
@@ -837,39 +865,46 @@ html {
     </div>
 
     <!-- Featured Video and Text Section -->
-<div id="featuredSection" class="flex flex-col md:flex-row items-center mb-12">
-  <!-- Video -->
-  <div class="w-full md:w-1/2 relative h-[50vh] rounded-lg overflow-hidden">
-    <iframe
-      id="featuredPlayer"
-      src="https://players.brightcove.net/3745659807001/4JJdlFXsg_default/index.html?videoId=6371801670112"
-      allowfullscreen
-      allow="encrypted-media"
-      class="absolute top-0 left-0 w-full h-full"
-      loading="lazy"
-    ></iframe>
-  </div>
+    <div id="featuredSection" class="flex flex-col md:flex-row items-center mb-6">
+      <!-- Video -->
+      <div class="w-full md:w-1/2 relative h-[50vh] overflow-hidden">
+        <iframe
+          id="featuredPlayer"
+          src="https://players.brightcove.net/3745659807001/4JJdlFXsg_default/index.html?videoId=6371801496112"
+          allowfullscreen
+          allow="encrypted-media"
+          class="absolute top-0 left-0 w-full h-full"
+          loading="lazy"
+        ></iframe>
+      </div>
 
-  <!-- Text -->
-  <div
-    class="w-full md:w-1/2 md:pl-8 mt-4 md:mt-0 h-auto md:h-[50vh] px-4 py-4 flex flex-col justify-center bg-[#00666a] text-white rounded-2xl md:rounded-br-2xl md:rounded-tr-2xl"
-  >
-    <h3 id="featuredTitle" class="text-2xl font-semibold mb-2">
-      Interactive Video Section
-    </h3>
-    <p id="featuredDescription" class="text-base">
-      Watch the newest highlights from our event! Stay tuned for more videos below,
-      showcasing key moments from each day of the event.
-      Click on any video to play it in the featured section above.
-    </p>
-  </div>
-</div>
+      <!-- Text -->
+      <div
+        class="w-full md:w-1/2 md:pl-8 mt-0 h-auto md:h-[50vh] px-4 py-4 flex flex-col justify-center bg-[#00666a] text-white"
+      >
+        <h3 id="featuredTitle" class="text-2xl font-semibold mb-2">
+          Day 1: The Dream by Chief Pathman Senathirajah
+        </h3>
+        <p id="featuredDescription" class="text-base">
+          Your drive to achieve your dream will be your strength!
+        </p>
+      </div>
+    </div>
+
+    <!-- Prompt for interactive feature (Eye-catching style) -->
+    <div class="w-full text-center mb-4 px-4 pt-0">
+      <p class="text-lg font-bold text-[#00666a] bg-white inline-block px-6 py-2 rounded-lg shadow-lg max-w-3xl mx-auto">
+        This is an interactive video player! Select any video below and play it here.
+      </p>
+    </div>
+
+
 
     <!-- Swiper Section -->
 		<div class="swiper allVideosSwiper relative">
 		  <div class="swiper-wrapper">
 			<!-- Slides -->
-			<div class="swiper-slide cursor-pointer" onclick="playInFeatured('6371801670112', 'Day 1: The Dream by Chief Pathman Senathirajah', 'Your drive to achieve your dream will be your strength!')">
+			<div class="swiper-slide cursor-pointer" onclick="playInFeatured('6371801496112', 'Day 1: The Dream by Chief Pathman Senathirajah', 'Your drive to achieve your dream will be your strength!')">
 			  <div class="rounded overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg">
 				<img src="assets/news/04232025-v-turkiye-2025-day-1-the-dream-by-chief-pathman-senathirajah.jpg" alt="Day 1" class="w-full h-auto object-cover">
 				<div class="bg-white rounded-b-lg px-3 pt-3 pb-3">
@@ -965,25 +1000,28 @@ html {
 			  <h2 class="text-3xl md:text-4xl bg-[#00666a] inline-block font-bold text-white mb-4 px-4 py-2">READ THE LATEST NEWS!</h2>
 			</div>
     <!-- Featured Article Section -->
-		<div class="max-w-4xl mx-auto mb-16 text-center rounded-lg overflow-hidden shadow-md transition-transform duration-300 hover:shadow-xl hover:-translate-y-1">
-		  <!-- Featured Image -->
-		  <div class="relative w-full aspect-[16/9] sm:h-[50vh]">
-			<img src="assets/news/04232025-vturkiye2025-day-1-dream-decide-rise.jpg"
-				 alt="Featured Article"
-				 class="w-full h-full object-contain sm:object-cover">
-		  </div>
+    <div class="max-w-4xl mx-auto mb-16 text-center rounded-lg overflow-hidden shadow-md transition-transform duration-300 hover:shadow-xl hover:-translate-y-1">
+      <!-- Featured Image -->
+      <div class="relative w-full sm:h-[50vh]">
+        <img src="assets/news/04232025-vturkiye2025-day-1-dream-decide-rise.jpg"
+             alt="Featured Article"
+             class="w-full h-full object-contain sm:object-cover">
+      </div>
 
-		  <!-- Featured Text Block -->
-		  <div class="bg-white px-6 py-4">
-			<h3 class="text-lg font-semibold text-[#00666a] mb-2">V-TÜRKİYE 2025 Highlights DAY 1</h3>
-			<p class="text-sm mb-4 text-gray-700">Check out the Day 1 highlights here!</p>
-			<a href="#" class="inline-block">
-			  <button class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
-				READ MORE
-			  </button>
-			</a>
-		  </div>
-		</div>
+      <!-- Featured Text Block -->
+      <div class="bg-white px-6 py-4">
+        <h3 class="text-lg font-semibold text-[#00666a] mb-2">V-TÜRKİYE 2025 Highlights DAY 1</h3>
+        <p class="text-sm mb-4 text-gray-700">Check out the Day 1 highlights here!</p>
+        <a href="#" class="inline-block">
+          <button class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
+            READ MORE
+          </button>
+        </a>
+      </div>
+    </div>
+
+
+
 
 
     <!-- Swiper Carousel -->
@@ -1259,22 +1297,22 @@ html {
 
 
     <!-- Ads Section -->
-    <section class="py-16 bg-gray-100" style="background-image: url('assets/news/BG-videohighlights.png'); background-position: center; background-size: cover;">
-<div class="w-[80%] mx-auto">
+<section class="py-8 sm:py-12 md:py-16 bg-gray-100" style="background-image: url('assets/news/BG-videohighlights.png'); background-position: center; background-size: cover;">
+  <div class="w-[80%] mx-auto">
     <div class="swiper adSwiper rounded-xl overflow-hidden relative">
       <!-- Slides -->
       <div class="swiper-wrapper">
         <div class="swiper-slide">
           <img src="assets/hero/01202025-ice-2025-day-4-persist-persevere-perform-by-dato-sri-vijay-eswaran32b0e726-2a48-4cac-9422-34ce98acc6c1.jpg"
-               alt="Ad 1" class="w-full h-[500px] object-contain" />
+               alt="Ad 1" class="w-full h-[40vh] sm:h-[50vh] md:h-[500px] object-contain" />
         </div>
         <div class="swiper-slide">
           <img src="assets/hero/04162025-join-the-v-kids-and-v-teens-at-vmalaysia2025-1.jpg"
-               alt="Ad 2" class="w-full h-[500px] object-contain" />
+               alt="Ad 2" class="w-full h-[40vh] sm:h-[50vh] md:h-[500px] object-contain" />
         </div>
         <div class="swiper-slide">
           <img src="assets/hero/03272025-rise-together-and-create-our-greatest-story-ever-at-vmalaysia202505efb2aa-fe92-46e4-83db-9679c0b6ff60.jpg"
-               alt="Ad 3" class="w-full h-[500px] object-contain" />
+               alt="Ad 3" class="w-full h-[40vh] sm:h-[50vh] md:h-[500px] object-contain" />
         </div>
       </div>
 
@@ -1282,13 +1320,14 @@ html {
       <div class="swiper-button-prev text-black"></div>
       <div class="swiper-button-next text-black"></div>
 
-		<!-- Pagination goes here -->
-			<div class="custom-pagination-container mt-12 text-center">
-			  <div class="swiper-pagination"></div>
-			</div>
+      <!-- Pagination -->
+      <div class="custom-pagination-container mt-12 text-center">
+        <div class="swiper-pagination"></div>
+      </div>
     </div>
   </div>
 </section>
+
 
 
 <!-- VKIDS -->
