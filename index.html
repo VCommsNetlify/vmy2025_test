@@ -1009,6 +1009,20 @@ html {
 
 <!-- end speaker csss -->
 
+
+.ticket-grid {
+    align-items: start; /* Align items at the start of the grid cell */
+}
+
+@media (max-width: 768px) {
+    .ticket-grid-1 {
+        grid-template-columns: 1fr;
+    }
+    .ticket-grid-1 .rounded-lg { /* If the rounded-lg class is on the ticket divs */
+        margin-bottom: 20px;
+    }
+}
+
 </style>
 
 </head>
@@ -2079,69 +2093,66 @@ html {
 
 
     <!-- Tickets Section -->
-    <section class="py-16 bg-gray-100">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">The Greatest Event of the Year Starts With Your Seat</h2>
-                <p class="mb-8 text-lg">Grab your tickets on VShoppe today.</p>
-                <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+<section class="py-16 bg-gray-100" style="background-image: url('assets/news/BG-videohighlights.png'); background-position: center; background-size: cover;">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl text-[#063f38] font-bold mb-4">The Greatest Event of the Year Starts With Your Seat</h2>
+            <p class="mb-8 text-lg text-[#063f38]">Grab your tickets on VShoppe today.</p>
+        </div>
+
+        <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8 ticket-grid-1">
+            <div class="rounded-lg overflow-hidden shadow-lg hover-scale" style="background-image: url('assets/tickets/ticket-bg.png'); background-size: cover; background-position: center; display: flex; flex-direction: column;">
+                <div class="py-4 text-center"> <h3 class="font-bold text-xl text-[#07799a]">V-Malaysia 2025</h3>
+                    <p class="text-sm text-[#07799a]">21-25 JUNE </p>
+                </div>
+                <div class="p-6 text-center" style="padding-top: 20px; padding-bottom: 30px; flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end;">
+                    <img src="assets/tickets/11292024-VMY2025-june-vshoppe-product-thumbnail-v2d3f61c4a-e121-4a2a-a88b-09c6c7f96a11.png" class="mx-auto mb-8" style="max-width: 80%;">
+                    <div style="text-align: center; margin-top: 50px;">
+                        <p class="text-sm text-[#07799a]" style="margin-bottom: 8px;">Use the code: </p>
+                        <div class="text-3xl font-bold mb-6 text-[#07799a]">VMYJUN2025</div>
+                        <a href="https://vshoppe.vtube.net/">
+                        <button class="w-full bg-[#07799a] hover:bg-[#09524a] text-white font-bold py-2 px-4 rounded-full transition duration-300">
+                            BUY NOW
+                        </button></a>
+                    </div>
+                </div>
             </div>
 
-            <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
-                <!-- Ticket 1 -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden shadow-lg hover-scale">
-                    <div class="bg-red-600 text-white py-4 text-center">
-                        <h3 class="font-bold text-xl">V-Malaysia 2025</h3>
-                        <p class="text-sm">21-25 JUNE </p>
+            <div class="rounded-lg overflow-hidden shadow-lg hover-scale" style="background-image: url('assets/tickets/ticket-bg.png'); background-size: cover; background-position: center; display: flex; flex-direction: column;">
+                <div class="py-4 text-center relative"> <h3 class="font-bold text-xl text-[#bf7807]">V-KIDS & V-TEENS JUNE 2025</h3>
                     </div>
-                    <div class="p-6 text-center">
-                        <img src="assets/tickets/11292024-VMY2025-june-vshoppe-product-thumbnail-v2d3f61c4a-e121-4a2a-a88b-09c6c7f96a11.png">
-                        <p class="text-sm">Use the code: </p>
-                        <div class="text-3xl font-bold mb-4">VMYJUN2025</div>
+                <div class="p-6 text-center" style="padding-top: 20px; padding-bottom: 30px; flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end;">
+                    <img src="assets/tickets/VKIDS2025-VTEENS-GENERIC-BANNER-SQUARE3a984bab-5ccc-4b4a-a93c-085b0fa2ad00.png" class="mx-auto mb-8" style="max-width: 80%;">
+                    <div style="text-align: center; margin-top: 50px;">
+                        <p class="text-sm text-[#bf7807]" style="margin-bottom: 8px;">Use the code: </p>
+                        <div class="text-3xl font-bold mb-6 text-[#bf7807]">VKIDSTEENS25</div>
                         <a href="https://vshoppe.vtube.net/">
-                        <button class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full transition duration-300">
+                        <button class="w-full bg-[#bf7807] hover:bg-[#09524a] text-white font-bold py-2 px-4 rounded-full transition duration-300">
                             BUY NOW
                         </button></a>
                     </div>
                 </div>
+            </div>
 
-                <!-- Ticket 2 -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden shadow-lg hover-scale transform scale-105">
-                    <div class="bg-black text-white py-4 text-center relative">
-                        <h3 class="font-bold text-xl">V-KIDS & V-TEENS JUNE 2025</h3>
-                        <!-- <p class="text-sm">Popular Choice</p> -->
-                        <!-- <div class="absolute top-0 right-0 bg-yellow-400 text-black text-xs font-bold px-2 py-1 rounded-bl-lg">BEST VALUE</div> -->
-                    </div>
-                    <div class="p-6 text-center">
-                      <img src="assets/tickets/VKIDS2025-VTEENS-GENERIC-BANNER-SQUARE3a984bab-5ccc-4b4a-a93c-085b0fa2ad00.png">
-                        <p class="text-sm">Use the code: </p>
-                        <div class="text-3xl font-bold mb-4">VKIDSTEENS25</div>
-                        <a href="https://vshoppe.vtube.net/">
-                        <button class="w-full bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-full transition duration-300">
-                            BUY NOW
-                        </button></a>
-                    </div>
+            <div class="rounded-lg overflow-hidden shadow-lg hover-scale" style="background-image: url('assets/tickets/ticket-bg.png'); background-size: cover; background-position: center; display: flex; flex-direction: column;">
+                <div class="py-4 text-center"> <h3 class="font-bold text-xl text-[#0c42bb]">V-Malaysia 2025 </h3>
+                    <p class="text-sm text-[#0c42bb]">13-17 SEPTEMBER </p>
                 </div>
-
-                <!-- Ticket 3 -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden shadow-lg hover-scale">
-                    <div class="bg-gray-600 text-white py-4 text-center">
-                        <h3 class="font-bold text-xl">V-Malaysia 2025 </h3>
-                        <p class="text-sm">13-17 SEPTEMBER </p>
-                    </div>
-                    <div class="p-6 text-center">
-                      <img src="assets/tickets/01062025-VMY2025-SEPT-vshoppe-product-thumbnail-v2423aa5b8-ff8f-44cf-8427-61f2e1b888eb.png">
-                        <p class="text-sm">Use the code: </p>
-                        <div class="text-3xl font-bold mb-4">VMYSEPT2025</div>
+                <div class="p-6 text-center" style="padding-top: 20px; padding-bottom: 30px; flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end;">
+                    <img src="assets/tickets/01062025-VMY2025-SEPT-vshoppe-product-thumbnail-v2423aa5b8-ff8f-44cf-8427-61f2e1b888eb.png" class="mx-auto mb-8" style="max-width: 80%;">
+                    <div style="text-align: center; margin-top: 50px;">
+                        <p class="text-sm text-[#0c42bb]" style="margin-bottom: 8px;">Use the code: </p>
+                        <div class="text-3xl font-bold mb-6 text-[#0c42bb]">VMYSEPT2025</div>
                         <a href="https://vshoppe.vtube.net/">
-                        <button class="w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full transition duration-300">
+                        <button class="w-full bg-[#0c42bb] hover:bg-[#09524a] text-white font-bold py-2 px-4 rounded-full transition duration-300">
                             BUY NOW
                         </button></a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 
 <!-- FAQ -->
