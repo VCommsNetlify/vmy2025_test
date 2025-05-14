@@ -868,6 +868,10 @@ html {
     padding: 20px;
     gap: 15px;
   }
+  
+#initialScreen h2 {
+  font-size: clamp(1.8rem, 5vw, 3.5rem); /* Responsive font size */
+}
 
   .choice {
     height: 200px;
@@ -884,6 +888,126 @@ html {
 }
 
 /* end this or that */
+
+<!-- start speaker css -->
+
+.speakers-section {
+ /* Optional: Add any overall styling */
+ padding: 20px 0;
+}
+
+.grid-container {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 20px;
+ max-width: 1260px;
+ margin: 0 auto;
+}
+
+.item-container {
+ width: 100%;
+ height: auto;
+}
+
+.image-container {
+ width: 100%;
+ height: auto;
+ position: relative;
+}
+
+.top-image {
+ display: block;
+ width: 100%;
+ height: auto;
+ border-radius: 5px 5px 0 0;
+ z-index: 10;
+ position: relative;
+ max-width: 100%;
+}
+
+.background-container {
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ width: 95%;
+ height: auto; /* Default to auto */
+ z-index: 1;
+ overflow: hidden;
+}
+
+.background-image {
+ width: 100%;
+ height: auto;
+ background-image: url('assets/speakers/bgforround.jpg');
+ background-repeat: repeat-y;
+ background-position: bottom left;
+ padding-top: 100%; /* Default percentage padding */
+}
+
+.text-container {
+ background-color: #B8860B;
+ color: white;
+ padding: 15px;
+ text-align: center;
+ width: 95%;
+ float: left;
+ box-sizing: border-box;
+}
+
+.name {
+ font-weight: bold;
+ display: block;
+ margin-bottom: 5px;
+ font-size: 1.1em;
+}
+
+.position {
+ display: block;
+ font-style: italic;
+ font-size: 0.9em;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+ .grid-container {
+  grid-template-columns: repeat(2, 1fr);
+ }
+ .name {
+  font-size: 1em;
+ }
+ .position {
+  font-size: 0.8em;
+ }
+ .background-container {
+  /* height: auto; /* Try auto for tablets too */
+ }
+ .background-image {
+  /* padding-top: 100%; /* Keep percentage for tablets for now */
+ }
+}
+
+@media (max-width: 480px) {
+ .grid-container {
+  grid-template-columns: 1fr;
+ }
+ .text-container {
+  padding: 15px;
+ }
+ .name {
+  font-size: 1.2em;
+ }
+ .position {
+  font-size: 0.9em;
+ }
+ .background-container {
+  height: 200px; /* Try a fixed pixel height for mobile */
+ }
+ .background-image {
+  padding-top: 200px; /* Match the padding-top */
+ }
+}
+
+<!-- end speaker csss -->
 
 </style>
 
@@ -905,7 +1029,7 @@ html {
   <div class="container mx-auto px-4 py-3 flex items-center justify-between relative">
     <!-- Left: Logo + Home -->
     <div class="flex items-center space-x-4">
-      <img src="assets/first-fold/VMY2025-logo-v2_lowres.png" alt="THE V Logo" class="h-10">
+      <a href="#home" class="text-white hidden md:inline nav-link"><img src="assets/first-fold/VMY2025-logo-v2_lowres.png" alt="THE V Logo" class="h-10"></a>
       <a href="#home" class="text-white hidden md:inline nav-link">Home</a>
     </div>
 
@@ -925,7 +1049,7 @@ html {
       <a href="#venue-map" class="text-white nav-link">Venue Map</a>
       <a href="#vkidsteens" class="text-white nav-link">V-Kids & V-Teens</a>
       <a href="#speakers" class="text-white nav-link">Speakers</a>
-      <a href="#thisorthat" class="text-white nav-link">This or That?</a>
+      <a href="#thisOrThat" class="text-white nav-link">This or That?</a>
       <a href="#faqs" class="text-white nav-link">FAQ</a>
     </nav>
 
@@ -941,9 +1065,6 @@ html {
         <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Bahasa-Indonesia</a></li>
         <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">French</a></li>
         <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Russian</a></li>
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Singhalese</a></li>
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Tamil</a></li>
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Turkish</a></li>
       </ul>
     </div>
 
@@ -967,7 +1088,7 @@ html {
     <a href="#venue-map" class="text-white block nav-link">Venue Map</a>
     <a href="#vkidsteens" class="text-white block nav-link">V-Kids & V-Teens</a>
     <a href="#speakers" class="text-white block nav-link">Speakers</a>
-    <a href="#thisorthat" class="text-white block nav-link">This or That?</a>
+    <a href="#thisOrThat" class="text-white block nav-link">This or That?</a>
     <a href="#faqs" class="text-white block nav-link">FAQ</a>
 
     <div class="text-white">
@@ -978,9 +1099,6 @@ html {
         <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Bahasa-Indonesia</a></li>
         <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">French</a></li>
         <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Russian</a></li>
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Singhalese</a></li>
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Tamil</a></li>
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Turkish</a></li>
       </ul>
     </div>
   </div>
@@ -1827,61 +1945,79 @@ html {
                 <p class="mb-8 text-lg text-[#234cde]">See our V Ambassadors live onstage and watch out for your greatest Uplines!</p>
             </div>
 
-            <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                <!-- Artist 1 -->
-                <div class="speaker bg-white rounded-lg overflow-hidden shadow-md hover-scale">
-                    <a href="https://the-v.net/en/vmp-dato-sri-vijay-eswaran"><img src="assets/speakers/vmp-dato-sri-vijay-eswaran-3.png" alt="Artist 1" class="w-full h-64 object-cover" style="height:auto;"></a>
-                    <div class="p-4 text-center">
-                        <a href="https://the-v.net/en/vmp-dato-sri-vijay-eswaran"><h3 class="font-bold text-xl mb-2">Dato Sri Vijay Eswaran</h3></a>
-                        <p class="text-gray-600">Founder</p>
-                    </div>
-                </div>
+            <div class="grid-container">
+			  <div class="item-container">
+				   <div class="image-container">
+					<img src="assets/speakers/DSVE2.png" alt="Speaker 1" class="top-image" style="max-width: 400px;">
+					<div class="background-container" style="height: 450px; width: 95%;"> <div class="background-image" style="padding-top: 450px;"></div>
+					</div>
+				   </div>
+				   <div class="text-container">
+					<h2 class="name">Dato Sri Vijay Eswaran</h2>
+					<h3 class="position">Founder</h3>
+				   </div>
+				  </div>
 
-                <!-- Artist 2 -->
-                <div class="speaker bg-white rounded-lg overflow-hidden shadow-md hover-scale">
-                    <a href="https://the-v.net/en/vfp-joseph-bismark"><img src="assets/speakers/vfp-joseph-bismark.png" alt="Artist 2" class="w-full h-64 object-cover" style="height:auto;"></a>
-                    <div class="p-4 text-center">
-                        <a href="https://the-v.net/en/vmp-dato-sri-vijay-eswaran"><h3 class="font-bold text-xl mb-2">Joseph “Japadas” Bismark</h3></a>
-                        <p class="text-gray-600">Founder</p>
-                    </div>
-                </div>
+				  <div class="item-container">
+				   <div class="image-container">
+					<img src="assets/speakers/JTB2.png" alt="Speaker 2" class="top-image" style="max-width: 400px;">
+					<div class="background-container" style="height: 450px; width: 95%;"> <div class="background-image" style="padding-top: 450px;"></div>
+					</div>
+				   </div>
+				   <div class="text-container">
+					<h2 class="name">Joseph 'Japadas' Bismark</h2>
+					<h3 class="position">Founder</h3>
+				   </div>
+				  </div>
 
-                <!-- Artist 3 -->
-                <div class="speaker bg-white rounded-lg overflow-hidden shadow-md hover-scale">
-                    <a href="https://the-v.net/en/vp-pathman-senathirajah"><img src="assets/speakers/vp-pathman-senathirajah.png" alt="Artist 3" class="w-full h-64 object-cover" style="height:auto;"></a>
-                    <div class="p-4 text-center">
-                        <a href="https://the-v.net/en/vp-pathman-senathirajah"><h3 class="font-bold text-xl mb-2">Pathman Senathirajah</h3></a>
-                        <p class="text-gray-600">V Partner</p>
-                    </div>
-                </div>
+				  <div class="item-container">
+				   <div class="image-container">
+					<img src="assets/speakers/CHIEF2.png" alt="Speaker 3" class="top-image" style="max-width: 400px;">
+					<div class="background-container" style="height: 450px; width: 95%;"> <div class="background-image" style="padding-top: 450px;"></div>
+					</div>
+				   </div>
+				   <div class="text-container">
+					<h2 class="name">Pathman Senathirajah</h2>
+					<h3 class="position">V Partner</h3>
+				   </div>
+				  </div>
 
-                <!-- Artist 4 -->
-                <div class="speaker bg-white rounded-lg overflow-hidden shadow-md hover-scale">
-                    <a href="https://the-v.net/en/vp-arun-george"><img src="assets/speakers/vp-adly-hassan.png" alt="Artist 4" class="w-full h-64 object-cover" style="height:auto;"></a>
-                    <div class="p-4 text-center">
-                        <a href="https://the-v.net/en/vp-arun-george"><h3 class="font-bold text-xl mb-2">Adly Hassan</h3></a>
-                        <p class="text-gray-600">V Partner</p>
-                    </div>
-                </div>
+				  <div class="item-container">
+				   <div class="image-container">
+					<img src="assets/speakers/VP-ADLY2.png" alt="Speaker 4" class="top-image" style="max-width: 400px;">
+					<div class="background-container" style="height: 450px; width: 95%;"> <div class="background-image" style="padding-top: 450px;"></div>
+					</div>
+				   </div>
+				   <div class="text-container">
+					<h2 class="name">Adly Hassan</h2>
+					<h3 class="position">V Partner</h3>
+				   </div>
+				  </div>
 
-                <!-- Artist 5 -->
-                <div class="speaker bg-white rounded-lg overflow-hidden shadow-md hover-scale">
-                    <a href="https://the-v.net/en/vp-sathi-senathirajah"><img src="assets/speakers/vp-sathi-senathirajah.png" alt="Artist 5" class="w-full h-64 object-cover" style="height:auto;"></a>
-                    <div class="p-4 text-center">
-                        <a href="https://the-v.net/en/vp-sathi-senathirajah"><h3 class="font-bold text-xl mb-2">Sathi Senathirajah</h3></a>
-                        <p class="text-gray-600">V Partner</p>
-                    </div>
-                </div>
+				  <div class="item-container">
+				   <div class="image-container">
+					<img src="assets/speakers/VP-SATHI2.png" alt="Speaker 5" class="top-image" style="max-width: 400px;">
+					<div class="background-container" style="height: 450px; width: 95%;"> <div class="background-image" style="padding-top: 450px;"></div>
+					</div>
+				   </div>
+				   <div class="text-container">
+					<h2 class="name">Sathi Senathirajah</h2>
+					<h3 class="position">V Partner</h3>
+				   </div>
+				  </div>
 
-                <!-- Artist 6 -->
-                <div class="speaker bg-white rounded-lg overflow-hidden shadow-md hover-scale">
-                    <a href="https://the-v.net/en/vp-arun-george"><img src="assets/speakers/vp-arun-george.png" alt="Artist 7" class="w-full h-64 object-cover" style="height:auto;"></a>
-                    <div class="p-4 text-center">
-                        <a href="https://the-v.net/en/vp-arun-george"><h3 class="font-bold text-xl mb-2">Arun George</h3></a>
-                        <p class="text-gray-600">V Partner</p>
-                    </div>
-                </div>
-            </div>
+				  <div class="item-container">
+				   <div class="image-container">
+					<img src="assets/speakers/VP-ARUN2.png" alt="Speaker 6" class="top-image" style="max-width: 400px;">
+					<div class="background-container" style="height: 450px; width: 95%;"> <div class="background-image" style="padding-top: 450px;"></div>
+					</div>
+				   </div>
+				   <div class="text-container">
+					<h2 class="name">Arun George</h2>
+					<h3 class="position">V Partner</h3>
+				   </div>
+				  </div>
+			 </div>
 
         </div>
     </section>
@@ -1893,7 +2029,7 @@ html {
  <div class="bg-white bg-opacity-60 p-6 rounded-lg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
   <!-- Overlay with only Start button -->
   <div id="initialScreen">
-    <h2 class="text-3xl md:text-4xl text-[#785b37] font-bold mb-4">This or That?</h2>
+    <h2 class="text-3xl md:text-4xl sm:text-2xl text-[#785b37] font-bold mb-4 ">This or That?</h2>
     <p class="text-[#785b37]">Up for a little challenge? Just take your pick and have fun with The V family!<br>Tag us when you share on Instagram!</p>
     <button id="startBtn">Let's Play!</button>
   </div>
