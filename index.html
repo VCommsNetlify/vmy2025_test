@@ -7,8 +7,11 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <title>V Malaysia 2025 | THE V</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <!-- Lightbox2 CSS & JS -->
 <link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox.min.js"></script>
@@ -591,6 +594,296 @@ html {
 .rotate-180 {
   transform: rotate(180deg);
 }
+
+
+/* this or that */
+
+#thisOrThat {
+  position: relative;
+  max-height: 900px;
+  margin: 20px auto;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  min-height: 650px;
+  background-repeat: no-repeat;
+  /* background-image: url("assets/thisorthat/bgforround.jpg"); */
+}
+
+#initialScreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  padding: 30px;
+  text-align: center;
+  color: white;
+}
+
+#initialScreen h2 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#initialScreen p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-bottom: 30px;
+}
+
+#startBtn {
+  padding: 15px 40px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  background: #fff;
+  color: #6a11cb;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#startBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+#backgroundImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); */
+  /* background-image: url("assets/thisorthat/bgforround.jpg"); */
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  z-index: 1;
+}
+
+#gameContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+  z-index: 2;
+}
+
+#roundNumber {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 30px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 8px 25px;
+  border-radius: 50px;
+}
+
+.choices-container {
+  display: flex;
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-image: url('assets/thisorthat/bgforround.jpg');
+  background-position: top;
+  background-size: contain;
+  background-repeat: no-repeat;
+  min-height: 500px;
+}
+
+.choice {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  cursor: pointer;
+  border-radius: 16px;
+  overflow: hidden;
+  height: 80%;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.choice:hover {
+  <!-- transform: translateY(-10px); -->
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.choice-background {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+#leftChoice .choice-background {
+  background-color: #083050;
+  opacity: 70%;
+}
+
+#rightChoice .choice-background {
+  background-color: #6f5026;
+  opacity: 70%;
+}
+
+.circle {
+  border: 3px dashed #fff;
+  border-radius: 50%;
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  box-sizing: border-box;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.choice:hover .circle {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.choice span {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+#resultsSection {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 20;
+  overflow: auto;
+  padding: 30px;
+  text-align: center;
+}
+
+#resultsSection h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+#choicesList {
+  list-style: none;
+  margin: 0 auto 30px;
+  max-width: 500px;
+  text-align: left;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+}
+
+#choicesList li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+}
+
+#choicesList li:last-child {
+  border-bottom: none;
+}
+
+#resultCanvas {
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  height: auto;
+}
+
+#downloadLink {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 30px;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#downloadLink:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.restart-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 30px;
+  background: #f8f9fa;
+  color: #333;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.restart-btn:hover {
+  background: #e9ecef;
+}
+
+@media (max-width: 768px) {
+  .choices-container {
+    flex-direction: column;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: auto;
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .choice {
+    height: 200px;
+  }
+
+  .circle {
+    width: 140px;
+    height: 140px;
+  }
+
+  .choice span {
+    font-size: 1.2rem;
+  }
+}
+
+/* end this or that */
 
 </style>
 
@@ -1342,82 +1635,82 @@ html {
       <div class="swiper vkidsVideoSwiper">
         <div class="swiper-wrapper">
           <!-- Video 1 -->
-          <div class="swiper-slide cursor-pointer video-item" data-video-id="6371801670112">
+          <div class="swiper-slide cursor-pointer video-item" data-video-id="6362066427112">
             <div class="relative overflow-hidden">
               <img src="assets/vkidsteens/04162025-join-the-v-kids-and-v-teens-at-vmalaysia2025-1.png" alt="Video Thumbnail" class="w-full h-[200px] object-cover mb-0">
             </div>
             <div class="p-3 text-white text-sm font-semibold text-center mt-0" style="background-color: #00737a;">
-              Day 1: Unbelievable in Istanbul
+              #VMalaysia2024 Highlights: Cheers to the Incredible V-Kids and V-Teens!
             </div>
           </div>
 
           <!-- Video 2 -->
-          <div class="swiper-slide cursor-pointer video-item" data-video-id="6371801670112">
+          <div class="swiper-slide cursor-pointer video-item" data-video-id="6359673422112">
             <div class="relative overflow-hidden">
               <img src="assets/vkidsteens/07152024-vmalaysia2024-heres-to-september-to-remember-with-v-kids-and-v-teens62a69b0a-ce3d-4cef-a782-a096c2c67adc.png" alt="Video Thumbnail" class="w-full h-[200px] object-cover mb-0">
             </div>
             <div class="p-3 text-white text-sm font-semibold text-center mt-0" style="background-color: #00737a;">
-              Day 1: Unbelievable in Istanbul
+              #VMalaysia2024: Here’s to September to Remember with V-Kids and V-Teens!
             </div>
           </div>
 
           <!-- Video 1 -->
-          <div class="swiper-slide cursor-pointer video-item" data-video-id="6371801670112">
+          <div class="swiper-slide cursor-pointer video-item" data-video-id="6362066427112">
             <div class="relative overflow-hidden">
               <img src="assets/vkidsteens/04162025-join-the-v-kids-and-v-teens-at-vmalaysia2025-1.png" alt="Video Thumbnail" class="w-full h-[200px] object-cover mb-0">
             </div>
             <div class="p-3 text-white text-sm font-semibold text-center mt-0" style="background-color: #00737a;">
-              Day 1: Unbelievable in Istanbul
+              #VMalaysia2024 Highlights: Cheers to the Incredible V-Kids and V-Teens!
             </div>
           </div>
 
           <!-- Video 2 -->
-          <div class="swiper-slide cursor-pointer video-item" data-video-id="6371801670112">
+          <div class="swiper-slide cursor-pointer video-item" data-video-id="6359673422112">
             <div class="relative overflow-hidden">
               <img src="assets/vkidsteens/07152024-vmalaysia2024-heres-to-september-to-remember-with-v-kids-and-v-teens62a69b0a-ce3d-4cef-a782-a096c2c67adc.png" alt="Video Thumbnail" class="w-full h-[200px] object-cover mb-0">
             </div>
             <div class="p-3 text-white text-sm font-semibold text-center mt-0" style="background-color: #00737a;">
-              Day 1: Unbelievable in Istanbul
+              #VMalaysia2024: Here’s to September to Remember with V-Kids and V-Teens!
             </div>
           </div>
 
           <!-- Video 1 -->
-          <div class="swiper-slide cursor-pointer video-item" data-video-id="6371801670112">
+          <div class="swiper-slide cursor-pointer video-item" data-video-id="6362066427112">
             <div class="relative overflow-hidden">
               <img src="assets/vkidsteens/04162025-join-the-v-kids-and-v-teens-at-vmalaysia2025-1.png" alt="Video Thumbnail" class="w-full h-[200px] object-cover mb-0">
             </div>
             <div class="p-3 text-white text-sm font-semibold text-center mt-0" style="background-color: #00737a;">
-              Day 1: Unbelievable in Istanbul
+              #VMalaysia2024 Highlights: Cheers to the Incredible V-Kids and V-Teens!
             </div>
           </div>
 
           <!-- Video 2 -->
-          <div class="swiper-slide cursor-pointer video-item" data-video-id="6371801670112">
+          <div class="swiper-slide cursor-pointer video-item" data-video-id="6359673422112">
             <div class="relative overflow-hidden">
               <img src="assets/vkidsteens/07152024-vmalaysia2024-heres-to-september-to-remember-with-v-kids-and-v-teens62a69b0a-ce3d-4cef-a782-a096c2c67adc.png" alt="Video Thumbnail" class="w-full h-[200px] object-cover mb-0">
             </div>
             <div class="p-3 text-white text-sm font-semibold text-center mt-0" style="background-color: #00737a;">
-              Day 1: Unbelievable in Istanbul
+              #VMalaysia2024: Here’s to September to Remember with V-Kids and V-Teens!
             </div>
           </div>
 
           <!-- Video 1 -->
-          <div class="swiper-slide cursor-pointer video-item" data-video-id="6371801670112">
+          <div class="swiper-slide cursor-pointer video-item" data-video-id="6362066427112">
             <div class="relative overflow-hidden">
               <img src="assets/vkidsteens/04162025-join-the-v-kids-and-v-teens-at-vmalaysia2025-1.png" alt="Video Thumbnail" class="w-full h-[200px] object-cover mb-0">
             </div>
             <div class="p-3 text-white text-sm font-semibold text-center mt-0" style="background-color: #00737a;">
-              Day 1: Unbelievable in Istanbul
+              #VMalaysia2024 Highlights: Cheers to the Incredible V-Kids and V-Teens!
             </div>
           </div>
 
           <!-- Video 2 -->
-          <div class="swiper-slide cursor-pointer video-item" data-video-id="6371801670112">
+          <div class="swiper-slide cursor-pointer video-item" data-video-id="6359673422112">
             <div class="relative overflow-hidden">
               <img src="assets/vkidsteens/07152024-vmalaysia2024-heres-to-september-to-remember-with-v-kids-and-v-teens62a69b0a-ce3d-4cef-a782-a096c2c67adc.png" alt="Video Thumbnail" class="w-full h-[200px] object-cover mb-0">
             </div>
             <div class="p-3 text-white text-sm font-semibold text-center mt-0" style="background-color: #00737a;">
-              Day 1: Unbelievable in Istanbul
+              #VMalaysia2024: Here’s to September to Remember with V-Kids and V-Teens!
             </div>
           </div>
 
@@ -1523,224 +1816,129 @@ html {
 
 
     <!-- SPEAKER Section -->
-    <section class="py-16 bg-gray-100" id="speakers">
-      <div class="container mx-auto px-4">
-          <div class="text-center mb-16">
-              <h2 class="text-3xl md:text-4xl font-bold mb-4">Meet Our Speakers</h2>
-              <p class="mb-8 text-lg">See our V Ambassadors live onstage and watch out for your greatest Uplines!</p>
-              <div class="w-20 h-1 bg-red-600 mx-auto"></div>
-          </div>
+    <section class="py-16 bg-gray-100 relative" id="speakers" style="background-image: url('assets/news/BG-videohighlights.png'); background-position: center; background-size: cover; min-height: 500px;">
+        <!-- White overlay with 70% opacity -->
+        <div class="absolute inset-0 bg-white bg-opacity-70 z-0"></div>
 
-          <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              <!-- Artist 1 -->
-              <div class="speaker bg-white rounded-lg overflow-hidden shadow-md hover-scale">
-                  <a href="https://the-v.net/en/vmp-dato-sri-vijay-eswaran"><img src="assets/speakers/vmp-dato-sri-vijay-eswaran-3.png" alt="Artist 1" class="w-full h-64 object-cover" style="height:auto;"></a>
-                  <div class="p-4 text-center">
-                      <a href="https://the-v.net/en/vmp-dato-sri-vijay-eswaran"><h3 class="font-bold text-xl mb-2">Dato Sri Vijay Eswaran</h3></a>
-                      <p class="text-gray-600">Founder</p>
-                  </div>
-              </div>
+        <!-- Content on top of overlay -->
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl text-[#234cde] font-bold mb-4">Meet Our Speakers</h2>
+                <p class="mb-8 text-lg text-[#234cde]">See our V Ambassadors live onstage and watch out for your greatest Uplines!</p>
+            </div>
 
-              <!-- Artist 2 -->
-              <div class="speaker bg-white rounded-lg overflow-hidden shadow-md hover-scale">
-                  <a href="https://the-v.net/en/vfp-joseph-bismark"><img src="assets/speakers/vfp-joseph-bismark.png" alt="Artist 2" class="w-full h-64 object-cover" style="height:auto;"></a>
-                  <div class="p-4 text-center">
-                      <a href="https://the-v.net/en/vmp-dato-sri-vijay-eswaran"><h3 class="font-bold text-xl mb-2">Joseph “Japadas” Bismark</h3></a>
-                      <p class="text-gray-600">Founder</p>
-                  </div>
-              </div>
+            <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Artist 1 -->
+                <div class="speaker bg-white rounded-lg overflow-hidden shadow-md hover-scale">
+                    <a href="https://the-v.net/en/vmp-dato-sri-vijay-eswaran"><img src="assets/speakers/vmp-dato-sri-vijay-eswaran-3.png" alt="Artist 1" class="w-full h-64 object-cover" style="height:auto;"></a>
+                    <div class="p-4 text-center">
+                        <a href="https://the-v.net/en/vmp-dato-sri-vijay-eswaran"><h3 class="font-bold text-xl mb-2">Dato Sri Vijay Eswaran</h3></a>
+                        <p class="text-gray-600">Founder</p>
+                    </div>
+                </div>
 
-              <!-- Artist 3 -->
-              <div class="speaker bg-white rounded-lg overflow-hidden shadow-md hover-scale">
-                  <a href="https://the-v.net/en/vp-pathman-senathirajah"><img src="assets/speakers/vp-pathman-senathirajah.png" alt="Artist 3" class="w-full h-64 object-cover" style="height:auto;"></a>
-                  <div class="p-4 text-center">
-                      <a href="https://the-v.net/en/vp-pathman-senathirajah"><h3 class="font-bold text-xl mb-2">Pathman Senathirajah</h3></a>
-                      <p class="text-gray-600">V Partner</p>
-                  </div>
-              </div>
+                <!-- Artist 2 -->
+                <div class="speaker bg-white rounded-lg overflow-hidden shadow-md hover-scale">
+                    <a href="https://the-v.net/en/vfp-joseph-bismark"><img src="assets/speakers/vfp-joseph-bismark.png" alt="Artist 2" class="w-full h-64 object-cover" style="height:auto;"></a>
+                    <div class="p-4 text-center">
+                        <a href="https://the-v.net/en/vmp-dato-sri-vijay-eswaran"><h3 class="font-bold text-xl mb-2">Joseph “Japadas” Bismark</h3></a>
+                        <p class="text-gray-600">Founder</p>
+                    </div>
+                </div>
 
-              <!-- Artist 4 -->
-              <div class="speaker bg-white rounded-lg overflow-hidden shadow-md hover-scale">
-                  <a href="https://the-v.net/en/vp-arun-george"><img src="assets/speakers/vp-adly-hassan.png" alt="Artist 4" class="w-full h-64 object-cover" style="height:auto;"></a>
-                  <div class="p-4 text-center">
-                      <a href="https://the-v.net/en/vp-arun-george"><h3 class="font-bold text-xl mb-2">Adly Hassan</h3></a>
-                      <p class="text-gray-600">V Partner</p>
-                  </div>
-              </div>
+                <!-- Artist 3 -->
+                <div class="speaker bg-white rounded-lg overflow-hidden shadow-md hover-scale">
+                    <a href="https://the-v.net/en/vp-pathman-senathirajah"><img src="assets/speakers/vp-pathman-senathirajah.png" alt="Artist 3" class="w-full h-64 object-cover" style="height:auto;"></a>
+                    <div class="p-4 text-center">
+                        <a href="https://the-v.net/en/vp-pathman-senathirajah"><h3 class="font-bold text-xl mb-2">Pathman Senathirajah</h3></a>
+                        <p class="text-gray-600">V Partner</p>
+                    </div>
+                </div>
 
-              <!-- Artist 5 -->
-              <div class="speaker bg-white rounded-lg overflow-hidden shadow-md hover-scale">
-                  <a href="https://the-v.net/en/vp-sathi-senathirajah"><img src="assets/speakers/vp-sathi-senathirajah.png" alt="Artist 5" class="w-full h-64 object-cover" style="height:auto;"></a>
-                  <div class="p-4 text-center">
-                      <a href="https://the-v.net/en/vp-sathi-senathirajah"><h3 class="font-bold text-xl mb-2">Sathi Senathirajah</h3></a>
-                      <p class="text-gray-600">V Partner</p>
-                  </div>
-              </div>
+                <!-- Artist 4 -->
+                <div class="speaker bg-white rounded-lg overflow-hidden shadow-md hover-scale">
+                    <a href="https://the-v.net/en/vp-arun-george"><img src="assets/speakers/vp-adly-hassan.png" alt="Artist 4" class="w-full h-64 object-cover" style="height:auto;"></a>
+                    <div class="p-4 text-center">
+                        <a href="https://the-v.net/en/vp-arun-george"><h3 class="font-bold text-xl mb-2">Adly Hassan</h3></a>
+                        <p class="text-gray-600">V Partner</p>
+                    </div>
+                </div>
 
-              <!-- Artist 6 -->
-              <div class="speaker bg-white rounded-lg overflow-hidden shadow-md hover-scale">
-                  <a href="https://the-v.net/en/vp-arun-george"><img src="assets/speakers/vp-arun-george.png" alt="Artist 7" class="w-full h-64 object-cover" style="height:auto;"></a>
-                  <div class="p-4 text-center">
-                      <a href="https://the-v.net/en/vp-arun-george"><h3 class="font-bold text-xl mb-2">Arun George</h3></a>
-                      <p class="text-gray-600">V Partner</p>
-                  </div>
-              </div>
-          </div>
+                <!-- Artist 5 -->
+                <div class="speaker bg-white rounded-lg overflow-hidden shadow-md hover-scale">
+                    <a href="https://the-v.net/en/vp-sathi-senathirajah"><img src="assets/speakers/vp-sathi-senathirajah.png" alt="Artist 5" class="w-full h-64 object-cover" style="height:auto;"></a>
+                    <div class="p-4 text-center">
+                        <a href="https://the-v.net/en/vp-sathi-senathirajah"><h3 class="font-bold text-xl mb-2">Sathi Senathirajah</h3></a>
+                        <p class="text-gray-600">V Partner</p>
+                    </div>
+                </div>
 
-      </div>
-  </section>
+                <!-- Artist 6 -->
+                <div class="speaker bg-white rounded-lg overflow-hidden shadow-md hover-scale">
+                    <a href="https://the-v.net/en/vp-arun-george"><img src="assets/speakers/vp-arun-george.png" alt="Artist 7" class="w-full h-64 object-cover" style="height:auto;"></a>
+                    <div class="p-4 text-center">
+                        <a href="https://the-v.net/en/vp-arun-george"><h3 class="font-bold text-xl mb-2">Arun George</h3></a>
+                        <p class="text-gray-600">V Partner</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
 
 
 <!-- this or that -->
-<section class="py-16 bg-white" id="thisorthat">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">This or That?</h2>
-            <p class="mb-8 text-lg">Up for a little challenge? Just take your pick and have fun with The V family!<br>Tag us when you share on Instagram! </p>
+<section id="thisOrThat" style="background-image: url('assets/news/BG-videohighlights.png'); background-position: top; background-size: cover;">
+ <div class="bg-white bg-opacity-60 p-6 rounded-lg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+  <!-- Overlay with only Start button -->
+  <div id="initialScreen">
+    <h2 class="text-3xl md:text-4xl text-[#785b37] font-bold mb-4">This or That?</h2>
+    <p class="text-[#785b37]">Up for a little challenge? Just take your pick and have fun with The V family!<br>Tag us when you share on Instagram!</p>
+    <button id="startBtn">Let's Play!</button>
+  </div>
 
-            <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+  <!-- Background -->
+  <div id="backgroundImage"></div>
+
+  <!-- Main game content -->
+  <div id="gameContent">
+    <div id="roundNumber">Round 1</div>
+    <div class="choices-container"">
+      <!-- Left choice -->
+      <div class="choice" id="leftChoice" data-choice="left">
+        <div class="choice-background">
+          <div class="circle">
+            <span id="leftText">Achieve a Dream</span>
+          </div>
         </div>
-
-        <!-- Start Game Button -->
-        <div id="startGameSection" class="text-center mb-8">
-            <button id="startGameBtn" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300">
-                Start Game
-            </button>
+      </div>
+      <!-- Right choice -->
+      <div class="choice" id="rightChoice" data-choice="right">
+        <div class="choice-background">
+          <div class="circle">
+            <span id="rightText">Achieve a Goal</span>
+          </div>
         </div>
-
-        <!-- Main Game Rounds -->
-        <div id="rounds" class="space-y-12 hidden">
-
-            <!-- Round 1 -->
-            <div class="round text-center">
-                <h3 class="text-xl font-semibold mb-4">Round 1:</h3>
-                <p class="text-lg mb-4">Be able to fly vs Have super strength</p>
-                <div class="flex justify-center space-x-8">
-                    <button onclick="nextRound(1)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Be able to fly</button>
-                    <button onclick="nextRound(1)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Have super strength</button>
-                </div>
-            </div>
-
-            <!-- Round 2 -->
-            <div class="round text-center hidden">
-                <h3 class="text-xl font-semibold mb-4">Round 2:</h3>
-                <p class="text-lg mb-4">See the future vs Go back to the past</p>
-                <div class="flex justify-center space-x-8">
-                    <button onclick="nextRound(2)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">See the future</button>
-                    <button onclick="nextRound(2)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Go back to the past</button>
-                </div>
-            </div>
-
-            <!-- Round 3 -->
-            <div class="round text-center hidden">
-                <h3 class="text-xl font-semibold mb-4">Round 3:</h3>
-                <p class="text-lg mb-4">Achieve a dream vs Achieve a goal</p>
-                <div class="flex justify-center space-x-8">
-                    <button onclick="nextRound(3)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Achieve a dream</button>
-                    <button onclick="nextRound(3)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Achieve a goal</button>
-                </div>
-            </div>
-
-            <!-- Round 4 -->
-            <div class="round text-center hidden">
-                <h3 class="text-xl font-semibold mb-4">Round 4:</h3>
-                <p class="text-lg mb-4">Mindset Shift vs Upgrade your skills</p>
-                <div class="flex justify-center space-x-8">
-                    <button onclick="nextRound(4)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Mindset Shift</button>
-                    <button onclick="nextRound(4)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Upgrade your skills</button>
-                </div>
-            </div>
-
-            <!-- Round 5 -->
-            <div class="round text-center hidden">
-                <h3 class="text-xl font-semibold mb-4">Round 5:</h3>
-                <p class="text-lg mb-4">Be Successful vs Uplift Others</p>
-                <div class="flex justify-center space-x-8">
-                    <button onclick="nextRound(5)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Be Successful</button>
-                    <button onclick="nextRound(5)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Uplift Others</button>
-                </div>
-            </div>
-
-            <!-- Round 6 -->
-            <div class="round text-center hidden">
-                <h3 class="text-xl font-semibold mb-4">Round 6:</h3>
-                <p class="text-lg mb-4">Comfortable Life vs Extraordinary Journey</p>
-                <div class="flex justify-center space-x-8">
-                    <button onclick="nextRound(6)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Comfortable Life</button>
-                    <button onclick="nextRound(6)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Extraordinary Journey</button>
-                </div>
-            </div>
-
-            <!-- Round 7 -->
-            <div class="round text-center hidden">
-                <h3 class="text-xl font-semibold mb-4">Round 7:</h3>
-                <p class="text-lg mb-4">Take steady steps vs Soar to new heights</p>
-                <div class="flex justify-center space-x-8">
-                    <button onclick="nextRound(7)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Take steady steps</button>
-                    <button onclick="nextRound(7)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Soar to new heights</button>
-                </div>
-            </div>
-
-            <!-- Round 8 -->
-            <div class="round text-center hidden">
-                <h3 class="text-xl font-semibold mb-4">Round 8:</h3>
-                <p class="text-lg mb-4">Notes on paper vs Notes on mobile phone</p>
-                <div class="flex justify-center space-x-8">
-                    <button onclick="nextRound(8)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Notes on paper</button>
-                    <button onclick="nextRound(8)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Notes on mobile phone</button>
-                </div>
-            </div>
-
-            <!-- Round 9 -->
-            <div class="round text-center hidden">
-                <h3 class="text-xl font-semibold mb-4">Round 9:</h3>
-                <p class="text-lg mb-4">Go to V-Convention alone vs Go to V-Convention with your team</p>
-                <div class="flex justify-center space-x-8">
-                    <button onclick="nextRound(9)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Go to V-Convention alone</button>
-                    <button onclick="nextRound(9)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Go to V-Convention with your team</button>
-                </div>
-            </div>
-
-            <!-- Round 10 -->
-            <div class="round text-center hidden">
-                <h3 class="text-xl font-semibold mb-4">Round 10:</h3>
-                <p class="text-lg mb-4">Be part of the history vs Create history</p>
-                <div class="flex justify-center space-x-8">
-                    <button onclick="nextRound(10)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Be part of the history</button>
-                    <button onclick="nextRound(10)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Create history</button>
-                </div>
-            </div>
-
-            <!-- Round 11 -->
-            <div class="round text-center hidden">
-                <h3 class="text-xl font-semibold mb-4">Round 11:</h3>
-                <p class="text-lg mb-4">Witness the greatest story vs Create your greatest story</p>
-                <div class="flex justify-center space-x-8">
-                    <button onclick="nextRound(11)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Witness the greatest story</button>
-                    <button onclick="nextRound(11)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Create your greatest story</button>
-                </div>
-            </div>
-
-            <!-- Round 12 -->
-            <div class="round text-center hidden">
-                <h3 class="text-xl font-semibold mb-4">Round 12:</h3>
-                <p class="text-lg mb-4">Be at V-Malaysia 2025 on 21-25 June vs Take part at V-Malaysia 2025 on 21-25 June</p>
-                <div class="flex justify-center space-x-8">
-                    <button onclick="nextRound(12)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Be at V-Malaysia 2025</button>
-                    <button onclick="nextRound(12)" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg">Take part at V-Malaysia 2025</button>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Submit Button -->
-        <div class="text-center mt-12">
-            <button id="submitBtn" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 hidden">
-                Submit Your Choices
-            </button>
-        </div>
+      </div>
     </div>
+  </div>
+
+  <!-- Results display -->
+  <div id="resultsSection">
+    <h3>Your Choices</h3>
+    <ul id="choicesList"></ul>
+    <br>
+    <!-- <canvas id="resultCanvas" width="600" height="400"></canvas> -->
+    <div>
+      <a id="downloadLink" href="#" download="choices.png">Download Results</a>
+      <button class="restart-btn" id="restartBtn">Play Again</button>
+    </div>
+  </div>
+  </div>
 </section>
+
+
 
 
 
@@ -2017,6 +2215,193 @@ html {
 
 
     <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Game data
+      const rounds = [
+        { left: "Achieve a Dream", right: "Achieve a Goal" },
+        { left: "Beach Vacation", right: "Mountain Retreat" },
+        { left: "Movie Night", right: "Game Night" },
+        { left: "Early Bird", right: "Night Owl" },
+        { left: "Coffee", right: "Tea" },
+        { left: "Dogs", right: "Cats" },
+        { left: "Summer", right: "Winter" },
+        { left: "Books", right: "Movies" },
+        { left: "City Life", right: "Country Living" },
+        { left: "Sweet", right: "Savory" }
+      ];
+
+      // Game variables
+      let currentRound = 0;
+      const userChoices = [];
+
+      // DOM elements
+      const startBtn = document.getElementById('startBtn');
+      const initialScreen = document.getElementById('initialScreen');
+      const gameContent = document.getElementById('gameContent');
+      const backgroundImage = document.getElementById('backgroundImage');
+      const roundNumber = document.getElementById('roundNumber');
+      const leftText = document.getElementById('leftText');
+      const rightText = document.getElementById('rightText');
+      const leftChoice = document.getElementById('leftChoice');
+      const rightChoice = document.getElementById('rightChoice');
+      const resultsSection = document.getElementById('resultsSection');
+      const choicesList = document.getElementById('choicesList');
+      const resultCanvas = document.getElementById('resultCanvas');
+      const downloadLink = document.getElementById('downloadLink');
+      const restartBtn = document.getElementById('restartBtn');
+
+      // Background gradients for variety
+      /* const backgrounds = [
+        'linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%)',
+        'linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)',
+        'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)',
+        'linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%)',
+        'linear-gradient(135deg, #f6d365 0%, #fda085 100%)',
+        'linear-gradient(135deg, #5ee7df 0%, #b490ca 100%)',
+        'linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%)',
+        'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+        'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+        'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+      ]; */
+
+      // Start game
+      startBtn.addEventListener('click', function() {
+        initialScreen.style.display = 'none';
+        backgroundImage.style.display = 'block';
+        gameContent.style.display = 'flex';
+        loadRound(currentRound);
+      });
+
+      // Load round data
+      function loadRound(index) {
+        if (index >= rounds.length) {
+          showResults();
+          return;
+        }
+
+
+        roundNumber.textContent = `Round ${index + 1}`;
+        leftText.textContent = rounds[index].left;
+        rightText.textContent = rounds[index].right;
+
+        // Add animation for new round
+        gameContent.classList.add('new-round');
+        setTimeout(() => {
+          gameContent.classList.remove('new-round');
+        }, 500);
+      }
+
+      // Handle choice selection
+      leftChoice.addEventListener('click', function() {
+        makeChoice('left');
+      });
+
+      rightChoice.addEventListener('click', function() {
+        makeChoice('right');
+      });
+
+      function makeChoice(side) {
+        // Add choice to array
+        userChoices.push({
+          round: currentRound + 1,
+          question: `${rounds[currentRound].left} or ${rounds[currentRound].right}`,
+          choice: side === 'left' ? rounds[currentRound].left : rounds[currentRound].right
+        });
+
+        // Animate selection
+        const selectedElement = side === 'left' ? leftChoice : rightChoice;
+        const otherElement = side === 'left' ? rightChoice : leftChoice;
+
+        // console.log('Before increment:', currentRound);
+        // currentRound++;
+        // console.log('After increment:', currentRound);
+        // loadRound(currentRound);
+
+        selectedElement.style.transform = 'scale(1.05)';
+        otherElement.style.opacity = '0.7';
+
+        setTimeout(() => {
+          selectedElement.style.transform = '';
+          otherElement.style.opacity = '';
+
+          // Move to next round
+          currentRound++;
+          loadRound(currentRound);
+        }, 700);
+      }
+
+      // Show results
+      function showResults() {
+        gameContent.style.display = 'none';
+        backgroundImage.style.display = 'none';
+        resultsSection.style.display = 'block';
+
+        // Populate choices list
+        choicesList.innerHTML = '';
+        userChoices.forEach(choice => {
+          const li = document.createElement('li');
+          li.innerHTML = `<strong>Round ${choice.round}:</strong> <span>${choice.choice}</span>`;
+          choicesList.appendChild(li);
+        });
+
+        // Generate results image
+        generateResultsImage();
+      }
+
+      // Generate shareable image
+      function generateResultsImage() {
+        const ctx = resultCanvas.getContext('2d');
+
+        // Set background
+        ctx.fillStyle = '#f8f9fa';
+        ctx.fillRect(0, 0, resultCanvas.width, resultCanvas.height);
+
+        // Add title
+        ctx.fillStyle = '#333';
+        ctx.font = 'bold 24px Poppins, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('My "This or That" Choices', resultCanvas.width / 2, 40);
+
+        // Add subtitle
+        ctx.font = '16px Poppins, sans-serif';
+        ctx.fillText('The V Family Challenge', resultCanvas.width / 2, 70);
+
+        // Add choices
+        ctx.textAlign = 'left';
+        ctx.font = '18px Poppins, sans-serif';
+
+        let yPos = 120;
+        userChoices.forEach(choice => {
+          ctx.fillStyle = '#333';
+          ctx.fillText(`Round ${choice.round}: ${choice.question}`, 40, yPos);
+
+          ctx.fillStyle = '#2575fc';
+          ctx.fillText(`My choice: ${choice.choice}`, 60, yPos + 25);
+
+          yPos += 60;
+        });
+
+        // Add footer
+        ctx.fillStyle = '#666';
+        ctx.font = '14px Poppins, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('Share your results and tag The V Family!', resultCanvas.width / 2, resultCanvas.height - 20);
+
+        // Set download link
+        downloadLink.href = resultCanvas.toDataURL('image/png');
+      }
+
+      // Restart game
+      restartBtn.addEventListener('click', function() {
+        currentRound = 0;
+        userChoices.length = 0;
+        resultsSection.style.display = 'none';
+        initialScreen.style.display = 'flex';
+      });
+    });
+
+    //END THIS OR THAT
 //modal for vkidsteens
 document.addEventListener('DOMContentLoaded', function () {
   const closeBtn = document.getElementById('closeModal2');
