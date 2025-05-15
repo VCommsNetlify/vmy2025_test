@@ -35,9 +35,29 @@
     "headline_part1": "LEVONS-NOUS ENSEMBLE",
     "headline_part2": "POUR CRÉER NOTRE",
     "headline_part3": " PLUS BELLE HISTOIRE",
+    
     "headline_part4": "!",
     "paragraph1": "<em>Lorsque nous nous réunissons, notre voyage devient sans limites.</em>",
     "paragraph2": "<br>Rejoignez-nous au V-MALAYSIA 2025 en juin prochain pour concrétiser la vision de RYTHM et dépasser les limites.",
     "cta_button": "Achetez vos billets sur VShoppe."
+  },
+"greatest_stories_headline": "Les plus belles histoires du V-Malaysia 2025",
+  "story1": {
+    "title": "Épisode 1 : La V-Convention"
+  },
+  "story2": {
+    "title": "Épisode 2 : De leaders aux V Ambassadors"
+  },
+  "story3": {
+    "title": "Épisode 3 : De participants au InService"
+  },
+  "story4": {
+    "title": "Épisode 4 : Élévation des équipes comme Colours of The V"
+  },
+  "story5": {
+    "title": "Épisode 4 : Élévation des équipes comme Colours of The V"
+  },
+  "story6": {
+    "title": "Épisode 6 : Les deux visionnaires"
   }
 }
