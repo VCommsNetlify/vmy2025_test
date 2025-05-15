@@ -1035,146 +1035,144 @@ html {
 <body class="text-gray-800">
 
   <!-- Floating Text Button with Close Button -->
-  <div id="floatingTextBtn" class="fixed bottom-4 right-4 bg-pink-600 text-white py-2 px-4 rounded-full shadow-lg text-lg cursor-pointer transition-transform transform hover:scale-105 z-[9999]">
-    <span>Grab your tickets here!</span>
-
-    <!-- Close Button (X) inside Floating Text -->
-    <button id="closeBtn" class="absolute top-0 right-0 text-white text-2xl font-bold bg-transparent border-none cursor-pointer">
-      &times;
-    </button>
-  </div>
+   <a href="https://vshoppe.vtube.net/" target="_blank" rel="noopener noreferrer"></a>
+    <div id="floatingTextBtn" class="fixed bottom-4 right-4 bg-pink-600 text-white py-2 px-4 rounded-full shadow-lg text-lg cursor-pointer transition-transform transform hover:scale-105 z-[9999]">
+      <span data-i18n="floating_button.text">Grab your tickets here!</span>
+      <button id="closeBtn" class="absolute top-0 right-0 text-white text-2xl font-bold bg-transparent border-none cursor-pointer" aria-label="Close" data-i18n="buttons.close">
+        &times;
+      </button>
+    </div>
+  </a>
 
     <!-- Header -->
 <header class="fixed w-full z-50 bg-[#004372] shadow-lg">
-    <div class="container mx-auto px-4 py-3 flex items-center justify-between relative">
-        <div class="flex items-center space-x-4">
-            <a href="#home" class="text-white hidden md:inline nav-link"><img src="assets/first-fold/VMY2025-logo-v2_lowres.png" alt="THE V Logo" class="h-10"></a>
-            <a href="#home" class="text-white hidden md:inline nav-link">Home</a>
-        </div>
+  <div class="container mx-auto px-4 py-3 flex items-center justify-between relative">
+    <div class="flex items-center space-x-4">
+      <a href="#home" class="text-white hidden md:inline nav-link"><img src="assets/first-fold/VMY2025-logo-v2_lowres.png" alt="THE V Logo" class="h-10"></a>
+      <a href="#home" class="text-white hidden md:inline nav-link" data-i18n="home">Home</a>
+    </div>
 
-        <nav class="hidden md:flex space-x-6 items-center">
-            <div class="relative">
-                <button id="storiesToggle" class="text-white flex items-center space-x-2">
-                    <span>Greatest Stories</span>
-                    <span class="text-white text-xl transition-transform duration-300 transform arrow-toggle-icon" id="storiesIcon">▼</span>
-                </button>
-                <div id="storiesMenu" class="absolute hidden bg-white text-black mt-2 rounded shadow-lg py-2 w-48 z-50">
-                    <a href="#carousel-featured" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Videos</a>
-                    <a href="#articles-section" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Articles</a>
-                    <a href="#gallery-section" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Gallery</a>
-                </div>
-            </div>
-            <a href="#venue-map" class="text-white nav-link">Venue Map</a>
-            <a href="#vkidsteens" class="text-white nav-link">V-Kids & V-Teens</a>
-            <a href="#speakers" class="text-white nav-link">Speakers</a>
-            <a href="#thisOrThat" class="text-white nav-link">This or That?</a>
-            <a href="#faqs" class="text-white nav-link">FAQ</a>
-        </nav>
-
-        <div class="relative hidden md:block">
-            <button id="langToggle" class="text-white flex items-center space-x-2">
-                <span>Languages</span>
-                <span class="text-white text-xl transition-transform duration-300 transform arrow-toggle-icon" id="langIcon">▼</span>
-            </button>
-            <ul id="langMenu" class="hidden absolute right-0 bg-white text-black mt-2 rounded shadow-lg py-2 w-48 z-50">
-                <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">English</a></li>
-                <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Arabic</a></li>
-                <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Bahasa-Indonesia</a></li>
-                <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">French</a></li>
-                <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Russian</a></li>
-            </ul>
-        </div>
-
-        <button id="menuToggle" class="md:hidden text-white z-[999] relative">
-            <i class="fas fa-bars text-2xl"></i>
+    <nav class="hidden md:flex space-x-6 items-center">
+      <div class="relative">
+        <button id="storiesToggle" class="text-white flex items-center space-x-2">
+          <span data-i18n="greatest_stories">Greatest Stories</span>
+          <span class="text-white text-xl transition-transform duration-300 transform arrow-toggle-icon" id="storiesIcon">▼</span>
         </button>
+        <div id="storiesMenu" class="absolute hidden bg-white text-black mt-2 rounded shadow-lg py-2 w-48 z-50">
+          <a href="#carousel-featured" class="block px-4 py-2 hover:bg-gray-200 nav-link2" data-i18n="menu.videos">Videos</a>
+          <a href="#articles-section" class="block px-4 py-2 hover:bg-gray-200 nav-link2" data-i18n="menu.articles">Articles</a>
+          <a href="#gallery-section" class="block px-4 py-2 hover:bg-gray-200 nav-link2" data-i18n="menu.gallery">Gallery</a>
+        </div>
+      </div>
+      <a href="#venue-map" class="text-white nav-link" data-i18n="venue_map">Venue Map</a>
+      <a href="#vkidsteens" class="text-white nav-link" data-i18n="v_kids_v_teens">V-Kids & V-Teens</a>
+      <a href="#speakers" class="text-white nav-link" data-i18n="speakers">Speakers</a>
+      <a href="#thisOrThat" class="text-white nav-link" data-i18n="this_or_that">This or That?</a>
+      <a href="#faqs" class="text-white nav-link" data-i18n="faq">FAQ</a>
+    </nav>
+
+    <div class="relative hidden md:block">
+      <button id="langToggle" class="text-white flex items-center space-x-2">
+        <span data-i18n="languages">Languages</span>
+        <span class="text-white text-xl transition-transform duration-300 transform arrow-toggle-icon" id="langIcon">▼</span>
+      </button>
+        <ul id="langMenu" class="hidden absolute right-0 bg-white text-black mt-2 rounded shadow-lg py-2 w-48 z-50">
+          <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2" onclick="setLanguage('en')" data-i18n="language_name.en">English</a></li>
+          <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2" onclick="setLanguage('ar')" data-i18n="language_name.ar">Arabic</a></li>
+          <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2" onclick="setLanguage('id')" data-i18n="language_name.id">Bahasa-Indonesia</a></li>
+          <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2" onclick="setLanguage('fr')" data-i18n="language_name.fr">French</a></li>
+          <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2" onclick="setLanguage('ru')" data-i18n="language_name.ru">Russian</a></li>
+        </ul>
     </div>
 
-    <div id="mobileMenu" class="hidden md:hidden bg-[#004372] px-4 pb-4 space-y-3 z-40">
-        <a href="#home" class="text-white block nav-link">Home</a>
-        <div class="text-white">
-            <button id="storiesToggleMobile" class="w-full text-left flex items-center justify-between">Greatest Stories <span id="storiesIconMobile" class="text-white text-xl transition-transform transform arrow-toggle-icon" id="storiesIconMobile">▼</span></button>
-            <ul id="storiesMenuMobile" class="hidden bg-white text-black rounded shadow-lg mt-2">
-                <li><a href="#carousel-featured" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Videos</a></li>
-                <li><a href="#articles-section" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Articles</a></li>
-                <li><a href="#gallery-section" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Gallery</a></li>
-            </ul>
-        </div>
-        <a href="#venue-map" class="text-white block nav-link">Venue Map</a>
-        <a href="#vkidsteens" class="text-white block nav-link">V-Kids & V-Teens</a>
-        <a href="#speakers" class="text-white block nav-link">Speakers</a>
-        <a href="#thisOrThat" class="text-white block nav-link">This or That?</a>
-        <a href="#faqs" class="text-white block nav-link">FAQ</a>
+    <button id="menuToggle" class="md:hidden text-white z-[999] relative">
+      <i class="fas fa-bars text-2xl"></i>
+    </button>
+  </div>
 
-        <div class="text-white">
-            <button id="langToggleMobile" class="w-full text-left flex items-center justify-between">Languages <span id="langIconMobile" class="text-white text-xl transition-transform transform arrow-toggle-icon" id="langIconMobile">▼</span></button>
-            <ul id="langMenuMobile" class="hidden bg-white text-black rounded shadow-lg mt-2">
-                <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">English</a></li>
-                <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Arabic</a></li>
-                <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Bahasa-Indonesia</a></li>
-                <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">French</a></li>
-                <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Russian</a></li>
-            </ul>
-        </div>
+  <div id="mobileMenu" class="hidden md:hidden bg-[#004372] px-4 pb-4 space-y-3 z-40">
+    <a href="#home" class="text-white block nav-link" data-i18n="home">Home</a>
+    <div class="text-white">
+      <button id="storiesToggleMobile" class="w-full text-left flex items-center justify-between">
+        <span data-i18n="greatest_stories">Greatest Stories</span>
+        <span id="storiesIconMobile" class="text-white text-xl transition-transform transform arrow-toggle-icon" id="storiesIconMobile">▼</span>
+      </button>
+      <ul id="storiesMenuMobile" class="hidden bg-white text-black rounded shadow-lg mt-2">
+        <li><a href="#carousel-featured" class="block px-4 py-2 hover:bg-gray-200 nav-link2" data-i18n="menu.videos">Videos</a></li>
+        <li><a href="#articles-section" class="block px-4 py-2 hover:bg-gray-200 nav-link2" data-i18n="menu.articles">Articles</a></li>
+        <li><a href="#gallery-section" class="block px-4 py-2 hover:bg-gray-200 nav-link2" data-i18n="menu.gallery">Gallery</a></li>
+      </ul>
     </div>
+    <a href="#venue-map" class="text-white block nav-link" data-i18n="venue_map">Venue Map</a>
+    <a href="#vkidsteens" class="text-white block nav-link" data-i18n="v_kids_v_teens">V-Kids & V-Teens</a>
+    <a href="#speakers" class="text-white block nav-link" data-i18n="speakers">Speakers</a>
+    <a href="#thisOrThat" class="text-white block nav-link" data-i18n="this_or_that">This or That?</a>
+    <a href="#faqs" class="text-white block nav-link" data-i18n="faq">FAQ</a>
+
+    <div class="text-white">
+      <button id="langToggleMobile" class="w-full text-left flex items-center justify-between">
+        <span data-i18n="languages">Languages</span>
+        <span id="langIconMobile" class="text-white text-xl transition-transform transform arrow-toggle-icon" id="langIconMobile">▼</span>
+      </button>
+      <ul id="langMenuMobile" class="hidden bg-white text-black rounded shadow-lg mt-2">
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2" onclick="setLanguage('en')" data-i18n="language_name.en">English</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2" onclick="setLanguage('ar')" data-i18n="language_name.ar">Arabic</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2" onclick="setLanguage('id')" data-i18n="language_name.id">Bahasa-Indonesia</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2" onclick="setLanguage('fr')" data-i18n="language_name.fr">French</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2" onclick="setLanguage('ru')" data-i18n="language_name.ru">Russian</a></li>
+      </ul>
+    </div>
+  </div>
 </header>
 
     <!-- Hero Section -->
 <section class="relative flex flex-col justify-center items-center text-white text-center pt-12 sm:pt-16 md:pt-24 pb-8 sm:pb-10 md:pb-12 min-h-[80vh] md:min-h-screen" id="home">
-  <!-- Gradient Overlay -->
   <div class="hero-gradient absolute inset-0 bg-black bg-opacity-30 z-0"></div>
 
-  <!-- Content Container -->
   <div class="container mx-auto px-4 flex flex-col items-center justify-center z-10 relative">
     <img class="mx-auto w-40 sm:w-52 md:w-64 lg:w-80 mb-6"
          src="assets/header/vmy_logo.png"
          alt="V Malaysia Logo">
 
     <div class="max-w-3xl w-full px-4">
-      <!-- Countdown Boxes -->
       <div class="flex flex-nowrap justify-center items-center gap-2 sm:gap-4 mb-6 overflow-x-auto">
-	  <div class="countdown-box bg-white/10 rounded-lg p-2 w-16 sm:w-20 md:w-24 text-center shrink-0">
-		<div class="text-xl sm:text-2xl md:text-4xl font-bold" id="days">00</div>
-		<div class="text-[10px] sm:text-xs md:text-sm">DAYS</div>
-	  </div>
-	  <div class="countdown-box bg-white/10 rounded-lg p-2 w-16 sm:w-20 md:w-24 text-center shrink-0">
-		<div class="text-xl sm:text-2xl md:text-4xl font-bold" id="hours">00</div>
-		<div class="text-[10px] sm:text-xs md:text-sm">HOURS</div>
-	  </div>
-	  <div class="countdown-box bg-white/10 rounded-lg p-2 w-16 sm:w-20 md:w-24 text-center shrink-0">
-		<div class="text-xl sm:text-2xl md:text-4xl font-bold" id="minutes">00</div>
-		<div class="text-[10px] sm:text-xs md:text-sm">MINUTES</div>
-	  </div>
-	  <div class="countdown-box bg-white/10 rounded-lg p-2 w-16 sm:w-20 md:w-24 text-center shrink-0">
-		<div class="text-xl sm:text-2xl md:text-4xl font-bold" id="seconds">00</div>
-		<div class="text-[10px] sm:text-xs md:text-sm">SECONDS</div>
-	  </div>
-	</div>
+        <div class="countdown-box bg-white/10 rounded-lg p-2 w-16 sm:w-20 md:w-24 text-center shrink-0">
+          <div class="text-xl sm:text-2xl md:text-4xl font-bold" id="days">00</div>
+          <div class="text-[10px] sm:text-xs md:text-sm" data-i18n="countdown.days">DAYS</div>
+        </div>
+        <div class="countdown-box bg-white/10 rounded-lg p-2 w-16 sm:w-20 md:w-24 text-center shrink-0">
+          <div class="text-xl sm:text-2xl md:text-4xl font-bold" id="hours">00</div>
+          <div class="text-[10px] sm:text-xs md:text-sm" data-i18n="countdown.hours">HOURS</div>
+        </div>
+        <div class="countdown-box bg-white/10 rounded-lg p-2 w-16 sm:w-20 md:w-24 text-center shrink-0">
+          <div class="text-xl sm:text-2xl md:text-4xl font-bold" id="minutes">00</div>
+          <div class="text-[10px] sm:text-xs md:text-sm" data-i18n="countdown.minutes">MINUTES</div>
+        </div>
+        <div class="countdown-box bg-white/10 rounded-lg p-2 w-16 sm:w-20 md:w-24 text-center shrink-0">
+          <div class="text-xl sm:text-2xl md:text-4xl font-bold" id="seconds">00</div>
+          <div class="text-[10px] sm:text-xs md:text-sm" data-i18n="countdown.seconds">SECONDS</div>
+        </div>
+      </div>
 
-      <!-- Headline (2 Lines) -->
-<h2 class="mt-4 max-w-4xl text-[1.5rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] font-extrabold leading-tight tracking-tight text-center">
-  <span class="text-[#00f6ff] block sm:inline">RISE TOGETHER</span>
-  <span class="text-white block sm:inline">AND CREATE OUR</span>
-  <span class="text-[#00f6ff] sm:inline"> GREATEST STORY</span><span class="text-white sm:inline">!</span>
-</h2>
+      <h2 class="mt-4 max-w-4xl text-[1.5rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] font-extrabold leading-tight tracking-tight text-center">
+        <span class="text-[#00f6ff] block sm:inline" data-i18n="hero.headline_part1">RISE TOGETHER</span>
+        <span class="text-white block sm:inline" data-i18n="hero.headline_part2">AND CREATE OUR</span>
+        <span class="text-[#00f6ff] sm:inline" data-i18n="hero.headline_part3"> GREATEST STORY</span><span class="text-white sm:inline" data-i18n="hero.headline_part4">!</span>
+      </h2>
 
-
-
-      <!-- Paragraph + CTA (single line on md+, stacked on mobile) -->
       <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-white text-center">
-        <!-- Text Block -->
-		<div class="flex-1 text-sm sm:text-base md:text-lg">
-		  <p class="mb-0 whitespace-normal md:whitespace-nowrap">
-			When we come together, our journey becomes limitless.
-		  </p>
-		  <p class="mb-0">
-			<br>Join us at V-MALAYSIA 2025 this June as we gather as one to fulfill the vision of RYTHM and rise beyond the boundaries.
-		  </p>
-		</div>
+        <div class="flex-1 text-sm sm:text-base md:text-lg">
+          <p class="mb-0 whitespace-normal md:whitespace-nowrap" data-i18n="hero.paragraph1">
+            <em>When we come together, our journey becomes limitless.</em>
+          </p>
+          <p class="mb-0" data-i18n="hero.paragraph2">
+            <br>Join us at V-MALAYSIA 2025 this June as we gather as one to fulfill the vision of RYTHM and rise beyond the boundaries.
+          </p>
+        </div>
 
-        <!-- CTA Button -->
         <a href="https://vshoppe.vtube.net/"
-           class="shrink-0 inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 sm:py-4 sm:px-8 text-base sm:text-lg md:text-xl rounded-full shadow-lg transition duration-300 btn-glow animate-pulse whitespace-nowrap text-center">
+           class="shrink-0 inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 sm:py-4 sm:px-8 text-base sm:text-lg md:text-xl rounded-full shadow-lg transition duration-300 btn-glow animate-pulse whitespace-nowrap text-center"
+           data-i18n="hero.cta_button">
           Get your tickets on VShoppe.
         </a>
       </div>
@@ -2373,6 +2371,72 @@ html {
 </footer>
 
     <script>
+	
+	<!-- CHANGING LANGUAGES -->
+	
+const translations = {};
+let currentLanguage = 'en'; // Default language
+
+function loadTranslations(lang) {
+  fetch(`/locales/${lang}.json`) // Assuming your JSON files are in a 'locales' folder at the root
+    .then(response => response.json())
+    .then(data => {
+      translations[lang] = data;
+      updateUI(); // Call this to update the UI with the loaded translations
+    })
+    .catch(error => {
+      console.error('Error loading translations for', lang, error);
+    });
+}
+
+function setLanguage(lang) {
+  currentLanguage = lang;
+  localStorage.setItem('currentLanguage', lang); // Optionally save the language in local storage
+  if (!translations[lang]) {
+    loadTranslations(lang);
+  } else {
+    updateUI();
+  }
+}
+
+function t(key) {
+  const parts = key.split('.');
+  let value = translations[currentLanguage];
+  for (const part of parts) {
+    if (value && value.hasOwnProperty(part)) {
+      value = value[part];
+    } else {
+      console.warn(`Translation key "${key}" not found in ${currentLanguage}.json`);
+      return key; // Return the key if translation not found
+    }
+  }
+  return value;
+}
+
+function updateUI() {
+  document.querySelectorAll('[data-i18n]').forEach(element => {
+    const key = element.getAttribute('data-i18n');
+    let translatedText = t(key);
+    element.innerHTML = translatedText; // Use innerHTML to render HTML tags
+    if (element.getAttribute('placeholder')) {
+      const placeholderKey = key.replace('placeholder', '').replace(/\.$/, '') + '_placeholder';
+      element.setAttribute('placeholder', t(placeholderKey));
+    }
+    if (element.getAttribute('aria-label')) {
+      const ariaLabelKey = key.replace('aria-label', '').replace(/\.$/, '') + '_aria-label';
+      element.setAttribute('aria-label', t(ariaLabelKey));
+    }
+  });
+}
+
+// Load the default language on page load
+document.addEventListener('DOMContentLoaded', () => {
+  const storedLanguage = localStorage.getItem('currentLanguage');
+  const initialLanguage = storedLanguage || 'en'; // Default to 'en' if no stored language
+  setLanguage(initialLanguage);
+});
+	
+	<!-- END LANGUAGE -->
 
     document.addEventListener('DOMContentLoaded', function() {
       // Game data
