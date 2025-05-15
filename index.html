@@ -1023,6 +1023,12 @@ html {
     }
 }
 
+
+.arrow-toggle-icon {
+    font-size: 0.3rem; /* Adjust this value as needed */
+    /* You can also add other styling like adjusting line-height if needed */
+}
+
 </style>
 
 </head>
@@ -1040,84 +1046,78 @@ html {
 
     <!-- Header -->
 <header class="fixed w-full z-50 bg-[#004372] shadow-lg">
-  <div class="container mx-auto px-4 py-3 flex items-center justify-between relative">
-    <!-- Left: Logo + Home -->
-    <div class="flex items-center space-x-4">
-      <a href="#home" class="text-white hidden md:inline nav-link"><img src="assets/first-fold/VMY2025-logo-v2_lowres.png" alt="THE V Logo" class="h-10"></a>
-      <a href="#home" class="text-white hidden md:inline nav-link">Home</a>
-    </div>
-
-    <!-- Center Nav (Desktop Only) -->
-    <nav class="hidden md:flex space-x-6 items-center">
-      <div class="relative">
-        <button id="storiesToggle" class="text-white flex items-center space-x-2">
-          <span>Greatest Stories</span>
-          <span class="text-white text-xl transition-transform duration-300 transform rotate-90" id="storiesIcon">&#8250;</span>
-        </button>
-        <div id="storiesMenu" class="absolute hidden bg-white text-black mt-2 rounded shadow-lg py-2 w-48 z-50">
-          <a href="#carousel-featured" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Videos</a>
-          <a href="#articles-section" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Articles</a>
-          <a href="#gallery-section" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Gallery</a>
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between relative">
+        <div class="flex items-center space-x-4">
+            <a href="#home" class="text-white hidden md:inline nav-link"><img src="assets/first-fold/VMY2025-logo-v2_lowres.png" alt="THE V Logo" class="h-10"></a>
+            <a href="#home" class="text-white hidden md:inline nav-link">Home</a>
         </div>
-      </div>
-      <a href="#venue-map" class="text-white nav-link">Venue Map</a>
-      <a href="#vkidsteens" class="text-white nav-link">V-Kids & V-Teens</a>
-      <a href="#speakers" class="text-white nav-link">Speakers</a>
-      <a href="#thisOrThat" class="text-white nav-link">This or That?</a>
-      <a href="#faqs" class="text-white nav-link">FAQ</a>
-    </nav>
 
-    <!-- Right: Language Dropdown (Desktop Only) -->
-    <div class="relative hidden md:block">
-      <button id="langToggle" class="text-white flex items-center space-x-2">
-        <span>Languages</span>
-        <span class="text-white text-xl transition-transform duration-300 transform rotate-90" id="langIcon">&#8250;</span>
-      </button>
-      <ul id="langMenu" class="hidden absolute right-0 bg-white text-black mt-2 rounded shadow-lg py-2 w-48 z-50">
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">English</a></li>
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Arabic</a></li>
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Bahasa-Indonesia</a></li>
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">French</a></li>
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Russian</a></li>
-      </ul>
+        <nav class="hidden md:flex space-x-6 items-center">
+            <div class="relative">
+                <button id="storiesToggle" class="text-white flex items-center space-x-2">
+                    <span>Greatest Stories</span>
+                    <span class="text-white text-xl transition-transform duration-300 transform arrow-toggle-icon" id="storiesIcon">▼</span>
+                </button>
+                <div id="storiesMenu" class="absolute hidden bg-white text-black mt-2 rounded shadow-lg py-2 w-48 z-50">
+                    <a href="#carousel-featured" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Videos</a>
+                    <a href="#articles-section" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Articles</a>
+                    <a href="#gallery-section" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Gallery</a>
+                </div>
+            </div>
+            <a href="#venue-map" class="text-white nav-link">Venue Map</a>
+            <a href="#vkidsteens" class="text-white nav-link">V-Kids & V-Teens</a>
+            <a href="#speakers" class="text-white nav-link">Speakers</a>
+            <a href="#thisOrThat" class="text-white nav-link">This or That?</a>
+            <a href="#faqs" class="text-white nav-link">FAQ</a>
+        </nav>
+
+        <div class="relative hidden md:block">
+            <button id="langToggle" class="text-white flex items-center space-x-2">
+                <span>Languages</span>
+                <span class="text-white text-xl transition-transform duration-300 transform arrow-toggle-icon" id="langIcon">▼</span>
+            </button>
+            <ul id="langMenu" class="hidden absolute right-0 bg-white text-black mt-2 rounded shadow-lg py-2 w-48 z-50">
+                <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">English</a></li>
+                <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Arabic</a></li>
+                <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Bahasa-Indonesia</a></li>
+                <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">French</a></li>
+                <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Russian</a></li>
+            </ul>
+        </div>
+
+        <button id="menuToggle" class="md:hidden text-white z-[999] relative">
+            <i class="fas fa-bars text-2xl"></i>
+        </button>
     </div>
 
-    <!-- Mobile Burger -->
-    <button id="menuToggle" class="md:hidden text-white z-[999] relative">
-      <i class="fas fa-bars text-2xl"></i>
-    </button>
-  </div>
+    <div id="mobileMenu" class="hidden md:hidden bg-[#004372] px-4 pb-4 space-y-3 z-40">
+        <a href="#home" class="text-white block nav-link">Home</a>
+        <div class="text-white">
+            <button id="storiesToggleMobile" class="w-full text-left flex items-center justify-between">Greatest Stories <span id="storiesIconMobile" class="text-white text-xl transition-transform transform arrow-toggle-icon" id="storiesIconMobile">▼</span></button>
+            <ul id="storiesMenuMobile" class="hidden bg-white text-black rounded shadow-lg mt-2">
+                <li><a href="#carousel-featured" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Videos</a></li>
+                <li><a href="#articles-section" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Articles</a></li>
+                <li><a href="#gallery-section" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Gallery</a></li>
+            </ul>
+        </div>
+        <a href="#venue-map" class="text-white block nav-link">Venue Map</a>
+        <a href="#vkidsteens" class="text-white block nav-link">V-Kids & V-Teens</a>
+        <a href="#speakers" class="text-white block nav-link">Speakers</a>
+        <a href="#thisOrThat" class="text-white block nav-link">This or That?</a>
+        <a href="#faqs" class="text-white block nav-link">FAQ</a>
 
-  <!-- Mobile Nav -->
-  <div id="mobileMenu" class="hidden md:hidden bg-[#004372] px-4 pb-4 space-y-3 z-40">
-    <a href="#home" class="text-white block nav-link">Home</a>
-    <div class="text-white">
-      <button id="storiesToggleMobile" class="w-full text-left flex items-center justify-between">Greatest Stories <span id="storiesIconMobile" class="text-white text-xl transition-transform transform rotate-90">&#8250;</span></button>
-      <ul id="storiesMenuMobile" class="hidden bg-white text-black rounded shadow-lg mt-2">
-        <li><a href="#carousel-featured" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Videos</a></li>
-        <li><a href="#articles-section" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Articles</a></li>
-        <li><a href="#gallery-section" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Gallery</a></li>
-      </ul>
+        <div class="text-white">
+            <button id="langToggleMobile" class="w-full text-left flex items-center justify-between">Languages <span id="langIconMobile" class="text-white text-xl transition-transform transform arrow-toggle-icon" id="langIconMobile">▼</span></button>
+            <ul id="langMenuMobile" class="hidden bg-white text-black rounded shadow-lg mt-2">
+                <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">English</a></li>
+                <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Arabic</a></li>
+                <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Bahasa-Indonesia</a></li>
+                <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">French</a></li>
+                <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Russian</a></li>
+            </ul>
+        </div>
     </div>
-    <a href="#venue-map" class="text-white block nav-link">Venue Map</a>
-    <a href="#vkidsteens" class="text-white block nav-link">V-Kids & V-Teens</a>
-    <a href="#speakers" class="text-white block nav-link">Speakers</a>
-    <a href="#thisOrThat" class="text-white block nav-link">This or That?</a>
-    <a href="#faqs" class="text-white block nav-link">FAQ</a>
-
-    <div class="text-white">
-      <button id="langToggleMobile" class="w-full text-left flex items-center justify-between">Languages <span id="langIconMobile" class="text-white text-xl transition-transform transform rotate-90">&#8250;</span></button>
-      <ul id="langMenuMobile" class="hidden bg-white text-black rounded shadow-lg mt-2">
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">English</a></li>
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Arabic</a></li>
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Bahasa-Indonesia</a></li>
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">French</a></li>
-        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 nav-link2">Russian</a></li>
-      </ul>
-    </div>
-  </div>
 </header>
-
 
     <!-- Hero Section -->
 <section class="relative flex flex-col justify-center items-center text-white text-center pt-12 sm:pt-16 md:pt-24 pb-8 sm:pb-10 md:pb-12 min-h-[80vh] md:min-h-screen" id="home">
@@ -1168,7 +1168,7 @@ html {
 			When we come together, our journey becomes limitless.
 		  </p>
 		  <p class="mb-0">
-			Join us at V-MALAYSIA 2025 this June as we gather as one to fulfill the vision of RYTHM and rise beyond the boundaries.
+			<br>Join us at V-MALAYSIA 2025 this June as we gather as one to fulfill the vision of RYTHM and rise beyond the boundaries.
 		  </p>
 		</div>
 
@@ -2633,11 +2633,11 @@ document.addEventListener('DOMContentLoaded', function () {
 	  day0: ['1.webp', '2.webp', '3.webp', '4.webp', '5.webp', '6.webp', '7.webp', '8.webp', '9.webp', '10.webp', '11.webp', '12.webp', '13.webp', '14.webp', '15.webp'],
 	  day1: ['1.webp', '2.webp', '3.webp', '4.webp', '5.webp', '6.webp', '7.webp', '8.webp', '9.webp', '10.webp', '11.webp', '12.webp', '13.webp', '14.webp', '15.webp','16.webp', '17.webp', '18.webp', '19.webp', '20.webp', '21.webp', '22.webp', '23.webp', '24.webp', '25.webp', '26.webp', '27.webp', '28.webp', '29.webp', '30.webp'],
 	  day2: ['1.webp', '2.webp', '3.webp', '4.webp', '5.webp', '6.webp', '7.webp', '8.webp', '9.webp', '10.webp', '11.webp', '12.webp', '13.webp', '14.webp', '15.webp','16.webp', '17.webp', '18.webp', '19.webp', '20.webp', '21.webp', '22.webp', '23.webp', '24.webp', '25.webp', '26.webp', '27.webp', '28.webp', '29.webp', '30.webp'],
-	  day3: ['1.jpg', '2.jpg', '3.jpg'],
-	  day4: ['1.jpg', '2.jpg', '3.jpg'],
-	  day5: ['1.jpg', '2.jpg', '3.jpg'],
-	  fashionshow: ['1.jpg', '2.jpg', '3.jpg'],
-	  vkids: ['1.jpg', '2.jpg', '3.jpg'],
+	  day3: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg','11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg', '16.jpg', '17.jpg', '18.jpg', '19.jpg', '20.jpg','21.jpg', '22.jpg', '23.jpg', '24.jpg', '25.jpg', '26.jpg', '27.jpg', '28.jpg', '29.jpg', '30.jpg'],
+	  day4: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg','11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg', '16.jpg', '17.jpg', '18.jpg', '19.jpg', '20.jpg','21.jpg', '22.jpg', '23.jpg', '24.jpg', '25.jpg', '26.jpg', '27.jpg', '28.jpg', '29.jpg', '30.jpg'],
+	  day5: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg','11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg', '16.jpg', '17.jpg', '18.jpg', '19.jpg', '20.jpg','21.jpg', '22.jpg', '23.jpg', '24.jpg', '25.jpg', '26.jpg', '27.jpg', '28.jpg', '29.jpg', '30.jpg'],
+	  fashionshow: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg','11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg', '16.jpg', '17.jpg', '18.jpg', '19.jpg', '20.jpg','21.jpg', '22.jpg', '23.jpg', '24.jpg', '25.jpg', '26.jpg', '27.jpg', '28.jpg', '29.jpg', '30.jpg'],
+	  vkids: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg','11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg', '16.jpg', '17.jpg', '18.jpg', '19.jpg', '20.jpg','21.jpg', '22.jpg', '23.jpg', '24.jpg', '25.jpg', '26.jpg', '27.jpg', '28.jpg', '29.jpg', '30.jpg'],
 	};
 
 	const modal = document.getElementById('galleryModal');
@@ -2702,89 +2702,113 @@ document.addEventListener('DOMContentLoaded', function () {
   // Call function on load and resize
   window.addEventListener('load', changeImageForMobile);
   window.addEventListener('resize', changeImageForMobile);
+  
+  <!-- MENU NAVIGATIONs -->
 
-// Mobile menu toggle
-  document.getElementById('menuToggle')?.addEventListener('click', function () {
-    document.getElementById('mobileMenu').classList.toggle('hidden');
-  });
+  document.addEventListener('DOMContentLoaded', function() {
+    const storiesToggle = document.getElementById('storiesToggle');
+    const storiesMenu = document.getElementById('storiesMenu');
+    const storiesIcon = document.getElementById('storiesIcon');
 
-  // Mobile Dropdown toggles
-  document.getElementById('storiesToggleMobile')?.addEventListener('click', function () {
-    const menu = document.getElementById('storiesMenuMobile');
-    const icon = document.getElementById('storiesIconMobile');
-    menu.classList.toggle('hidden');
-    icon.classList.toggle('rotate-90');
-    icon.classList.toggle('rotate-270');
-  });
+    const langToggle = document.getElementById('langToggle');
+    const langMenu = document.getElementById('langMenu');
+    const langIcon = document.getElementById('langIcon');
 
-  document.getElementById('langToggleMobile')?.addEventListener('click', function () {
-    const menu = document.getElementById('langMenuMobile');
-    const icon = document.getElementById('langIconMobile');
-    menu.classList.toggle('hidden');
-    icon.classList.toggle('rotate-90');
-    icon.classList.toggle('rotate-270');
-  });
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const burgerIcon = menuToggle.querySelector('i');
 
-  // Desktop Click-based dropdown
-  document.getElementById('storiesToggle')?.addEventListener('click', function () {
-    const menu = document.getElementById('storiesMenu');
-    const icon = document.getElementById('storiesIcon');
-    menu.classList.toggle('hidden');
-    icon.classList.toggle('rotate-90');
-    icon.classList.toggle('rotate-270');
-  });
+    const storiesToggleMobile = document.getElementById('storiesToggleMobile');
+    const storiesMenuMobile = document.getElementById('storiesMenuMobile');
+    const storiesIconMobile = document.getElementById('storiesIconMobile');
 
-  document.getElementById('langToggle')?.addEventListener('click', function () {
-    const menu = document.getElementById('langMenu');
-    const icon = document.getElementById('langIcon');
-    menu.classList.toggle('hidden');
-    icon.classList.toggle('rotate-90');
-    icon.classList.toggle('rotate-270');
-  });
+    const langToggleMobile = document.getElementById('langToggleMobile');
+    const langMenuMobile = document.getElementById('langMenuMobile');
+    const langIconMobile = document.getElementById('langIconMobile');
 
-  // Close dropdowns on selecting an option
-  const closeDropdownOnSelect = (menuId, iconId) => {
-    const menu = document.getElementById(menuId);
-    const icon = document.getElementById(iconId);
+    const navLinks = document.querySelectorAll('.nav-link, .nav-link2');
 
-    menu.querySelectorAll('a').forEach(item => {
-      item.addEventListener('click', () => {
-        menu.classList.add('hidden');
-        icon.classList.remove('rotate-270');
-      });
+    function toggleMenu(menu, icon) {
+        menu.classList.toggle('hidden');
+        const currentRotation = icon.style.transform || 'rotate(0deg)';
+        if (currentRotation === 'rotate(0deg)') {
+            icon.style.transform = 'rotate(180deg)'; // Rotate upwards
+        } else {
+            icon.style.transform = 'rotate(0deg)'; // Rotate back to downwards
+        }
+    }
+
+    function closeMobileMenu() {
+        mobileMenu.classList.add('hidden');
+        burgerIcon.classList.remove('rotate-90');
+    }
+
+    // Desktop Toggles
+    if (storiesToggle && storiesMenu && storiesIcon) {
+        storiesToggle.addEventListener('click', function() {
+            toggleMenu(storiesMenu, storiesIcon);
+        });
+    }
+
+    if (langToggle && langMenu && langIcon) {
+        langToggle.addEventListener('click', function() {
+            toggleMenu(langMenu, langIcon);
+        });
+    }
+
+    // Mobile Toggle
+    if (menuToggle && mobileMenu && burgerIcon) {
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            burgerIcon.classList.toggle('rotate-90');
+        });
+    }
+
+    // Mobile Sub-menu Toggles
+    if (storiesToggleMobile && storiesMenuMobile && storiesIconMobile) {
+        storiesToggleMobile.addEventListener('click', function() {
+            toggleMenu(storiesMenuMobile, storiesIconMobile);
+        });
+    }
+
+    if (langToggleMobile && langMenuMobile && langIconMobile) {
+        langToggleMobile.addEventListener('click', function() {
+            toggleMenu(langMenuMobile, langIconMobile);
+        });
+    }
+
+    // Close Mobile Menu on Link Click
+    navLinks.forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
     });
-  };
 
-  // Close dropdowns when an option is clicked for Greatest Stories and Languages
-  closeDropdownOnSelect('storiesMenu', 'storiesIcon');
-  closeDropdownOnSelect('langMenu', 'langIcon');
+    // Close Menus on Click Outside Header
+    document.addEventListener('click', function(event) {
+        if (mobileMenu && !mobileMenu.classList.contains('hidden') && !menuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
+            closeMobileMenu();
+        }
 
-  // Mobile: Close dropdowns when an option is clicked
-  closeDropdownOnSelect('storiesMenuMobile', 'storiesIconMobile');
-  closeDropdownOnSelect('langMenuMobile', 'langIconMobile');
+        if (storiesMenu && !storiesMenu.classList.contains('hidden') && !storiesToggle.contains(event.target) && !storiesMenu.contains(event.target)) {
+            storiesMenu.classList.add('hidden');
+            if (storiesIcon) storiesIcon.style.transform = 'rotate(0deg)'; // Reset to downwards
+        }
 
-  // Close dropdowns if clicking anywhere outside the dropdown or the toggle button
-  const closeDropdownOnClickOutside = (menuId, iconId, toggleId) => {
-    const menu = document.getElementById(menuId);
-    const toggle = document.getElementById(toggleId);
-    const icon = document.getElementById(iconId);
+        if (langMenu && !langMenu.classList.contains('hidden') && !langToggle.contains(event.target) && !langMenu.contains(event.target)) {
+            langMenu.classList.add('hidden');
+            if (langIcon) langIcon.style.transform = 'rotate(0deg)'; // Reset to downwards
+        }
 
-    document.addEventListener('click', function (event) {
-      if (!menu.contains(event.target) && !toggle.contains(event.target)) {
-        menu.classList.add('hidden');
-        icon.classList.remove('rotate-270');
-      }
+        if (storiesMenuMobile && !storiesMenuMobile.classList.contains('hidden') && !storiesToggleMobile.contains(event.target) && !storiesMenuMobile.contains(event.target)) {
+            storiesMenuMobile.classList.add('hidden');
+            if (storiesIconMobile) storiesIconMobile.style.transform = 'rotate(0deg)'; // Reset to downwards
+        }
+
+        if (langMenuMobile && !langMenuMobile.classList.contains('hidden') && !langToggleMobile.contains(event.target) && !langMenuMobile.contains(event.target)) {
+            langMenuMobile.classList.add('hidden');
+            if (langIconMobile) langIconMobile.style.transform = 'rotate(0deg)'; // Reset to downwards
+        }
     });
-  };
-
-  // Apply to both desktop and mobile dropdowns
-  closeDropdownOnClickOutside('storiesMenu', 'storiesIcon', 'storiesToggle');
-  closeDropdownOnClickOutside('langMenu', 'langIcon', 'langToggle');
-  closeDropdownOnClickOutside('storiesMenuMobile', 'storiesIconMobile', 'storiesToggleMobile');
-  closeDropdownOnClickOutside('langMenuMobile', 'langIconMobile', 'langToggleMobile');
-
-
-
+});
 
 
   // Gallery scroll
