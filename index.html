@@ -2709,10 +2709,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const storiesToggle = document.getElementById('storiesToggle');
     const storiesMenu = document.getElementById('storiesMenu');
     const storiesIcon = document.getElementById('storiesIcon');
+    const storiesLinks = storiesMenu ? storiesMenu.querySelectorAll('a') : []; // Get links inside stories menu
 
     const langToggle = document.getElementById('langToggle');
     const langMenu = document.getElementById('langMenu');
     const langIcon = document.getElementById('langIcon');
+    const langLinks = langMenu ? langMenu.querySelectorAll('a') : []; // Get links inside language menu
 
     const menuToggle = document.getElementById('menuToggle');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -2721,21 +2723,23 @@ document.addEventListener('DOMContentLoaded', function () {
     const storiesToggleMobile = document.getElementById('storiesToggleMobile');
     const storiesMenuMobile = document.getElementById('storiesMenuMobile');
     const storiesIconMobile = document.getElementById('storiesIconMobile');
+    const storiesLinksMobile = storiesMenuMobile ? storiesMenuMobile.querySelectorAll('a') : []; // Get links inside mobile stories menu
 
     const langToggleMobile = document.getElementById('langToggleMobile');
     const langMenuMobile = document.getElementById('langMenuMobile');
     const langIconMobile = document.getElementById('langIconMobile');
+    const langLinksMobile = langMenuMobile ? langMenuMobile.querySelectorAll('a') : []; // Get links inside mobile language menu
 
     const navLinks = document.querySelectorAll('.nav-link, .nav-link2');
 
     function toggleMenu(menu, icon) {
         menu.classList.toggle('hidden');
-        const currentRotation = icon.style.transform || 'rotate(0deg)';
-        if (currentRotation === 'rotate(0deg)') {
-            icon.style.transform = 'rotate(180deg)'; // Rotate upwards
-        } else {
-            icon.style.transform = 'rotate(0deg)'; // Rotate back to downwards
-        }
+        icon.style.transform = menu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+    }
+
+    function closeMenu(menu, icon) {
+        menu.classList.add('hidden');
+        icon.style.transform = 'rotate(0deg)';
     }
 
     function closeMobileMenu() {
@@ -2748,11 +2752,25 @@ document.addEventListener('DOMContentLoaded', function () {
         storiesToggle.addEventListener('click', function() {
             toggleMenu(storiesMenu, storiesIcon);
         });
+
+        // Close Stories menu on link click
+        storiesLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                closeMenu(storiesMenu, storiesIcon);
+            });
+        });
     }
 
     if (langToggle && langMenu && langIcon) {
         langToggle.addEventListener('click', function() {
             toggleMenu(langMenu, langIcon);
+        });
+
+        // Close Language menu on link click
+        langLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                closeMenu(langMenu, langIcon);
+            });
         });
     }
 
@@ -2769,11 +2787,25 @@ document.addEventListener('DOMContentLoaded', function () {
         storiesToggleMobile.addEventListener('click', function() {
             toggleMenu(storiesMenuMobile, storiesIconMobile);
         });
+
+        // Close Mobile Stories menu on link click
+        storiesLinksMobile.forEach(link => {
+            link.addEventListener('click', function() {
+                closeMenu(storiesMenuMobile, storiesIconMobile);
+            });
+        });
     }
 
     if (langToggleMobile && langMenuMobile && langIconMobile) {
         langToggleMobile.addEventListener('click', function() {
             toggleMenu(langMenuMobile, langIconMobile);
+        });
+
+        // Close Mobile Language menu on link click
+        langLinksMobile.forEach(link => {
+            link.addEventListener('click', function() {
+                closeMenu(langMenuMobile, langIconMobile);
+            });
         });
     }
 
@@ -2789,23 +2821,19 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         if (storiesMenu && !storiesMenu.classList.contains('hidden') && !storiesToggle.contains(event.target) && !storiesMenu.contains(event.target)) {
-            storiesMenu.classList.add('hidden');
-            if (storiesIcon) storiesIcon.style.transform = 'rotate(0deg)'; // Reset to downwards
+            closeMenu(storiesMenu, storiesIcon);
         }
 
         if (langMenu && !langMenu.classList.contains('hidden') && !langToggle.contains(event.target) && !langMenu.contains(event.target)) {
-            langMenu.classList.add('hidden');
-            if (langIcon) langIcon.style.transform = 'rotate(0deg)'; // Reset to downwards
+            closeMenu(langMenu, langIcon);
         }
 
         if (storiesMenuMobile && !storiesMenuMobile.classList.contains('hidden') && !storiesToggleMobile.contains(event.target) && !storiesMenuMobile.contains(event.target)) {
-            storiesMenuMobile.classList.add('hidden');
-            if (storiesIconMobile) storiesIconMobile.style.transform = 'rotate(0deg)'; // Reset to downwards
+            closeMenu(storiesMenuMobile, storiesIconMobile);
         }
 
         if (langMenuMobile && !langMenuMobile.classList.contains('hidden') && !langToggleMobile.contains(event.target) && !langMenuMobile.contains(event.target)) {
-            langMenuMobile.classList.add('hidden');
-            if (langIconMobile) langIconMobile.style.transform = 'rotate(0deg)'; // Reset to downwards
+            closeMenu(langMenuMobile, langIconMobile);
         }
     });
 });
