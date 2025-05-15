@@ -1052,6 +1052,8 @@ html {
     /* You can also add other styling like adjusting line-height if needed */
 }
 
+
+
 </style>
 
 </head>
@@ -1209,24 +1211,21 @@ html {
 <!-- The Greatest Story Teaser episodes -->
 
 <section class="relative py-12 bg-gray-100 overflow-hidden" id="storiesToggle">
-  <!-- Background Layer -->
   <div class="absolute inset-0 z-0">
     <div class="w-full h-full bg-[url('assets/news/BG-videohighlights.png')] bg-no-repeat bg-center bg-cover background-position: center;"></div>
   </div>
 
-  <!-- Content Layer -->
   <div class="relative z-10 container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-[#00666a] text-center mb-10">
+    <h2 class="text-3xl font-bold text-[#00666a] text-center mb-10" data-i18n="greatest_stories_headline">
       THE GREATEST STORIES OF <span class="whitespace-nowrap">V-MALAYSIA 2025</span>
     </h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Example Item with Brightcove Popup -->
       <div class="cursor-pointer" onclick="openBrightcoveStoriesModal('6370621142112')">
         <div class="bg-[#a05c11] bg-opacity-60 rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-all duration-300">
           <img src="assets/greateststory/episode1.jpg" alt="Story 1" class="w-full h-auto object-cover">
           <div class="p-4 bg-[#a05c11] bg-opacity-60 text-white">
-            <p class="text-lg font-semibold">Episode 1: Together We Rise!</p>
+            <p class="text-lg font-semibold" data-i18n="story1.title">Episode 1: The V-Convention</p>
           </div>
         </div>
       </div>
@@ -1235,7 +1234,7 @@ html {
         <div class="bg-[#a05c11] bg-opacity-60 rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-all duration-300">
           <img src="assets/greateststory/episode2.jpg" alt="Story 1" class="w-full h-auto object-cover">
           <div class="p-4 bg-[#a05c11] bg-opacity-60 text-white">
-            <p class="text-lg font-semibold">Episode 2: From Leaders to V Ambassadors</p>
+            <p class="text-lg font-semibold" data-i18n="story2.title">Episode 2: From Leaders to V Ambassadors</p>
           </div>
         </div>
       </div>
@@ -1244,7 +1243,7 @@ html {
         <div class="bg-[#a05c11] bg-opacity-60 rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-all duration-300">
           <img src="assets/greateststory/episode3.jpg" alt="Story 1" class="w-full h-auto object-cover">
           <div class="p-4 bg-[#a05c11] bg-opacity-60 text-white">
-            <p class="text-lg font-semibold">Episode 3: Participants to InService</p>
+            <p class="text-lg font-semibold" data-i18n="story3.title">Episode 3: Participants to InService</p>
           </div>
         </div>
       </div>
@@ -1253,7 +1252,7 @@ html {
         <div class="bg-[#a05c11] bg-opacity-60 rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-all duration-300">
           <img src="assets/greateststory/episode4.jpg" alt="Story 1" class="w-full h-auto object-cover">
           <div class="p-4 bg-[#a05c11] bg-opacity-60 text-white">
-            <p class="text-lg font-semibold">Episode 4: Teams Rise as Colours of The V</p>
+            <p class="text-lg font-semibold" data-i18n="story4.title">Episode 4: Teams Rise as Colours of The V</p>
           </div>
         </div>
       </div>
@@ -1262,7 +1261,7 @@ html {
         <div class="bg-[#a05c11] bg-opacity-60 rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-all duration-300">
           <img src="assets/greateststory/episode5.jpg" alt="Story 1" class="w-full h-auto object-cover">
           <div class="p-4 bg-[#a05c11] bg-opacity-60 text-white">
-            <p class="text-lg font-semibold">Episode 5: The Limitless Store - From Creation to Embracing Leaders</p>
+            <p class="text-lg font-semibold" data-i18n="story5.title">Episode 5: The Limitless Store - From Creation to Embracing Leaders</p>
           </div>
         </div>
       </div>
@@ -1271,12 +1270,11 @@ html {
         <div class="bg-[#a05c11] bg-opacity-60 rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-all duration-300">
           <img src="assets/greateststory/episode6.jpg" alt="Story 1" class="w-full h-auto object-cover">
           <div class="p-4 bg-[#a05c11] bg-opacity-60 text-white">
-            <p class="text-lg font-semibold">Episode 6: The Two Visionaries</p>
+            <p class="text-lg font-semibold" data-i18n="story6.title">Episode 6: The Two Visionaries</p>
           </div>
         </div>
       </div>
-      <!-- Repeat for other stories with respective video IDs -->
-    </div>
+      </div>
   </div>
 </section>
 
@@ -1297,8 +1295,9 @@ html {
 
 <div id="comingSoonModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-[99999] hidden">
   <div class="bg-white text-center p-8 rounded-lg shadow-xl max-w-sm w-full">
-    <p class="text-xl font-bold text-gray-800 mb-4">Coming Soon!</p>
-    <button id="closeComingSoonModal" class="mt-2 px-4 py-2 bg-[#00666a] text-white rounded hover:bg-[#004f52]">
+    <h2 class="text-xl font-bold mb-4">Coming Soon!</h2>
+    <p class="mb-4">This content is not yet available. Stay tuned for updates!</p>
+    <button id="closeComingSoonModal" class="mt-2 px-4 py-2 bg-gray-300 text-white rounded hover:bg-[#004f52]">
       Close
     </button>
   </div>
@@ -1363,24 +1362,25 @@ html {
 			  </div>
 			</div>
 
-			<!-- <div class="swiper-slide cursor-pointer" onclick="playInFeatured('6371800716112', 'Day 1: Shaped by Challenges by Joseph ‘Japadas’ Bismark', 'Challenges make us stronger!')">
+			 <div class="swiper-slide cursor-pointer" onclick="openComingSoonModal3()">
 			  <div class="rounded overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg">
-				<img src="assets/news/04232025-v-turkiye-2025-day-1-shaped-by-challenges-by-joseph-japadas-bismark.jpg" alt="Day 2" class="w-full h-auto object-cover">
+				<img src="assets/greateststory/episode6.jpg" alt="Day 2" class="w-full h-auto object-cover">
 				<div class="bg-white rounded-b-lg px-3 pt-3 pb-3">
-				  <p class="text-[#00666a] font-semibold text-sm sm:text-base leading-snug">Day 1: Shaped by Challenges by Joseph ‘Japadas’ Bismark</p>
+				  <p class="text-[#00666a] font-semibold text-sm sm:text-base leading-snug">Future Content</p>
 				</div>
 			  </div>
 			</div>
 
-			<div class="swiper-slide cursor-pointer" onclick="playInFeatured('6371801670112', 'Day 1: Unbelievable in Istanbul', 'Check out the Day 1 highlights here!')">
+			<div class="swiper-slide cursor-pointer" onclick="openComingSoonModal3()">
 			  <div class="rounded overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg">
-				<img src="assets/news/04232025-v-turkiye-2025-highlights-day-1-unbelievable-in-istanbul.jpg" alt="Day 3" class="w-full h-auto object-cover">
+				<img src="assets/greateststory/episode5.jpg" alt="Day 3" class="w-full h-auto object-cover">
 				<div class="bg-white rounded-b-lg px-3 pt-3 pb-3">
-				  <p class="text-[#00666a] font-semibold text-sm sm:text-base leading-snug">Day 1: Unbelievable in Istanbul</p>
+				  <p class="text-[#00666a] font-semibold text-sm sm:text-base leading-snug">Future Content</p>
 				</div>
 			  </div>
 			</div>
 
+<!--
 			<div class="swiper-slide cursor-pointer" onclick="playInFeatured('6371889920112', 'Day 2: Driven by Dreams', 'Our Day 2 highlights are here!')">
 			  <div class="rounded overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg">
 				<img src="assets/news/04252025-v-turkiye-2025-highlights-day-2-driven-by-dreams.jpg" alt="Day 4" class="w-full h-auto object-cover">
@@ -1441,6 +1441,15 @@ html {
 
 </section>
 
+<div id="comingSoonModal3" class="fixed top-0 left-0 w-full h-full bg-black/50 z-50 hidden flex justify-center items-center">
+  <div class="bg-white rounded-md p-8">
+    <h2 class="text-xl font-bold mb-4">Coming Soon!</h2>
+    <p class="mb-4">This content is not yet available. Stay tuned for updates!</p>
+    <button onclick="closeComingSoonModal3()" class="bg-[#00666a] hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+      Close
+    </button>
+  </div>
+</div>
 
 
     <!--  NEWS AND UPDATE Section -->
@@ -1481,7 +1490,12 @@ html {
 	<div class="relative">
 	  <!-- Swiper Container -->
 <div class="swiper articleSwiper">
+
+
   <div class="swiper-wrapper">
+
+
+
 
     <!-- Slide 1 -->
     <div class="swiper-slide bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 transform">
@@ -1499,32 +1513,32 @@ html {
 
     <!-- Repeat for additional slides -->
     <!-- Slide 2 -->
-    <!-- <div class="swiper-slide bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 transform">
-      <img src="assets/news/04232025-v-turkiye-2025-highlights-day-1-unbelievable-in-istanbul.jpg" alt="Article 2" class="w-full h-48 object-cover">
+    <div class="swiper-slide bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 transform" onclick="openComingSoonModal4()">
+      <img src="assets/greateststory/episode3.jpg" alt="Article 2" class="w-full h-48 object-cover">
       <div class="p-4">
-        <h3 class="text-lg font-semibold text-[#00666a] mb-2">V-TÜRKİYE 2025 Highlights DAY 1</h3>
-        <p class="text-sm mb-4 text-gray-700">Check out the Day 1 highlights here!</p>
+        <h3 class="text-lg font-semibold text-[#00666a] mb-2">Future Content</h3>
+        <p class="text-sm mb-4 text-gray-700">&nbsp;</p>
         <a href="#" class="inline-block">
           <button class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
-            READ MORE
+            Coming Soon
           </button>
         </a>
       </div>
-    </div> -->
+    </div>
 
     <!-- Slide 3 -->
-    <!-- <div class="swiper-slide bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 transform">
-      <img src="assets/news/04232025-v-turkiye-2025-highlights-day-1-unbelievable-in-istanbul.jpg" alt="Article 3" class="w-full h-48 object-cover">
+    <div class="swiper-slide bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 transform" onclick="openComingSoonModal4()">
+      <img src="assets/greateststory/episode4.jpg" alt="Article 3" class="w-full h-48 object-cover">
       <div class="p-4">
-        <h3 class="text-lg font-semibold text-[#00666a] mb-2">V-TÜRKİYE 2025 Highlights DAY 1</h3>
-        <p class="text-sm mb-4 text-gray-700">Check out the Day 1 highlights here!</p>
+        <h3 class="text-lg font-semibold text-[#00666a] mb-2">Future Content</h3>
+        <p class="text-sm mb-4 text-gray-700">&nbsp;</p>
         <a href="#" class="inline-block">
-          <button class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
-            READ MORE
+          <button onclick="openComingSoonModal4()" class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
+            Coming Soon
           </button>
         </a>
       </div>
-    </div> -->
+    </div>
 
     <!-- Add more slides as needed -->
 
@@ -1630,7 +1644,15 @@ html {
 </section>
 
 
-
+<div id="comingSoonModal4" class="fixed top-0 left-0 w-full h-full bg-black/50 z-50 hidden flex justify-center items-center">
+  <div class="bg-white rounded-md p-8">
+    <h2 class="text-xl font-bold mb-4">Coming Soon!</h2>
+    <p class="mb-4">This content is not yet available. Stay tuned for updates!</p>
+    <button onclick="closeComingSoonModal4()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+      Close
+    </button>
+  </div>
+</div>
 
 
     <!-- Gallery Section -->
@@ -1644,9 +1666,9 @@ html {
 
     <!-- Custom Grid Layout: 1 - 3 - 1 - 2 - 1 -->
     <div class="grid grid-cols-1 gap-4">
-      <!-- Row 1: 1 item -->
+      <!-- Row 1: 1 item //FOR COMING SOON data-available="false" -->
       <div class="grid grid-cols-1">
-        <div data-gallery="day0" class="relative group cursor-pointer">
+        <div data-gallery="day0"  class="relative group cursor-pointer">
           <img src="assets/gallery/day0/day0.webp" alt="Day 0" class="w-full h-48 object-cover">
           <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <p class="text-white text-lg font-semibold">Day 0 - Registration Day</p>
@@ -1656,19 +1678,19 @@ html {
 
       <!-- Row 2: 3 items -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div data-gallery="day1" class="relative group cursor-pointer">
+        <div data-gallery="day1"  class="relative group cursor-pointer">
           <img src="assets/gallery/day1/day1.webp" alt="Day 1" class="w-full h-48 object-cover">
           <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <p class="text-white text-lg font-semibold">Day 1</p>
           </div>
         </div>
-        <div data-gallery="day2" class="relative group cursor-pointer">
+        <div data-gallery="day2"  class="relative group cursor-pointer">
           <img src="assets/gallery/day2/day2.webp" alt="Day 2" class="w-full h-48 object-cover">
           <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <p class="text-white text-lg font-semibold">Day 2</p>
           </div>
         </div>
-        <div data-gallery="day3" class="relative group cursor-pointer">
+        <div data-gallery="day3"  class="relative group cursor-pointer">
           <img src="assets/gallery/day3/day3.jpg" alt="Day 3" class="w-full h-48 object-cover">
           <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <p class="text-white text-lg font-semibold">Day 3</p>
@@ -1678,7 +1700,7 @@ html {
 
       <!-- Row 3: 1 item -->
       <div class="grid grid-cols-1">
-        <div data-gallery="day4" class="relative group cursor-pointer">
+        <div data-gallery="day4"  class="relative group cursor-pointer">
           <img src="assets/gallery/day4/day4.jpg" alt="Day 4" class="w-full h-48 object-cover">
           <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <p class="text-white text-lg font-semibold">Day 4</p>
@@ -1688,13 +1710,13 @@ html {
 
       <!-- Row 4: 2 items -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div data-gallery="day5" class="relative group cursor-pointer">
+        <div data-gallery="day5"  class="relative group cursor-pointer">
           <img src="assets/gallery/day5/day5.jpg" alt="Day 5" class="w-full h-48 object-cover">
           <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <p class="text-white text-lg font-semibold">Day 5</p>
           </div>
         </div>
-        <div data-gallery="fashionshow" class="relative group cursor-pointer">
+        <div data-gallery="fashionshow"  class="relative group cursor-pointer">
           <img src="assets/gallery/fashionshow/fashionshow.jpg" alt="Fashion Show" class="w-full h-48 object-cover">
           <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <p class="text-white text-lg font-semibold">Fashion Show</p>
@@ -1704,7 +1726,7 @@ html {
 
       <!-- Row 5: 1 item -->
       <div class="grid grid-cols-1">
-        <div data-gallery="vkids" class="relative group cursor-pointer">
+        <div data-gallery="vkids"  class="relative group cursor-pointer">
           <img src="assets/gallery/vkids/vkids.jpg" alt="V-Kids & V-Teens" class="w-full h-48 object-cover">
           <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <p class="text-white text-lg font-semibold">V-Kids & V-Teens</p>
@@ -1719,6 +1741,16 @@ html {
 <div id="galleryModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex-col items-start p-6">
   <button id="closeModal" class="text-white text-2xl font-bold mb-4">×</button>
   <div id="galleryContent" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 overflow-y-auto max-h-[90vh] w-full"></div>
+</div>
+
+<!-- Coming Soon Modal -->
+<div id="comingSoonModal2" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-[99999] hidden">
+  <div class="bg-white text-center p-8 rounded-lg shadow-xl max-w-sm w-full">
+    <p class="text-xl font-bold text-gray-800 mb-4">Coming Soon</p>
+    <button id="closeComingSoonModal2" class="mt-2 px-4 py-2 bg-[#00666a] text-white rounded hover:bg-[#004f52]">
+      Close
+    </button>
+  </div>
 </div>
 
 
@@ -1742,8 +1774,8 @@ html {
 
   <!-- Map Frame -->
   <div class="relative z-10 container mx-auto px-4">
-    <!-- <iframe src="https://app.seekbeak.com/v/Xw1LnZ6GjL8" height="600px" class="w-full"></iframe> -->
-    <img src="assets/hero/venue-map.jpeg" alt="Venue Map" height="600px" class="w-full h-full">
+    <iframe src="https://app.seekbeak.com/v/RlzoRPag12M" height="600px" class="w-full mb-6 "></iframe>
+    <img src="assets/hero/05152025 june VMY2025 microsite map static.jpg" alt="Venue Map" height="600px" class="w-full h-full">
   </div>
 </section>
 
@@ -1794,85 +1826,85 @@ html {
     <div class="bg-white bg-opacity-60 p-6 rounded-lg">
       <div class="swiper vkidsVideoSwiper">
         <div class="swiper-wrapper">
-          <!-- Video 1 -->
-          <div class="swiper-slide cursor-pointer video-item" data-video-id="6362066427112">
+          <!-- Video 1 ADD video-item ON CLASS TO ENABLE PLAYER-->
+          <div class="swiper-slide cursor-pointer" data-video-id="null" onclick="openComingSoonModal5()">
             <div class="relative overflow-hidden">
-              <img src="assets/vkidsteens/04162025-join-the-v-kids-and-v-teens-at-vmalaysia2025-1.png" alt="Video Thumbnail" class="w-full h-[200px] object-cover mb-0">
+              <img src="assets/greateststory/episode4.jpg" alt="Video Thumbnail" class="w-full h-[200px] object-cover mb-0">
             </div>
             <div class="p-3 text-white text-sm font-semibold text-center mt-0" style="background-color: #00737a;">
-              #VMalaysia2024 Highlights: Cheers to the Incredible V-Kids and V-Teens!
+              Future Content
             </div>
           </div>
 
-          <!-- Video 2 -->
-          <div class="swiper-slide cursor-pointer video-item" data-video-id="6359673422112">
+          <!-- Video 2 ADD video-item ON CLASS TO ENABLE PLAYER-->
+          <div class="swiper-slide cursor-pointer " data-video-id="null" onclick="openComingSoonModal5()">
+            <div class="relative overflow-hidden">
+              <img src="assets/greateststory/episode2.jpg" alt="Video Thumbnail" class="w-full h-[200px] object-cover mb-0">
+            </div>
+            <div class="p-3 text-white text-sm font-semibold text-center mt-0" style="background-color: #00737a;">
+              Future Content
+            </div>
+          </div>
+
+          <!-- Video 1 ADD video-item ON CLASS TO ENABLE PLAYER-->
+          <div class="swiper-slide cursor-pointer " data-video-id="null" onclick="openComingSoonModal5()">
+            <div class="relative overflow-hidden">
+              <img src="assets/greateststory/episode3.jpg" alt="Video Thumbnail" class="w-full h-[200px] object-cover mb-0">
+            </div>
+            <div class="p-3 text-white text-sm font-semibold text-center mt-0" style="background-color: #00737a;">
+              Future Content
+            </div>
+          </div>
+
+          <!-- Video 2 ADD video-item ON CLASS TO ENABLE PLAYER-->
+          <!-- <div class="swiper-slide cursor-pointer video-item" data-video-id="6359673422112">
             <div class="relative overflow-hidden">
               <img src="assets/vkidsteens/07152024-vmalaysia2024-heres-to-september-to-remember-with-v-kids-and-v-teens62a69b0a-ce3d-4cef-a782-a096c2c67adc.png" alt="Video Thumbnail" class="w-full h-[200px] object-cover mb-0">
             </div>
             <div class="p-3 text-white text-sm font-semibold text-center mt-0" style="background-color: #00737a;">
               #VMalaysia2024: Here’s to September to Remember with V-Kids and V-Teens!
             </div>
-          </div>
+          </div> -->
 
-          <!-- Video 1 -->
-          <div class="swiper-slide cursor-pointer video-item" data-video-id="6362066427112">
+          <!-- Video 1 ADD video-item ON CLASS TO ENABLE PLAYER-->
+          <!-- <div class="swiper-slide cursor-pointer video-item" data-video-id="6362066427112">
             <div class="relative overflow-hidden">
               <img src="assets/vkidsteens/04162025-join-the-v-kids-and-v-teens-at-vmalaysia2025-1.png" alt="Video Thumbnail" class="w-full h-[200px] object-cover mb-0">
             </div>
             <div class="p-3 text-white text-sm font-semibold text-center mt-0" style="background-color: #00737a;">
               #VMalaysia2024 Highlights: Cheers to the Incredible V-Kids and V-Teens!
             </div>
-          </div>
+          </div> -->
 
-          <!-- Video 2 -->
-          <div class="swiper-slide cursor-pointer video-item" data-video-id="6359673422112">
+          <!-- Video 2 ADD video-item ON CLASS TO ENABLE PLAYER-->
+          <!-- <div class="swiper-slide cursor-pointer video-item" data-video-id="6359673422112">
             <div class="relative overflow-hidden">
               <img src="assets/vkidsteens/07152024-vmalaysia2024-heres-to-september-to-remember-with-v-kids-and-v-teens62a69b0a-ce3d-4cef-a782-a096c2c67adc.png" alt="Video Thumbnail" class="w-full h-[200px] object-cover mb-0">
             </div>
             <div class="p-3 text-white text-sm font-semibold text-center mt-0" style="background-color: #00737a;">
               #VMalaysia2024: Here’s to September to Remember with V-Kids and V-Teens!
             </div>
-          </div>
+          </div> -->
 
-          <!-- Video 1 -->
-          <div class="swiper-slide cursor-pointer video-item" data-video-id="6362066427112">
+          <!-- Video 1 ADD video-item ON CLASS TO ENABLE PLAYER-->
+          <!-- <div class="swiper-slide cursor-pointer video-item" data-video-id="6362066427112">
             <div class="relative overflow-hidden">
               <img src="assets/vkidsteens/04162025-join-the-v-kids-and-v-teens-at-vmalaysia2025-1.png" alt="Video Thumbnail" class="w-full h-[200px] object-cover mb-0">
             </div>
             <div class="p-3 text-white text-sm font-semibold text-center mt-0" style="background-color: #00737a;">
               #VMalaysia2024 Highlights: Cheers to the Incredible V-Kids and V-Teens!
             </div>
-          </div>
+          </div> -->
 
-          <!-- Video 2 -->
-          <div class="swiper-slide cursor-pointer video-item" data-video-id="6359673422112">
+          <!-- Video 2 ADD video-item ON CLASS TO ENABLE PLAYER-->
+          <!-- <div class="swiper-slide cursor-pointer video-item" data-video-id="6359673422112">
             <div class="relative overflow-hidden">
               <img src="assets/vkidsteens/07152024-vmalaysia2024-heres-to-september-to-remember-with-v-kids-and-v-teens62a69b0a-ce3d-4cef-a782-a096c2c67adc.png" alt="Video Thumbnail" class="w-full h-[200px] object-cover mb-0">
             </div>
             <div class="p-3 text-white text-sm font-semibold text-center mt-0" style="background-color: #00737a;">
               #VMalaysia2024: Here’s to September to Remember with V-Kids and V-Teens!
             </div>
-          </div>
-
-          <!-- Video 1 -->
-          <div class="swiper-slide cursor-pointer video-item" data-video-id="6362066427112">
-            <div class="relative overflow-hidden">
-              <img src="assets/vkidsteens/04162025-join-the-v-kids-and-v-teens-at-vmalaysia2025-1.png" alt="Video Thumbnail" class="w-full h-[200px] object-cover mb-0">
-            </div>
-            <div class="p-3 text-white text-sm font-semibold text-center mt-0" style="background-color: #00737a;">
-              #VMalaysia2024 Highlights: Cheers to the Incredible V-Kids and V-Teens!
-            </div>
-          </div>
-
-          <!-- Video 2 -->
-          <div class="swiper-slide cursor-pointer video-item" data-video-id="6359673422112">
-            <div class="relative overflow-hidden">
-              <img src="assets/vkidsteens/07152024-vmalaysia2024-heres-to-september-to-remember-with-v-kids-and-v-teens62a69b0a-ce3d-4cef-a782-a096c2c67adc.png" alt="Video Thumbnail" class="w-full h-[200px] object-cover mb-0">
-            </div>
-            <div class="p-3 text-white text-sm font-semibold text-center mt-0" style="background-color: #00737a;">
-              #VMalaysia2024: Here’s to September to Remember with V-Kids and V-Teens!
-            </div>
-          </div>
+          </div> -->
 
           <!-- Add more video slides as needed... -->
         </div>
@@ -1889,59 +1921,62 @@ html {
     <div class="bg-white bg-opacity-60 p-6 rounded-lg">
       <div class="swiper vkidsArticleSwiper">
         <div class="swiper-wrapper">
+          
           <div class="swiper-slide">
             <div class="overflow-hidden">
-              <img src="assets/vkidsteens/07152024-vmalaysia2024-heres-to-september-to-remember-with-v-kids-and-v-teens62a69b0a-ce3d-4cef-a782-a096c2c67adc.jpg" alt="Article" class="w-full h-[200px] object-cover mb-0">
+              <a href="https://the-v.net/en/news?id=04162025-join-the-v-kids-and-v-teens-at-vmalaysia2025">
+              <img src="assets/vkidsteens/04162025-join-the-v-kids-and-v-teens-at-vmalaysia2025-1.jpg" alt="Article" class="w-full h-[200px] object-cover mb-0">
               <div class="p-3 text-white text-sm font-semibold text-center mt-0" style="background-color: #00737a;">
-                Article Title 1
+                Join the V-Kids and V-Teens at #VMalaysia2025!
+              </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="swiper-slide" onclick="openComingSoonModal5()">
+            <div class="overflow-hidden">
+              <img src="assets/greateststory/episode5.jpg" alt="Article" class="w-full h-[200px] object-cover mb-0">
+              <div class="p-3 text-white text-sm font-semibold text-center mt-0" style="background-color: #a17b2a;">
+                Future Content
               </div>
             </div>
           </div>
 
-          <div class="swiper-slide">
+          <div class="swiper-slide" onclick="openComingSoonModal5()">
+            <div class="overflow-hidden">
+              <img src="assets/greateststory/episode6.jpg" alt="Article" class="w-full h-[200px] object-cover mb-0">
+              <div class="p-3 text-white text-sm font-semibold text-center mt-0" style="background-color: #00737a;">
+                Future Content
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="swiper-slide">
             <div class="overflow-hidden">
               <img src="assets/vkidsteens/04162025-join-the-v-kids-and-v-teens-at-vmalaysia2025-1.jpg" alt="Article" class="w-full h-[200px] object-cover mb-0">
               <div class="p-3 text-white text-sm font-semibold text-center mt-0" style="background-color: #a17b2a;">
                 Article Title 2
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <div class="swiper-slide">
+          <!-- <div class="swiper-slide">
             <div class="overflow-hidden">
               <img src="assets/vkidsteens/07152024-vmalaysia2024-heres-to-september-to-remember-with-v-kids-and-v-teens62a69b0a-ce3d-4cef-a782-a096c2c67adc.jpg" alt="Article" class="w-full h-[200px] object-cover mb-0">
               <div class="p-3 text-white text-sm font-semibold text-center mt-0" style="background-color: #00737a;">
                 Article Title 1
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <div class="swiper-slide">
+          <!-- <div class="swiper-slide">
             <div class="overflow-hidden">
               <img src="assets/vkidsteens/04162025-join-the-v-kids-and-v-teens-at-vmalaysia2025-1.jpg" alt="Article" class="w-full h-[200px] object-cover mb-0">
               <div class="p-3 text-white text-sm font-semibold text-center mt-0" style="background-color: #a17b2a;">
                 Article Title 2
               </div>
             </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div class="overflow-hidden">
-              <img src="assets/vkidsteens/07152024-vmalaysia2024-heres-to-september-to-remember-with-v-kids-and-v-teens62a69b0a-ce3d-4cef-a782-a096c2c67adc.jpg" alt="Article" class="w-full h-[200px] object-cover mb-0">
-              <div class="p-3 text-white text-sm font-semibold text-center mt-0" style="background-color: #00737a;">
-                Article Title 1
-              </div>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div class="overflow-hidden">
-              <img src="assets/vkidsteens/04162025-join-the-v-kids-and-v-teens-at-vmalaysia2025-1.jpg" alt="Article" class="w-full h-[200px] object-cover mb-0">
-              <div class="p-3 text-white text-sm font-semibold text-center mt-0" style="background-color: #a17b2a;">
-                Article Title 2
-              </div>
-            </div>
-          </div>
+          </div> -->
 
           <!-- Add more article slides as needed... -->
         </div>
@@ -1965,6 +2000,15 @@ html {
   </div>
 </div>
 
+<div id="comingSoonModal5" class="fixed top-0 left-0 w-full h-full bg-black/50 z-50 hidden flex justify-center items-center">
+  <div class="bg-white rounded-md p-8">
+    <h2 class="text-xl font-bold mb-4">Coming Soon!</h2>
+    <p class="mb-4">This content is not yet available. Stay tuned for updates!</p>
+    <button onclick="closeComingSoonModal5()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+      Close
+    </button>
+  </div>
+</div>
 
 
 
@@ -2082,7 +2126,7 @@ html {
   <!-- Main game content -->
   <div id="gameContent">
     <div id="roundNumber">Round 1</div>
-    <div class="choices-container"">
+    <div class="choices-container">
       <!-- Left choice -->
       <div class="choice" id="leftChoice" data-choice="left">
         <div class="choice-background">
@@ -2104,12 +2148,12 @@ html {
 
   <!-- Results display -->
   <div id="resultsSection">
-    <h3>Your Choices</h3>
-    <ul id="choicesList"></ul>
+    <h3>Let’s create our greatest story and Together We Rise at V-Malaysia 2025!</h3>
+    <!-- <ul id="choicesList"></ul> -->
     <br>
     <!-- <canvas id="resultCanvas" width="600" height="400"></canvas> -->
     <div>
-      <a id="downloadLink" href="#" download="choices.png">Download Results</a>
+      <a id="downloadLink" href="#" download="choices.png">Share Your Results</a>
       <button class="restart-btn" id="restartBtn">Play Again</button>
     </div>
   </div>
@@ -2496,22 +2540,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // <!-- END POPUP -->
 
+    //coming soon gallery
+
+    const comingSoonModal2 = document.getElementById("comingSoonModal2");
+  const closeComingSoonBtn2 = document.getElementById("closeComingSoonModal2");
+
+  document.querySelectorAll('[data-gallery]').forEach(item => {
+    item.addEventListener('click', () => {
+      const isAvailable = item.getAttribute('data-available') !== "false";
+      if (!isAvailable) {
+        comingSoonModal2.classList.remove("hidden");
+        return;
+      }
+
+      // TODO: Add your actual gallery opening logic here
+      console.log(`Opening gallery for: ${item.getAttribute('data-gallery')}`);
+    });
+  });
+
+  closeComingSoonBtn2.addEventListener("click", () => {
+    comingSoonModal2.classList.add("hidden");
+  });
+
+  comingSoonModal2.addEventListener("click", (e) => {
+    if (e.target === comingSoonModal2) {
+      comingSoonModal2.classList.add("hidden");
+    }
+  });
+
+    // <!-- END COMING SOON GALLERY -->
+
 
   // this or that
 
     document.addEventListener('DOMContentLoaded', function() {
       // Game data
       const rounds = [
-        { left: "Achieve a Dream", right: "Achieve a Goal" },
-        { left: "Beach Vacation", right: "Mountain Retreat" },
-        { left: "Movie Night", right: "Game Night" },
-        { left: "Early Bird", right: "Night Owl" },
-        { left: "Coffee", right: "Tea" },
-        { left: "Dogs", right: "Cats" },
-        { left: "Summer", right: "Winter" },
-        { left: "Books", right: "Movies" },
-        { left: "City Life", right: "Country Living" },
-        { left: "Sweet", right: "Savory" }
+        { left: "BE ABLE TO FLY", right: "HAVE SUPER STRENGTH" },
+        { left: "GO BACK TO THE PAST", right: "SEE THE FUTURE" },
+        { left: "ACHIEVE A DREAM", right: "ACHIEVE A GOAL" },
+        { left: "MINDSET SHIFT", right: "UPGRADE YOUR SKILLS" },
+        { left: "BE SUCCESSFUL", right: "UPLIFT OTHERS" },
+        { left: "COMFORTABLE LIFE", right: "EXTRAORDINARY JOURNEY" },
+        { left: "TAKE STEADY STEPS", right: "SOAR TO NEW HEIGHTS" },
+        { left: "NOTES ON PAPER", right: "NOTES ON YOUR MOBILE PHONE" },
+        { left: "GO TO V-CONVENTION ALONE", right: "GO TO V-CONVENTION WITH YOUR TEAM" },
+        { left: "BE PART OF THE HISTORY", right: "CREATE HISTORY" },
+        { left: "WITNESS THE GREATEST STORY", right: "CREATE YOUR GREATEST STORY" },
+        { left: "BE AT V-MALAYSIA 2025 ON 21-25 JUNE", right: "TAKE PART AT V-MALAYSIA 2025 ON 21-25 JUNE" }
       ];
 
       // Game variables
@@ -2755,6 +2831,98 @@ closeComingSoonBtn.addEventListener("click", () => {
 comingSoonModal.addEventListener("click", (e) => {
   if (e.target === comingSoonModal) {
     comingSoonModal.classList.add("hidden");
+  }
+});
+
+//modal for videos & news article coming soon
+
+function openComingSoonModal3() {
+  const comingSoonModal3 = document.getElementById('comingSoonModal3');
+  if (comingSoonModal3) {
+    comingSoonModal3.classList.remove('hidden');
+    comingSoonModal3.classList.add('flex'); // Assuming you are using flex for centering
+  } else {
+    console.error('Coming Soon Modal with ID "comingSoonModal3" not found.');
+  }
+}
+
+function closeComingSoonModal3() {
+  const comingSoonModal3 = document.getElementById('comingSoonModal3');
+  if (comingSoonModal3) {
+    comingSoonModal3.classList.add('hidden');
+    comingSoonModal3.classList.remove('flex');
+  }
+}
+
+// Add event listener to close the modal when clicking outside (optional)
+document.addEventListener('DOMContentLoaded', function() {
+  const comingSoonModal3 = document.getElementById('comingSoonModal3');
+  if (comingSoonModal3) {
+    comingSoonModal3.addEventListener('click', function(event) {
+      if (event.target === comingSoonModal3) {
+        closeComingSoonModal3();
+      }
+    });
+  }
+});
+
+function openComingSoonModal4() {
+  const comingSoonModal4 = document.getElementById('comingSoonModal4');
+  if (comingSoonModal4) {
+    comingSoonModal4.classList.remove('hidden');
+    comingSoonModal4.classList.add('flex'); // Assuming you are using flex for centering
+  } else {
+    console.error('Coming Soon Modal with ID "comingSoonModal4" not found.');
+  }
+}
+
+function closeComingSoonModal4() {
+  const comingSoonModal4 = document.getElementById('comingSoonModal4');
+  if (comingSoonModal4) {
+    comingSoonModal4.classList.add('hidden');
+    comingSoonModal4.classList.remove('flex');
+  }
+}
+
+// Add event listener to close the modal when clicking outside (optional)
+document.addEventListener('DOMContentLoaded', function() {
+  const comingSoonModal4 = document.getElementById('comingSoonModal4');
+  if (comingSoonModal4) {
+    comingSoonModal4.addEventListener('click', function(event) {
+      if (event.target === comingSoonModal4) {
+        closeComingSoonModal4();
+      }
+    });
+  }
+});
+
+function openComingSoonModal5() {
+  const comingSoonModal5 = document.getElementById('comingSoonModal5');
+  if (comingSoonModal5) {
+    comingSoonModal5.classList.remove('hidden');
+    comingSoonModal5.classList.add('flex'); // Assuming you are using flex for centering
+  } else {
+    console.error('Coming Soon Modal with ID "comingSoonModal5" not found.');
+  }
+}
+
+function closeComingSoonModal5() {
+  const comingSoonModal5 = document.getElementById('comingSoonModal5');
+  if (comingSoonModal5) {
+    comingSoonModal5.classList.add('hidden');
+    comingSoonModal5.classList.remove('flex');
+  }
+}
+
+// Add event listener to close the modal when clicking outside (optional)
+document.addEventListener('DOMContentLoaded', function() {
+  const comingSoonModal5 = document.getElementById('comingSoonModal5');
+  if (comingSoonModal5) {
+    comingSoonModal5.addEventListener('click', function(event) {
+      if (event.target === comingSoonModal5) {
+        closeComingSoonModal5();
+      }
+    });
   }
 });
 
