@@ -1,0 +1,43 @@
+{
+  "home": "Beranda",
+  "greatest_stories": "Kisah Hebat",
+  "venue_map": "Peta Lokasi",
+  "v_kids_v_teens": "V-Kids & V-Teens",
+  "speakers": "Pembicara",
+  "this_or_that": "Ini atau Itu?",
+  "faq": "FAQ",
+  "languages": "Bahasa",
+  "floating_button": {
+    "text": "Dapatkan tiket Anda di sini!"
+  },
+   "buttons": {
+    "close": "x"
+  },
+  "menu": {
+    "videos": "Video",
+    "articles": "Artikel",
+    "gallery": "Galeri"
+  },
+  "language_name": {
+    "en": "Inggris",
+    "ar": "Arab",
+    "id": "Bahasa Indonesia",
+    "fr": "Prancis",
+    "ru": "Rusia"
+  },
+  "countdown": {
+    "days": "HARI",
+    "hours": "JAM",
+    "minutes": "MENIT",
+    "seconds": "DETIK"
+  },
+  "hero": {
+    "headline_part1": "BANGKIT BERSAMA",
+    "headline_part2": "DAN MARI MENCIPTAKAN",
+    "headline_part3": " KISAH TERHEBAT KITA",
+    "headline_part4": "!",
+    "paragraph1": "<em>Ketika kita bersatu, perjalanan kita menjadi tak terbatas.</em>",
+    "paragraph2": "<br>Bergabunglah dengan kami dalam V-MALAYSIA 2025 di bulan Juni ini, di saat kita berkumpul bersama untuk memenuhi visi RYTHM dan bangkit melampaui batas.",
+    "cta_button": "Dapatkan tiket Anda di VShoppe."
+  }
+}

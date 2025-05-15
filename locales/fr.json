@@ -1,0 +1,43 @@
+{
+  "home": "Accueil",
+  "greatest_stories": "Les plus belles histoires",
+  "venue_map": "Plan du lieu",
+  "v_kids_v_teens": "V-Kids et V-Teens",
+  "speakers": "Intervenants",
+  "this_or_that": "Ceci ou cela ?",
+  "faq": "FOIRE AUX QUESTIONS",
+  "languages": "Langues",
+  "floating_button": {
+    "text": "Achetez vos billets ici !"
+  },
+   "buttons": {
+    "close": "x"
+  },
+  "menu": {
+    "videos": "Vidéos",
+    "articles": "Articles",
+    "gallery": "Galerie"
+  },
+  "language_name": {
+    "en": "Anglais",
+    "ar": "Arabe",
+    "id": "Bahasa-Indonésien",
+    "fr": "Français",
+    "ru": "Russe"
+  },
+  "countdown": {
+    "days": "JOURS",
+    "hours": "HEURES",
+    "minutes": "MINUTES",
+    "seconds": "SECONDES"
+  },
+  "hero": {
+    "headline_part1": "LEVONS-NOUS ENSEMBLE",
+    "headline_part2": "POUR CRÉER NOTRE",
+    "headline_part3": " PLUS BELLE HISTOIRE",
+    "headline_part4": "!",
+    "paragraph1": "<em>Lorsque nous nous réunissons, notre voyage devient sans limites.</em>",
+    "paragraph2": "<br>Rejoignez-nous au V-MALAYSIA 2025 en juin prochain pour concrétiser la vision de RYTHM et dépasser les limites.",
+    "cta_button": "Achetez vos billets sur VShoppe."
+  }
+}

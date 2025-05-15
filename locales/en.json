@@ -1,0 +1,43 @@
+{
+  "home": "Home",
+  "greatest_stories": "Greatest Stories",
+  "venue_map": "Venue Map",
+  "v_kids_v_teens": "V-Kids & V-Teens",
+  "speakers": "Speakers",
+  "this_or_that": "This or That?",
+  "faq": "FAQ",
+  "languages": "Languages",
+  "floating_button": {
+    "text": "Grab your tickets here!"
+  },
+  "buttons": {
+    "close": "x"
+  },
+  "menu": {
+    "videos": "Videos",
+    "articles": "Articles",
+    "gallery": "Gallery"
+  },
+  "language_name": {
+    "en": "English",
+    "ar": "Arabic",
+    "id": "Bahasa Indonesia",
+    "fr": "French",
+    "ru": "Russian"
+  },
+  "countdown": {
+    "days": "DAYS",
+    "hours": "HOURS",
+    "minutes": "MINUTES",
+    "seconds": "SECONDS"
+  },
+  "hero": {
+    "headline_part1": "RISE TOGETHER",
+    "headline_part2": "AND CREATE OUR",
+    "headline_part3": " GREATEST STORY",
+    "headline_part4": "!",
+    "paragraph1": "<em>When we come together, our journey becomes limitless.</em>",
+    "paragraph2": "<br>Join us at V-MALAYSIA 2025 this June as we gather as one to fulfill the vision of RYTHM and rise beyond the boundaries.",
+    "cta_button": "Get your tickets on VShoppe."
+  }
+}
