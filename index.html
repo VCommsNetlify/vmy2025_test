@@ -250,13 +250,36 @@ html {
 
 /* ========== Button Glow ========== */
 .btn-glow {
+  background-color: #f97316; /* Tailwind's orange-500 */
+  color: white;
+  font-weight: bold;
+  padding: 1rem 3rem; /* Increased vertical and horizontal padding */
+  font-size: 1.2rem; /* Slightly larger font size */
+  border-radius: 0.5rem; /* Reduced border-radius for a more rectangular look */
   box-shadow: 0 0 10px rgba(255, 0, 0, 0.5), 0 0 20px rgba(255, 0, 0, 0.4);
   transition: all 0.3s ease-in-out;
+  white-space: nowrap; /* Keep text on one line */
+  text-align: center;
 }
 
 .btn-glow:hover {
+  background-color: #ea580c; /* Tailwind's orange-600 */
   box-shadow: 0 0 15px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 0, 0, 0.6);
   transform: scale(1.05);
+}
+
+@media (min-width: 640px) { /* Small screens and up */
+  .btn-glow {
+    padding: 1.2rem 4rem; /* Further increase padding on larger screens */
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 768px) { /* Medium screens and up */
+  .btn-glow {
+    padding: 1.2rem 5rem; /* Even more padding on medium screens */
+    font-size: 1.3rem;
+  }
 }
 
 /* ========== Floating Button ========== */
@@ -1035,7 +1058,7 @@ html {
 <body class="text-gray-800">
 
   <!-- Floating Text Button with Close Button -->
-   <a href="https://vshoppe.vtube.net/" target="_blank" rel="noopener noreferrer">
+    <a href="https://example.com/tickets" target="_blank" rel="noopener noreferrer">
     <div id="floatingTextBtn" class="fixed bottom-4 right-4 bg-pink-600 text-white py-2 px-4 rounded-full shadow-lg text-lg cursor-pointer transition-transform transform hover:scale-105 z-[9999]">
       <span data-i18n="floating_button.text">Grab your tickets here!</span>
       <button id="closeBtn" class="absolute top-0 right-0 text-white text-2xl font-bold bg-transparent border-none cursor-pointer" aria-label="Close" data-i18n="buttons.close">
@@ -1043,7 +1066,6 @@ html {
       </button>
     </div>
   </a>
-
     <!-- Header -->
 <header class="fixed w-full z-50 bg-[#004372] shadow-lg">
   <div class="container mx-auto px-4 py-3 flex items-center justify-between relative">
@@ -1194,88 +1216,93 @@ html {
 
   <!-- Content Layer -->
   <div class="relative z-10 container mx-auto px-4">
-<h2 class="text-3xl font-bold text-[#00666a] text-center mb-10">
-  THE GREATEST STORIES OF <span class="whitespace-nowrap">V-MALAYSIA 2025</span>
-</h2>
+    <h2 class="text-3xl font-bold text-[#00666a] text-center mb-10">
+      THE GREATEST STORIES OF <span class="whitespace-nowrap">V-MALAYSIA 2025</span>
+    </h2>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-      <!-- Item 1 -->
-		<a href="https://the-v.net/en/news?id=03042025-the-greatest-story-from-v-africa-2025-together-we-rise-1">
-			<div class="flex bg-[#a05c11] bg-opacity-60 rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-all duration-300">
-				<div class="w-1/3 flex justify-center items-center">
-					<img id="story1-img" src="assets/greateststory/03042025-the-greatest-story-from-v-africa-2025-together-we-rise.jpg" alt="Story 1" class="w-full h-auto object-contain rounded-lg">
-				</div>
-					<div class="w-2/3 flex flex-col justify-center pl-5 py-2">
-						<p class="text-lg font-semibold text-white">Together We Rise!</p>
-						<p class="text-sm text-white">This is the greatest story about how V-Africa united and overcame challenges together to achieve greater heights.</p>
-				</div>
-			</div>
-		</a>
-      <!-- Item 2 -->
-	  <a href="https://the-v.net/en/news?id=04032025-the-greatest-story-of-v-africa-2025-we-asked-vc-drigbe-kalo-and-vc-soma-drissa-gnanmia-their-favourite-moments">
-      <div class="flex bg-[#00666a] bg-opacity-60 rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-all duration-300">
-        <div class="w-1/3 flex justify-center items-center">
-          <img id="story2-img" src="assets/greateststory/04022025-the-greatest-story-of-v-africa-2025-we-asked-vc-drigbe-kalo-and-vc-soma-drissa-gnanmia-their-favourite-moments.jpg" alt="Story 2" class="w-full h-auto object-contain rounded-lg">
-        </div>
-        <div class="w-2/3 flex flex-col justify-center pl-5 py-2">
-          <p class="text-lg font-semibold text-white">We Asked VC Drigbe Kalo and VC Soma Drissa Gnanmia Their Favourite Moments</p>
-          <p class="text-sm text-white">Hear from the leaders themselves about their most memorable experiences and how they shaped the future of V-Africa.</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Example Item with Brightcove Popup -->
+      <div class="cursor-pointer" onclick="openBrightcoveStoriesModal('6370621142112')">
+        <div class="bg-[#a05c11] bg-opacity-60 rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-all duration-300">
+          <img src="assets/greateststory/episode1.jpg" alt="Story 1" class="w-full h-auto object-cover">
+          <div class="p-4 bg-[#a05c11] bg-opacity-60 text-white">
+            <p class="text-lg font-semibold">Episode 1: Together We Rise!</p>
+          </div>
         </div>
       </div>
-	  </a>
 
-      <!-- Item 3 -->
-	  <a href="https://the-v.net/en/news?id=04072025-the-greatest-story-of-v-africa-2025-inservices-most-fulfilling-moments">
-      <div class="flex bg-[#a05c11] bg-opacity-60 rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-all duration-300">
-        <div class="w-1/3 flex justify-center items-center">
-          <img id="story3-img" src="assets/greateststory/04072025-the-greatest-story-of-v-africa-2025-inservices-most-fulfilling-moments.jpg" alt="Story 3" class="w-full h-auto object-contain rounded-lg">
-        </div>
-        <div class="w-2/3 flex flex-col justify-center pl-5 py-2">
-          <p class="text-lg font-semibold text-white">InService’s Most Fulfilling Moments</p>
-          <p class="text-sm text-white">In this section, we explore some of the most fulfilling moments in the journey of V-Africa’s service projects.</p>
+      <div class="cursor-pointer" onclick="openBrightcoveStoriesModal(null)">
+        <div class="bg-[#a05c11] bg-opacity-60 rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-all duration-300">
+          <img src="assets/greateststory/episode2.jpg" alt="Story 1" class="w-full h-auto object-cover">
+          <div class="p-4 bg-[#a05c11] bg-opacity-60 text-white">
+            <p class="text-lg font-semibold">Episode 2: From Leaders to V Ambassadors</p>
+          </div>
         </div>
       </div>
-	</a>
-      <!-- Item 4 -->
-	  <a href="https://the-v.net/en/news?id=04112025-the-greatest-story-of-v-africa-2025-unstoppable-women-unforgettable-moments">
-      <div class="flex bg-[#00666a] bg-opacity-60 rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-all duration-300">
-        <div class="w-1/3 flex justify-center items-center">
-          <img id="story4-img" src="assets/greateststory/04112025-the-greatest-story-of-v-africa-2025-unstoppable-women-unforgettable-moments.jpg" alt="Story 4" class="w-full h-auto object-contain rounded-lg">
-        </div>
-        <div class="w-2/3 flex flex-col justify-center pl-5 py-2">
-          <p class="text-lg font-semibold text-white">Unstoppable Women, Unforgettable Moments</p>
-          <p class="text-sm text-white">Celebrate the unstoppable women who made a huge impact and left unforgettable memories across Africa.</p>
+
+      <div class="cursor-pointer" onclick="openBrightcoveStoriesModal(null)">
+        <div class="bg-[#a05c11] bg-opacity-60 rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-all duration-300">
+          <img src="assets/greateststory/episode3.jpg" alt="Story 1" class="w-full h-auto object-cover">
+          <div class="p-4 bg-[#a05c11] bg-opacity-60 text-white">
+            <p class="text-lg font-semibold">Episode 3: Participants to InService</p>
+          </div>
         </div>
       </div>
-	</a>
-      <!-- Item 5 -->
-	  <a href="https://the-v.net/en/news?id=04112025-the-greatest-story-of-v-africa-2025-new-heights-for-our-network-leaders">
-      <div class="flex bg-[#a05c11] bg-opacity-60 rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-all duration-300">
-        <div class="w-1/3 flex justify-center items-center">
-          <img id="story5-img" src="assets/greateststory/04112025-the-greatest-story-of-v-africa-2025-new-heights-for-our-network-leaders.jpg" alt="Story 5" class="w-full h-auto object-contain rounded-lg">
-        </div>
-        <div class="w-2/3 flex flex-col justify-center pl-5 py-2">
-          <p class="text-lg font-semibold text-white">New Heights for our Network Leaders!</p>
-          <p class="text-sm text-white">Our network leaders reached new heights, facing challenges head-on and inspiring others to do the same.</p>
+
+      <div class="cursor-pointer" onclick="openBrightcoveStoriesModal(null)">
+        <div class="bg-[#a05c11] bg-opacity-60 rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-all duration-300">
+          <img src="assets/greateststory/episode4.jpg" alt="Story 1" class="w-full h-auto object-cover">
+          <div class="p-4 bg-[#a05c11] bg-opacity-60 text-white">
+            <p class="text-lg font-semibold">Episode 4: Teams Rise as Colours of The V</p>
+          </div>
         </div>
       </div>
-	</a>
-      <!-- Item 6 -->
-		<a href="https://the-v.net/en/news?id=03042025-the-greatest-story-from-v-africa-2025-together-we-rise-1">
-      <div class="flex bg-[#00666a] bg-opacity-60 rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-all duration-300">
-        <div class="w-1/3 flex justify-center items-center">
-          <img id="story6-img" src="assets/greateststory/03042025-the-greatest-story-from-v-africa-2025-together-we-rise.jpg" alt="Story 6" class="w-full h-auto object-contain rounded-lg">
-        </div>
-        <div class="w-2/3 flex flex-col justify-center pl-5 py-2">
-          <p class="text-lg font-semibold text-white">Together We Rise!</p>
-          <p class="text-sm text-white">Another chapter of unity and growth, as the African community rallies together for a brighter future.</p>
+
+      <div class="cursor-pointer" onclick="openBrightcoveStoriesModal(null)">
+        <div class="bg-[#a05c11] bg-opacity-60 rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-all duration-300">
+          <img src="assets/greateststory/episode5.jpg" alt="Story 1" class="w-full h-auto object-cover">
+          <div class="p-4 bg-[#a05c11] bg-opacity-60 text-white">
+            <p class="text-lg font-semibold">Episode 5: The Limitless Store - From Creation to Embracing Leaders</p>
+          </div>
         </div>
       </div>
-	</a>
+
+      <div class="cursor-pointer" onclick="openBrightcoveStoriesModal(null)">
+        <div class="bg-[#a05c11] bg-opacity-60 rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-all duration-300">
+          <img src="assets/greateststory/episode6.jpg" alt="Story 1" class="w-full h-auto object-cover">
+          <div class="p-4 bg-[#a05c11] bg-opacity-60 text-white">
+            <p class="text-lg font-semibold">Episode 6: The Two Visionaries</p>
+          </div>
+        </div>
+      </div>
+      <!-- Repeat for other stories with respective video IDs -->
     </div>
   </div>
 </section>
 
+<!-- Brightcove Stories Modal -->
+<div id="videoStoriesModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-[99999] hidden">
+  <div class="relative w-full max-w-3xl aspect-video">
+    <button id="closeStoriesVideoModal" class="absolute -top-5 -right-5 text-white text-3xl font-bold">&times;</button>
+    <!-- Brightcove player container -->
+    <iframe
+      id="brightcoveStoriesIframe"
+      class="w-full h-full rounded-lg"
+      frameborder="0"
+      allow="autoplay; fullscreen"
+      allowfullscreen
+    ></iframe>
+  </div>
+</div>
+
+<div id="comingSoonModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-[99999] hidden">
+  <div class="bg-white text-center p-8 rounded-lg shadow-xl max-w-sm w-full">
+    <p class="text-xl font-bold text-gray-800 mb-4">Coming Soon!</p>
+    <button id="closeComingSoonModal" class="mt-2 px-4 py-2 bg-[#00666a] text-white rounded hover:bg-[#004f52]">
+      Close
+    </button>
+  </div>
+</div>
 
 
 <!-- VIDEOS SECTION -->
@@ -1293,7 +1320,7 @@ html {
       <div class="w-full md:w-1/2 relative h-[50vh] overflow-hidden">
         <iframe
           id="featuredPlayer"
-          src="https://players.brightcove.net/3745659807001/4JJdlFXsg_default/index.html?videoId=6371801496112"
+          src="https://players.brightcove.net/3745659807001/4JJdlFXsg_default/index.html?videoId=6372789163112"
           allowfullscreen
           allow="encrypted-media"
           class="absolute top-0 left-0 w-full h-full"
@@ -1306,10 +1333,10 @@ html {
         class="w-full md:w-1/2 md:pl-8 mt-0 h-auto md:h-[50vh] px-4 py-4 flex flex-col justify-center bg-[#00666a] text-white"
       >
         <h3 id="featuredTitle" class="text-2xl font-semibold mb-2">
-          Day 1: The Dream by Chief Pathman Senathirajah
+          VPN Yaser Khamis Invites You to V-Malaysia 2025 this June!
         </h3>
         <p id="featuredDescription" class="text-base">
-          Your drive to achieve your dream will be your strength!
+          “When we move as one, we win as one!” VPN Yaser Khamis says you absolutely can’t miss this dub with your whole squad. Be part of the epic V-Malaysia 2025, happening on 21 to 25 June at the Setia SPICE Arena in Penang, Malaysia. Grab your tickets today on VShoppe and use the code: VMYJun2025
         </p>
       </div>
     </div>
@@ -1317,7 +1344,7 @@ html {
     <!-- Prompt for interactive feature (Eye-catching style) -->
     <div class="w-full text-center mb-4 px-4 pt-0">
       <p class="text-lg font-bold text-[#00666a] bg-white inline-block px-6 py-2 rounded-lg shadow-lg max-w-3xl mx-auto">
-        This is an interactive video player! Select any video below and play it here.
+        Select a video below and watch it in this mini media player!
       </p>
     </div>
 
@@ -1327,16 +1354,16 @@ html {
 		<div class="swiper allVideosSwiper relative">
 		  <div class="swiper-wrapper">
 			<!-- Slides -->
-			<div class="swiper-slide cursor-pointer" onclick="playInFeatured('6371801496112', 'Day 1: The Dream by Chief Pathman Senathirajah', 'Your drive to achieve your dream will be your strength!')">
+			<div class="swiper-slide cursor-pointer" onclick="playInFeatured('6372789163112', 'VPN Yaser Khamis Invites You to V-Malaysia 2025 this June!', '“When we move as one, we win as one!” VPN Yaser Khamis says you absolutely can’t miss this dub with your whole squad. Be part of the epic V-Malaysia 2025, happening on 21 to 25 June at the Setia SPICE Arena in Penang, Malaysia. Grab your tickets today on VShoppe and use the code: VMYJun2025')">
 			  <div class="rounded overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg">
-				<img src="assets/news/04232025-v-turkiye-2025-day-1-the-dream-by-chief-pathman-senathirajah.jpg" alt="Day 1" class="w-full h-auto object-cover">
+				<img src="assets/news/05142025-vpn-yaser-khamis-invites-you-to-v-malaysia-2025-this-june.jpg" alt="Day 1" class="w-full h-auto object-cover">
 				<div class="bg-white rounded-b-lg px-3 pt-3 pb-3">
-				  <p class="text-[#00666a] font-semibold text-sm sm:text-base leading-snug">Day 1: The Dream by Chief Pathman Senathirajah</p>
+				  <p class="text-[#00666a] font-semibold text-sm sm:text-base leading-snug">VPN Yaser Khamis Invites You to V-Malaysia 2025 this June!</p>
 				</div>
 			  </div>
 			</div>
 
-			<div class="swiper-slide cursor-pointer" onclick="playInFeatured('6371800716112', 'Day 1: Shaped by Challenges by Joseph ‘Japadas’ Bismark', 'Challenges make us stronger!')">
+			<!-- <div class="swiper-slide cursor-pointer" onclick="playInFeatured('6371800716112', 'Day 1: Shaped by Challenges by Joseph ‘Japadas’ Bismark', 'Challenges make us stronger!')">
 			  <div class="rounded overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg">
 				<img src="assets/news/04232025-v-turkiye-2025-day-1-shaped-by-challenges-by-joseph-japadas-bismark.jpg" alt="Day 2" class="w-full h-auto object-cover">
 				<div class="bg-white rounded-b-lg px-3 pt-3 pb-3">
@@ -1398,7 +1425,7 @@ html {
 				</div>
 			  </div>
 			</div>
-		  </div>
+		  </div> -->
 
 		  <!-- Controls & Pagination -->
 		  <div class="swiper-button-prev text-white z-10 text-4xl"></div>
@@ -1414,6 +1441,8 @@ html {
 
 </section>
 
+
+
     <!--  NEWS AND UPDATE Section -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
 
@@ -1426,16 +1455,16 @@ html {
     <div class="max-w-4xl mx-auto mb-16 text-center rounded-lg overflow-hidden shadow-md transition-transform duration-300 hover:shadow-xl hover:-translate-y-1">
       <!-- Featured Image -->
       <div class="relative w-full sm:h-[50vh]">
-        <img src="assets/news/04232025-vturkiye2025-day-1-dream-decide-rise.jpg"
+        <img src="assets/news/02132025-together-we-rise-this-21-25-june-at-v-malaysia-2025.jpg"
              alt="Featured Article"
              class="w-full h-full object-contain sm:object-cover">
       </div>
 
       <!-- Featured Text Block -->
       <div class="bg-white px-6 py-4">
-        <h3 class="text-lg font-semibold text-[#00666a] mb-2">V-TÜRKİYE 2025 Highlights DAY 1</h3>
-        <p class="text-sm mb-4 text-gray-700">Check out the Day 1 highlights here!</p>
-        <a href="#" class="inline-block">
+        <h3 class="text-lg font-semibold text-[#00666a] mb-2">Together We Rise this 21-25 June at V-MALAYSIA 2025!</h3>
+        <p class="text-sm mb-4 text-gray-700">Are you ready to experience the most unbelievable event from The V family?</p>
+        <a href="https://the-v.net/en/news?id=02132025-together-we-rise-this-21-25-june-at-v-malaysia-2025" class="inline-block">
           <button class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
             READ MORE
           </button>
@@ -1456,11 +1485,11 @@ html {
 
     <!-- Slide 1 -->
     <div class="swiper-slide bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 transform">
-      <img src="assets/news/04232025-v-turkiye-2025-highlights-day-1-unbelievable-in-istanbul.jpg" alt="Article 1" class="w-full h-48 object-cover">
+      <img src="assets/news/12022024-book-your-seats-now-for-v-malaysia-2025.jpg" alt="Article 1" class="w-full h-48 object-cover">
       <div class="p-4">
-        <h3 class="text-lg font-semibold text-[#00666a] mb-2">V-TÜRKİYE 2025 Highlights DAY 1</h3>
-        <p class="text-sm mb-4 text-gray-700">Check out the Day 1 highlights here!</p>
-        <a href="#" class="inline-block">
+        <h3 class="text-lg font-semibold text-[#00666a] mb-2">Book Your Seats Now for V-Malaysia 2025!</h3>
+        <p class="text-sm mb-4 text-gray-700">See you on 21-25 June 2025! Are you going to be there?</p>
+        <a href="https://the-v.net/en/news?id=12022024-book-your-seats-now-for-v-malaysia-2025" class="inline-block">
           <button class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
             READ MORE
           </button>
@@ -1470,7 +1499,7 @@ html {
 
     <!-- Repeat for additional slides -->
     <!-- Slide 2 -->
-    <div class="swiper-slide bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 transform">
+    <!-- <div class="swiper-slide bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 transform">
       <img src="assets/news/04232025-v-turkiye-2025-highlights-day-1-unbelievable-in-istanbul.jpg" alt="Article 2" class="w-full h-48 object-cover">
       <div class="p-4">
         <h3 class="text-lg font-semibold text-[#00666a] mb-2">V-TÜRKİYE 2025 Highlights DAY 1</h3>
@@ -1481,10 +1510,10 @@ html {
           </button>
         </a>
       </div>
-    </div>
+    </div> -->
 
     <!-- Slide 3 -->
-    <div class="swiper-slide bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 transform">
+    <!-- <div class="swiper-slide bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 transform">
       <img src="assets/news/04232025-v-turkiye-2025-highlights-day-1-unbelievable-in-istanbul.jpg" alt="Article 3" class="w-full h-48 object-cover">
       <div class="p-4">
         <h3 class="text-lg font-semibold text-[#00666a] mb-2">V-TÜRKİYE 2025 Highlights DAY 1</h3>
@@ -1495,12 +1524,12 @@ html {
           </button>
         </a>
       </div>
-    </div>
+    </div> -->
 
     <!-- Add more slides as needed -->
 
 	   <!-- Slide 3 -->
-    <div class="swiper-slide bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 transform">
+    <!-- <div class="swiper-slide bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 transform">
       <img src="assets/news/04232025-v-turkiye-2025-highlights-day-1-unbelievable-in-istanbul.jpg" alt="Article 3" class="w-full h-48 object-cover">
       <div class="p-4">
         <h3 class="text-lg font-semibold text-[#00666a] mb-2">V-TÜRKİYE 2025 Highlights DAY 1</h3>
@@ -1511,10 +1540,10 @@ html {
           </button>
         </a>
       </div>
-    </div>
+    </div> -->
 
 	   <!-- Slide 3 -->
-    <div class="swiper-slide bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 transform">
+    <!-- <div class="swiper-slide bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 transform">
       <img src="assets/news/04232025-v-turkiye-2025-highlights-day-1-unbelievable-in-istanbul.jpg" alt="Article 3" class="w-full h-48 object-cover">
       <div class="p-4">
         <h3 class="text-lg font-semibold text-[#00666a] mb-2">V-TÜRKİYE 2025 Highlights DAY 1</h3>
@@ -1525,10 +1554,10 @@ html {
           </button>
         </a>
       </div>
-    </div>
+    </div> -->
 
 	   <!-- Slide 3 -->
-    <div class="swiper-slide bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 transform">
+    <!-- <div class="swiper-slide bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 transform">
       <img src="assets/news/04232025-v-turkiye-2025-highlights-day-1-unbelievable-in-istanbul.jpg" alt="Article 3" class="w-full h-48 object-cover">
       <div class="p-4">
         <h3 class="text-lg font-semibold text-[#00666a] mb-2">V-TÜRKİYE 2025 Highlights DAY 1</h3>
@@ -1539,10 +1568,10 @@ html {
           </button>
         </a>
       </div>
-    </div>
+    </div> -->
 
 	   <!-- Slide 3 -->
-    <div class="swiper-slide bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 transform">
+    <!-- <div class="swiper-slide bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 transform">
       <img src="assets/news/04232025-v-turkiye-2025-highlights-day-1-unbelievable-in-istanbul.jpg" alt="Article 3" class="w-full h-48 object-cover">
       <div class="p-4">
         <h3 class="text-lg font-semibold text-[#00666a] mb-2">V-TÜRKİYE 2025 Highlights DAY 1</h3>
@@ -1553,10 +1582,10 @@ html {
           </button>
         </a>
       </div>
-    </div>
+    </div> -->
 
 	   <!-- Slide 3 -->
-    <div class="swiper-slide bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 transform">
+    <!-- <div class="swiper-slide bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 transform">
       <img src="assets/news/04232025-v-turkiye-2025-highlights-day-1-unbelievable-in-istanbul.jpg" alt="Article 3" class="w-full h-48 object-cover">
       <div class="p-4">
         <h3 class="text-lg font-semibold text-[#00666a] mb-2">V-TÜRKİYE 2025 Highlights DAY 1</h3>
@@ -1567,10 +1596,10 @@ html {
           </button>
         </a>
       </div>
-    </div>
+    </div> -->
 
 	   <!-- Slide 3 -->
-    <div class="swiper-slide bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 transform">
+    <!-- <div class="swiper-slide bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 transform">
       <img src="assets/news/04232025-v-turkiye-2025-highlights-day-1-unbelievable-in-istanbul.jpg" alt="Article 3" class="w-full h-48 object-cover">
       <div class="p-4">
         <h3 class="text-lg font-semibold text-[#00666a] mb-2">V-TÜRKİYE 2025 Highlights DAY 1</h3>
@@ -1581,7 +1610,7 @@ html {
           </button>
         </a>
       </div>
-    </div>
+    </div> -->
 
   </div>
 
@@ -1713,7 +1742,8 @@ html {
 
   <!-- Map Frame -->
   <div class="relative z-10 container mx-auto px-4">
-    <iframe src="https://app.seekbeak.com/v/Xw1LnZ6GjL8" height="600px" class="w-full"></iframe>
+    <!-- <iframe src="https://app.seekbeak.com/v/Xw1LnZ6GjL8" height="600px" class="w-full"></iframe> -->
+    <img src="assets/hero/venue-map.jpeg" alt="Venue Map" height="600px" class="w-full h-full">
   </div>
 </section>
 
@@ -2372,7 +2402,7 @@ html {
 
     <script>
 	
-	<!-- CHANGING LANGUAGES -->
+	// <!-- CHANGING LANGUAGES -->
 	
 const translations = {};
 let currentLanguage = 'en'; // Default language
@@ -2436,7 +2466,38 @@ document.addEventListener('DOMContentLoaded', () => {
   setLanguage(initialLanguage);
 });
 	
-	<!-- END LANGUAGE -->
+	// <!-- END LANGUAGE -->
+
+    // start greatest story popup
+
+    document.addEventListener('DOMContentLoaded', function() {
+    const episode1Link = document.querySelector('#storiesToggle .grid > a:first-child');
+    const greatestStoryVideoPopup = document.getElementById('greatestStoryVideoPopup');
+    const closeGreatestStoryPopup = document.getElementById('closeGreatestStoryPopup');
+
+    episode1Link.addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent the link from navigating
+      greatestStoryVideoPopup.classList.remove('hidden');
+      greatestStoryVideoPopup.classList.add('flex');
+    });
+
+    closeGreatestStoryPopup.addEventListener('click', function() {
+      greatestStoryVideoPopup.classList.add('hidden');
+      greatestStoryVideoPopup.classList.remove('flex');
+    });
+
+    greatestStoryVideoPopup.addEventListener('click', function(event) {
+      if (event.target === greatestStoryVideoPopup) {
+        greatestStoryVideoPopup.classList.add('hidden');
+        greatestStoryVideoPopup.classList.remove('flex');
+      }
+    });
+  });
+
+    // <!-- END POPUP -->
+
+
+  // this or that
 
     document.addEventListener('DOMContentLoaded', function() {
       // Game data
@@ -2655,6 +2716,46 @@ document.addEventListener('DOMContentLoaded', function () {
       modalVideo.setAttribute('src', '');
     }
   });
+});
+
+//modal for greatest story
+
+const storiesModal = document.getElementById("videoStoriesModal");
+const iframe = document.getElementById("brightcoveStoriesIframe");
+const closeStoriesBtn = document.getElementById("closeStoriesVideoModal");
+
+const comingSoonModal = document.getElementById("comingSoonModal");
+const closeComingSoonBtn = document.getElementById("closeComingSoonModal");
+
+function openBrightcoveStoriesModal(videoId) {
+  if (!videoId) {
+    comingSoonModal.classList.remove("hidden");
+    return;
+  }
+  storiesModal.classList.remove("hidden");
+  iframe.src = `https://players.brightcove.net/3745659807001/4JJdlFXsg_default/index.html?videoId=${videoId}&autoplay=true&muted=false`;
+}
+
+closeStoriesBtn.addEventListener("click", () => {
+  storiesModal.classList.add("hidden");
+  iframe.src = "";
+});
+
+storiesModal.addEventListener("click", (e) => {
+  if (e.target === storiesModal) {
+    storiesModal.classList.add("hidden");
+    iframe.src = "";
+  }
+});
+
+closeComingSoonBtn.addEventListener("click", () => {
+  comingSoonModal.classList.add("hidden");
+});
+
+comingSoonModal.addEventListener("click", (e) => {
+  if (e.target === comingSoonModal) {
+    comingSoonModal.classList.add("hidden");
+  }
 });
 
  // Swiper for videos (2 rows, 3 columns)
