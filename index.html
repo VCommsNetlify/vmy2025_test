@@ -624,10 +624,10 @@ html {
 
 #thisOrThat {
   position: relative;
-  max-height: 900px;
+  /* max-height: 1000px; */
   margin: 20px auto;
   border-radius: 16px;
-  overflow: hidden;
+  overflow: auto;
   background: #ffffff;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   min-height: 650px;
@@ -1823,10 +1823,10 @@ html {
     <div class="swiper adSwiper rounded-xl overflow-hidden relative">
       <!-- Slides -->
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
+        <!-- <div class="swiper-slide">
           <img src="assets/hero/01202025-ice-2025-day-4-persist-persevere-perform-by-dato-sri-vijay-eswaran32b0e726-2a48-4cac-9422-34ce98acc6c1.jpg"
                alt="Ad 1" class="w-full h-[40vh] sm:h-[50vh] md:h-[500px] object-contain" />
-        </div>
+        </div> -->
         <div class="swiper-slide">
           <img src="assets/hero/05152025 VMY2025 JUNE microsite carousel ad 2 horizontal.jpg"
                alt="Ad 2" class="w-full h-[40vh] sm:h-[50vh] md:h-[500px] object-contain" />
@@ -2190,7 +2190,7 @@ html {
   <canvas id="resultCanvas" width="600" height="400" style="display: none;"></canvas>
   <div>
     <p>Tag us when you share on Instagram!</p> 
-    <a id="downloadLink" href="#" download="choices.png">Download Image</a>
+    <a id="downloadLink" href="#" download="ThisOrThat.png">Download Image</a>
     <button class="restart-btn" id="restartBtn">Play Again</button>
   </div>
 </div>
@@ -2621,7 +2621,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // this or that
 
-    const startBtn = document.getElementById('startBtn');
+const startBtn = document.getElementById('startBtn');
 const initialScreen = document.getElementById('initialScreen');
 const gameContent = document.getElementById('gameContent');
 const backgroundImage = document.getElementById('backgroundImage');
@@ -2635,6 +2635,7 @@ const choicesList = document.getElementById('choicesList');
 const resultCanvas = document.getElementById('resultCanvas');
 const downloadLink = document.getElementById('downloadLink');
 const restartBtn = document.getElementById('restartBtn');
+const thisOrThatSection = document.getElementById('thisOrThat'); // Get the section element
 
 let currentRound = 0;
 const userChoices = [];
@@ -2647,40 +2648,48 @@ const rounds = [
   { left: "COMFORTABLE LIFE", right: "EXTRAORDINARY JOURNEY" },
   { left: "TAKE STEADY STEPS", right: "SOAR TO NEW HEIGHTS" },
   { left: "NOTES ON PAPER", right: "NOTES ON YOUR MOBILE PHONE" },
-  { left: "GO TO <br>V-CONVENTION<br> ALONE", right: "GO TO <br>V-CONVENTION<br> WITH YOUR TEAM" },
+  { left: "GO TO <br>V-CONVENTION ALONE", right: "GO TO <br>V-CONVENTION WITH YOUR TEAM" },
   { left: "BE PART OF THE HISTORY", right: "CREATE HISTORY" },
   { left: "WITNESS THE GREATEST STORY", right: "CREATE YOUR GREATEST STORY" },
-  { left: "BE AT <br>V-MALAYSIA 2025<br> ON 21-25 JUNE", right: "TAKE PART AT <br>V-MALAYSIA 2025<br> ON 21-25 JUNE" }
+  { left: "BE AT <br>V-MALAYSIA 2025 ON 21-25 JUNE", right: "TAKE PART AT <br>V-MALAYSIA 2025 ON 21-25 JUNE" }
 ];
 
+function adjustThisOrThatHeight(height) {
+  thisOrThatSection.style.height = height + 'px';
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+  // Set initial height
+  adjustThisOrThatHeight(650);
+
   // Start game
   startBtn.addEventListener('click', function() {
     initialScreen.style.display = 'none';
     backgroundImage.style.display = 'block';
     gameContent.style.display = 'flex';
-    currentRound = 0; // Reset round on new game
-    userChoices.length = 0; // Clear previous choices
+    currentRound = 0;
+    userChoices.length = 0;
     loadRound(currentRound);
+    adjustThisOrThatHeight(1000); // Set height to 1000px after starting
   });
 
   // Load round data
- function loadRound(index) {
-  if (index >= rounds.length) {
-    showResults();
-    return;
+  function loadRound(index) {
+    if (index >= rounds.length) {
+      showResults();
+      return;
+    }
+
+    roundNumber.textContent = `Round ${index + 1}`;
+    leftText.innerHTML = rounds[index].left;
+    rightText.innerHTML = rounds[index].right;
+
+    // Add animation for new round
+    gameContent.classList.add('new-round');
+    setTimeout(() => {
+      gameContent.classList.remove('new-round');
+    }, 500);
   }
-
-  roundNumber.textContent = `Round ${index + 1}`;
-  leftText.innerHTML = rounds[index].left;  // Use innerHTML
-  rightText.innerHTML = rounds[index].right; // Use innerHTML
-
-  // Add animation for new round
-  gameContent.classList.add('new-round');
-  setTimeout(() => {
-    gameContent.classList.remove('new-round');
-  }, 500);
-}
 
   // Handle choice selection
   leftChoice.addEventListener('click', function() {
@@ -2727,13 +2736,39 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Generate results image
-    // generateResultsImage();
+    generateResultsImage();
 
-    // // Display random image and enable download NOW when results are shown
+    // Display random image and enable download NOW when results are shown
     displayRandomImageAndEnableDownload();
   }
 
-  
+  // Generate shareable image
+  function generateResultsImage() {
+    const ctx = resultCanvas.getContext('2d');
+    ctx.fillStyle = '#f8f9fa';
+    ctx.fillRect(0, 0, resultCanvas.width, resultCanvas.height);
+    ctx.fillStyle = '#333';
+    ctx.font = 'bold 24px Poppins, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('My "This or That" Choices', resultCanvas.width / 2, 40);
+    ctx.font = '16px Poppins, sans-serif';
+    ctx.fillText('The V Family Challenge', resultCanvas.width / 2, 70);
+    ctx.textAlign = 'left';
+    ctx.font = '18px Poppins, sans-serif';
+    let yPos = 120;
+    userChoices.forEach(choice => {
+      ctx.fillStyle = '#333';
+      ctx.fillText(`Round ${choice.round}: ${choice.question}`, 40, yPos);
+      ctx.fillStyle = '#2575fc';
+      ctx.fillText(`My choice: ${choice.choice}`, 60, yPos + 25);
+      yPos += 60;
+    });
+    ctx.fillStyle = '#666';
+    ctx.font = '14px Poppins, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Share your results and tag The V Family!', resultCanvas.width / 2, resultCanvas.height - 20);
+    downloadLink.href = resultCanvas.toDataURL('image/png');
+  }
 
   // Restart game
   restartBtn.addEventListener('click', function() {
@@ -2741,6 +2776,7 @@ document.addEventListener('DOMContentLoaded', function() {
     userChoices.length = 0;
     resultsSection.style.display = 'none';
     initialScreen.style.display = 'flex';
+    adjustThisOrThatHeight(650); // Revert height to 650px on play again
 
     // Ensure any existing random image is removed
     const existingImage = resultsSection.querySelector('img');
@@ -2752,7 +2788,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function displayRandomImageAndEnableDownload() {
   const imageFolder = 'assets/thisorthat/';
-  const imageFiles = ['626bi.jpg', '626fa.jpg', '626si.jpg', '626ta.jpg', '626vi.jpg'];
+  const imageFiles = ['quote1.jpg', 'quote2.jpg', 'quote3.jpg', 'quote4.jpg', 'quote5.jpg'];
 
   const randomIndex = Math.floor(Math.random() * imageFiles.length);
   const randomImagePath = imageFolder + imageFiles[randomIndex];
@@ -2760,7 +2796,6 @@ function displayRandomImageAndEnableDownload() {
   const imageElement = document.createElement('img');
   imageElement.src = randomImagePath;
   imageElement.alt = 'Random Gallery Image';
-  // Add a specific class for styling
   imageElement.classList.add('random-result-image', 'h-auto', 'object-cover', 'mx-auto', 'mb-8');
 
   const resultsSection = document.getElementById('resultsSection');
@@ -3235,7 +3270,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window.innerWidth <= mobileBreakpoint) {
       // Set mobile-specific image sources
       const mobileImages = [
-        'assets/hero/01202025-ice-2025-day-4-persist-persevere-perform-by-dato-sri-vijay-eswaran32b0e726-2a48-4cac-9422-34ce98acc6c1.jpg', // Replace with your mobile image paths
+        // 'assets/hero/01202025-ice-2025-day-4-persist-persevere-perform-by-dato-sri-vijay-eswaran32b0e726-2a48-4cac-9422-34ce98acc6c1.jpg', // Replace with your mobile image paths
         'assets/hero/05152025 VMY2025 JUNE microsite carousel ad 2 vertical.jpg',
         'assets/hero/05152025 VMY2025 JUNE microsite carousel ad 3 vertical.jpg'
       ];
@@ -3250,7 +3285,7 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
       // Revert to desktop image sources (if needed)
       const desktopImages = [
-        'assets/hero/01202025-ice-2025-day-4-persist-persevere-perform-by-dato-sri-vijay-eswaran32b0e726-2a48-4cac-9422-34ce98acc6c1.jpg',
+        // 'assets/hero/01202025-ice-2025-day-4-persist-persevere-perform-by-dato-sri-vijay-eswaran32b0e726-2a48-4cac-9422-34ce98acc6c1.jpg',
         'assets/hero/05152025 VMY2025 JUNE microsite carousel ad 2 horizontal.jpg',
         'assets/hero/05152025 VMY2025 JUNE microsite carousel ad 3 horizontal.jpg'
       ];
