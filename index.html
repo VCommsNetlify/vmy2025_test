@@ -1053,8 +1053,13 @@ html {
     /* You can also add other styling like adjusting line-height if needed */
 }
 
+#gallery-section .container {
+  position: relative; /* Ensure container is relative for absolute positioning of overlay */
+}
 
-
+#choicesList {
+  display: none;
+}
 </style>
 
 </head>
@@ -1655,30 +1660,48 @@ html {
   </div>
 </div>
 
+<section id="gallery-section" class="py-16 bg-gray-100" style="background-image: url('assets/news/BG-videohighlights.png'); background-position: top;">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 inline-block bg-[#d24545] px-4 py-2"> <!--data-i18n="gallery.title"-->
+      SEE THE AMAZING PHOTOS!
+    </h2>
+    <div class="relative w-full md:w-1/2 mx-auto">
+      <img src="assets/gallery/photo-gif.gif" alt="Gallery GIF" class="w-full h-auto object-cover">
+      <div class="absolute inset-0 bg-black bg-opacity-75 flex items-center justify-center z-10">
+         <p class="text-white text-lg md:text-xl font-semibold text-center"><!--  data-i18n="gallery.coming_soon" -->
+          Watch out for this space to see the amazing photos soon!
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- #gallery-section .container {
+  position: relative; /* Ensure container is relative for absolute positioning of overlay */
+} REMOVE THIS ON CSS DAY 1 -->
 
     <!-- Gallery Section -->
-<section id="gallery-section" class="py-16 bg-gray-100" style="background-image: url('assets/news/BG-videohighlights.png'); background-position: top;">
+<!-- <section id="gallery-section" class="py-16 bg-gray-100" style="background-image: url('assets/news/BG-videohighlights.png'); background-position: top;">
   <div class="container mx-auto px-4">
 		<div class="text-center mb-12">
 		  <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 inline-block bg-[#d24545] px-4 py-2">
 			SEE THE AMAZING PHOTOS!
 		  </h2>
-		</div>
+		</div> -->
 
     <!-- Custom Grid Layout: 1 - 3 - 1 - 2 - 1 -->
-    <div class="grid grid-cols-1 gap-4">
+    <!-- <div class="grid grid-cols-1 gap-4"> -->
       <!-- Row 1: 1 item //FOR COMING SOON data-available="false" -->
-      <div class="grid grid-cols-1">
+      <!-- <div class="grid grid-cols-1">
         <div data-gallery="day0"  class="relative group cursor-pointer">
           <img src="assets/gallery/day0/day0.webp" alt="Day 0" class="w-full h-48 object-cover">
           <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <p class="text-white text-lg font-semibold">Day 0 - Registration Day</p>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Row 2: 3 items -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <!-- <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div data-gallery="day1"  class="relative group cursor-pointer">
           <img src="assets/gallery/day1/day1.webp" alt="Day 1" class="w-full h-48 object-cover">
           <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
@@ -1697,20 +1720,20 @@ html {
             <p class="text-white text-lg font-semibold">Day 3</p>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Row 3: 1 item -->
-      <div class="grid grid-cols-1">
+      <!-- <div class="grid grid-cols-1">
         <div data-gallery="day4"  class="relative group cursor-pointer">
           <img src="assets/gallery/day4/day4.jpg" alt="Day 4" class="w-full h-48 object-cover">
           <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <p class="text-white text-lg font-semibold">Day 4</p>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Row 4: 2 items -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div data-gallery="day5"  class="relative group cursor-pointer">
           <img src="assets/gallery/day5/day5.jpg" alt="Day 5" class="w-full h-48 object-cover">
           <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
@@ -1723,10 +1746,10 @@ html {
             <p class="text-white text-lg font-semibold">Fashion Show</p>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Row 5: 1 item -->
-      <div class="grid grid-cols-1">
+      <!-- <div class="grid grid-cols-1">
         <div data-gallery="vkids"  class="relative group cursor-pointer">
           <img src="assets/gallery/vkids/vkids.jpg" alt="V-Kids & V-Teens" class="w-full h-48 object-cover">
           <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
@@ -1736,7 +1759,7 @@ html {
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 <!-- Modal Popup -->
 <div id="galleryModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex-col items-start p-6">
@@ -1775,7 +1798,7 @@ html {
 
   <!-- Map Frame -->
   <div class="relative z-10 container mx-auto px-4">
-    <iframe src="https://app.seekbeak.com/v/RlzoRPag12M" height="600px" class="w-full mb-6 "></iframe>
+    <!-- <iframe src="https://app.seekbeak.com/v/RlzoRPag12M" height="600px" class="w-full mb-6 "></iframe> -->
     <img src="assets/hero/05152025 june VMY2025 microsite map static.jpg" alt="Venue Map" height="600px" class="w-full h-full">
   </div>
 </section>
@@ -2148,16 +2171,16 @@ html {
   </div>
 
   <!-- Results display -->
-  <div id="resultsSection">
-    <h3>Let’s create our greatest story and Together We Rise at V-Malaysia 2025!</h3>
-    <!-- <ul id="choicesList"></ul> -->
-    <br>
-    <!-- <canvas id="resultCanvas" width="600" height="400"></canvas> -->
-    <div>
-      <a id="downloadLink" href="#" download="choices.png">Share Your Results</a>
-      <button class="restart-btn" id="restartBtn">Play Again</button>
-    </div>
+<div id="resultsSection" style="display: none;">
+  <h3>Let’s create our greatest story and Together We Rise at V-Malaysia 2025!</h3>
+  <ul id="choicesList"></ul>
+  <br>
+  <canvas id="resultCanvas" width="600" height="400" style="display: none;"></canvas>
+  <div>
+    <a id="downloadLink" href="#" download="choices.png">Download Image</a>
+    <button class="restart-btn" id="restartBtn">Play Again</button>
   </div>
+</div>
   </div>
 </section>
 
@@ -2585,192 +2608,181 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // this or that
 
-    document.addEventListener('DOMContentLoaded', function() {
-      // Game data
-      const rounds = [
-        { left: "BE ABLE TO FLY", right: "HAVE SUPER STRENGTH" },
-        { left: "GO BACK TO THE PAST", right: "SEE THE FUTURE" },
-        { left: "ACHIEVE A DREAM", right: "ACHIEVE A GOAL" },
-        { left: "MINDSET SHIFT", right: "UPGRADE YOUR SKILLS" },
-        { left: "BE SUCCESSFUL", right: "UPLIFT OTHERS" },
-        { left: "COMFORTABLE LIFE", right: "EXTRAORDINARY JOURNEY" },
-        { left: "TAKE STEADY STEPS", right: "SOAR TO NEW HEIGHTS" },
-        { left: "NOTES ON PAPER", right: "NOTES ON YOUR MOBILE PHONE" },
-        { left: "GO TO V-CONVENTION ALONE", right: "GO TO V-CONVENTION WITH YOUR TEAM" },
-        { left: "BE PART OF THE HISTORY", right: "CREATE HISTORY" },
-        { left: "WITNESS THE GREATEST STORY", right: "CREATE YOUR GREATEST STORY" },
-        { left: "BE AT V-MALAYSIA 2025 ON 21-25 JUNE", right: "TAKE PART AT V-MALAYSIA 2025 ON 21-25 JUNE" }
-      ];
+    const startBtn = document.getElementById('startBtn');
+const initialScreen = document.getElementById('initialScreen');
+const gameContent = document.getElementById('gameContent');
+const backgroundImage = document.getElementById('backgroundImage');
+const roundNumber = document.getElementById('roundNumber');
+const leftText = document.getElementById('leftText');
+const rightText = document.getElementById('rightText');
+const leftChoice = document.getElementById('leftChoice');
+const rightChoice = document.getElementById('rightChoice');
+const resultsSection = document.getElementById('resultsSection');
+const choicesList = document.getElementById('choicesList');
+const resultCanvas = document.getElementById('resultCanvas');
+const downloadLink = document.getElementById('downloadLink');
+const restartBtn = document.getElementById('restartBtn');
 
-      // Game variables
-      let currentRound = 0;
-      const userChoices = [];
+let currentRound = 0;
+const userChoices = [];
+const rounds = [
+  { left: "BE ABLE TO FLY", right: "HAVE SUPER STRENGTH" },
+  { left: "GO BACK TO THE PAST", right: "SEE THE FUTURE" },
+  { left: "ACHIEVE A DREAM", right: "ACHIEVE A GOAL" },
+  { left: "MINDSET SHIFT", right: "UPGRADE YOUR SKILLS" },
+  { left: "BE SUCCESSFUL", right: "UPLIFT OTHERS" },
+  { left: "COMFORTABLE LIFE", right: "EXTRAORDINARY JOURNEY" },
+  { left: "TAKE STEADY STEPS", right: "SOAR TO NEW HEIGHTS" },
+  { left: "NOTES ON PAPER", right: "NOTES ON YOUR MOBILE PHONE" },
+  { left: "GO TO V-CONVENTION ALONE", right: "GO TO V-CONVENTION WITH YOUR TEAM" },
+  { left: "BE PART OF THE HISTORY", right: "CREATE HISTORY" },
+  { left: "WITNESS THE GREATEST STORY", right: "CREATE YOUR GREATEST STORY" },
+  { left: "BE AT V-MALAYSIA 2025 ON 21-25 JUNE", right: "TAKE PART AT V-MALAYSIA 2025 ON 21-25 JUNE" }
+];
 
-      // DOM elements
-      const startBtn = document.getElementById('startBtn');
-      const initialScreen = document.getElementById('initialScreen');
-      const gameContent = document.getElementById('gameContent');
-      const backgroundImage = document.getElementById('backgroundImage');
-      const roundNumber = document.getElementById('roundNumber');
-      const leftText = document.getElementById('leftText');
-      const rightText = document.getElementById('rightText');
-      const leftChoice = document.getElementById('leftChoice');
-      const rightChoice = document.getElementById('rightChoice');
-      const resultsSection = document.getElementById('resultsSection');
-      const choicesList = document.getElementById('choicesList');
-      const resultCanvas = document.getElementById('resultCanvas');
-      const downloadLink = document.getElementById('downloadLink');
-      const restartBtn = document.getElementById('restartBtn');
+document.addEventListener('DOMContentLoaded', function() {
+  // Start game
+  startBtn.addEventListener('click', function() {
+    initialScreen.style.display = 'none';
+    backgroundImage.style.display = 'block';
+    gameContent.style.display = 'flex';
+    currentRound = 0; // Reset round on new game
+    userChoices.length = 0; // Clear previous choices
+    loadRound(currentRound);
+  });
 
-      // Background gradients for variety
-      /* const backgrounds = [
-        'linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%)',
-        'linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)',
-        'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)',
-        'linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%)',
-        'linear-gradient(135deg, #f6d365 0%, #fda085 100%)',
-        'linear-gradient(135deg, #5ee7df 0%, #b490ca 100%)',
-        'linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%)',
-        'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-        'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-        'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
-      ]; */
+  // Load round data
+  function loadRound(index) {
+    if (index >= rounds.length) {
+      showResults();
+      return;
+    }
 
-      // Start game
-      startBtn.addEventListener('click', function() {
-        initialScreen.style.display = 'none';
-        backgroundImage.style.display = 'block';
-        gameContent.style.display = 'flex';
-        loadRound(currentRound);
-      });
+    roundNumber.textContent = `Round ${index + 1}`;
+    leftText.textContent = rounds[index].left;
+    rightText.textContent = rounds[index].right;
 
-      // Load round data
-      function loadRound(index) {
-        if (index >= rounds.length) {
-          showResults();
-          return;
-        }
+    // Add animation for new round
+    gameContent.classList.add('new-round');
+    setTimeout(() => {
+      gameContent.classList.remove('new-round');
+    }, 500);
+  }
 
+  // Handle choice selection
+  leftChoice.addEventListener('click', function() {
+    makeChoice('left');
+  });
 
-        roundNumber.textContent = `Round ${index + 1}`;
-        leftText.textContent = rounds[index].left;
-        rightText.textContent = rounds[index].right;
+  rightChoice.addEventListener('click', function() {
+    makeChoice('right');
+  });
 
-        // Add animation for new round
-        gameContent.classList.add('new-round');
-        setTimeout(() => {
-          gameContent.classList.remove('new-round');
-        }, 500);
-      }
-
-      // Handle choice selection
-      leftChoice.addEventListener('click', function() {
-        makeChoice('left');
-      });
-
-      rightChoice.addEventListener('click', function() {
-        makeChoice('right');
-      });
-
-      function makeChoice(side) {
-        // Add choice to array
-        userChoices.push({
-          round: currentRound + 1,
-          question: `${rounds[currentRound].left} or ${rounds[currentRound].right}`,
-          choice: side === 'left' ? rounds[currentRound].left : rounds[currentRound].right
-        });
-
-        // Animate selection
-        const selectedElement = side === 'left' ? leftChoice : rightChoice;
-        const otherElement = side === 'left' ? rightChoice : leftChoice;
-
-        // console.log('Before increment:', currentRound);
-        // currentRound++;
-        // console.log('After increment:', currentRound);
-        // loadRound(currentRound);
-
-        selectedElement.style.transform = 'scale(1.05)';
-        otherElement.style.opacity = '0.7';
-
-        setTimeout(() => {
-          selectedElement.style.transform = '';
-          otherElement.style.opacity = '';
-
-          // Move to next round
-          currentRound++;
-          loadRound(currentRound);
-        }, 700);
-      }
-
-      // Show results
-      function showResults() {
-        gameContent.style.display = 'none';
-        backgroundImage.style.display = 'none';
-        resultsSection.style.display = 'block';
-
-        // Populate choices list
-        choicesList.innerHTML = '';
-        userChoices.forEach(choice => {
-          const li = document.createElement('li');
-          li.innerHTML = `<strong>Round ${choice.round}:</strong> <span>${choice.choice}</span>`;
-          choicesList.appendChild(li);
-        });
-
-        // Generate results image
-        generateResultsImage();
-      }
-
-      // Generate shareable image
-      function generateResultsImage() {
-        const ctx = resultCanvas.getContext('2d');
-
-        // Set background
-        ctx.fillStyle = '#f8f9fa';
-        ctx.fillRect(0, 0, resultCanvas.width, resultCanvas.height);
-
-        // Add title
-        ctx.fillStyle = '#333';
-        ctx.font = 'bold 24px Poppins, sans-serif';
-        ctx.textAlign = 'center';
-        ctx.fillText('My "This or That" Choices', resultCanvas.width / 2, 40);
-
-        // Add subtitle
-        ctx.font = '16px Poppins, sans-serif';
-        ctx.fillText('The V Family Challenge', resultCanvas.width / 2, 70);
-
-        // Add choices
-        ctx.textAlign = 'left';
-        ctx.font = '18px Poppins, sans-serif';
-
-        let yPos = 120;
-        userChoices.forEach(choice => {
-          ctx.fillStyle = '#333';
-          ctx.fillText(`Round ${choice.round}: ${choice.question}`, 40, yPos);
-
-          ctx.fillStyle = '#2575fc';
-          ctx.fillText(`My choice: ${choice.choice}`, 60, yPos + 25);
-
-          yPos += 60;
-        });
-
-        // Add footer
-        ctx.fillStyle = '#666';
-        ctx.font = '14px Poppins, sans-serif';
-        ctx.textAlign = 'center';
-        ctx.fillText('Share your results and tag The V Family!', resultCanvas.width / 2, resultCanvas.height - 20);
-
-        // Set download link
-        downloadLink.href = resultCanvas.toDataURL('image/png');
-      }
-
-      // Restart game
-      restartBtn.addEventListener('click', function() {
-        currentRound = 0;
-        userChoices.length = 0;
-        resultsSection.style.display = 'none';
-        initialScreen.style.display = 'flex';
-      });
+  function makeChoice(side) {
+    userChoices.push({
+      round: currentRound + 1,
+      question: `${rounds[currentRound].left} or ${rounds[currentRound].right}`,
+      choice: side === 'left' ? rounds[currentRound].left : rounds[currentRound].right
     });
+
+    const selectedElement = side === 'left' ? leftChoice : rightChoice;
+    const otherElement = side === 'left' ? rightChoice : leftChoice;
+
+    selectedElement.style.transform = 'scale(1.05)';
+    otherElement.style.opacity = '0.7';
+
+    setTimeout(() => {
+      selectedElement.style.transform = '';
+      otherElement.style.opacity = '';
+      currentRound++;
+      loadRound(currentRound);
+    }, 700);
+  }
+
+  // Show results
+  function showResults() {
+    gameContent.style.display = 'none';
+    backgroundImage.style.display = 'none';
+    resultsSection.style.display = 'block';
+
+    // Populate choices list
+    choicesList.innerHTML = '';
+    userChoices.forEach(choice => {
+      const li = document.createElement('li');
+      li.innerHTML = `<strong>Round ${choice.round}:</strong> <span>${choice.choice}</span>`;
+      choicesList.appendChild(li);
+    });
+
+    // Generate results image
+    generateResultsImage();
+
+    // Display random image and enable download NOW when results are shown
+    displayRandomImageAndEnableDownload();
+  }
+
+  // Generate shareable image
+  function generateResultsImage() {
+    const ctx = resultCanvas.getContext('2d');
+    ctx.fillStyle = '#f8f9fa';
+    ctx.fillRect(0, 0, resultCanvas.width, resultCanvas.height);
+    ctx.fillStyle = '#333';
+    ctx.font = 'bold 24px Poppins, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('My "This or That" Choices', resultCanvas.width / 2, 40);
+    ctx.font = '16px Poppins, sans-serif';
+    ctx.fillText('The V Family Challenge', resultCanvas.width / 2, 70);
+    ctx.textAlign = 'left';
+    ctx.font = '18px Poppins, sans-serif';
+    let yPos = 120;
+    userChoices.forEach(choice => {
+      ctx.fillStyle = '#333';
+      ctx.fillText(`Round ${choice.round}: ${choice.question}`, 40, yPos);
+      ctx.fillStyle = '#2575fc';
+      ctx.fillText(`My choice: ${choice.choice}`, 60, yPos + 25);
+      yPos += 60;
+    });
+    ctx.fillStyle = '#666';
+    ctx.font = '14px Poppins, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Share your results and tag The V Family!', resultCanvas.width / 2, resultCanvas.height - 20);
+    downloadLink.href = resultCanvas.toDataURL('image/png');
+  }
+
+  // Restart game
+  restartBtn.addEventListener('click', function() {
+    currentRound = 0;
+    userChoices.length = 0;
+    resultsSection.style.display = 'none';
+    initialScreen.style.display = 'flex';
+
+    // Ensure any existing random image is removed
+    const existingImage = resultsSection.querySelector('img');
+    if (existingImage) {
+      existingImage.remove();
+    }
+  });
+});
+
+function displayRandomImageAndEnableDownload() {
+  const imageFolder = 'assets/thisorthat/';
+  const imageFiles = ['626bi.jpg', '626fa.jpg', '626si.jpg', '626ta.jpg', '626vi.jpg'];
+
+  const randomIndex = Math.floor(Math.random() * imageFiles.length);
+  const randomImagePath = imageFolder + imageFiles[randomIndex];
+
+  const imageElement = document.createElement('img');
+  imageElement.src = randomImagePath;
+  imageElement.alt = 'Random Gallery Image';
+  imageElement.classList.add('w-[30%]', 'h-auto', 'object-cover', 'mx-auto', 'mb-8');
+
+  const resultsSection = document.getElementById('resultsSection');
+  const heading = resultsSection.querySelector('h3');
+  resultsSection.insertBefore(imageElement, heading.nextSibling);
+
+  const downloadLink = document.getElementById('downloadLink');
+  downloadLink.href = randomImagePath;
+  downloadLink.style.display = 'inline-block';
+}
 
     //END THIS OR THAT
 //modal for vkidsteens
