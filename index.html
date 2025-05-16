@@ -793,7 +793,7 @@ html {
 .choice span {
   color: #fff;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1rem;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
@@ -907,7 +907,7 @@ html {
   }
 
   .choice span {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 }
 
@@ -1059,6 +1059,18 @@ html {
 
 #choicesList {
   display: none;
+}
+
+/* Default style for larger screens (e.g., desktop) */
+.random-result-image {
+  width: 20vw; /* As you preferred for web */
+}
+
+/* Media query for smaller screens (e.g., mobile - adjust max-width as needed) */
+@media (max-width: 768px) {
+  .random-result-image {
+    width: 80vw; /* Adjust this to your desired mobile width */
+  }
 }
 </style>
 
@@ -2634,10 +2646,10 @@ const rounds = [
   { left: "COMFORTABLE LIFE", right: "EXTRAORDINARY JOURNEY" },
   { left: "TAKE STEADY STEPS", right: "SOAR TO NEW HEIGHTS" },
   { left: "NOTES ON PAPER", right: "NOTES ON YOUR MOBILE PHONE" },
-  { left: "GO TO V-CONVENTION ALONE", right: "GO TO V-CONVENTION WITH YOUR TEAM" },
+  { left: "GO TO <br>V-CONVENTION<br> ALONE", right: "GO TO <br>V-CONVENTION<br> WITH YOUR TEAM" },
   { left: "BE PART OF THE HISTORY", right: "CREATE HISTORY" },
   { left: "WITNESS THE GREATEST STORY", right: "CREATE YOUR GREATEST STORY" },
-  { left: "BE AT V-MALAYSIA 2025 ON 21-25 JUNE", right: "TAKE PART AT V-MALAYSIA 2025 ON 21-25 JUNE" }
+  { left: "BE AT <br>V-MALAYSIA 2025<br> ON 21-25 JUNE", right: "TAKE PART AT <br>V-MALAYSIA 2025<br> ON 21-25 JUNE" }
 ];
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -2652,22 +2664,22 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Load round data
-  function loadRound(index) {
-    if (index >= rounds.length) {
-      showResults();
-      return;
-    }
-
-    roundNumber.textContent = `Round ${index + 1}`;
-    leftText.textContent = rounds[index].left;
-    rightText.textContent = rounds[index].right;
-
-    // Add animation for new round
-    gameContent.classList.add('new-round');
-    setTimeout(() => {
-      gameContent.classList.remove('new-round');
-    }, 500);
+ function loadRound(index) {
+  if (index >= rounds.length) {
+    showResults();
+    return;
   }
+
+  roundNumber.textContent = `Round ${index + 1}`;
+  leftText.innerHTML = rounds[index].left;  // Use innerHTML
+  rightText.innerHTML = rounds[index].right; // Use innerHTML
+
+  // Add animation for new round
+  gameContent.classList.add('new-round');
+  setTimeout(() => {
+    gameContent.classList.remove('new-round');
+  }, 500);
+}
 
   // Handle choice selection
   leftChoice.addEventListener('click', function() {
@@ -2716,7 +2728,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Generate results image
     // generateResultsImage();
 
-    // Display random image and enable download NOW when results are shown
+    // // Display random image and enable download NOW when results are shown
     displayRandomImageAndEnableDownload();
   }
 
@@ -2747,19 +2759,16 @@ function displayRandomImageAndEnableDownload() {
   const imageElement = document.createElement('img');
   imageElement.src = randomImagePath;
   imageElement.alt = 'Random Gallery Image';
-  imageElement.classList.add('w-[30%]', 'h-auto', 'object-cover', 'mx-auto', 'mb-8');
+  // Add a specific class for styling
+  imageElement.classList.add('random-result-image', 'h-auto', 'object-cover', 'mx-auto', 'mb-8');
 
   const resultsSection = document.getElementById('resultsSection');
   const heading = resultsSection.querySelector('h3');
   resultsSection.insertBefore(imageElement, heading.nextSibling);
 
- 
-
   const downloadLink = document.getElementById('downloadLink');
   downloadLink.href = randomImagePath;
   downloadLink.style.display = 'inline-block';
-
-   console.log(downloadLink.href);
 }
 
     //END THIS OR THAT
