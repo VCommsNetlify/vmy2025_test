@@ -1828,11 +1828,11 @@ html {
                alt="Ad 1" class="w-full h-[40vh] sm:h-[50vh] md:h-[500px] object-contain" />
         </div>
         <div class="swiper-slide">
-          <img src="assets/hero/04162025-join-the-v-kids-and-v-teens-at-vmalaysia2025-1.jpg"
+          <img src="assets/hero/05152025 VMY2025 JUNE microsite carousel ad 2 horizontal.jpg"
                alt="Ad 2" class="w-full h-[40vh] sm:h-[50vh] md:h-[500px] object-contain" />
         </div>
         <div class="swiper-slide">
-          <img src="assets/hero/03272025-rise-together-and-create-our-greatest-story-ever-at-vmalaysia202505efb2aa-fe92-46e4-83db-9679c0b6ff60.jpg"
+          <img src="assets/hero/05152025 VMY2025 JUNE microsite carousel ad 3 horizontal.jpg"
                alt="Ad 3" class="w-full h-[40vh] sm:h-[50vh] md:h-[500px] object-contain" />
         </div>
       </div>
@@ -3209,7 +3209,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Swipers
   //ads
-	new Swiper('.adSwiper', {
+	
+  document.addEventListener('DOMContentLoaded', () => {
+  // ... your existing Swiper initialization code ...
+  new Swiper('.adSwiper', {
 	  loop: true,
 	  autoplay: {
 		delay: 4000,
@@ -3224,6 +3227,76 @@ document.addEventListener('DOMContentLoaded', function() {
 		prevEl: '.swiper-button-prev',
 	  },
 	});
+
+  const adSwiperWrapper = document.querySelector('.adSwiper .swiper-wrapper');
+  const mobileBreakpoint = 768; // Adjust as needed
+
+  function updateSwiperImages() {
+    if (window.innerWidth <= mobileBreakpoint) {
+      // Set mobile-specific image sources
+      const mobileImages = [
+        'assets/hero/01202025-ice-2025-day-4-persist-persevere-perform-by-dato-sri-vijay-eswaran32b0e726-2a48-4cac-9422-34ce98acc6c1.jpg', // Replace with your mobile image paths
+        'assets/hero/05152025 VMY2025 JUNE microsite carousel ad 2 vertical.jpg',
+        'assets/hero/05152025 VMY2025 JUNE microsite carousel ad 3 vertical.jpg'
+      ];
+
+      // Update the image sources in the Swiper slides
+      const slides = adSwiperWrapper.querySelectorAll('.swiper-slide img');
+      slides.forEach((img, index) => {
+        if (mobileImages[index]) {
+          img.src = mobileImages[index];
+        }
+      });
+    } else {
+      // Revert to desktop image sources (if needed)
+      const desktopImages = [
+        'assets/hero/01202025-ice-2025-day-4-persist-persevere-perform-by-dato-sri-vijay-eswaran32b0e726-2a48-4cac-9422-34ce98acc6c1.jpg',
+        'assets/hero/05152025 VMY2025 JUNE microsite carousel ad 2 horizontal.jpg',
+        'assets/hero/05152025 VMY2025 JUNE microsite carousel ad 3 horizontal.jpg'
+      ];
+
+      const slides = adSwiperWrapper.querySelectorAll('.swiper-slide img');
+      slides.forEach((img, index) => {
+        if (desktopImages[index]) {
+          img.src = desktopImages[index];
+        }
+      });
+    }
+
+    // Re-initialize Swiper (important if the number of slides might change significantly)
+    if (window.swiper && window.swiper.adSwiper) {
+      window.swiper.adSwiper.update();
+    }
+  }
+
+  // Call on initial load
+  updateSwiperImages();
+
+  // Call on window resize
+  window.addEventListener('resize', updateSwiperImages);
+
+  // Initialize Swiper after the DOM is ready
+  const swiper = new Swiper('.adSwiper', {
+    // Your Swiper options
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+  });
+
+  // Store the swiper instance globally or in a more accessible scope
+  window.swiper = window.swiper || {};
+  window.swiper.adSwiper = swiper;
+});
 
 function playInFeatured(videoId, titleText, descriptionText) {
   const player = document.getElementById('featuredPlayer');
