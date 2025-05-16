@@ -2714,39 +2714,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Generate results image
-    generateResultsImage();
+    // generateResultsImage();
 
     // Display random image and enable download NOW when results are shown
     displayRandomImageAndEnableDownload();
   }
 
-  // Generate shareable image
-  function generateResultsImage() {
-    const ctx = resultCanvas.getContext('2d');
-    ctx.fillStyle = '#f8f9fa';
-    ctx.fillRect(0, 0, resultCanvas.width, resultCanvas.height);
-    ctx.fillStyle = '#333';
-    ctx.font = 'bold 24px Poppins, sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillText('My "This or That" Choices', resultCanvas.width / 2, 40);
-    ctx.font = '16px Poppins, sans-serif';
-    ctx.fillText('The V Family Challenge', resultCanvas.width / 2, 70);
-    ctx.textAlign = 'left';
-    ctx.font = '18px Poppins, sans-serif';
-    let yPos = 120;
-    userChoices.forEach(choice => {
-      ctx.fillStyle = '#333';
-      ctx.fillText(`Round ${choice.round}: ${choice.question}`, 40, yPos);
-      ctx.fillStyle = '#2575fc';
-      ctx.fillText(`My choice: ${choice.choice}`, 60, yPos + 25);
-      yPos += 60;
-    });
-    ctx.fillStyle = '#666';
-    ctx.font = '14px Poppins, sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillText('Share your results and tag The V Family!', resultCanvas.width / 2, resultCanvas.height - 20);
-    downloadLink.href = resultCanvas.toDataURL('image/png');
-  }
+  
 
   // Restart game
   restartBtn.addEventListener('click', function() {
@@ -2779,9 +2753,13 @@ function displayRandomImageAndEnableDownload() {
   const heading = resultsSection.querySelector('h3');
   resultsSection.insertBefore(imageElement, heading.nextSibling);
 
+ 
+
   const downloadLink = document.getElementById('downloadLink');
   downloadLink.href = randomImagePath;
   downloadLink.style.display = 'inline-block';
+
+   console.log(downloadLink.href);
 }
 
     //END THIS OR THAT
@@ -3060,7 +3038,7 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('load', changeImageForMobile);
   window.addEventListener('resize', changeImageForMobile);
   
-  <!-- MENU NAVIGATIONs -->
+  // <!-- MENU NAVIGATIONs -->
 
   document.addEventListener('DOMContentLoaded', function() {
     const storiesToggle = document.getElementById('storiesToggle');
@@ -3478,10 +3456,14 @@ const articleSwiper = new Swiper('.article-swiper', {
   });
 
   // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  document.querySelectorAll('a').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+      const href = this.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+      }
+      // If the href doesn't start with '#', the default link behavior (download in this case) will occur.
     });
   });
 
